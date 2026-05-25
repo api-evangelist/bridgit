@@ -1,0 +1,118 @@
+aid: bridgit
+name: Bridgit
+description: >-
+  Bridgit is a Kitchener, Ontario-based construction technology company
+  founded in 2012 by Mallorie Brodie and Lauren Lake. Its flagship product
+  is Bridgit Bench, an AI-first workforce planning platform built
+  exclusively for construction general contractors and subcontractors. Bench
+  centralizes project staffing, role assignments, forecasting, utilization,
+  time-off, internal resumes, and certifications, replacing the spreadsheets
+  most contractors still use to plan their people across pursuits and active
+  projects. Bridgit is trusted by nearly 40% of the ENR 400 and serves
+  customers across North America, the United Kingdom, Australia, and New
+  Zealand. The company has raised over $35M USD from investors including
+  Autodesk, Salesforce Ventures, Sands Capital, BDC Capital, and Camber
+  Creek. Bridgit Bench exposes a documented REST API (OpenAPI 3.0) for
+  managing accounts, projects, people, roles, allocations, certifications,
+  and groupings, and ships pre-built integrations across CRM (Salesforce,
+  HubSpot, Microsoft Dynamics, Unanet, Zoho, Pipedrive), HRIS/ERP (Workday,
+  BambooHR, UKG, Oracle, ADP, Namely), project management (Procore,
+  Autodesk Build, CMiC, Trimble), and data warehouses (Snowflake,
+  Office 365).
+type: Index
+position: Provider
+access: 3rd-Party
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Construction
+  - Construction Technology
+  - Workforce Planning
+  - Workforce Management
+  - Resource Planning
+  - Project Staffing
+  - General Contractors
+  - Subcontractors
+  - Forecasting
+  - Utilization
+  - Certifications
+  - AEC
+  - SaaS
+url: https://raw.githubusercontent.com/api-evangelist/bridgit/refs/heads/main/apis.yml
+created: '2026-05-25'
+modified: '2026-05-25'
+specificationVersion: '0.20'
+apis:
+  - aid: bridgit:bridgit-bench
+    name: Bridgit Bench API
+    description: >-
+      The Bridgit Bench REST API lets developers build custom integrations
+      against the Bench workforce planning platform — managing accounts,
+      projects, people, roles, allocations (including hourly), phases,
+      certifications, person and project custom fields, groupings, notes,
+      tasks, attachments, workforce spend reports, and user/service-account
+      administration. Authentication uses OAuth bearer tokens issued by
+      POST /auth/signin against a service account; refresh tokens may be
+      exchanged at POST /auth/token. All resource paths live under
+      https://bench.gobridgit.com/rp/api/v1/.
+    humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
+    baseURL: https://bench.gobridgit.com/rp/api/v1
+    tags:
+      - Workforce Planning
+      - Projects
+      - People
+      - Roles
+      - Allocations
+      - Certifications
+      - Construction
+    properties:
+      - type: Documentation
+        url: https://gobridgit.com/bridgit-bench-api-documentation/
+      - type: Swagger
+        url: https://bench.gobridgit.com/rp/swagger/index.html
+      - type: OpenAPI
+        url: openapi/bridgit-bench-openapi.yml
+      - type: Authentication
+        url: https://gobridgit.com/bridgit-bench-api-documentation/
+    contact:
+      - FN: Bridgit Support
+        email: support@gobridgit.com
+common:
+  - type: Website
+    url: https://gobridgit.com
+  - type: Product
+    url: https://gobridgit.com/bridgit-bench/
+  - type: GeneralContractors
+    url: https://gobridgit.com/general-contractors/
+  - type: Subcontractors
+    url: https://gobridgit.com/subcontractors/
+  - type: Integrations
+    url: https://gobridgit.com/integrations/
+  - type: Documentation
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+  - type: Swagger
+    url: https://bench.gobridgit.com/rp/swagger/index.html
+  - type: Support
+    url: https://help.gobridgit.com
+  - type: Blog
+    url: https://gobridgit.com/blog/
+  - type: Customers
+    url: https://gobridgit.com/customers/
+  - type: About
+    url: https://gobridgit.com/about/
+  - type: Careers
+    url: https://gobridgit.com/careers/
+  - type: Contact
+    url: https://gobridgit.com/contact/
+  - type: Login
+    url: https://bench.gobridgit.com
+  - type: GitHub
+    url: https://github.com/Bridgit
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/bridgit
+  - type: Twitter
+    url: https://twitter.com/gobridgit
+  - type: YouTube
+    url: https://www.youtube.com/@Gobridgit
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
