@@ -77,6 +77,12 @@ apis:
       - FN: Bridgit Support
         email: support@gobridgit.com
 common:
+  - type: VulnerabilityDisclosure
+    url: security/bridgit-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/bridgit-domain-security.yml
+  - type: Authentication
+    url: authentication/bridgit-authentication.yml
   - type: Website
     url: https://gobridgit.com
   - type: Product

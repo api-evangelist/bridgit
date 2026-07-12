@@ -1,0 +1,14 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/bridgit-bench-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: Bearer
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  description: Standard Authorization header using the Bearer scheme
+  sources:
+  - openapi/bridgit-bench-openapi.yml
