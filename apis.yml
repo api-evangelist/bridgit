@@ -77,6 +77,8 @@ apis:
       - FN: Bridgit Support
         email: support@gobridgit.com
 common:
+  - type: AgenticAccess
+    url: agentic-access/bridgit-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/bridgit-vulnerability-disclosure.yml
   - type: DomainSecurity
