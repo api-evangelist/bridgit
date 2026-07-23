@@ -1,0 +1,548 @@
+openapi: 3.0.4
+info:
+  title: Bench AccountActivities PersonUnavailabilities API
+  description: "<h2>Versioning</h2>\n<p>\n    The API is currently at version <code>1.0</code>. All API endpoints (other than\n    authentication) require you to specify the API version as part of the path.\n</p>\n\n<h2>URL Paths</h2>\n<p>\n    Authentication requests should be made to <code>/auth/signin</code>,\n    as documented below. All other API requests should be made to\n    sub-paths of <code>/rp/api/1.0/...</code>.\n</p>\n\n<h2>Authentication</h2>\n<p>\n    API requests are authenticated using an OAuth Bearer token.\n    You can get a token by authenticating your user by sending a\n    POST request to <code>/auth/signin</code>, with \"username and \"password\"\n    parameters form-encoded in the body of the request.\n\n    POST /auth/signin HTTP/1.1\n    Content-Type: application/x-www-form-urlencoded\n\n    username=user@example.com&password=some-secret-password\n</p>\n<p>\n    The response will be a JSON object including both\n    <b>\"access_token\"</b> and <b>\"refresh_token\"</b> property.\n    All other requests against the Bench API should include an\n    authorization header: <code>Authorization: Bearer xxxYYYzzz</code>,\n    where <b>xxxYYYzzz</b> is the value of <b>\"access_token\"</b> in the response.\n    <br><br>\n    For example:\n\n    $ curl https://bench.gobridgit.com/auth/signin -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'username=someone@example.com' --data-urlencode 'password=[...snip...]'\n    {\n        \"access_token\": \"...snip...\",\n        \"token_type\": \"Bearer\",\n        \"refresh_token\": \"...snip...\"\n        \"expiry\": \"2020-01-01T00:00:00.413440849Z\"\n    }\n\n</p>\n\n<p>\n    The refresh token can be used to generate new session by request with <code>/auth/token</code> endpoint:\n\n    POST /auth/token HTTP/1.1\n    Content-Type: application/x-www-form-urlencoded\n\n    grant_type=refresh_token&refresh_token=tGzv3JOkF0XG5Qx2TlKWIA\n</p>\n<p>\n    Note that once the refresh token is used, the previous access and refresh token is no longer valid.\n    <br><br>\n    For example:\n\n    $ curl https://bench.gobridgit.com/auth/token -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'grant_type=refresh_token' --data-urlencode 'refresh_token=[...snip...]'\n    {\n        \"access_token\": \"...snip...\",\n        \"token_type\": \"Bearer\",\n        \"refresh_token\": \"...snip...\"\n        \"expiry\": \"2020-01-01T00:00:00.413440849Z\"\n    }\n</p>\n\n<h2>Pagination</h2>\n<p>\n    Several of the API endpoints are paginated. These are denoted by\n    including the <code>offset</code> (zero-based offset) and <code>limit</code> query\n    parameters. For example, to request the <code>10</code> items,\n    set the <code>offset=0</code> to <code>limit=10</code>.\n    <br>\n    NOTE: the result set contains items with index of 0-9\n    <br>\n    To request the next 10 items (starting at index 10),\n    set the <code>offset=10</code> to <code>limit=10</code>\n</p>\n<p>\n    Responses to paginated API endpoints return a JSON array of objects.\n    If there are results beyond the page you have requested, the server\n    will set a <code>query-has-more: true</code> header in the response.\n</p>\n\n<h2>Request Encoding</h2>\n<p>\n    <code>GET</code> and <code>DELETE</code> requests should have parameters encoded as URL query\n    parameters. Boolean values should be encoded as <code>true</code> and\n    <code>false</code>, not as <code>1</code> and <code>0</code>.\n</p>\n\n<h2>Errors</h2>\n<p>\n    Errors are returned for some response codes such as <code>400 Bad Request</code> in the\n    following format:\n\n    {\n      \"errors\": [\n        {\n          \"errorType\": \"ValidationError\",\n          \"description\": \"The value of Name must be a string with a minimum length of 1 and a maximum length of 8 and not whitespace.\",\n          \"field\": \"Name\",\n          \"values\": [\n            null\n          ]\n        }\n      ],\n      \"title\": \"One or more validation errors occurred.\",\n      \"status\": 400,\n      \"instance\": \"api/v1/accounts/0/persons\",\n      \"requestUid\": \"123e4567-e89b-12d3-a456-426614174000\"\n    }\n</p>\n"
+  version: '1.0'
+servers:
+- url: https://bench.gobridgit.com
+  description: Bridgit Bench production
+security:
+- {}
+tags:
+- name: PersonUnavailabilities
+paths:
+  /rp/api/v1/accounts/{accountId}/persons/unavailabilities:
+    get:
+      tags:
+      - PersonUnavailabilities
+      summary: Gets the periods of unavailability for persons in the given account
+      description: 'By default this endpoint will return only Periods of Unavailability.
+
+        <strong>NOTE: </strong>If you wish to retrieve Pre and Post employment dates you will need to pass the "type" param in the query.
+
+        <strong>NOTE: </strong>If you do not have Private Read permissions, description will return as null for private periods of unavailability.<br/><strong>Permissions</strong><br/>Person: Read<br/>HourlyProfile: Read<br/>Unavailabilities: Read<br/>HourlyUnavailabilities: Read<br/>Private: Read'
+      operationId: PersonUnavailabilities_Query
+      parameters:
+      - name: accountId
+        in: path
+        description: The Account ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: start
+        in: query
+        description: 'Date from which to start the range (Default: 0001-01-01)'
+        schema:
+          type: string
+          format: date-time
+      - name: end
+        in: query
+        description: 'Date from which to end the range (Default: 9999-12-31)'
+        schema:
+          type: string
+          format: date-time
+      - name: boundRange
+        in: query
+        description: Setting this value to true will truncate the dates returned to the specified start and end date paramters
+        schema:
+          type: boolean
+          default: false
+      - name: type
+        in: query
+        description: 'Type of the unavailability date range (Default: Unavailability)'
+        schema:
+          enum:
+          - PreEmployment
+          - PostEmployment
+          - Unavailability
+          - TimeOff
+          - All
+          type: string
+          default: Unavailability, TimeOff
+      - name: state
+        in: query
+        description: 'State of persons to filter results by (Default: Active)'
+        schema:
+          enum:
+          - Active
+          - Deactivated
+          - All
+          type: string
+          default: Active
+      - name: personIds
+        in: query
+        description: Optional comma delimited list of person IDs to filter the results if set
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'Success: List of unavailabilities for people in the account by person id'
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PersonUnavailabilitiesQueryResponse'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PersonUnavailabilitiesQueryResponse'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PersonUnavailabilitiesQueryResponse'
+        '400':
+          description: 'Bad Request: Example when end date before start date:
+
+            <code>{<br/>&nbsp;&nbsp;"errors":&nbsp;[<br/>&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"errorType":&nbsp;"ValidationError",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"description":&nbsp;"End&nbsp;date&nbsp;cannot&nbsp;be&nbsp;before&nbsp;start&nbsp;date",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"errorCode":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"values":&nbsp;[<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"2020-04-19",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"2020-04-18"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"innerException":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"hResult":&nbsp;-2146233088<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;],<br/>&nbsp;&nbsp;"title":&nbsp;"One&nbsp;or&nbsp;more&nbsp;validation&nbsp;errors&nbsp;occurred.",<br/>&nbsp;&nbsp;"status":&nbsp;400,<br/>&nbsp;&nbsp;"instance":&nbsp;"/api/v1/accounts/7/persons/unavailabilities?start=2020-04-19&end=2020-04-18",<br/>&nbsp;&nbsp;"requestUid":&nbsp;"603504966a0861525e83e9f7dfbc2706"<br/>}</code>'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+  /rp/api/v1/accounts/{accountId}/persons/{id}/unavailabilities:
+    get:
+      tags:
+      - PersonUnavailabilities
+      summary: Gets the periods of unavailability for a person in the given account.
+      description: '<strong>NOTE: </strong>If you do not have Private Read permissions, description will return as null for private periods of unavailability.<br/><strong>Permissions</strong><br/>Person: Read<br/>HourlyProfile: Read<br/>Unavailabilities: Read<br/>HourlyUnavailabilities: Read<br/>Private: Read'
+      operationId: PersonUnavailabilities_GetUnavailabilities
+      parameters:
+      - name: accountId
+        in: path
+        description: The Account ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: id
+        in: path
+        description: Id of the person to get unavailabilities for
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: start
+        in: query
+        description: 'Date from which to start the range (Default: 0001-01-01)'
+        schema:
+          type: string
+          format: date-time
+      - name: end
+        in: query
+        description: 'Date from which to end the range (Default: 9999-12-31)'
+        schema:
+          type: string
+          format: date-time
+      - name: offset
+        in: query
+        description: The number of items to skip before starting to collect the result set
+        schema:
+          maximum: 2147483647
+          minimum: 0
+          type: integer
+          format: int32
+          default: 0
+      - name: limit
+        in: query
+        description: The maximum number of results to return
+        schema:
+          maximum: 2147483647
+          minimum: 1
+          type: integer
+          format: int32
+          default: 2147483647
+      - name: sortOrder
+        in: query
+        description: The order to return unavailabilities. Default is StartDateAscending
+        schema:
+          enum:
+          - StartDateAscending
+          - EndDateDescending
+          type: string
+          default: StartDateAscending
+      responses:
+        '200':
+          description: 'Success: List of unavailabilities for the person in the account'
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UnavailabilityResponse'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UnavailabilityResponse'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UnavailabilityResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+    post:
+      tags:
+      - PersonUnavailabilities
+      summary: Adds periods of unavailability to a person in the given account
+      description: 'Periods of unavailability cannot overlap with employment dates and cannot overlap with existing periods of unavailability.
+
+        <strong>NOTE: </strong>If you do not have Private Write permissions, you cannot create private periods of unavailability.<br/><strong>Permissions</strong><br/>Private: Write<br/>Person: Read<br/>HourlyProfile: Read<br/>Unavailabilities: Write<br/>HourlyUnavailabilities: Write'
+      operationId: PersonUnavailabilities_AddUnavailabilities
+      parameters:
+      - name: accountId
+        in: path
+        description: The Account ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: id
+        in: path
+        description: Id of the person to get unavailabilities for
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: Array of objects containing description, startDate, endDate, and isPrivate
+        content:
+          application/json-patch+json:
+            schema:
+              minItems: 1
+              type: array
+              items:
+                $ref: '#/components/schemas/NewUnavailabilityRequest'
+          application/json:
+            schema:
+              minItems: 1
+              type: array
+              items:
+                $ref: '#/components/schemas/NewUnavailabilityRequest'
+          text/json:
+            schema:
+              minItems: 1
+              type: array
+              items:
+                $ref: '#/components/schemas/NewUnavailabilityRequest'
+          application/*+json:
+            schema:
+              minItems: 1
+              type: array
+              items:
+                $ref: '#/components/schemas/NewUnavailabilityRequest'
+        required: true
+      responses:
+        '200':
+          description: 'Success: List of the newly created unavailabilities for the person in the account'
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UnavailabilityResponse'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UnavailabilityResponse'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UnavailabilityResponse'
+        '400':
+          description: 'Bad Request: Example when start and end date are outside employment dates
+
+            <code>{<br/>&nbsp;&nbsp;"errors":&nbsp;[<br/>&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"errorType":&nbsp;"Overlapped",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"description":&nbsp;"Requested&nbsp;unavailable&nbsp;date&nbsp;range&nbsp;outside&nbsp;of&nbsp;employment&nbsp;dates.",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"errorCode":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"values":&nbsp;[<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"2015-04-01&nbsp;-&nbsp;2015-04-30"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"innerException":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"hResult":&nbsp;-2146233088<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;],<br/>&nbsp;&nbsp;"title":&nbsp;"One&nbsp;or&nbsp;more&nbsp;validation&nbsp;errors&nbsp;occurred.",<br/>&nbsp;&nbsp;"status":&nbsp;400,<br/>&nbsp;&nbsp;"instance":&nbsp;"/api/v1/accounts/7/persons/unavailabilities/2",<br/>&nbsp;&nbsp;"requestUid":&nbsp;"603504966a0861525e83e9f7dfbc2706"<br/>}</code>
+
+
+            Example when start and end dates overlap with each other
+
+            <code>{<br/>&nbsp;&nbsp;"errors":&nbsp;[<br/>&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"errorType":&nbsp;"Overlapped",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"description":&nbsp;"Unavailable&nbsp;date&nbsp;ranges&nbsp;overlap&nbsp;with&nbsp;each&nbsp;other.",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"errorCode":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"values":&nbsp;[<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"2015-04-01&nbsp;-&nbsp;2015-04-30",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"2015-04-15&nbsp;-&nbsp;2015-05-30"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"innerException":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"hResult":&nbsp;-2146233088<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;],<br/>&nbsp;&nbsp;"title":&nbsp;"One&nbsp;or&nbsp;more&nbsp;validation&nbsp;errors&nbsp;occurred.",<br/>&nbsp;&nbsp;"status":&nbsp;400,<br/>&nbsp;&nbsp;"instance":&nbsp;"/api/v1/accounts/7/persons/unavailabilities/2",<br/>&nbsp;&nbsp;"requestUid":&nbsp;"603504966a0861525e83e9f7dfbc2706"<br/>}</code>'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+    patch:
+      tags:
+      - PersonUnavailabilities
+      summary: Updates periods of unavailability to a person in the given account
+      description: 'This endpoint will only update the fields that are provided in the objects of the array. Any fields not included will use the existing values.
+
+        <strong>NOTE: </strong>Periods of unavailability cannot overlap with employment dates and cannot overlap with existing periods of unavailability.
+
+        <strong>NOTE: </strong>If you do not have Private Write permissions, you can update the start and end date of private periods of unavailability, but not the description or whether it''s private.<br/><strong>Permissions</strong><br/>Person: Read<br/>HourlyProfile: Read<br/>Private: Write<br/>Unavailabilities: Write<br/>HourlyUnavailabilities: Write'
+      operationId: PersonUnavailabilities_UpdateUnavailabilities
+      parameters:
+      - name: accountId
+        in: path
+        description: The Account ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: id
+        in: path
+        description: Id of the person to get unavailabilities for
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: Array of objects containing id, description, startDate, endDate, and isPrivate
+        content:
+          application/json-patch+json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/UnavailabilityUpdateRequest'
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/UnavailabilityUpdateRequest'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/UnavailabilityUpdateRequest'
+          application/*+json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/UnavailabilityUpdateRequest'
+        required: true
+      responses:
+        '200':
+          description: 'Success: List of the updated unavailabilities for the person in the account'
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UnavailabilityResponse'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UnavailabilityResponse'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UnavailabilityResponse'
+        '400':
+          description: 'Bad Request: Example when wrong id passed in body
+
+            <code>{<br/>&nbsp;&nbsp;"errors":&nbsp;[<br/>&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"errorType":&nbsp;"InvalidId",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"description":&nbsp;"Invalid&nbsp;unavailability&nbsp;id&nbsp;provided.",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"errorCode":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"values":&nbsp;[<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"5",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"7"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"innerException":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"hResult":&nbsp;-2146233088<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;],<br/>&nbsp;&nbsp;"title":&nbsp;"One&nbsp;or&nbsp;more&nbsp;validation&nbsp;errors&nbsp;occurred.",<br/>&nbsp;&nbsp;"status":&nbsp;400,<br/>&nbsp;&nbsp;"instance":&nbsp;"/api/v1/accounts/7/persons/unavailabilities/2",<br/>&nbsp;&nbsp;"requestUid":&nbsp;"603504966a0861525e83e9f7dfbc2706"<br/>}</code>
+
+
+            Example when new start date after end date or new end date before start date
+
+            <code>{<br/>&nbsp;&nbsp;"errors":&nbsp;[<br/>&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"errorType":&nbsp;"ValidationError",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"description":&nbsp;"End&nbsp;date&nbsp;cannot&nbsp;be&nbsp;before&nbsp;start&nbsp;date",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"errorCode":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"values":&nbsp;[<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"2020-04-19",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"2020-04-18"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"innerException":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"hResult":&nbsp;-2146233088<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;],<br/>&nbsp;&nbsp;"title":&nbsp;"One&nbsp;or&nbsp;more&nbsp;validation&nbsp;errors&nbsp;occurred.",<br/>&nbsp;&nbsp;"status":&nbsp;400,<br/>&nbsp;&nbsp;"instance":&nbsp;"/api/v1/accounts/7/persons/unavailabilities/2",<br/>&nbsp;&nbsp;"requestUid":&nbsp;"603504966a0861525e83e9f7dfbc2706"<br/>}</code>
+
+
+            Example when start and end date are outside employment dates
+
+            <code>{<br/>&nbsp;&nbsp;"errors":&nbsp;[<br/>&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"errorType":&nbsp;"Overlapped",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"description":&nbsp;"Requested&nbsp;unavailable&nbsp;date&nbsp;range&nbsp;outside&nbsp;of&nbsp;employment&nbsp;dates.",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"errorCode":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"values":&nbsp;[<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"2015-04-01&nbsp;-&nbsp;2015-04-30"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"innerException":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"hResult":&nbsp;-2146233088<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;],<br/>&nbsp;&nbsp;"title":&nbsp;"One&nbsp;or&nbsp;more&nbsp;validation&nbsp;errors&nbsp;occurred.",<br/>&nbsp;&nbsp;"status":&nbsp;400,<br/>&nbsp;&nbsp;"instance":&nbsp;"/api/v1/accounts/7/persons/unavailabilities/2",<br/>&nbsp;&nbsp;"requestUid":&nbsp;"603504966a0861525e83e9f7dfbc2706"<br/>}</code>
+
+
+            Example when start and end dates overlap with each other
+
+            <code>{<br/>&nbsp;&nbsp;"errors":&nbsp;[<br/>&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"errorType":&nbsp;"Overlapped",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"description":&nbsp;"Unavailable&nbsp;date&nbsp;ranges&nbsp;overlap&nbsp;with&nbsp;each&nbsp;other.",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"errorCode":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"values":&nbsp;[<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"2015-04-01&nbsp;-&nbsp;2015-04-30",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"2015-04-15&nbsp;-&nbsp;2015-05-30"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"innerException":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"hResult":&nbsp;-2146233088<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;],<br/>&nbsp;&nbsp;"title":&nbsp;"One&nbsp;or&nbsp;more&nbsp;validation&nbsp;errors&nbsp;occurred.",<br/>&nbsp;&nbsp;"status":&nbsp;400,<br/>&nbsp;&nbsp;"instance":&nbsp;"/api/v1/accounts/7/persons/unavailabilities/2",<br/>&nbsp;&nbsp;"requestUid":&nbsp;"603504966a0861525e83e9f7dfbc2706"<br/>}</code>'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '409':
+          description: 'Conflict: Example when updated unavailabilities overlap with existing unavailabilities
+
+            <code>{<br/>&nbsp;&nbsp;"errors":&nbsp;[<br/>&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"errorType":&nbsp;"Overlapped",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"description":&nbsp;"Unavailable&nbsp;date&nbsp;ranges&nbsp;overlap&nbsp;with&nbsp;existing&nbsp;unavailable&nbsp;dates.",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"errorCode":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"innerException":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"hResult":&nbsp;-2146233088<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;],<br/>&nbsp;&nbsp;"title":&nbsp;"One&nbsp;or&nbsp;more&nbsp;validation&nbsp;errors&nbsp;occurred.",<br/>&nbsp;&nbsp;"status":&nbsp;409,<br/>&nbsp;&nbsp;"instance":&nbsp;"/api/v1/accounts/7/persons/unavailabilities/2",<br/>&nbsp;&nbsp;"requestUid":&nbsp;"603504966a0861525e83e9f7dfbc2706"<br/>}</code>'
+    delete:
+      tags:
+      - PersonUnavailabilities
+      summary: Removes periods of unavailability from a person in the given account
+      description: '<br/><strong>Permissions</strong><br/>Person: Read<br/>HourlyProfile: Read<br/>Private: Read<br/>Unavailabilities: Write<br/>HourlyUnavailabilities: Write'
+      operationId: PersonUnavailabilities_DeleteUnavailabilities
+      parameters:
+      - name: accountId
+        in: path
+        description: The Account ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: id
+        in: path
+        description: Id of the person to get unavailabilities for
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: Array of unavailability IDs to remove from the user
+        content:
+          application/json-patch+json:
+            schema:
+              minItems: 1
+              type: array
+              items:
+                type: integer
+                format: int64
+          application/json:
+            schema:
+              minItems: 1
+              type: array
+              items:
+                type: integer
+                format: int64
+          text/json:
+            schema:
+              minItems: 1
+              type: array
+              items:
+                type: integer
+                format: int64
+          application/*+json:
+            schema:
+              minItems: 1
+              type: array
+              items:
+                type: integer
+                format: int64
+        required: true
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: 'Bad Request: Example when wrong id passed in body
+
+            <code>{<br/>&nbsp;&nbsp;"errors":&nbsp;[<br/>&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"errorType":&nbsp;"InvalidId",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"description":&nbsp;"Invalid&nbsp;unavailability&nbsp;id&nbsp;provided.",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"errorCode":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"values":&nbsp;[<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"5",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"7"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"innerException":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"hResult":&nbsp;-2146233088<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;],<br/>&nbsp;&nbsp;"title":&nbsp;"One&nbsp;or&nbsp;more&nbsp;validation&nbsp;errors&nbsp;occurred.",<br/>&nbsp;&nbsp;"status":&nbsp;400,<br/>&nbsp;&nbsp;"instance":&nbsp;"/api/v1/accounts/7/persons/unavailabilities/2",<br/>&nbsp;&nbsp;"requestUid":&nbsp;"603504966a0861525e83e9f7dfbc2706"<br/>}</code>
+
+            '
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+components:
+  schemas:
+    UnavailabilityUpdateRequest:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        description:
+          maxLength: 50
+          minLength: 0
+          type: string
+          nullable: true
+        startDate:
+          type: string
+          format: date-time
+          nullable: true
+        endDate:
+          type: string
+          format: date-time
+          nullable: true
+        isPrivate:
+          type: boolean
+          nullable: true
+      additionalProperties: false
+    NewUnavailabilityRequest:
+      type: object
+      properties:
+        description:
+          maxLength: 50
+          minLength: 0
+          type: string
+          nullable: true
+        startDate:
+          type: string
+          format: date-time
+        endDate:
+          type: string
+          format: date-time
+          nullable: true
+        isPrivate:
+          type: boolean
+        rangeType:
+          enum:
+          - PreEmployment
+          - PostEmployment
+          - Unavailability
+          - TimeOff
+          type: string
+      additionalProperties: false
+    UnavailabilityResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 46
+        rangeType:
+          enum:
+          - PreEmployment
+          - PostEmployment
+          - Unavailability
+          - TimeOff
+          type: string
+          example: Unavailability
+        startDate:
+          type: string
+          format: date-time
+          example: '2020-04-21'
+        endDate:
+          type: string
+          format: date-time
+          example: '2020-05-21'
+        isPrivate:
+          type: boolean
+          example: false
+        description:
+          type: string
+          nullable: true
+          example: Parental Leave
+        externalId:
+          type: string
+          nullable: true
+          example: '46'
+      additionalProperties: false
+    PersonUnavailabilitiesQueryResponse:
+      type: object
+      properties:
+        state:
+          enum:
+          - Active
+          - Deactivated
+          - All
+          type: string
+          example: Active
+        personId:
+          type: integer
+          format: int64
+          example: 82
+        unavailabilities:
+          type: array
+          items:
+            $ref: '#/components/schemas/UnavailabilityResponse'
+          nullable: true
+      additionalProperties: false
+  securitySchemes:
+    Bearer:
+      type: http
+      description: Standard Authorization header using the Bearer scheme
+      scheme: bearer
+      bearerFormat: JWT

@@ -1,0 +1,249 @@
+openapi: 3.0.4
+info:
+  title: Bench AccountActivities RoleNames API
+  description: "<h2>Versioning</h2>\n<p>\n    The API is currently at version <code>1.0</code>. All API endpoints (other than\n    authentication) require you to specify the API version as part of the path.\n</p>\n\n<h2>URL Paths</h2>\n<p>\n    Authentication requests should be made to <code>/auth/signin</code>,\n    as documented below. All other API requests should be made to\n    sub-paths of <code>/rp/api/1.0/...</code>.\n</p>\n\n<h2>Authentication</h2>\n<p>\n    API requests are authenticated using an OAuth Bearer token.\n    You can get a token by authenticating your user by sending a\n    POST request to <code>/auth/signin</code>, with \"username and \"password\"\n    parameters form-encoded in the body of the request.\n\n    POST /auth/signin HTTP/1.1\n    Content-Type: application/x-www-form-urlencoded\n\n    username=user@example.com&password=some-secret-password\n</p>\n<p>\n    The response will be a JSON object including both\n    <b>\"access_token\"</b> and <b>\"refresh_token\"</b> property.\n    All other requests against the Bench API should include an\n    authorization header: <code>Authorization: Bearer xxxYYYzzz</code>,\n    where <b>xxxYYYzzz</b> is the value of <b>\"access_token\"</b> in the response.\n    <br><br>\n    For example:\n\n    $ curl https://bench.gobridgit.com/auth/signin -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'username=someone@example.com' --data-urlencode 'password=[...snip...]'\n    {\n        \"access_token\": \"...snip...\",\n        \"token_type\": \"Bearer\",\n        \"refresh_token\": \"...snip...\"\n        \"expiry\": \"2020-01-01T00:00:00.413440849Z\"\n    }\n\n</p>\n\n<p>\n    The refresh token can be used to generate new session by request with <code>/auth/token</code> endpoint:\n\n    POST /auth/token HTTP/1.1\n    Content-Type: application/x-www-form-urlencoded\n\n    grant_type=refresh_token&refresh_token=tGzv3JOkF0XG5Qx2TlKWIA\n</p>\n<p>\n    Note that once the refresh token is used, the previous access and refresh token is no longer valid.\n    <br><br>\n    For example:\n\n    $ curl https://bench.gobridgit.com/auth/token -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'grant_type=refresh_token' --data-urlencode 'refresh_token=[...snip...]'\n    {\n        \"access_token\": \"...snip...\",\n        \"token_type\": \"Bearer\",\n        \"refresh_token\": \"...snip...\"\n        \"expiry\": \"2020-01-01T00:00:00.413440849Z\"\n    }\n</p>\n\n<h2>Pagination</h2>\n<p>\n    Several of the API endpoints are paginated. These are denoted by\n    including the <code>offset</code> (zero-based offset) and <code>limit</code> query\n    parameters. For example, to request the <code>10</code> items,\n    set the <code>offset=0</code> to <code>limit=10</code>.\n    <br>\n    NOTE: the result set contains items with index of 0-9\n    <br>\n    To request the next 10 items (starting at index 10),\n    set the <code>offset=10</code> to <code>limit=10</code>\n</p>\n<p>\n    Responses to paginated API endpoints return a JSON array of objects.\n    If there are results beyond the page you have requested, the server\n    will set a <code>query-has-more: true</code> header in the response.\n</p>\n\n<h2>Request Encoding</h2>\n<p>\n    <code>GET</code> and <code>DELETE</code> requests should have parameters encoded as URL query\n    parameters. Boolean values should be encoded as <code>true</code> and\n    <code>false</code>, not as <code>1</code> and <code>0</code>.\n</p>\n\n<h2>Errors</h2>\n<p>\n    Errors are returned for some response codes such as <code>400 Bad Request</code> in the\n    following format:\n\n    {\n      \"errors\": [\n        {\n          \"errorType\": \"ValidationError\",\n          \"description\": \"The value of Name must be a string with a minimum length of 1 and a maximum length of 8 and not whitespace.\",\n          \"field\": \"Name\",\n          \"values\": [\n            null\n          ]\n        }\n      ],\n      \"title\": \"One or more validation errors occurred.\",\n      \"status\": 400,\n      \"instance\": \"api/v1/accounts/0/persons\",\n      \"requestUid\": \"123e4567-e89b-12d3-a456-426614174000\"\n    }\n</p>\n"
+  version: '1.0'
+servers:
+- url: https://bench.gobridgit.com
+  description: Bridgit Bench production
+security:
+- {}
+tags:
+- name: RoleNames
+paths:
+  /rp/api/v1/accounts/{accountId}/role-names:
+    get:
+      tags:
+      - RoleNames
+      summary: Get role names in the account
+      description: '<br/><strong>Permissions</strong><br/>Account: Read<br/>Finance: Read<br/>Role: Read'
+      operationId: RoleNames_Get
+      parameters:
+      - name: accountId
+        in: path
+        description: The account ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RoleNameResponse'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RoleNameResponse'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RoleNameResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden - User doesn't have permissions on this resource, or the project couldn't be found
+    post:
+      tags:
+      - RoleNames
+      summary: Add/Update role name(s) in the account
+      description: 'If <strong>"alphabetize"</strong> parameter flag is true, the role names should be alphabetically ordered by caller, otherwise in the order of the request.
+
+
+        To add or update role names you must have permissions to manage account properties.<br/><strong>Permissions</strong><br/>Account: Write<br/>Role: Write'
+      operationId: RoleNames_Post
+      parameters:
+      - name: accountId
+        in: path
+        description: The account ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: alphabetize
+        in: query
+        description: Optional flag to set whether role names should be alphabetically ordered by the caller
+        schema:
+          type: boolean
+          default: false
+      requestBody:
+        description: The role name detail
+        content:
+          application/json-patch+json:
+            schema:
+              minItems: 1
+              type: array
+              items:
+                $ref: '#/components/schemas/RoleNameRequest'
+          application/json:
+            schema:
+              minItems: 1
+              type: array
+              items:
+                $ref: '#/components/schemas/RoleNameRequest'
+          text/json:
+            schema:
+              minItems: 1
+              type: array
+              items:
+                $ref: '#/components/schemas/RoleNameRequest'
+          application/*+json:
+            schema:
+              minItems: 1
+              type: array
+              items:
+                $ref: '#/components/schemas/RoleNameRequest'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RoleNameResponse'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RoleNameResponse'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RoleNameResponse'
+        '400':
+          description: Bad Request - Request has missing or invalid values
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden - User doesn't have permissions on this resource, or the project couldn't be found
+    delete:
+      tags:
+      - RoleNames
+      summary: Remove role name(s) by ID in the account
+      description: 'To remove role names you must have permissions to manage account properties.
+
+        <strong>NOTE:</strong> The account must contain at least 1 role name.<br/><strong>Permissions</strong><br/>Account: Write<br/>Role: Write'
+      operationId: RoleNames_Delete
+      parameters:
+      - name: accountId
+        in: path
+        description: The account ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        description: The IDs of the role name to be removed
+        content:
+          application/json-patch+json:
+            schema:
+              minItems: 1
+              type: array
+              items:
+                type: integer
+                format: int64
+          application/json:
+            schema:
+              minItems: 1
+              type: array
+              items:
+                type: integer
+                format: int64
+          text/json:
+            schema:
+              minItems: 1
+              type: array
+              items:
+                type: integer
+                format: int64
+          application/*+json:
+            schema:
+              minItems: 1
+              type: array
+              items:
+                type: integer
+                format: int64
+        required: true
+      responses:
+        '204':
+          description: No Content - Success
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden - User doesn't have permissions on this resource, or the project couldn't be found
+        '422':
+          description: Validation failed - if the role name is being used by any role, the name cannot be removed
+components:
+  schemas:
+    RoleNameRequest:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 1
+        name:
+          type: string
+          nullable: true
+          example: Project Engineer
+        cost:
+          type: number
+          format: double
+          nullable: true
+          example: 123.45
+      additionalProperties: false
+    RoleNameResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 1
+        name:
+          type: string
+          nullable: true
+          example: Project Engineer
+        type:
+          enum:
+          - Salaried
+          - Hourly
+          - All
+          type: string
+          example: Salaried
+        cost:
+          type: number
+          format: double
+          nullable: true
+          example: 123.45
+        inUse:
+          type: boolean
+          readOnly: true
+          example: true
+        projectIds:
+          type: array
+          items:
+            type: integer
+            format: int64
+          nullable: true
+          example:
+          - 1
+        alphabetize:
+          type: boolean
+      additionalProperties: false
+  securitySchemes:
+    Bearer:
+      type: http
+      description: Standard Authorization header using the Bearer scheme
+      scheme: bearer
+      bearerFormat: JWT

@@ -1,0 +1,622 @@
+openapi: 3.0.4
+info:
+  title: Bench AccountActivities Allocations API
+  description: "<h2>Versioning</h2>\n<p>\n    The API is currently at version <code>1.0</code>. All API endpoints (other than\n    authentication) require you to specify the API version as part of the path.\n</p>\n\n<h2>URL Paths</h2>\n<p>\n    Authentication requests should be made to <code>/auth/signin</code>,\n    as documented below. All other API requests should be made to\n    sub-paths of <code>/rp/api/1.0/...</code>.\n</p>\n\n<h2>Authentication</h2>\n<p>\n    API requests are authenticated using an OAuth Bearer token.\n    You can get a token by authenticating your user by sending a\n    POST request to <code>/auth/signin</code>, with \"username and \"password\"\n    parameters form-encoded in the body of the request.\n\n    POST /auth/signin HTTP/1.1\n    Content-Type: application/x-www-form-urlencoded\n\n    username=user@example.com&password=some-secret-password\n</p>\n<p>\n    The response will be a JSON object including both\n    <b>\"access_token\"</b> and <b>\"refresh_token\"</b> property.\n    All other requests against the Bench API should include an\n    authorization header: <code>Authorization: Bearer xxxYYYzzz</code>,\n    where <b>xxxYYYzzz</b> is the value of <b>\"access_token\"</b> in the response.\n    <br><br>\n    For example:\n\n    $ curl https://bench.gobridgit.com/auth/signin -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'username=someone@example.com' --data-urlencode 'password=[...snip...]'\n    {\n        \"access_token\": \"...snip...\",\n        \"token_type\": \"Bearer\",\n        \"refresh_token\": \"...snip...\"\n        \"expiry\": \"2020-01-01T00:00:00.413440849Z\"\n    }\n\n</p>\n\n<p>\n    The refresh token can be used to generate new session by request with <code>/auth/token</code> endpoint:\n\n    POST /auth/token HTTP/1.1\n    Content-Type: application/x-www-form-urlencoded\n\n    grant_type=refresh_token&refresh_token=tGzv3JOkF0XG5Qx2TlKWIA\n</p>\n<p>\n    Note that once the refresh token is used, the previous access and refresh token is no longer valid.\n    <br><br>\n    For example:\n\n    $ curl https://bench.gobridgit.com/auth/token -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'grant_type=refresh_token' --data-urlencode 'refresh_token=[...snip...]'\n    {\n        \"access_token\": \"...snip...\",\n        \"token_type\": \"Bearer\",\n        \"refresh_token\": \"...snip...\"\n        \"expiry\": \"2020-01-01T00:00:00.413440849Z\"\n    }\n</p>\n\n<h2>Pagination</h2>\n<p>\n    Several of the API endpoints are paginated. These are denoted by\n    including the <code>offset</code> (zero-based offset) and <code>limit</code> query\n    parameters. For example, to request the <code>10</code> items,\n    set the <code>offset=0</code> to <code>limit=10</code>.\n    <br>\n    NOTE: the result set contains items with index of 0-9\n    <br>\n    To request the next 10 items (starting at index 10),\n    set the <code>offset=10</code> to <code>limit=10</code>\n</p>\n<p>\n    Responses to paginated API endpoints return a JSON array of objects.\n    If there are results beyond the page you have requested, the server\n    will set a <code>query-has-more: true</code> header in the response.\n</p>\n\n<h2>Request Encoding</h2>\n<p>\n    <code>GET</code> and <code>DELETE</code> requests should have parameters encoded as URL query\n    parameters. Boolean values should be encoded as <code>true</code> and\n    <code>false</code>, not as <code>1</code> and <code>0</code>.\n</p>\n\n<h2>Errors</h2>\n<p>\n    Errors are returned for some response codes such as <code>400 Bad Request</code> in the\n    following format:\n\n    {\n      \"errors\": [\n        {\n          \"errorType\": \"ValidationError\",\n          \"description\": \"The value of Name must be a string with a minimum length of 1 and a maximum length of 8 and not whitespace.\",\n          \"field\": \"Name\",\n          \"values\": [\n            null\n          ]\n        }\n      ],\n      \"title\": \"One or more validation errors occurred.\",\n      \"status\": 400,\n      \"instance\": \"api/v1/accounts/0/persons\",\n      \"requestUid\": \"123e4567-e89b-12d3-a456-426614174000\"\n    }\n</p>\n"
+  version: '1.0'
+servers:
+- url: https://bench.gobridgit.com
+  description: Bridgit Bench production
+security:
+- {}
+tags:
+- name: Allocations
+paths:
+  /rp/api/v1/accounts/{accountId}/projects/{projectId}/Allocations:
+    get:
+      tags:
+      - Allocations
+      summary: Gets the allocations for roles in the given account and project
+      description: '<br/><strong>Permissions</strong><br/>Person: Read<br/>Role: Read<br/>Allocation: Read<br/>Private: Read<br/>Finance: Read'
+      operationId: Allocations_Query
+      parameters:
+      - name: accountId
+        in: path
+        description: The Account ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: projectId
+        in: path
+        description: The Project ID
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: relativeDate
+        in: query
+        description: Optional paramater used to calculate date based properties. If not provided, it is set to today's date in UTC.
+        schema:
+          type: string
+          format: date-time
+          example: '2021-01-01'
+        example: '2021-01-01'
+      - name: offset
+        in: query
+        description: Offset for pagination
+        schema:
+          maximum: 2147483647
+          minimum: 0
+          type: integer
+          format: int32
+          default: 0
+      - name: limit
+        in: query
+        description: Maximum number of results in this page
+        schema:
+          maximum: 2147483647
+          minimum: 1
+          type: integer
+          format: int32
+          default: 1000
+      - name: personstate
+        in: query
+        description: State of persons to filter results by (Default Active)
+        schema:
+          enum:
+          - Active
+          - Deactivated
+          - All
+          type: string
+          default: Active
+      - name: daysUntilTimeOff
+        in: query
+        description: Used to calculate the upcoming TimeOff unavailabilities based on the relativeDate
+        schema:
+          type: integer
+          format: int32
+          default: 15
+      - name: type
+        in: query
+        description: Salaried role type to filter results by (Default to Operations)
+        schema:
+          enum:
+          - Operations
+          - Preconstruction
+          - All
+          type: string
+          default: Operations
+      responses:
+        '200':
+          description: 'Success: List of allocations for roles on the project'
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProjectAllocation'
+              example:
+              - roleId: 8673
+                taskId: null
+                allocations:
+                - personCost: 123.45
+                  personId: 2234
+                  name: John Smith
+                  title: Project Engineer
+                  state: Active
+                  startDate: '2020-01-01'
+                  endDate: '2020-12-31'
+                  hasConflict: false
+                  allocationState: Current
+                  type: 0
+                  id: 00000000-0000-0000-0000-000000000000
+                  titleIdAtAssignment: null
+                  upcomingTimeOff: null
+                taskName: null
+                categoryId: null
+                categoryName: null
+              - roleId: 8674
+                taskId: null
+                allocations:
+                - personCost: 123.45
+                  personId: 2234
+                  name: James William
+                  title: Project Manager
+                  state: Active
+                  startDate: '2019-01-01'
+                  endDate: '2019-12-31'
+                  hasConflict: false
+                  allocationState: Past
+                  type: 0
+                  id: 00000000-0000-0000-0000-000000000000
+                  titleIdAtAssignment: null
+                  upcomingTimeOff: null
+                taskName: null
+                categoryId: null
+                categoryName: null
+              - roleId: 8675
+                taskId: null
+                allocations:
+                - personCost: 123.45
+                  personId: 2234
+                  name: Mary Johnson
+                  title: Project Coordinator
+                  state: Active
+                  startDate: '2021-01-01'
+                  endDate: '2021-12-31'
+                  hasConflict: false
+                  allocationState: Upcoming
+                  type: 0
+                  id: 00000000-0000-0000-0000-000000000000
+                  titleIdAtAssignment: null
+                  upcomingTimeOff: null
+                taskName: null
+                categoryId: null
+                categoryName: null
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProjectAllocation'
+              example:
+              - roleId: 8673
+                taskId: null
+                allocations:
+                - personCost: 123.45
+                  personId: 2234
+                  name: John Smith
+                  title: Project Engineer
+                  state: Active
+                  startDate: '2020-01-01'
+                  endDate: '2020-12-31'
+                  hasConflict: false
+                  allocationState: Current
+                  type: 0
+                  id: 00000000-0000-0000-0000-000000000000
+                  titleIdAtAssignment: null
+                  upcomingTimeOff: null
+                taskName: null
+                categoryId: null
+                categoryName: null
+              - roleId: 8674
+                taskId: null
+                allocations:
+                - personCost: 123.45
+                  personId: 2234
+                  name: James William
+                  title: Project Manager
+                  state: Active
+                  startDate: '2019-01-01'
+                  endDate: '2019-12-31'
+                  hasConflict: false
+                  allocationState: Past
+                  type: 0
+                  id: 00000000-0000-0000-0000-000000000000
+                  titleIdAtAssignment: null
+                  upcomingTimeOff: null
+                taskName: null
+                categoryId: null
+                categoryName: null
+              - roleId: 8675
+                taskId: null
+                allocations:
+                - personCost: 123.45
+                  personId: 2234
+                  name: Mary Johnson
+                  title: Project Coordinator
+                  state: Active
+                  startDate: '2021-01-01'
+                  endDate: '2021-12-31'
+                  hasConflict: false
+                  allocationState: Upcoming
+                  type: 0
+                  id: 00000000-0000-0000-0000-000000000000
+                  titleIdAtAssignment: null
+                  upcomingTimeOff: null
+                taskName: null
+                categoryId: null
+                categoryName: null
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProjectAllocation'
+              example:
+              - roleId: 8673
+                taskId: null
+                allocations:
+                - personCost: 123.45
+                  personId: 2234
+                  name: John Smith
+                  title: Project Engineer
+                  state: Active
+                  startDate: '2020-01-01'
+                  endDate: '2020-12-31'
+                  hasConflict: false
+                  allocationState: Current
+                  type: 0
+                  id: 00000000-0000-0000-0000-000000000000
+                  titleIdAtAssignment: null
+                  upcomingTimeOff: null
+                taskName: null
+                categoryId: null
+                categoryName: null
+              - roleId: 8674
+                taskId: null
+                allocations:
+                - personCost: 123.45
+                  personId: 2234
+                  name: James William
+                  title: Project Manager
+                  state: Active
+                  startDate: '2019-01-01'
+                  endDate: '2019-12-31'
+                  hasConflict: false
+                  allocationState: Past
+                  type: 0
+                  id: 00000000-0000-0000-0000-000000000000
+                  titleIdAtAssignment: null
+                  upcomingTimeOff: null
+                taskName: null
+                categoryId: null
+                categoryName: null
+              - roleId: 8675
+                taskId: null
+                allocations:
+                - personCost: 123.45
+                  personId: 2234
+                  name: Mary Johnson
+                  title: Project Coordinator
+                  state: Active
+                  startDate: '2021-01-01'
+                  endDate: '2021-12-31'
+                  hasConflict: false
+                  allocationState: Upcoming
+                  type: 0
+                  id: 00000000-0000-0000-0000-000000000000
+                  titleIdAtAssignment: null
+                  upcomingTimeOff: null
+                taskName: null
+                categoryId: null
+                categoryName: null
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+    post:
+      tags:
+      - Allocations
+      summary: Allocates a person to a role on the given account and project
+      description: 'A person cannot be allocated entirely inside a period of unavailability and cannot be allocated outside of their employment dates.
+
+
+        For allocations that overlap a period of unavailability, the API will truncate or not set the date range that the person is unavailable.
+
+
+        Examples: Unavaialble from 2020-01-11 to 2020-01-25, Allocation date from 2020-01-20 to 2020-03-31, will alocate the person from 2020-01-26 to 2020-03-31
+
+
+        Unavaialble from 2020-01-11 to 2020-01-25, Allocation date from 2020-01-01 to 2020-03-31, will alocate the person from 2020-01-01 to 2020-01-10 AND 2020-01-26 to 2020-03-31<br/><strong>Permissions</strong><br/>Person: Read<br/>Role: Read<br/>Allocation: Write<br/>Private: Read'
+      operationId: Allocations_Post
+      parameters:
+      - name: accountId
+        in: path
+        description: The Account ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: projectId
+        in: path
+        description: The Project ID
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: Request object containing the person, role, start and end date to allocate
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/ProjectAllocationRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectAllocationRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ProjectAllocationRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/ProjectAllocationRequest'
+        required: true
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '409':
+          description: Conflict
+        '422':
+          description: Unprocessable Entity
+    put:
+      tags:
+      - Allocations
+      summary: Updates a person's allocation on a role on the given account and project
+      description: 'A person cannot be allocated entirely inside a period of unavailability and cannot be allocated outside of their employment dates.
+
+
+        For allocations that overlap a period of unavailability, the API will truncate or not set the date range that the person is unavailable.
+
+
+        Examples: Unavaialble from 2020-01-11 to 2020-01-25, Allocation date from 2020-01-20 to 2020-03-31, will alocate the person from 2020-01-26 to 2020-03-31
+
+
+        Unavaialble from 2020-01-11 to 2020-01-25, Allocation date from 2020-01-01 to 2020-03-31, will alocate the person from 2020-01-01 to 2020-01-10 AND 2020-01-26 to 2020-03-31<br/><strong>Permissions</strong><br/>Person: Read<br/>Role: Read<br/>Allocation: Write<br/>Private: Read'
+      operationId: Allocations_Put
+      parameters:
+      - name: accountId
+        in: path
+        description: The Account ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: projectId
+        in: path
+        description: The Project ID
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: Request object containing the person, role, start and end date to allocate
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/ProjectAllocationRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectAllocationRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ProjectAllocationRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/ProjectAllocationRequest'
+        required: true
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '422':
+          description: Unprocessable Entity
+    delete:
+      tags:
+      - Allocations
+      summary: Removes a person's allocation on a role on the given account and project
+      description: 'The request must contain the role id, person id, start and end date to ensure that the role and allocation is correct and hasn''t been modified before trying to delete it.<br/><strong>Permissions</strong><br/>Person: Read<br/>Role: Read<br/>Allocation: Write'
+      operationId: Allocations_Delete
+      parameters:
+      - name: accountId
+        in: path
+        description: The Account ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: projectId
+        in: path
+        description: The Project ID
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: Request object containing the person, role, start and end date to allocate
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/ProjectAllocationRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectAllocationRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ProjectAllocationRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/ProjectAllocationRequest'
+        required: true
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '422':
+          description: Unprocessable Entity
+components:
+  schemas:
+    PersonAllocation:
+      type: object
+      properties:
+        personCost:
+          type: number
+          format: double
+          nullable: true
+          example: 123.45
+        personId:
+          type: integer
+          format: int64
+          example: 2324
+        name:
+          type: string
+          nullable: true
+          example: John Smith
+        title:
+          type: string
+          nullable: true
+          example: Project Engineer
+        state:
+          enum:
+          - Active
+          - Deactivated
+          - All
+          type: string
+          example: Active
+        startDate:
+          type: string
+          format: date-time
+          example: '2020-01-01'
+        endDate:
+          type: string
+          format: date-time
+          example: '2020-12-31'
+        hasConflict:
+          type: boolean
+          example: false
+        allocationState:
+          enum:
+          - Unknown
+          - Past
+          - Current
+          - Upcoming
+          - All
+          type: string
+          example: Current
+        type:
+          enum:
+          - Salaried
+          - Hourly
+          type: string
+        id:
+          type: string
+          format: uuid
+        titleIdAtAssignment:
+          type: integer
+          format: int64
+          nullable: true
+        upcomingTimeOff:
+          type: array
+          items:
+            $ref: '#/components/schemas/UnavailabilityResponse'
+          nullable: true
+      additionalProperties: false
+    UnavailabilityResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 46
+        rangeType:
+          enum:
+          - PreEmployment
+          - PostEmployment
+          - Unavailability
+          - TimeOff
+          type: string
+          example: Unavailability
+        startDate:
+          type: string
+          format: date-time
+          example: '2020-04-21'
+        endDate:
+          type: string
+          format: date-time
+          example: '2020-05-21'
+        isPrivate:
+          type: boolean
+          example: false
+        description:
+          type: string
+          nullable: true
+          example: Parental Leave
+        externalId:
+          type: string
+          nullable: true
+          example: '46'
+      additionalProperties: false
+    ProjectAllocationRequest:
+      type: object
+      properties:
+        roleId:
+          type: integer
+          format: int64
+          example: 1
+        personId:
+          type: integer
+          format: int64
+          example: 1
+        startDate:
+          type: string
+          format: date-time
+          nullable: true
+          example: '2019-01-01'
+        endDate:
+          type: string
+          format: date-time
+          nullable: true
+          example: '2019-12-31'
+        roleStartDate:
+          type: string
+          description: 'Optional. When provided, updates the unfilled role''s start date before creating the allocation.
+
+            Must be set together with ResourcePlanning.Contracts.ProjectAllocationRequest.RoleEndDate — supplying only one will fail validation.'
+          format: date-time
+          nullable: true
+        roleEndDate:
+          type: string
+          description: 'Optional. When provided, updates the unfilled role''s end date before creating the allocation.
+
+            Must be set together with ResourcePlanning.Contracts.ProjectAllocationRequest.RoleStartDate — supplying only one will fail validation.'
+          format: date-time
+          nullable: true
+      additionalProperties: false
+    ProjectAllocation:
+      type: object
+      properties:
+        roleId:
+          type: integer
+          format: int64
+          example: 8673
+        taskId:
+          type: string
+          format: uuid
+          nullable: true
+        allocations:
+          type: array
+          items:
+            $ref: '#/components/schemas/PersonAllocation'
+          nullable: true
+        taskName:
+          type: string
+          nullable: true
+        categoryId:
+          type: integer
+          format: int64
+          nullable: true
+        categoryName:
+          type: string
+          nullable: true
+      additionalProperties: false
+  securitySchemes:
+    Bearer:
+      type: http
+      description: Standard Authorization header using the Bearer scheme
+      scheme: bearer
+      bearerFormat: JWT

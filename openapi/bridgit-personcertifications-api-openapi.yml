@@ -1,0 +1,341 @@
+openapi: 3.0.4
+info:
+  title: Bench AccountActivities PersonCertifications API
+  description: "<h2>Versioning</h2>\n<p>\n    The API is currently at version <code>1.0</code>. All API endpoints (other than\n    authentication) require you to specify the API version as part of the path.\n</p>\n\n<h2>URL Paths</h2>\n<p>\n    Authentication requests should be made to <code>/auth/signin</code>,\n    as documented below. All other API requests should be made to\n    sub-paths of <code>/rp/api/1.0/...</code>.\n</p>\n\n<h2>Authentication</h2>\n<p>\n    API requests are authenticated using an OAuth Bearer token.\n    You can get a token by authenticating your user by sending a\n    POST request to <code>/auth/signin</code>, with \"username and \"password\"\n    parameters form-encoded in the body of the request.\n\n    POST /auth/signin HTTP/1.1\n    Content-Type: application/x-www-form-urlencoded\n\n    username=user@example.com&password=some-secret-password\n</p>\n<p>\n    The response will be a JSON object including both\n    <b>\"access_token\"</b> and <b>\"refresh_token\"</b> property.\n    All other requests against the Bench API should include an\n    authorization header: <code>Authorization: Bearer xxxYYYzzz</code>,\n    where <b>xxxYYYzzz</b> is the value of <b>\"access_token\"</b> in the response.\n    <br><br>\n    For example:\n\n    $ curl https://bench.gobridgit.com/auth/signin -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'username=someone@example.com' --data-urlencode 'password=[...snip...]'\n    {\n        \"access_token\": \"...snip...\",\n        \"token_type\": \"Bearer\",\n        \"refresh_token\": \"...snip...\"\n        \"expiry\": \"2020-01-01T00:00:00.413440849Z\"\n    }\n\n</p>\n\n<p>\n    The refresh token can be used to generate new session by request with <code>/auth/token</code> endpoint:\n\n    POST /auth/token HTTP/1.1\n    Content-Type: application/x-www-form-urlencoded\n\n    grant_type=refresh_token&refresh_token=tGzv3JOkF0XG5Qx2TlKWIA\n</p>\n<p>\n    Note that once the refresh token is used, the previous access and refresh token is no longer valid.\n    <br><br>\n    For example:\n\n    $ curl https://bench.gobridgit.com/auth/token -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'grant_type=refresh_token' --data-urlencode 'refresh_token=[...snip...]'\n    {\n        \"access_token\": \"...snip...\",\n        \"token_type\": \"Bearer\",\n        \"refresh_token\": \"...snip...\"\n        \"expiry\": \"2020-01-01T00:00:00.413440849Z\"\n    }\n</p>\n\n<h2>Pagination</h2>\n<p>\n    Several of the API endpoints are paginated. These are denoted by\n    including the <code>offset</code> (zero-based offset) and <code>limit</code> query\n    parameters. For example, to request the <code>10</code> items,\n    set the <code>offset=0</code> to <code>limit=10</code>.\n    <br>\n    NOTE: the result set contains items with index of 0-9\n    <br>\n    To request the next 10 items (starting at index 10),\n    set the <code>offset=10</code> to <code>limit=10</code>\n</p>\n<p>\n    Responses to paginated API endpoints return a JSON array of objects.\n    If there are results beyond the page you have requested, the server\n    will set a <code>query-has-more: true</code> header in the response.\n</p>\n\n<h2>Request Encoding</h2>\n<p>\n    <code>GET</code> and <code>DELETE</code> requests should have parameters encoded as URL query\n    parameters. Boolean values should be encoded as <code>true</code> and\n    <code>false</code>, not as <code>1</code> and <code>0</code>.\n</p>\n\n<h2>Errors</h2>\n<p>\n    Errors are returned for some response codes such as <code>400 Bad Request</code> in the\n    following format:\n\n    {\n      \"errors\": [\n        {\n          \"errorType\": \"ValidationError\",\n          \"description\": \"The value of Name must be a string with a minimum length of 1 and a maximum length of 8 and not whitespace.\",\n          \"field\": \"Name\",\n          \"values\": [\n            null\n          ]\n        }\n      ],\n      \"title\": \"One or more validation errors occurred.\",\n      \"status\": 400,\n      \"instance\": \"api/v1/accounts/0/persons\",\n      \"requestUid\": \"123e4567-e89b-12d3-a456-426614174000\"\n    }\n</p>\n"
+  version: '1.0'
+servers:
+- url: https://bench.gobridgit.com
+  description: Bridgit Bench production
+security:
+- {}
+tags:
+- name: PersonCertifications
+paths:
+  /rp/api/v1/accounts/{accountId}/persons/{personId}/certifications:
+    get:
+      tags:
+      - PersonCertifications
+      summary: Gets the certifications for the given person
+      description: '<br/><strong>Permissions</strong><br/>Person: Read<br/>HourlyProfile: Read<br/>PersonCerts: Read<br/>HourlyCerts: Read<br/>Private: Read'
+      operationId: PersonCertifications_Query
+      parameters:
+      - name: accountId
+        in: path
+        description: The Account ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: personId
+        in: path
+        description: The Person ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: offset
+        in: query
+        description: Offset for pagination
+        schema:
+          maximum: 2147483647
+          minimum: 0
+          type: integer
+          format: int32
+          default: 0
+      - name: limit
+        in: query
+        description: Maximum number of results in this page
+        schema:
+          maximum: 2147483647
+          minimum: 1
+          type: integer
+          format: int32
+          default: 1000
+      - name: ids
+        in: query
+        description: (Optional) Filters the result to contain person certifications that match the ids passed in.
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'Success: List of person certifications on the account sorted by <strong>name</strong>'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PersonCertificationResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+    post:
+      tags:
+      - PersonCertifications
+      summary: Adds a certification on the given person.
+      description: '<br/><strong>Permissions</strong><br/>Person: Read<br/>HourlyProfile: Read<br/>PersonCerts: Write<br/>HourlyCerts: Write'
+      operationId: PersonCertifications_Add
+      parameters:
+      - name: accountId
+        in: path
+        description: The Account ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: personId
+        in: path
+        description: The Person ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        description: Request object that contains the certification details
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewPersonCertificationRequest'
+        required: true
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonCertificationResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '409':
+          description: Conflict
+  /rp/api/v1/accounts/{accountId}/persons/{personId}/certifications/{id}:
+    get:
+      tags:
+      - PersonCertifications
+      summary: Gets the specified certification for the given person by ID
+      description: '<br/><strong>Permissions</strong><br/>Person: Read<br/>HourlyProfile: Read<br/>PersonCerts: Read<br/>HourlyCerts: Read<br/>Private: Read'
+      operationId: PersonCertifications_Get
+      parameters:
+      - name: accountId
+        in: path
+        description: The Account ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: personId
+        in: path
+        description: The Person ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: id
+        in: path
+        description: The Certification's ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: 'Success: Certification model'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonCertificationResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+    put:
+      tags:
+      - PersonCertifications
+      summary: Updates a certification for the given person
+      description: '<br/><strong>Permissions</strong><br/>Person: Read<br/>HourlyProfile: Read<br/>PersonCerts: Write<br/>HourlyCerts: Write'
+      operationId: PersonCertifications_Update
+      parameters:
+      - name: accountId
+        in: path
+        description: The Account ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: personId
+        in: path
+        description: The Person ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: id
+        in: path
+        description: Id of the certification to update
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        description: Request object in the body with fields to change
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonCertificationUpdateRequest'
+        required: true
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '409':
+          description: Conflict
+    delete:
+      tags:
+      - PersonCertifications
+      summary: Deletes a certification from the given person and the linked attachments
+      description: '<strong>NOTE:</strong> this will delete all linked attachments.<br/><strong>Permissions</strong><br/>Person: Read<br/>HourlyProfile: Read<br/>Private: Read<br/>PersonCerts: Write<br/>HourlyCerts: Write'
+      operationId: PersonCertifications_Delete
+      parameters:
+      - name: accountId
+        in: path
+        description: The Account ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: personId
+        in: path
+        description: The Person ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: id
+        in: path
+        description: Id of the certification to remove
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+components:
+  schemas:
+    NewPersonCertificationRequest:
+      type: object
+      properties:
+        certificationId:
+          type: integer
+          format: int64
+          example: 1234
+        expiryDate:
+          type: string
+          format: date-time
+          nullable: true
+          example: '2021-01-01'
+        certificationDate:
+          type: string
+          format: date-time
+          nullable: true
+          example: '2021-12-20'
+        certificationDescription:
+          type: string
+          description: Must be no greater than ResourcePlanning.Contracts.NewPersonCertificationRequest.MaxDescriptionLength characters.
+          nullable: true
+          example: '"Certification for fall arrest"'
+      additionalProperties: false
+    PersonCertificationResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 1234
+        name:
+          type: string
+          nullable: true
+          example: CPR Training
+        abbreviation:
+          type: string
+          nullable: true
+          example: CPR
+        expiryDate:
+          type: string
+          format: date-time
+          nullable: true
+          example: '2021-01-01'
+        daysWarnBeforeExpire:
+          type: integer
+          format: int32
+          nullable: true
+          example: 9
+        certificationDate:
+          type: string
+          format: date-time
+          nullable: true
+          example: '2021-12-20'
+        certificationDescription:
+          type: string
+          description: Must be no greater than 255 characters.
+          nullable: true
+          example: '"Certification for fall arrest"'
+        hasAttachment:
+          type: boolean
+        state:
+          enum:
+          - Info
+          - Warning
+          - Expired
+          - All
+          type: string
+          readOnly: true
+          example: Info
+      additionalProperties: false
+    PersonCertificationUpdateRequest:
+      type: object
+      properties:
+        expiryDate:
+          type: string
+          format: date-time
+          nullable: true
+          example: '2021-01-01'
+        certificationDate:
+          type: string
+          format: date-time
+          nullable: true
+          example: '2021-12-20'
+        certificationDescription:
+          type: string
+          description: Must be no greater than 255 characters.
+          nullable: true
+          example: '"Certification for fall arrest"'
+      additionalProperties: false
+  securitySchemes:
+    Bearer:
+      type: http
+      description: Standard Authorization header using the Bearer scheme
+      scheme: bearer
+      bearerFormat: JWT
