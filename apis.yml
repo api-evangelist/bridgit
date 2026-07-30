@@ -20,9 +20,21 @@ description: >-
   Autodesk Build, CMiC, Trimble), and data warehouses (Snowflake,
   Office 365).
 type: Index
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Provider
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/bridgit.png
 tags:
   - Construction
   - Construction Technology
@@ -42,40 +54,649 @@ created: '2026-05-25'
 modified: '2026-05-25'
 specificationVersion: '0.20'
 apis:
-  - aid: bridgit:bridgit-bench
-    name: Bridgit Bench API
-    description: >-
-      The Bridgit Bench REST API lets developers build custom integrations
-      against the Bench workforce planning platform — managing accounts,
-      projects, people, roles, allocations (including hourly), phases,
-      certifications, person and project custom fields, groupings, notes,
-      tasks, attachments, workforce spend reports, and user/service-account
-      administration. Authentication uses OAuth bearer tokens issued by
-      POST /auth/signin against a service account; refresh tokens may be
-      exchanged at POST /auth/token. All resource paths live under
-      https://bench.gobridgit.com/rp/api/v1/.
-    humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
-    baseURL: https://bench.gobridgit.com/rp/api/v1
-    tags:
-      - Workforce Planning
-      - Projects
-      - People
-      - Roles
-      - Allocations
-      - Certifications
-      - Construction
-    properties:
-      - type: Documentation
-        url: https://gobridgit.com/bridgit-bench-api-documentation/
-      - type: Swagger
-        url: https://bench.gobridgit.com/rp/swagger/index.html
-      - type: OpenAPI
-        url: openapi/bridgit-bench-openapi.yml
-      - type: Authentication
-        url: https://gobridgit.com/bridgit-bench-api-documentation/
-    contact:
-      - FN: Bridgit Support
-        email: support@gobridgit.com
+- aid: bridgit:bridgit-accountactivities-api
+  name: Bridgit AccountActivities API
+  description: The AccountActivities API from Bridgit — 1 operation(s) for accountactivities.
+  humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
+  baseURL: https://bench.gobridgit.com/rp/api/v1
+  tags:
+  - AccountActivities
+  properties:
+  - type: OpenAPI
+    url: openapi/bridgit-accountactivities-api-openapi.yml
+  - type: Documentation
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+  - type: Swagger
+    url: https://bench.gobridgit.com/rp/swagger/index.html
+  - type: Authentication
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+- aid: bridgit:bridgit-accountcertifications-api
+  name: Bridgit AccountCertifications API
+  description: The AccountCertifications API from Bridgit — 2 operation(s) for accountcertifications.
+  humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
+  baseURL: https://bench.gobridgit.com/rp/api/v1
+  tags:
+  - AccountCertifications
+  properties:
+  - type: OpenAPI
+    url: openapi/bridgit-accountcertifications-api-openapi.yml
+  - type: Documentation
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+  - type: Swagger
+    url: https://bench.gobridgit.com/rp/swagger/index.html
+  - type: Authentication
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+- aid: bridgit:bridgit-accountgroupings-api
+  name: Bridgit AccountGroupings API
+  description: The AccountGroupings API from Bridgit — 2 operation(s) for accountgroupings.
+  humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
+  baseURL: https://bench.gobridgit.com/rp/api/v1
+  tags:
+  - AccountGroupings
+  properties:
+  - type: OpenAPI
+    url: openapi/bridgit-accountgroupings-api-openapi.yml
+  - type: Documentation
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+  - type: Swagger
+    url: https://bench.gobridgit.com/rp/swagger/index.html
+  - type: Authentication
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+- aid: bridgit:bridgit-accountinvitations-api
+  name: Bridgit AccountInvitations API
+  description: The AccountInvitations API from Bridgit — 2 operation(s) for accountinvitations.
+  humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
+  baseURL: https://bench.gobridgit.com/rp/api/v1
+  tags:
+  - AccountInvitations
+  properties:
+  - type: OpenAPI
+    url: openapi/bridgit-accountinvitations-api-openapi.yml
+  - type: Documentation
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+  - type: Swagger
+    url: https://bench.gobridgit.com/rp/swagger/index.html
+  - type: Authentication
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+- aid: bridgit:bridgit-accounts-api
+  name: Bridgit Accounts API
+  description: The Accounts API from Bridgit — 12 operation(s) for accounts.
+  humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
+  baseURL: https://bench.gobridgit.com/rp/api/v1
+  tags:
+  - Accounts
+  properties:
+  - type: OpenAPI
+    url: openapi/bridgit-accounts-api-openapi.yml
+  - type: Documentation
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+  - type: Swagger
+    url: https://bench.gobridgit.com/rp/swagger/index.html
+  - type: Authentication
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+- aid: bridgit:bridgit-accountusers-api
+  name: Bridgit AccountUsers API
+  description: The AccountUsers API from Bridgit — 4 operation(s) for accountusers.
+  humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
+  baseURL: https://bench.gobridgit.com/rp/api/v1
+  tags:
+  - AccountUsers
+  properties:
+  - type: OpenAPI
+    url: openapi/bridgit-accountusers-api-openapi.yml
+  - type: Documentation
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+  - type: Swagger
+    url: https://bench.gobridgit.com/rp/swagger/index.html
+  - type: Authentication
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+- aid: bridgit:bridgit-allocations-api
+  name: Bridgit Allocations API
+  description: The Allocations API from Bridgit — 1 operation(s) for allocations.
+  humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
+  baseURL: https://bench.gobridgit.com/rp/api/v1
+  tags:
+  - Allocations
+  properties:
+  - type: OpenAPI
+    url: openapi/bridgit-allocations-api-openapi.yml
+  - type: Documentation
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+  - type: Swagger
+    url: https://bench.gobridgit.com/rp/swagger/index.html
+  - type: Authentication
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+- aid: bridgit:bridgit-experiencefields-api
+  name: Bridgit ExperienceFields API
+  description: The ExperienceFields API from Bridgit — 3 operation(s) for experiencefields.
+  humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
+  baseURL: https://bench.gobridgit.com/rp/api/v1
+  tags:
+  - ExperienceFields
+  properties:
+  - type: OpenAPI
+    url: openapi/bridgit-experiencefields-api-openapi.yml
+  - type: Documentation
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+  - type: Swagger
+    url: https://bench.gobridgit.com/rp/swagger/index.html
+  - type: Authentication
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+- aid: bridgit:bridgit-experiencefieldvalues-api
+  name: Bridgit ExperienceFieldValues API
+  description: The ExperienceFieldValues API from Bridgit — 2 operation(s) for experiencefieldvalues.
+  humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
+  baseURL: https://bench.gobridgit.com/rp/api/v1
+  tags:
+  - ExperienceFieldValues
+  properties:
+  - type: OpenAPI
+    url: openapi/bridgit-experiencefieldvalues-api-openapi.yml
+  - type: Documentation
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+  - type: Swagger
+    url: https://bench.gobridgit.com/rp/swagger/index.html
+  - type: Authentication
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+- aid: bridgit:bridgit-external-api
+  name: Bridgit External API
+  description: The External API from Bridgit — 3 operation(s) for external.
+  humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
+  baseURL: https://bench.gobridgit.com/rp/api/v1
+  tags:
+  - External
+  properties:
+  - type: OpenAPI
+    url: openapi/bridgit-external-api-openapi.yml
+  - type: Documentation
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+  - type: Swagger
+    url: https://bench.gobridgit.com/rp/swagger/index.html
+  - type: Authentication
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+- aid: bridgit:bridgit-hourlyallocations-api
+  name: Bridgit HourlyAllocations API
+  description: The HourlyAllocations API from Bridgit — 1 operation(s) for hourlyallocations.
+  humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
+  baseURL: https://bench.gobridgit.com/rp/api/v1
+  tags:
+  - HourlyAllocations
+  properties:
+  - type: OpenAPI
+    url: openapi/bridgit-hourlyallocations-api-openapi.yml
+  - type: Documentation
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+  - type: Swagger
+    url: https://bench.gobridgit.com/rp/swagger/index.html
+  - type: Authentication
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+- aid: bridgit:bridgit-hourlyrolenames-api
+  name: Bridgit HourlyRoleNames API
+  description: The HourlyRoleNames API from Bridgit — 1 operation(s) for hourlyrolenames.
+  humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
+  baseURL: https://bench.gobridgit.com/rp/api/v1
+  tags:
+  - HourlyRoleNames
+  properties:
+  - type: OpenAPI
+    url: openapi/bridgit-hourlyrolenames-api-openapi.yml
+  - type: Documentation
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+  - type: Swagger
+    url: https://bench.gobridgit.com/rp/swagger/index.html
+  - type: Authentication
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+- aid: bridgit:bridgit-personattachments-api
+  name: Bridgit PersonAttachments API
+  description: The PersonAttachments API from Bridgit — 2 operation(s) for personattachments.
+  humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
+  baseURL: https://bench.gobridgit.com/rp/api/v1
+  tags:
+  - PersonAttachments
+  properties:
+  - type: OpenAPI
+    url: openapi/bridgit-personattachments-api-openapi.yml
+  - type: Documentation
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+  - type: Swagger
+    url: https://bench.gobridgit.com/rp/swagger/index.html
+  - type: Authentication
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+- aid: bridgit:bridgit-personcertattachments-api
+  name: Bridgit PersonCertAttachments API
+  description: The PersonCertAttachments API from Bridgit — 2 operation(s) for personcertattachments.
+  humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
+  baseURL: https://bench.gobridgit.com/rp/api/v1
+  tags:
+  - PersonCertAttachments
+  properties:
+  - type: OpenAPI
+    url: openapi/bridgit-personcertattachments-api-openapi.yml
+  - type: Documentation
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+  - type: Swagger
+    url: https://bench.gobridgit.com/rp/swagger/index.html
+  - type: Authentication
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+- aid: bridgit:bridgit-personcertifications-api
+  name: Bridgit PersonCertifications API
+  description: The PersonCertifications API from Bridgit — 2 operation(s) for personcertifications.
+  humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
+  baseURL: https://bench.gobridgit.com/rp/api/v1
+  tags:
+  - PersonCertifications
+  properties:
+  - type: OpenAPI
+    url: openapi/bridgit-personcertifications-api-openapi.yml
+  - type: Documentation
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+  - type: Swagger
+    url: https://bench.gobridgit.com/rp/swagger/index.html
+  - type: Authentication
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+- aid: bridgit:bridgit-personfields-api
+  name: Bridgit PersonFields API
+  description: The PersonFields API from Bridgit — 2 operation(s) for personfields.
+  humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
+  baseURL: https://bench.gobridgit.com/rp/api/v1
+  tags:
+  - PersonFields
+  properties:
+  - type: OpenAPI
+    url: openapi/bridgit-personfields-api-openapi.yml
+  - type: Documentation
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+  - type: Swagger
+    url: https://bench.gobridgit.com/rp/swagger/index.html
+  - type: Authentication
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+- aid: bridgit:bridgit-personfieldvalue-api
+  name: Bridgit PersonFieldValue API
+  description: The PersonFieldValue API from Bridgit — 2 operation(s) for personfieldvalue.
+  humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
+  baseURL: https://bench.gobridgit.com/rp/api/v1
+  tags:
+  - PersonFieldValue
+  properties:
+  - type: OpenAPI
+    url: openapi/bridgit-personfieldvalue-api-openapi.yml
+  - type: Documentation
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+  - type: Swagger
+    url: https://bench.gobridgit.com/rp/swagger/index.html
+  - type: Authentication
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+- aid: bridgit:bridgit-persongroupings-api
+  name: Bridgit PersonGroupings API
+  description: The PersonGroupings API from Bridgit — 2 operation(s) for persongroupings.
+  humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
+  baseURL: https://bench.gobridgit.com/rp/api/v1
+  tags:
+  - PersonGroupings
+  properties:
+  - type: OpenAPI
+    url: openapi/bridgit-persongroupings-api-openapi.yml
+  - type: Documentation
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+  - type: Swagger
+    url: https://bench.gobridgit.com/rp/swagger/index.html
+  - type: Authentication
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+- aid: bridgit:bridgit-personhistoricalexperiencefields-api
+  name: Bridgit PersonHistoricalExperienceFields API
+  description: >-
+    The PersonHistoricalExperienceFields API from Bridgit — 2 operation(s) for personhistoricalexperiencefields.
+  humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
+  baseURL: https://bench.gobridgit.com/rp/api/v1
+  tags:
+  - PersonHistoricalExperienceFields
+  properties:
+  - type: OpenAPI
+    url: openapi/bridgit-personhistoricalexperiencefields-api-openapi.yml
+  - type: Documentation
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+  - type: Swagger
+    url: https://bench.gobridgit.com/rp/swagger/index.html
+  - type: Authentication
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+- aid: bridgit:bridgit-personhistoricalexperiences-api
+  name: Bridgit PersonHistoricalExperiences API
+  description: >-
+    The PersonHistoricalExperiences API from Bridgit — 2 operation(s) for personhistoricalexperiences.
+  humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
+  baseURL: https://bench.gobridgit.com/rp/api/v1
+  tags:
+  - PersonHistoricalExperiences
+  properties:
+  - type: OpenAPI
+    url: openapi/bridgit-personhistoricalexperiences-api-openapi.yml
+  - type: Documentation
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+  - type: Swagger
+    url: https://bench.gobridgit.com/rp/swagger/index.html
+  - type: Authentication
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+- aid: bridgit:bridgit-personprofile-api
+  name: Bridgit PersonProfile API
+  description: The PersonProfile API from Bridgit — 1 operation(s) for personprofile.
+  humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
+  baseURL: https://bench.gobridgit.com/rp/api/v1
+  tags:
+  - PersonProfile
+  properties:
+  - type: OpenAPI
+    url: openapi/bridgit-personprofile-api-openapi.yml
+  - type: Documentation
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+  - type: Swagger
+    url: https://bench.gobridgit.com/rp/swagger/index.html
+  - type: Authentication
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+- aid: bridgit:bridgit-persons-api
+  name: Bridgit Persons API
+  description: The Persons API from Bridgit — 11 operation(s) for persons.
+  humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
+  baseURL: https://bench.gobridgit.com/rp/api/v1
+  tags:
+  - Persons
+  properties:
+  - type: OpenAPI
+    url: openapi/bridgit-persons-api-openapi.yml
+  - type: Documentation
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+  - type: Swagger
+    url: https://bench.gobridgit.com/rp/swagger/index.html
+  - type: Authentication
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+- aid: bridgit:bridgit-personunavailabilities-api
+  name: Bridgit PersonUnavailabilities API
+  description: The PersonUnavailabilities API from Bridgit — 2 operation(s) for personunavailabilities.
+  humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
+  baseURL: https://bench.gobridgit.com/rp/api/v1
+  tags:
+  - PersonUnavailabilities
+  properties:
+  - type: OpenAPI
+    url: openapi/bridgit-personunavailabilities-api-openapi.yml
+  - type: Documentation
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+  - type: Swagger
+    url: https://bench.gobridgit.com/rp/swagger/index.html
+  - type: Authentication
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+- aid: bridgit:bridgit-phases-api
+  name: Bridgit Phases API
+  description: The Phases API from Bridgit — 2 operation(s) for phases.
+  humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
+  baseURL: https://bench.gobridgit.com/rp/api/v1
+  tags:
+  - Phases
+  properties:
+  - type: OpenAPI
+    url: openapi/bridgit-phases-api-openapi.yml
+  - type: Documentation
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+  - type: Swagger
+    url: https://bench.gobridgit.com/rp/swagger/index.html
+  - type: Authentication
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+- aid: bridgit:bridgit-projectfields-api
+  name: Bridgit ProjectFields API
+  description: The ProjectFields API from Bridgit — 2 operation(s) for projectfields.
+  humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
+  baseURL: https://bench.gobridgit.com/rp/api/v1
+  tags:
+  - ProjectFields
+  properties:
+  - type: OpenAPI
+    url: openapi/bridgit-projectfields-api-openapi.yml
+  - type: Documentation
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+  - type: Swagger
+    url: https://bench.gobridgit.com/rp/swagger/index.html
+  - type: Authentication
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+- aid: bridgit:bridgit-projectfieldvalue-api
+  name: Bridgit ProjectFieldValue API
+  description: The ProjectFieldValue API from Bridgit — 2 operation(s) for projectfieldvalue.
+  humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
+  baseURL: https://bench.gobridgit.com/rp/api/v1
+  tags:
+  - ProjectFieldValue
+  properties:
+  - type: OpenAPI
+    url: openapi/bridgit-projectfieldvalue-api-openapi.yml
+  - type: Documentation
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+  - type: Swagger
+    url: https://bench.gobridgit.com/rp/swagger/index.html
+  - type: Authentication
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+- aid: bridgit:bridgit-projectgroupings-api
+  name: Bridgit ProjectGroupings API
+  description: The ProjectGroupings API from Bridgit — 2 operation(s) for projectgroupings.
+  humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
+  baseURL: https://bench.gobridgit.com/rp/api/v1
+  tags:
+  - ProjectGroupings
+  properties:
+  - type: OpenAPI
+    url: openapi/bridgit-projectgroupings-api-openapi.yml
+  - type: Documentation
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+  - type: Swagger
+    url: https://bench.gobridgit.com/rp/swagger/index.html
+  - type: Authentication
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+- aid: bridgit:bridgit-projectnotes-api
+  name: Bridgit ProjectNotes API
+  description: The ProjectNotes API from Bridgit — 2 operation(s) for projectnotes.
+  humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
+  baseURL: https://bench.gobridgit.com/rp/api/v1
+  tags:
+  - ProjectNotes
+  properties:
+  - type: OpenAPI
+    url: openapi/bridgit-projectnotes-api-openapi.yml
+  - type: Documentation
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+  - type: Swagger
+    url: https://bench.gobridgit.com/rp/swagger/index.html
+  - type: Authentication
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+- aid: bridgit:bridgit-projectrolecategories-api
+  name: Bridgit ProjectRoleCategories API
+  description: The ProjectRoleCategories API from Bridgit — 1 operation(s) for projectrolecategories.
+  humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
+  baseURL: https://bench.gobridgit.com/rp/api/v1
+  tags:
+  - ProjectRoleCategories
+  properties:
+  - type: OpenAPI
+    url: openapi/bridgit-projectrolecategories-api-openapi.yml
+  - type: Documentation
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+  - type: Swagger
+    url: https://bench.gobridgit.com/rp/swagger/index.html
+  - type: Authentication
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+- aid: bridgit:bridgit-projectroles-api
+  name: Bridgit ProjectRoles API
+  description: The ProjectRoles API from Bridgit — 4 operation(s) for projectroles.
+  humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
+  baseURL: https://bench.gobridgit.com/rp/api/v1
+  tags:
+  - ProjectRoles
+  properties:
+  - type: OpenAPI
+    url: openapi/bridgit-projectroles-api-openapi.yml
+  - type: Documentation
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+  - type: Swagger
+    url: https://bench.gobridgit.com/rp/swagger/index.html
+  - type: Authentication
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+- aid: bridgit:bridgit-projects-api
+  name: Bridgit Projects API
+  description: The Projects API from Bridgit — 4 operation(s) for projects.
+  humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
+  baseURL: https://bench.gobridgit.com/rp/api/v1
+  tags:
+  - Projects
+  properties:
+  - type: OpenAPI
+    url: openapi/bridgit-projects-api-openapi.yml
+  - type: Documentation
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+  - type: Swagger
+    url: https://bench.gobridgit.com/rp/swagger/index.html
+  - type: Authentication
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+- aid: bridgit:bridgit-projectsphases-api
+  name: Bridgit ProjectsPhases API
+  description: The ProjectsPhases API from Bridgit — 3 operation(s) for projectsphases.
+  humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
+  baseURL: https://bench.gobridgit.com/rp/api/v1
+  tags:
+  - ProjectsPhases
+  properties:
+  - type: OpenAPI
+    url: openapi/bridgit-projectsphases-api-openapi.yml
+  - type: Documentation
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+  - type: Swagger
+    url: https://bench.gobridgit.com/rp/swagger/index.html
+  - type: Authentication
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+- aid: bridgit:bridgit-projecttasks-api
+  name: Bridgit ProjectTasks API
+  description: The ProjectTasks API from Bridgit — 8 operation(s) for projecttasks.
+  humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
+  baseURL: https://bench.gobridgit.com/rp/api/v1
+  tags:
+  - ProjectTasks
+  properties:
+  - type: OpenAPI
+    url: openapi/bridgit-projecttasks-api-openapi.yml
+  - type: Documentation
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+  - type: Swagger
+    url: https://bench.gobridgit.com/rp/swagger/index.html
+  - type: Authentication
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+- aid: bridgit:bridgit-projectworkforcespendreports-api
+  name: Bridgit ProjectWorkforceSpendReports API
+  description: >-
+    The ProjectWorkforceSpendReports API from Bridgit — 2 operation(s) for projectworkforcespendreports.
+  humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
+  baseURL: https://bench.gobridgit.com/rp/api/v1
+  tags:
+  - ProjectWorkforceSpendReports
+  properties:
+  - type: OpenAPI
+    url: openapi/bridgit-projectworkforcespendreports-api-openapi.yml
+  - type: Documentation
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+  - type: Swagger
+    url: https://bench.gobridgit.com/rp/swagger/index.html
+  - type: Authentication
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+- aid: bridgit:bridgit-roleallocations-api
+  name: Bridgit RoleAllocations API
+  description: The RoleAllocations API from Bridgit — 1 operation(s) for roleallocations.
+  humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
+  baseURL: https://bench.gobridgit.com/rp/api/v1
+  tags:
+  - RoleAllocations
+  properties:
+  - type: OpenAPI
+    url: openapi/bridgit-roleallocations-api-openapi.yml
+  - type: Documentation
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+  - type: Swagger
+    url: https://bench.gobridgit.com/rp/swagger/index.html
+  - type: Authentication
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+- aid: bridgit:bridgit-rolenames-api
+  name: Bridgit RoleNames API
+  description: The RoleNames API from Bridgit — 1 operation(s) for rolenames.
+  humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
+  baseURL: https://bench.gobridgit.com/rp/api/v1
+  tags:
+  - RoleNames
+  properties:
+  - type: OpenAPI
+    url: openapi/bridgit-rolenames-api-openapi.yml
+  - type: Documentation
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+  - type: Swagger
+    url: https://bench.gobridgit.com/rp/swagger/index.html
+  - type: Authentication
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+- aid: bridgit:bridgit-serviceaccounts-api
+  name: Bridgit ServiceAccounts API
+  description: The ServiceAccounts API from Bridgit — 3 operation(s) for serviceaccounts.
+  humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
+  baseURL: https://bench.gobridgit.com/rp/api/v1
+  tags:
+  - ServiceAccounts
+  properties:
+  - type: OpenAPI
+    url: openapi/bridgit-serviceaccounts-api-openapi.yml
+  - type: Documentation
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+  - type: Swagger
+    url: https://bench.gobridgit.com/rp/swagger/index.html
+  - type: Authentication
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+- aid: bridgit:bridgit-sharedfilters-api
+  name: Bridgit SharedFilters API
+  description: The SharedFilters API from Bridgit — 1 operation(s) for sharedfilters.
+  humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
+  baseURL: https://bench.gobridgit.com/rp/api/v1
+  tags:
+  - SharedFilters
+  properties:
+  - type: OpenAPI
+    url: openapi/bridgit-sharedfilters-api-openapi.yml
+  - type: Documentation
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+  - type: Swagger
+    url: https://bench.gobridgit.com/rp/swagger/index.html
+  - type: Authentication
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+- aid: bridgit:bridgit-userfilters-api
+  name: Bridgit UserFilters API
+  description: The UserFilters API from Bridgit — 2 operation(s) for userfilters.
+  humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
+  baseURL: https://bench.gobridgit.com/rp/api/v1
+  tags:
+  - UserFilters
+  properties:
+  - type: OpenAPI
+    url: openapi/bridgit-userfilters-api-openapi.yml
+  - type: Documentation
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+  - type: Swagger
+    url: https://bench.gobridgit.com/rp/swagger/index.html
+  - type: Authentication
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+- aid: bridgit:bridgit-users-api
+  name: Bridgit Users API
+  description: The Users API from Bridgit — 1 operation(s) for users.
+  humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
+  baseURL: https://bench.gobridgit.com/rp/api/v1
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/bridgit-users-api-openapi.yml
+  - type: Documentation
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
+  - type: Swagger
+    url: https://bench.gobridgit.com/rp/swagger/index.html
+  - type: Authentication
+    url: https://gobridgit.com/bridgit-bench-api-documentation/
 common:
   - type: AgenticAccess
     url: agentic-access/bridgit-agentic-access.yml
