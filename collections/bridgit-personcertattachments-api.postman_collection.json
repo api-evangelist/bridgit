@@ -1,0 +1,1266 @@
+{
+  "item": [
+    {
+      "id": "9800b6bf-b6d9-476e-87c9-f314e29a92ce",
+      "name": "PersonCertAttachments",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dd926333-1420-4f88-9c57-20c8b0dfab3f",
+          "name": "Get all attachments for a person's certification.",
+          "request": {
+            "name": "Get all attachments for a person's certification.",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>Person: Read<br/>HourlyProfile: Read<br/>PersonCerts: Read<br/>HourlyCerts: Read<br/>Private: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "persons",
+                ":personId",
+                "certifications",
+                ":certId",
+                "attachments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "The offset for paging response"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100",
+                  "description": "The amount of items in the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "Completed",
+                  "description": "The state of the attachment for filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "creatorId",
+                  "value": "<integer>",
+                  "description": "The ID of attachment creator for filter"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "personId",
+                  "description": "(Required) The person ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "certId",
+                  "description": "(Required) The certification ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "12f92423-f829-46f7-af01-5821fa62b9ea",
+              "name": "Success: List of Attachments",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "certifications",
+                    ":certId",
+                    "attachments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "state",
+                      "value": "Completed"
+                    },
+                    {
+                      "key": "creatorId",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The person ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "certId",
+                      "description": "(Required) The certification ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 123,\n    \"name\": \"document.txt\",\n    \"size\": 1024,\n    \"mimeType\": \"application/octet-stream\",\n    \"isPrivate\": false,\n    \"binaryUrl\": \"https://bench.gobridgit.com/bin/attachments/accounts/1/persons/1/document.txt\",\n    \"creatorId\": 1,\n    \"createdOn\": \"2021-01-01T00:00:00Z\",\n    \"state\": \"InProgress\",\n    \"certificationIds\": [\n      1\n    ]\n  },\n  {\n    \"id\": 123,\n    \"name\": \"document.txt\",\n    \"size\": 1024,\n    \"mimeType\": \"application/octet-stream\",\n    \"isPrivate\": false,\n    \"binaryUrl\": \"https://bench.gobridgit.com/bin/attachments/accounts/1/persons/1/document.txt\",\n    \"creatorId\": 1,\n    \"createdOn\": \"2021-01-01T00:00:00Z\",\n    \"state\": \"InProgress\",\n    \"certificationIds\": [\n      1\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bd609205-3c90-4cb8-bd92-ac4ac85fca2d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "certifications",
+                    ":certId",
+                    "attachments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "state",
+                      "value": "Completed"
+                    },
+                    {
+                      "key": "creatorId",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The person ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "certId",
+                      "description": "(Required) The certification ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "054daa7a-dcbb-47a1-9198-bb21cb39598e",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "certifications",
+                    ":certId",
+                    "attachments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "state",
+                      "value": "Completed"
+                    },
+                    {
+                      "key": "creatorId",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The person ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "certId",
+                      "description": "(Required) The certification ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0e08c2c1-4794-4f60-9b19-c0115181400a",
+          "name": "Link an attachment to a person's certification.",
+          "request": {
+            "name": "Link an attachment to a person's certification.",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>Person: Read<br/>HourlyProfile: Read<br/>Private: Read<br/>PersonCerts: Write<br/>HourlyCerts: Write",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "persons",
+                ":personId",
+                "certifications",
+                ":certId",
+                "attachments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "personId",
+                  "description": "(Required) The person ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "certId",
+                  "description": "(Required) The certification ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"attachmentId\": \"<long>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7cc50a2c-f010-4884-99cc-d09d4b0917fe",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "certifications",
+                    ":certId",
+                    "attachments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The person ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "certId",
+                      "description": "(Required) The certification ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attachmentId\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c6809f37-49f2-482a-9134-c882a23c6b63",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "certifications",
+                    ":certId",
+                    "attachments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The person ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "certId",
+                      "description": "(Required) The certification ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attachmentId\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "05c25a3c-4efd-4c51-9b18-a2850c945246",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "certifications",
+                    ":certId",
+                    "attachments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The person ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "certId",
+                      "description": "(Required) The certification ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attachmentId\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5bac543e-ec4d-4592-8e79-8e1f281fa6b9",
+              "name": "Conflict",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "certifications",
+                    ":certId",
+                    "attachments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The person ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "certId",
+                      "description": "(Required) The certification ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attachmentId\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b846f131-fb64-4714-a621-2fd4339dc097",
+          "name": "Get an attachment by ID for a person's certification.",
+          "request": {
+            "name": "Get an attachment by ID for a person's certification.",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>Person: Read<br/>HourlyProfile: Read<br/>PersonCerts: Read<br/>HourlyCerts: Read<br/>Private: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "persons",
+                ":personId",
+                "certifications",
+                ":certId",
+                "attachments",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "personId",
+                  "description": "(Required) The person ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "certId",
+                  "description": "(Required) The certification ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) The attachment ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9217137f-f428-4a38-9990-637c45abc7e3",
+              "name": "Success: an attachment in response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "certifications",
+                    ":certId",
+                    "attachments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The person ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "certId",
+                      "description": "(Required) The certification ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The attachment ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 123,\n  \"name\": \"document.txt\",\n  \"size\": 1024,\n  \"mimeType\": \"application/octet-stream\",\n  \"isPrivate\": false,\n  \"binaryUrl\": \"https://bench.gobridgit.com/bin/attachments/accounts/1/persons/1/document.txt\",\n  \"creatorId\": 1,\n  \"createdOn\": \"2021-01-01T00:00:00Z\",\n  \"state\": \"InProgress\",\n  \"certificationIds\": [\n    1\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e03c5a81-b824-47ff-bf29-fc9d44aac688",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "certifications",
+                    ":certId",
+                    "attachments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The person ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "certId",
+                      "description": "(Required) The certification ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The attachment ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "495895b6-25e6-4e28-8f79-e8ad26c1d41e",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "certifications",
+                    ":certId",
+                    "attachments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The person ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "certId",
+                      "description": "(Required) The certification ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The attachment ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5989394f-a1c2-4f9f-b788-e5aa9d2167b7",
+          "name": "Unlink an attachment from a person's certification.",
+          "request": {
+            "name": "Unlink an attachment from a person's certification.",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>Person: Read<br/>HourlyProfile: Read<br/>Private: Read<br/>PersonCerts: Write<br/>HourlyCerts: Write",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "persons",
+                ":personId",
+                "certifications",
+                ":certId",
+                "attachments",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "personId",
+                  "description": "(Required) The person ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "certId",
+                  "description": "(Required) The certification ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) The attachment ID"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0f230812-2353-47df-ae0f-7ede0e8b6ce2",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "certifications",
+                    ":certId",
+                    "attachments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The person ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "certId",
+                      "description": "(Required) The certification ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The attachment ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7090c984-ee02-48fc-9680-d8881363a4ee",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "certifications",
+                    ":certId",
+                    "attachments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The person ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "certId",
+                      "description": "(Required) The certification ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The attachment ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bfe3a185-e057-4774-ab73-0c056cd7aad3",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "certifications",
+                    ":certId",
+                    "attachments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The person ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "certId",
+                      "description": "(Required) The certification ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The attachment ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://bench.gobridgit.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "info": {
+    "_postman_id": "7ee4d992-7812-4372-852b-feed1c31f84f",
+    "name": "Bench AccountActivities PersonCertAttachments API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "<h2>Versioning</h2>\n<p>\n    The API is currently at version <code>1.0</code>. All API endpoints (other than\n    authentication) require you to specify the API version as part of the path.\n</p>\n\n<h2>URL Paths</h2>\n<p>\n    Authentication requests should be made to <code>/auth/signin</code>,\n    as documented below. All other API requests should be made to\n    sub-paths of <code>/rp/api/1.0/...</code>.\n</p>\n\n<h2>Authentication</h2>\n<p>\n    API requests are authenticated using an OAuth Bearer token.\n    You can get a token by authenticating your user by sending a\n    POST request to <code>/auth/signin</code>, with \"username and \"password\"\n    parameters form-encoded in the body of the request.\n\n    POST /auth/signin HTTP/1.1\n    Content-Type: application/x-www-form-urlencoded\n\n    username=user@example.com&password=some-secret-password\n</p>\n<p>\n    The response will be a JSON object including both\n    <b>\"access_token\"</b> and <b>\"refresh_token\"</b> property.\n    All other requests against the Bench API should include an\n    authorization header: <code>Authorization: Bearer xxxYYYzzz</code>,\n    where <b>xxxYYYzzz</b> is the value of <b>\"access_token\"</b> in the response.\n    <br><br>\n    For example:\n\n    $ curl https://bench.gobridgit.com/auth/signin -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'username=someone@example.com' --data-urlencode 'password=[...snip...]'\n    {\n        \"access_token\": \"...snip...\",\n        \"token_type\": \"Bearer\",\n        \"refresh_token\": \"...snip...\"\n        \"expiry\": \"2020-01-01T00:00:00.413440849Z\"\n    }\n\n</p>\n\n<p>\n    The refresh token can be used to generate new session by request with <code>/auth/token</code> endpoint:\n\n    POST /auth/token HTTP/1.1\n    Content-Type: application/x-www-form-urlencoded\n\n    grant_type=refresh_token&refresh_token=tGzv3JOkF0XG5Qx2TlKWIA\n</p>\n<p>\n    Note that once the refresh token is used, the previous access and refresh token is no longer valid.\n    <br><br>\n    For example:\n\n    $ curl https://bench.gobridgit.com/auth/token -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'grant_type=refresh_token' --data-urlencode 'refresh_token=[...snip...]'\n    {\n        \"access_token\": \"...snip...\",\n        \"token_type\": \"Bearer\",\n        \"refresh_token\": \"...snip...\"\n        \"expiry\": \"2020-01-01T00:00:00.413440849Z\"\n    }\n</p>\n\n<h2>Pagination</h2>\n<p>\n    Several of the API endpoints are paginated. These are denoted by\n    including the <code>offset</code> (zero-based offset) and <code>limit</code> query\n    parameters. For example, to request the <code>10</code> items,\n    set the <code>offset=0</code> to <code>limit=10</code>.\n    <br>\n    NOTE: the result set contains items with index of 0-9\n    <br>\n    To request the next 10 items (starting at index 10),\n    set the <code>offset=10</code> to <code>limit=10</code>\n</p>\n<p>\n    Responses to paginated API endpoints return a JSON array of objects.\n    If there are results beyond the page you have requested, the server\n    will set a <code>query-has-more: true</code> header in the response.\n</p>\n\n<h2>Request Encoding</h2>\n<p>\n    <code>GET</code> and <code>DELETE</code> requests should have parameters encoded as URL query\n    parameters. Boolean values should be encoded as <code>true</code> and\n    <code>false</code>, not as <code>1</code> and <code>0</code>.\n</p>\n\n<h2>Errors</h2>\n<p>\n    Errors are returned for some response codes such as <code>400 Bad Request</code> in the\n    following format:\n\n    {\n      \"errors\": [\n        {\n          \"errorType\": \"ValidationError\",\n          \"description\": \"The value of Name must be a string with a minimum length of 1 and a maximum length of 8 and not whitespace.\",\n          \"field\": \"Name\",\n          \"values\": [\n            null\n          ]\n        }\n      ],\n      \"title\": \"One or more validation errors occurred.\",\n      \"status\": 400,\n      \"instance\": \"api/v1/accounts/0/persons\",\n      \"requestUid\": \"123e4567-e89b-12d3-a456-426614174000\"\n    }\n</p>\n",
+      "type": "text/plain"
+    }
+  }
+}

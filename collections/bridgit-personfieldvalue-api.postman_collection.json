@@ -1,0 +1,1947 @@
+{
+  "item": [
+    {
+      "id": "f57d5753-b51b-4144-a8f8-b763231b4865",
+      "name": "PersonFieldValue",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b75db2da-a64a-4bb1-b436-080c1c92f4ff",
+          "name": "Gets all custom field values for the given person.",
+          "request": {
+            "name": "Gets all custom field values for the given person.",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>Person: Read<br/>HourlyProfile: Read<br/>Private: Read<br/>Finance: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "persons",
+                ":personId",
+                "person-field-values"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "includeEmpty",
+                  "value": "false",
+                  "description": "If true, the response will include all person field values, even if no value is set for a given field. If false, field values that are empty are not included in the response."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "personId",
+                  "description": "(Required) The Person ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d708b210-de26-447a-9d00-debff1aa5746",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "person-field-values"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeEmpty",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The Person ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"fieldId\": 1394,\n    \"name\": \"Contact Number\",\n    \"type\": \"PhoneNumber\",\n    \"values\": [\n      \"5195555555\"\n    ],\n    \"isRequired\": true,\n    \"isSystem\": false,\n    \"isPrivate\": true,\n    \"isFinancials\": true,\n    \"lastModifiedOn\": \"2021-05-27T10:58:23.530Z\"\n  },\n  {\n    \"fieldId\": 1394,\n    \"name\": \"Contact Number\",\n    \"type\": \"PhoneNumber\",\n    \"values\": [\n      \"5195555555\"\n    ],\n    \"isRequired\": false,\n    \"isSystem\": false,\n    \"isPrivate\": true,\n    \"isFinancials\": true,\n    \"lastModifiedOn\": \"2021-05-27T10:58:23.530Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "88fd2bc8-6c6b-4889-af4b-2775891f82b0",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "person-field-values"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeEmpty",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The Person ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ff1c9f7d-c42c-4aac-89a7-0fc8fb9c5ef0",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "person-field-values"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeEmpty",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The Person ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cb57d673-ff52-47a0-9d26-4788366f5187",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "person-field-values"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeEmpty",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The Person ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8048c001-4a5c-41b5-9fb5-6400de44f135",
+          "name": "Add or update one or more custom field values on a person",
+          "request": {
+            "name": "Add or update one or more custom field values on a person",
+            "description": {
+              "content": "It is mandatory that the fields with isRequired set to true be passed in as part of the request.\n\n\nExample: Say you have 2 person fields on an account \"Contact Number\" and \"Certifications\" where isRequired is set to true on \"Contact Number\".\n\nFieldDefinition Example Response - GET PersonFields (/api/v{version}/accounts/{id}/person-fields)\n<code>[<br/>&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;\"id\":&nbsp;1394,<br/>&nbsp;&nbsp;&nbsp;&nbsp;\"name\":&nbsp;\"Contact&nbsp;Number\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;\"type\":&nbsp;\"PhoneNumber\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;\"isRequired\":&nbsp;true,<br/>&nbsp;&nbsp;&nbsp;&nbsp;\"isSystem\":&nbsp;false,<br/>&nbsp;&nbsp;&nbsp;&nbsp;\"isPrivate\":&nbsp;false,<br/>&nbsp;&nbsp;&nbsp;&nbsp;\"isFinancials\":&nbsp;false,<br/>&nbsp;&nbsp;&nbsp;&nbsp;\"isLocked\":&nbsp;false<br/>&nbsp;&nbsp;},<br/>&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;\"id\":&nbsp;1395,<br/>&nbsp;&nbsp;&nbsp;&nbsp;\"name\":&nbsp;\"Certifications\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;\"type\":&nbsp;\"Text\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;\"isRequired\":&nbsp;false,<br/>&nbsp;&nbsp;&nbsp;&nbsp;\"isSystem\":&nbsp;false,<br/>&nbsp;&nbsp;&nbsp;&nbsp;\"isPrivate\":&nbsp;false,<br/>&nbsp;&nbsp;&nbsp;&nbsp;\"isFinancials\":&nbsp;false,<br/>&nbsp;&nbsp;&nbsp;&nbsp;\"isLocked\":&nbsp;false<br/>&nbsp;&nbsp;}<br/>]</code>\n\n\nIf you only send in the following your request will result in a 400.\n<code>[<br/>&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;\"fieldId\":&nbsp;1395,<br/>&nbsp;&nbsp;&nbsp;&nbsp;\"values\":&nbsp;[<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"First&nbsp;Aid\"<br/>&nbsp;&nbsp;&nbsp;&nbsp;]<br/>&nbsp;&nbsp;}<br/>]</code>\n\n<h2>Validation</h2><b>Single List Selection</b>: A list where only 1 value can be selected. When creating the list, each value should be between 1 and 250 non-empty characters.\n\n<b>Multi List Selection</b>: A list where 0 or more values can be selected. When creating the list, each value should be between 1 and 250 non-empty characters.\n\n<b>Text</b>: Min length: 0. Max length: 250\n\n<b>Date selector</b>: Format: dd/MM/yyyy\n\n<b>Other</b>: Max length: 2400\n\n<b>Checkbox</b>: Accepted values: ```true``` or ```false```\n\n<b>Currency</b>: <code>^[0-9]{0,15}(\\\\.[0-9]{0,2})?$</code>\n\n<i>Currency should be greater or equal to zero, starts with 0 to 15 digits of ```0-9``` then optionally followed by ```.``` with 0 to 2 digits of ```0-9```</i>\n\n\n<b>Phone</b>: <code>^\\\\+[1-9]\\d{10,14}$</code>\n\n<i>Phone starts with a ```+``` followed by 11 to 15 digits of ```0-9``` where the first digit is not ```0```</i>\n<br/><strong>Permissions</strong><br/>Person: Write<br/>HourlyProfile: Write<br/>Private: Read<br/>Finance: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "persons",
+                ":personId",
+                "person-field-values"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "personId",
+                  "description": "(Required) The Person ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"fieldId\": \"<long>\",\n    \"values\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bc324144-2c7a-4859-88dc-f1f5c1224bfc",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "person-field-values"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The Person ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"fieldId\": 1394,\n    \"values\": [\n      \"5195555555\"\n    ]\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "49cdc0ad-0796-4bfd-903e-ee8467d3955f",
+              "name": "No Content (success)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "person-field-values"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The Person ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"fieldId\": 1394,\n    \"values\": [\n      \"5195555555\"\n    ]\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "484bba42-620d-435d-8b4a-1347c8f38de8",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "person-field-values"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The Person ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"fieldId\": 1394,\n    \"values\": [\n      \"5195555555\"\n    ]\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c397e0b8-955a-4976-8804-e727637eb465",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "person-field-values"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The Person ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"fieldId\": 1394,\n    \"values\": [\n      \"5195555555\"\n    ]\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bcfffc5a-4031-4c69-8ee8-7f07494172c1",
+              "name": "Forbidden - User doesn't have permissions on this resource, or the account or person couldn't be found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "person-field-values"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The Person ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"fieldId\": 1394,\n    \"values\": [\n      \"5195555555\"\n    ]\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9d45ac76-dbb7-4b69-9b7f-2d8ac8523120",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "person-field-values"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The Person ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"fieldId\": 1394,\n    \"values\": [\n      \"5195555555\"\n    ]\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "61ae5af0-b177-4a79-9441-12393e578d44",
+          "name": "Update field values on a person",
+          "request": {
+            "name": "Update field values on a person",
+            "description": {
+              "content": "<h2>Validation</h2>\n<b>Single List Selection</b>: A list where only 1 value can be selected. When creating the list, each value should be between 1 and 250 non-empty characters.\n\n<b>Multi List Selection</b>: A list where 0 or more values can be selected. When creating the list, each value should be between 1 and 250 non-empty characters.\n\n<b>Text</b>: Min length: 0. Max length: 250\n\n<b>Date selector</b>: Format: dd/MM/yyyy\n\n<b>Other</b>: Max length: 2400\n\n<b>Checkbox</b>: Accepted values: ```true``` or ```false```\n\n<b>Currency</b>: <code>^[0-9]{0,15}(\\\\.[0-9]{0,2})?$</code>\n\n<i>Currency should be greater or equal to zero, starts with 0 to 15 digits of ```0-9``` then optionally followed by ```.``` with 0 to 2 digits of ```0-9```</i>\n\n\n<b>Phone</b>: <code>^\\\\+[1-9]\\d{10,14}$</code>\n\n<i>Phone starts with a ```+``` followed by 11 to 15 digits of ```0-9``` where the first digit is not ```0```</i>\n<br/><strong>Permissions</strong><br/>Person: Write<br/>HourlyProfile: Write<br/>Private: Read<br/>Finance: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "persons",
+                ":personId",
+                "person-field-values"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "personId",
+                  "description": "(Required) The Person ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"fieldId\": \"<long>\",\n    \"values\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "aa38a745-ac8e-46d6-b62d-35945bdf2c1c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "person-field-values"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The Person ID"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"fieldId\": 1394,\n    \"values\": [\n      \"5195555555\"\n    ]\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "90c93a84-4e4e-4e7f-8179-bacda110cdb5",
+              "name": "No Content (success)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "person-field-values"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The Person ID"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"fieldId\": 1394,\n    \"values\": [\n      \"5195555555\"\n    ]\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b9cd893c-9bc9-433e-a612-b63d73dbf602",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "person-field-values"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The Person ID"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"fieldId\": 1394,\n    \"values\": [\n      \"5195555555\"\n    ]\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6ba6a6da-4dbc-45d4-a483-2a091fbf0c62",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "person-field-values"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The Person ID"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"fieldId\": 1394,\n    \"values\": [\n      \"5195555555\"\n    ]\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fd48c1c5-2c29-4a74-9e35-005d55922396",
+              "name": "Forbidden - User doesn't have permissions on this resource, or the account or person couldn't be found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "person-field-values"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The Person ID"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"fieldId\": 1394,\n    \"values\": [\n      \"5195555555\"\n    ]\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1f1fdaa6-4dea-49b2-9e4a-e0e80e66afb2",
+          "name": "Delete one or more custom field values for a person",
+          "request": {
+            "name": "Delete one or more custom field values for a person",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>Person: Write<br/>HourlyProfile: Write<br/>Private: Read<br/>Finance: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "persons",
+                ":personId",
+                "person-field-values"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "personId",
+                  "description": "(Required) The Person ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  \"<long>\"\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "27b27383-c195-4991-b932-3ae56c751236",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "person-field-values"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The Person ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<long>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "250ffab7-af80-4bf7-9751-8f6c3c95cd57",
+              "name": "No Content (success)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "person-field-values"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The Person ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<long>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "57c650eb-a9ca-4670-838e-fbce93a37758",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "person-field-values"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The Person ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<long>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f317bca7-1a2e-42df-888c-cdcf7af948bc",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "person-field-values"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The Person ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<long>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bb546e6a-1c3e-49e7-aba0-6dd525444c0e",
+              "name": "Forbidden - User doesn't have permissions on this resource, or the account or person couldn't be found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "person-field-values"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The Person ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<long>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "87073e6c-181f-4101-a286-877a89dc8be7",
+          "name": "Update a single field's value(s) for person in the given account.",
+          "request": {
+            "name": "Update a single field's value(s) for person in the given account.",
+            "description": {
+              "content": "<h2>Validation</h2>\n<b>Single List Selection</b>: A list where only 1 value can be selected. When creating the list, each value should be between 1 and 250 non-empty characters.\n\n<b>Multi List Selection</b>: A list where 0 or more values can be selected. When creating the list, each value should be between 1 and 250 non-empty characters.\n\n<b>Text</b>: Min length: 0. Max length: 250\n\n<b>Date selector</b>: Format: dd/MM/yyyy\n\n<b>Other</b>: Max length: 2400\n\n<b>Checkbox</b>: Accepted values: ```true``` or ```false```\n\n<b>Currency</b>: <code>^[0-9]{0,15}(\\\\.[0-9]{0,2})?$</code>\n\n<i>Currency should be greater or equal to zero, starts with 0 to 15 digits of ```0-9``` then optionally followed by ```.``` with 0 to 2 digits of ```0-9```</i>\n\n\n<b>Phone</b>: <code>^\\\\+[1-9]\\d{10,14}$</code>\n\n<i>Phone starts with a ```+``` followed by 11 to 15 digits of ```0-9``` where the first digit is not ```0```</i>\n<br/><strong>Permissions</strong><br/>Person: Write<br/>HourlyProfile: Write<br/>Private: Read<br/>Finance: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "persons",
+                ":personId",
+                "person-field-values",
+                ":fieldId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "personId",
+                  "description": "(Required) The Person ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "fieldId",
+                  "description": "(Required) The field ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"values\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a56b2fe7-3d12-4248-8715-31a53671f709",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "person-field-values",
+                    ":fieldId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The Person ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "fieldId",
+                      "description": "(Required) The field ID"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"values\": [\n    \"5195555555\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "62312537-bf92-4ef7-8e44-416cede515a2",
+              "name": "No Content (success)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "person-field-values",
+                    ":fieldId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The Person ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "fieldId",
+                      "description": "(Required) The field ID"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"values\": [\n    \"5195555555\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "19e4e0ce-b079-4d65-9d13-09793d3546ef",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "person-field-values",
+                    ":fieldId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The Person ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "fieldId",
+                      "description": "(Required) The field ID"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"values\": [\n    \"5195555555\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "18b3de1d-7d29-4470-8d61-863ebda288e5",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "person-field-values",
+                    ":fieldId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The Person ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "fieldId",
+                      "description": "(Required) The field ID"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"values\": [\n    \"5195555555\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7f2679aa-a6b4-40db-960a-efea34e69994",
+              "name": "Forbidden - User doesn't have permissions on this resource, or the account or person couldn't be found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "person-field-values",
+                    ":fieldId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The Person ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "fieldId",
+                      "description": "(Required) The field ID"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"values\": [\n    \"5195555555\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5a1bc1c0-3088-42d4-900b-bec89724d4a0",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "person-field-values",
+                    ":fieldId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The Person ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "fieldId",
+                      "description": "(Required) The field ID"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"values\": [\n    \"5195555555\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://bench.gobridgit.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "info": {
+    "_postman_id": "d333c749-7756-4da1-b8d1-6b35f0493961",
+    "name": "Bench AccountActivities PersonFieldValue API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "<h2>Versioning</h2>\n<p>\n    The API is currently at version <code>1.0</code>. All API endpoints (other than\n    authentication) require you to specify the API version as part of the path.\n</p>\n\n<h2>URL Paths</h2>\n<p>\n    Authentication requests should be made to <code>/auth/signin</code>,\n    as documented below. All other API requests should be made to\n    sub-paths of <code>/rp/api/1.0/...</code>.\n</p>\n\n<h2>Authentication</h2>\n<p>\n    API requests are authenticated using an OAuth Bearer token.\n    You can get a token by authenticating your user by sending a\n    POST request to <code>/auth/signin</code>, with \"username and \"password\"\n    parameters form-encoded in the body of the request.\n\n    POST /auth/signin HTTP/1.1\n    Content-Type: application/x-www-form-urlencoded\n\n    username=user@example.com&password=some-secret-password\n</p>\n<p>\n    The response will be a JSON object including both\n    <b>\"access_token\"</b> and <b>\"refresh_token\"</b> property.\n    All other requests against the Bench API should include an\n    authorization header: <code>Authorization: Bearer xxxYYYzzz</code>,\n    where <b>xxxYYYzzz</b> is the value of <b>\"access_token\"</b> in the response.\n    <br><br>\n    For example:\n\n    $ curl https://bench.gobridgit.com/auth/signin -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'username=someone@example.com' --data-urlencode 'password=[...snip...]'\n    {\n        \"access_token\": \"...snip...\",\n        \"token_type\": \"Bearer\",\n        \"refresh_token\": \"...snip...\"\n        \"expiry\": \"2020-01-01T00:00:00.413440849Z\"\n    }\n\n</p>\n\n<p>\n    The refresh token can be used to generate new session by request with <code>/auth/token</code> endpoint:\n\n    POST /auth/token HTTP/1.1\n    Content-Type: application/x-www-form-urlencoded\n\n    grant_type=refresh_token&refresh_token=tGzv3JOkF0XG5Qx2TlKWIA\n</p>\n<p>\n    Note that once the refresh token is used, the previous access and refresh token is no longer valid.\n    <br><br>\n    For example:\n\n    $ curl https://bench.gobridgit.com/auth/token -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'grant_type=refresh_token' --data-urlencode 'refresh_token=[...snip...]'\n    {\n        \"access_token\": \"...snip...\",\n        \"token_type\": \"Bearer\",\n        \"refresh_token\": \"...snip...\"\n        \"expiry\": \"2020-01-01T00:00:00.413440849Z\"\n    }\n</p>\n\n<h2>Pagination</h2>\n<p>\n    Several of the API endpoints are paginated. These are denoted by\n    including the <code>offset</code> (zero-based offset) and <code>limit</code> query\n    parameters. For example, to request the <code>10</code> items,\n    set the <code>offset=0</code> to <code>limit=10</code>.\n    <br>\n    NOTE: the result set contains items with index of 0-9\n    <br>\n    To request the next 10 items (starting at index 10),\n    set the <code>offset=10</code> to <code>limit=10</code>\n</p>\n<p>\n    Responses to paginated API endpoints return a JSON array of objects.\n    If there are results beyond the page you have requested, the server\n    will set a <code>query-has-more: true</code> header in the response.\n</p>\n\n<h2>Request Encoding</h2>\n<p>\n    <code>GET</code> and <code>DELETE</code> requests should have parameters encoded as URL query\n    parameters. Boolean values should be encoded as <code>true</code> and\n    <code>false</code>, not as <code>1</code> and <code>0</code>.\n</p>\n\n<h2>Errors</h2>\n<p>\n    Errors are returned for some response codes such as <code>400 Bad Request</code> in the\n    following format:\n\n    {\n      \"errors\": [\n        {\n          \"errorType\": \"ValidationError\",\n          \"description\": \"The value of Name must be a string with a minimum length of 1 and a maximum length of 8 and not whitespace.\",\n          \"field\": \"Name\",\n          \"values\": [\n            null\n          ]\n        }\n      ],\n      \"title\": \"One or more validation errors occurred.\",\n      \"status\": 400,\n      \"instance\": \"api/v1/accounts/0/persons\",\n      \"requestUid\": \"123e4567-e89b-12d3-a456-426614174000\"\n    }\n</p>\n",
+      "type": "text/plain"
+    }
+  }
+}

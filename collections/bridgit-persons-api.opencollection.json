@@ -1,0 +1,526 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bench AccountActivities Persons API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Persons",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Gets all people in the given account.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/Persons",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "relativeDate",
+                "value": "2021-01-01",
+                "type": "query",
+                "description": "Optional paramater used to calculate date based properties. If not provided, it is set to today's date in UTC."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset for pagination"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results in this page"
+              },
+              {
+                "name": "email",
+                "value": "",
+                "type": "query",
+                "description": "Filter user with email"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "If specified and not 'Unknown', only include people matching the given state. The available values are defined as follows:\n- Unknown: By default, includes only Active people.\n- Active: include only Active people\n- Deactivated: include only Deactivated people\n- All: include all people, regardless of state"
+              },
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Optional paramater of comma delimited ids for filtering results based on the person IDs provided"
+              },
+              {
+                "name": "uniqueId",
+                "value": "",
+                "type": "query",
+                "description": "Optional paramater of unique identifier for filtering results based on the person unique identifier provided"
+              }
+            ]
+          },
+          "docs": "<strong>NOTE:</strong> If there are more persons in the account than were returned, there will be a \"query-has-more\" header that will be set to true.<br/><strong>Permissions</strong><br/>HourlyProfile: Read<br/>Person: Read<br/>Finance: Read"
+        },
+        {
+          "info": {
+            "name": "Add a person to the given account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/Persons",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>HourlyProfile: Write<br/>Person: Write<br/>Private: Read<br/>Finance: Read"
+        },
+        {
+          "info": {
+            "name": "Gets the number of days until each person in this account is available and their availability ranges for the duration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/Persons/availabilities",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "relativeDate",
+                "value": "2021-01-01",
+                "type": "query",
+                "description": "Optional paramater used to calculate date based properties. If not provided, it is set to today's date in UTC."
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query",
+                "description": "Start date to filter availabilities from (default today UTC)"
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query",
+                "description": "End date to filter availabilities to (default 10 years from today UTC)"
+              },
+              {
+                "name": "boundRange",
+                "value": "",
+                "type": "query",
+                "description": "Setting this value to true will truncate the dates returned to the specified start and end date paramters"
+              },
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Optional paramater of comma delimited ids for filtering results based on the person IDs provided"
+              },
+              {
+                "name": "includeUnavailable",
+                "value": "",
+                "type": "query",
+                "description": "If this is set to true it will return the availabilities and next available dates even if a person doesn't have a next availability.\nIf the person does not have a \"nextAvailableDate\", then the \"availableInDays\" property will be -1"
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>HourlyProfile: Read<br/>Person: Read"
+        },
+        {
+          "info": {
+            "name": "Updates a person to set and externalId that can be referenced by external systems.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/Persons/:id/externalId",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The person ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a person to set and externalId that can be referenced by external systems."
+        },
+        {
+          "info": {
+            "name": "Gets all people in the given account filter by person ids.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/Persons/_filter",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<strong>NOTE:</strong> If there are more persons in the account than were returned, there will be a \"query-has-more\" header that will be set to true.<br/><strong>Permissions</strong><br/>HourlyProfile: Read<br/>Person: Read<br/>Finance: Read"
+        },
+        {
+          "info": {
+            "name": "Gets details for the given person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/Persons/:id",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The Person ID"
+              },
+              {
+                "name": "relativeDate",
+                "value": "2021-01-01",
+                "type": "query",
+                "description": "Optional paramater used to calculate date based properties. If not provided, it is set to today's date in UTC."
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Finance: Read<br/>Person: Read<br/>HourlyProfile: Read"
+        },
+        {
+          "info": {
+            "name": "Update a person in the given account. Each of the fields in the request body is optional - only fields that are present in the request will be updated.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/Persons/:id",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The Person ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Person: Write<br/>HourlyProfile: Write<br/>Finance: Read"
+        },
+        {
+          "info": {
+            "name": "Deactivate a person",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/Persons/:id",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The Person ID"
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Person: Write<br/>HourlyProfile: Write"
+        },
+        {
+          "info": {
+            "name": "Deactivate a person with optional deactivation details (reason, notes, would rehire).",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/Persons/:id/deactivate",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The Person ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Person: Write<br/>HourlyProfile: Write"
+        },
+        {
+          "info": {
+            "name": "Get all allocations for the given person within the selected date range.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/Persons/:id/allocations",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The Person's ID"
+              },
+              {
+                "name": "relativeDate",
+                "value": "2021-01-01",
+                "type": "query",
+                "description": "Optional paramater used to calculate date based properties. If not provided, it is set to today's date in UTC."
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query",
+                "description": "Start date to filter allocations from"
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query",
+                "description": "End date to filter allocations to"
+              },
+              {
+                "name": "roleId",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to get allocations for a specific role"
+              },
+              {
+                "name": "projectState",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter for filtering results by project state."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter Salaried role type to filter results by (Default to Operations)"
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Role: Read<br/>HourlyRole: Read<br/>Allocation: Read<br/>HourlyAllocation: Read<br/>Person: Read<br/>HourlyProfile: Read"
+        },
+        {
+          "info": {
+            "name": "Get all projects that this person is allocated to, including past, present, and future allocations.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/Persons/:id/projects",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The Person ID"
+              },
+              {
+                "name": "relativeDate",
+                "value": "2021-01-01",
+                "type": "query",
+                "description": "Optional paramater used to calculate date based properties. If not provided, it is set to today's date in UTC."
+              },
+              {
+                "name": "projectState",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter for filtering results by project state."
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Person: Read<br/>HourlyProfile: Read<br/>Allocation: Read<br/>HourlyAllocation: Read"
+        },
+        {
+          "info": {
+            "name": "Get all projects that any person in the given account has an active allocation for. That is, each allocation's start date is ≦ now and the end date is ≧ now.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/Persons/current-projects",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "relativeDate",
+                "value": "2021-01-01",
+                "type": "query",
+                "description": "Optional paramater used to calculate date based properties. If not provided, it is set to today's date in UTC."
+              },
+              {
+                "name": "personIds",
+                "value": "",
+                "type": "query",
+                "description": "Optional paramater of comma delimited ids for filtering results based on the person IDs provided"
+              },
+              {
+                "name": "projectState",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter for filtering results by project state."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "(Optional)Salaried role type to filter results by (Defaults to All)"
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Person: Read<br/>Allocation: Read"
+        },
+        {
+          "info": {
+            "name": "Get all projects that any person in the given account has an active allocation for. That is, each allocation's start date is ≦ now and the end date is ≧ now.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/Persons/current-projects-hourly",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "relativeDate",
+                "value": "2021-01-01",
+                "type": "query",
+                "description": "Optional paramater used to calculate date based properties. If not provided, it is set to today's date in UTC."
+              },
+              {
+                "name": "personIds",
+                "value": "",
+                "type": "query",
+                "description": "Optional paramater of comma delimited ids for filtering results based on the person IDs provided"
+              },
+              {
+                "name": "projectState",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter for filtering results by project state."
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>HourlyProfile: Read<br/>HourlyAllocation: Read"
+        },
+        {
+          "info": {
+            "name": "Reactivate a person",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/Persons/:id/restore",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The Person ID"
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Person: Write<br/>HourlyProfile: Write<br/>Finance: Read"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

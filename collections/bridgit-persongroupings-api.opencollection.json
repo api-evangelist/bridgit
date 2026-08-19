@@ -1,0 +1,107 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bench AccountActivities PersonGroupings API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "PersonGroupings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Set grouping to the person in the given account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/persons/:personId/groupings",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "personId",
+                "value": "",
+                "type": "path",
+                "description": "The person ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Person: Write<br/>HourlyProfile: Write"
+        },
+        {
+          "info": {
+            "name": "Update grouping to the person in the given account",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/persons/:personId/groupings",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "personId",
+                "value": "",
+                "type": "path",
+                "description": "The person ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Person: Write<br/>HourlyProfile: Write"
+        },
+        {
+          "info": {
+            "name": "Removes grouping from the person in the given account",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/persons/:personId/groupings/:id",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "personId",
+                "value": "",
+                "type": "path",
+                "description": "The person ID"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The grouping ID for person"
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Person: Write<br/>HourlyProfile: Write"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

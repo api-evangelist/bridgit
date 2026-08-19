@@ -1,0 +1,1559 @@
+{
+  "item": [
+    {
+      "id": "c6ef5839-39b6-42cb-a968-181558ba2e6d",
+      "name": "HourlyAllocations",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d1eec34b-f26e-4828-b3f3-3b0e290dcf4d",
+          "name": "Gets the allocations for hourly roles in the given account and project",
+          "request": {
+            "name": "Gets the allocations for hourly roles in the given account and project",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>HourlyProfile: Read<br/>HourlyRole: Read<br/>HourlyAllocation: Read<br/>Private: Read<br/>Finance: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "projects",
+                ":projectId",
+                "hourly-allocations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "relativeDate",
+                  "value": "<dateTime>",
+                  "description": "Optional paramater used to calculate date based properties. If not provided, it is set to today's date in UTC."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Offset for pagination"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "1000",
+                  "description": "Maximum number of results in this page"
+                },
+                {
+                  "disabled": false,
+                  "key": "personstate",
+                  "value": "Active",
+                  "description": "State of persons to filter results by (Default Active)"
+                },
+                {
+                  "disabled": false,
+                  "key": "daysUntilTimeOff",
+                  "value": "15",
+                  "description": "Used to calculate the upcoming TimeOff unavailabilities based on the relativeDate"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "projectId",
+                  "description": "(Required) The Project ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5076fd4c-f813-437a-8470-3e0a95e2e460",
+              "name": "Success: List of allocations for hourly roles on the project",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "hourly-allocations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "personstate",
+                      "value": "Active"
+                    },
+                    {
+                      "key": "daysUntilTimeOff",
+                      "value": "15"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"roleId\": 8673,\n    \"taskId\": \"10999e41-538a-f0f1-749e-186f4551a69b\",\n    \"allocations\": [\n      {\n        \"personHourlyCost\": 123.45,\n        \"personId\": 2324,\n        \"name\": \"John Smith\",\n        \"title\": \"Project Engineer\",\n        \"state\": \"Active\",\n        \"startDate\": \"1948-08-24T14:27:54.143Z\",\n        \"endDate\": \"1999-05-18T11:58:07.688Z\",\n        \"hasConflict\": false,\n        \"allocationState\": \"Current\",\n        \"type\": \"Hourly\",\n        \"id\": \"561f2b50-fb02-8bda-7248-3f22b0a91831\",\n        \"titleIdAtAssignment\": 3048,\n        \"upcomingTimeOff\": [\n          {\n            \"id\": 46,\n            \"rangeType\": \"Unavailability\",\n            \"startDate\": \"2019-04-13T02:43:45.112Z\",\n            \"endDate\": \"1976-10-16T00:41:45.326Z\",\n            \"isPrivate\": false,\n            \"description\": \"Parental Leave\",\n            \"externalId\": \"46\"\n          },\n          {\n            \"id\": 46,\n            \"rangeType\": \"Unavailability\",\n            \"startDate\": \"2025-01-10T17:56:59.805Z\",\n            \"endDate\": \"2005-05-05T13:25:08.148Z\",\n            \"isPrivate\": false,\n            \"description\": \"Parental Leave\",\n            \"externalId\": \"46\"\n          }\n        ]\n      },\n      {\n        \"personHourlyCost\": 123.45,\n        \"personId\": 2324,\n        \"name\": \"John Smith\",\n        \"title\": \"Project Engineer\",\n        \"state\": \"Active\",\n        \"startDate\": \"2021-06-06T20:15:15.496Z\",\n        \"endDate\": \"1963-09-26T11:40:44.907Z\",\n        \"hasConflict\": false,\n        \"allocationState\": \"Current\",\n        \"type\": \"Salaried\",\n        \"id\": \"83f40ccd-8c54-01d5-c6e9-3cdcedc6a7b0\",\n        \"titleIdAtAssignment\": 5789,\n        \"upcomingTimeOff\": [\n          {\n            \"id\": 46,\n            \"rangeType\": \"Unavailability\",\n            \"startDate\": \"1963-10-07T02:15:06.200Z\",\n            \"endDate\": \"1998-01-11T18:20:38.859Z\",\n            \"isPrivate\": false,\n            \"description\": \"Parental Leave\",\n            \"externalId\": \"46\"\n          },\n          {\n            \"id\": 46,\n            \"rangeType\": \"Unavailability\",\n            \"startDate\": \"1970-05-22T18:43:50.292Z\",\n            \"endDate\": \"2022-07-25T05:36:05.581Z\",\n            \"isPrivate\": false,\n            \"description\": \"Parental Leave\",\n            \"externalId\": \"46\"\n          }\n        ]\n      }\n    ],\n    \"categoryId\": 2751,\n    \"categoryName\": \"string\"\n  },\n  {\n    \"roleId\": 8673,\n    \"taskId\": \"6526cc9e-4a85-9f14-6d82-75d246fbc93d\",\n    \"allocations\": [\n      {\n        \"personHourlyCost\": 123.45,\n        \"personId\": 2324,\n        \"name\": \"John Smith\",\n        \"title\": \"Project Engineer\",\n        \"state\": \"Active\",\n        \"startDate\": \"1980-06-23T03:23:41.849Z\",\n        \"endDate\": \"2011-03-14T07:21:15.712Z\",\n        \"hasConflict\": false,\n        \"allocationState\": \"Current\",\n        \"type\": \"Hourly\",\n        \"id\": \"97e3837e-ae7e-2b3a-136e-fe5ab94f916f\",\n        \"titleIdAtAssignment\": 1005,\n        \"upcomingTimeOff\": [\n          {\n            \"id\": 46,\n            \"rangeType\": \"Unavailability\",\n            \"startDate\": \"1986-12-11T12:51:37.623Z\",\n            \"endDate\": \"2008-05-05T00:22:02.411Z\",\n            \"isPrivate\": false,\n            \"description\": \"Parental Leave\",\n            \"externalId\": \"46\"\n          },\n          {\n            \"id\": 46,\n            \"rangeType\": \"Unavailability\",\n            \"startDate\": \"1998-06-04T00:03:13.098Z\",\n            \"endDate\": \"2023-04-13T22:10:10.505Z\",\n            \"isPrivate\": false,\n            \"description\": \"Parental Leave\",\n            \"externalId\": \"46\"\n          }\n        ]\n      },\n      {\n        \"personHourlyCost\": 123.45,\n        \"personId\": 2324,\n        \"name\": \"John Smith\",\n        \"title\": \"Project Engineer\",\n        \"state\": \"Active\",\n        \"startDate\": \"1983-11-18T08:13:02.811Z\",\n        \"endDate\": \"1959-03-24T14:54:40.165Z\",\n        \"hasConflict\": false,\n        \"allocationState\": \"Current\",\n        \"type\": \"Hourly\",\n        \"id\": \"2fc82b5a-c1a9-10f8-0690-fbe9a0b65205\",\n        \"titleIdAtAssignment\": 2398,\n        \"upcomingTimeOff\": [\n          {\n            \"id\": 46,\n            \"rangeType\": \"Unavailability\",\n            \"startDate\": \"1991-10-27T17:47:53.067Z\",\n            \"endDate\": \"2021-04-15T11:46:54.464Z\",\n            \"isPrivate\": false,\n            \"description\": \"Parental Leave\",\n            \"externalId\": \"46\"\n          },\n          {\n            \"id\": 46,\n            \"rangeType\": \"Unavailability\",\n            \"startDate\": \"1983-05-20T21:23:28.562Z\",\n            \"endDate\": \"1956-10-12T01:56:15.101Z\",\n            \"isPrivate\": false,\n            \"description\": \"Parental Leave\",\n            \"externalId\": \"46\"\n          }\n        ]\n      }\n    ],\n    \"categoryId\": 9278,\n    \"categoryName\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a860a1fc-17b7-4d09-ab58-fdbae4d11e34",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "hourly-allocations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "personstate",
+                      "value": "Active"
+                    },
+                    {
+                      "key": "daysUntilTimeOff",
+                      "value": "15"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "509834e1-77e9-4595-baa0-eb7ff05ed5dd",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "hourly-allocations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "personstate",
+                      "value": "Active"
+                    },
+                    {
+                      "key": "daysUntilTimeOff",
+                      "value": "15"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "86f96cc6-31cf-49fc-9c95-0769f6f01cc4",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "hourly-allocations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "personstate",
+                      "value": "Active"
+                    },
+                    {
+                      "key": "daysUntilTimeOff",
+                      "value": "15"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eda6f5c0-149c-4276-88a4-892998bbfae1",
+          "name": "Allocates an hourly person to an hourly role on the given account and project",
+          "request": {
+            "name": "Allocates an hourly person to an hourly role on the given account and project",
+            "description": {
+              "content": "A person cannot be allocated entirely inside a period of unavailability and cannot be allocated outside of their employment dates.\n\nFor allocations that overlap a period of unavailability, the API will truncate or not set the date range that the person is unavailable.\n\nExamples: Unavaialble from 2020-01-11 to 2020-01-25, Allocation date from 2020-01-20 to 2020-03-31, will alocate the person from 2020-01-26 to 2020-03-31\n\nUnavaialble from 2020-01-11 to 2020-01-25, Allocation date from 2020-01-01 to 2020-03-31, will alocate the person from 2020-01-01 to 2020-01-10 AND 2020-01-26 to 2020-03-31<br/><strong>Permissions</strong><br/>HourlyProfile: Write<br/>HourlyRole: Write<br/>HourlyAllocation: Write",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "projects",
+                ":projectId",
+                "hourly-allocations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "projectId",
+                  "description": "(Required) The Project ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"roleId\": \"<long>\",\n  \"personId\": \"<long>\",\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\",\n  \"roleStartDate\": \"<dateTime>\",\n  \"roleEndDate\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "62aaca48-a932-4e66-913d-521621d830d8",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "hourly-allocations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"roleId\": 1,\n  \"personId\": 1,\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\",\n  \"roleStartDate\": \"<dateTime>\",\n  \"roleEndDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f0d18910-98f6-4476-ac7d-66501a808639",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "hourly-allocations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"roleId\": 1,\n  \"personId\": 1,\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\",\n  \"roleStartDate\": \"<dateTime>\",\n  \"roleEndDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "32c8d9bb-bd29-43ea-9c7c-5c721c7ba03a",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "hourly-allocations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"roleId\": 1,\n  \"personId\": 1,\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\",\n  \"roleStartDate\": \"<dateTime>\",\n  \"roleEndDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f03bb2ba-e42a-438e-8ddd-c8b30addf61f",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "hourly-allocations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"roleId\": 1,\n  \"personId\": 1,\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\",\n  \"roleStartDate\": \"<dateTime>\",\n  \"roleEndDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "53224a11-df75-411b-9d01-bdb43789d180",
+              "name": "Conflict",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "hourly-allocations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"roleId\": 1,\n  \"personId\": 1,\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\",\n  \"roleStartDate\": \"<dateTime>\",\n  \"roleEndDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dba6649e-beae-4bf7-8367-d2a8d5f565d2",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "hourly-allocations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"roleId\": 1,\n  \"personId\": 1,\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\",\n  \"roleStartDate\": \"<dateTime>\",\n  \"roleEndDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "976525ed-ff9d-4291-8f70-a09b129ef84d",
+          "name": "Updates an hourly person's allocation on an hourly role on the given account and project",
+          "request": {
+            "name": "Updates an hourly person's allocation on an hourly role on the given account and project",
+            "description": {
+              "content": "An hourly person cannot be allocated entirely inside a period of unavailability and cannot be allocated outside of their employment dates.\n\nFor allocations that overlap a period of unavailability, the API will truncate or not set the date range that the person is unavailable.\n\nExamples: Unavaialble from 2020-01-11 to 2020-01-25, Allocation date from 2020-01-20 to 2020-03-31, will alocate the hourly person from 2020-01-26 to 2020-03-31\n\nUnavaialble from 2020-01-11 to 2020-01-25, Allocation date from 2020-01-01 to 2020-03-31, will alocate the hourly person from 2020-01-01 to 2020-01-10 AND 2020-01-26 to 2020-03-31<br/><strong>Permissions</strong><br/>HourlyProfile: Write<br/>HourlyRole: Write<br/>HourlyAllocation: Write<br/>Private: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "projects",
+                ":projectId",
+                "hourly-allocations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "projectId",
+                  "description": "(Required) The Project ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"roleId\": \"<long>\",\n  \"personId\": \"<long>\",\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\",\n  \"roleStartDate\": \"<dateTime>\",\n  \"roleEndDate\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e734c550-4fc3-49ad-99da-c120a7113089",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "hourly-allocations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"roleId\": 1,\n  \"personId\": 1,\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\",\n  \"roleStartDate\": \"<dateTime>\",\n  \"roleEndDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "256fb9d5-ef2a-4899-8b76-4656dd86a710",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "hourly-allocations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"roleId\": 1,\n  \"personId\": 1,\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\",\n  \"roleStartDate\": \"<dateTime>\",\n  \"roleEndDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c79eddec-f988-4699-b928-0e5349ddad86",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "hourly-allocations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"roleId\": 1,\n  \"personId\": 1,\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\",\n  \"roleStartDate\": \"<dateTime>\",\n  \"roleEndDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "13d401cc-2a60-4054-8750-4a1b00901313",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "hourly-allocations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"roleId\": 1,\n  \"personId\": 1,\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\",\n  \"roleStartDate\": \"<dateTime>\",\n  \"roleEndDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8ae60bb1-95a9-4b1c-9a38-310d4c42fc54",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "hourly-allocations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"roleId\": 1,\n  \"personId\": 1,\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\",\n  \"roleStartDate\": \"<dateTime>\",\n  \"roleEndDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b575115d-4b6d-4f00-bd7e-9e6562f2c829",
+          "name": "Removes an hourly person's allocation on a role on the given account and project",
+          "request": {
+            "name": "Removes an hourly person's allocation on a role on the given account and project",
+            "description": {
+              "content": "The request must contain the role id, person id, start and end date to ensure that the role and allocation is correct and hasn't been modified before trying to delete it.<br/><strong>Permissions</strong><br/>HourlyProfile: Write<br/>HourlyRole: Write<br/>HourlyAllocation: Write",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "projects",
+                ":projectId",
+                "hourly-allocations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "projectId",
+                  "description": "(Required) The Project ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"roleId\": \"<long>\",\n  \"personId\": \"<long>\",\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\",\n  \"roleStartDate\": \"<dateTime>\",\n  \"roleEndDate\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "14561120-ff9e-472c-9f18-dc37f6d61100",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "hourly-allocations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"roleId\": 1,\n  \"personId\": 1,\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\",\n  \"roleStartDate\": \"<dateTime>\",\n  \"roleEndDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1ce32afd-4a92-4118-8531-1abaeef5918d",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "hourly-allocations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"roleId\": 1,\n  \"personId\": 1,\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\",\n  \"roleStartDate\": \"<dateTime>\",\n  \"roleEndDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4da2da06-7d47-4c2d-abf0-493893dced5f",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "hourly-allocations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"roleId\": 1,\n  \"personId\": 1,\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\",\n  \"roleStartDate\": \"<dateTime>\",\n  \"roleEndDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "03b7a2c7-b325-4739-8258-5c587d7ee547",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "hourly-allocations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"roleId\": 1,\n  \"personId\": 1,\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\",\n  \"roleStartDate\": \"<dateTime>\",\n  \"roleEndDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "714b8dae-31d0-4c7d-b42c-192a5201c95b",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "hourly-allocations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"roleId\": 1,\n  \"personId\": 1,\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\",\n  \"roleStartDate\": \"<dateTime>\",\n  \"roleEndDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://bench.gobridgit.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "info": {
+    "_postman_id": "31bb326e-bd91-4db0-9612-cbce7969eadb",
+    "name": "Bench AccountActivities HourlyAllocations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "<h2>Versioning</h2>\n<p>\n    The API is currently at version <code>1.0</code>. All API endpoints (other than\n    authentication) require you to specify the API version as part of the path.\n</p>\n\n<h2>URL Paths</h2>\n<p>\n    Authentication requests should be made to <code>/auth/signin</code>,\n    as documented below. All other API requests should be made to\n    sub-paths of <code>/rp/api/1.0/...</code>.\n</p>\n\n<h2>Authentication</h2>\n<p>\n    API requests are authenticated using an OAuth Bearer token.\n    You can get a token by authenticating your user by sending a\n    POST request to <code>/auth/signin</code>, with \"username and \"password\"\n    parameters form-encoded in the body of the request.\n\n    POST /auth/signin HTTP/1.1\n    Content-Type: application/x-www-form-urlencoded\n\n    username=user@example.com&password=some-secret-password\n</p>\n<p>\n    The response will be a JSON object including both\n    <b>\"access_token\"</b> and <b>\"refresh_token\"</b> property.\n    All other requests against the Bench API should include an\n    authorization header: <code>Authorization: Bearer xxxYYYzzz</code>,\n    where <b>xxxYYYzzz</b> is the value of <b>\"access_token\"</b> in the response.\n    <br><br>\n    For example:\n\n    $ curl https://bench.gobridgit.com/auth/signin -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'username=someone@example.com' --data-urlencode 'password=[...snip...]'\n    {\n        \"access_token\": \"...snip...\",\n        \"token_type\": \"Bearer\",\n        \"refresh_token\": \"...snip...\"\n        \"expiry\": \"2020-01-01T00:00:00.413440849Z\"\n    }\n\n</p>\n\n<p>\n    The refresh token can be used to generate new session by request with <code>/auth/token</code> endpoint:\n\n    POST /auth/token HTTP/1.1\n    Content-Type: application/x-www-form-urlencoded\n\n    grant_type=refresh_token&refresh_token=tGzv3JOkF0XG5Qx2TlKWIA\n</p>\n<p>\n    Note that once the refresh token is used, the previous access and refresh token is no longer valid.\n    <br><br>\n    For example:\n\n    $ curl https://bench.gobridgit.com/auth/token -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'grant_type=refresh_token' --data-urlencode 'refresh_token=[...snip...]'\n    {\n        \"access_token\": \"...snip...\",\n        \"token_type\": \"Bearer\",\n        \"refresh_token\": \"...snip...\"\n        \"expiry\": \"2020-01-01T00:00:00.413440849Z\"\n    }\n</p>\n\n<h2>Pagination</h2>\n<p>\n    Several of the API endpoints are paginated. These are denoted by\n    including the <code>offset</code> (zero-based offset) and <code>limit</code> query\n    parameters. For example, to request the <code>10</code> items,\n    set the <code>offset=0</code> to <code>limit=10</code>.\n    <br>\n    NOTE: the result set contains items with index of 0-9\n    <br>\n    To request the next 10 items (starting at index 10),\n    set the <code>offset=10</code> to <code>limit=10</code>\n</p>\n<p>\n    Responses to paginated API endpoints return a JSON array of objects.\n    If there are results beyond the page you have requested, the server\n    will set a <code>query-has-more: true</code> header in the response.\n</p>\n\n<h2>Request Encoding</h2>\n<p>\n    <code>GET</code> and <code>DELETE</code> requests should have parameters encoded as URL query\n    parameters. Boolean values should be encoded as <code>true</code> and\n    <code>false</code>, not as <code>1</code> and <code>0</code>.\n</p>\n\n<h2>Errors</h2>\n<p>\n    Errors are returned for some response codes such as <code>400 Bad Request</code> in the\n    following format:\n\n    {\n      \"errors\": [\n        {\n          \"errorType\": \"ValidationError\",\n          \"description\": \"The value of Name must be a string with a minimum length of 1 and a maximum length of 8 and not whitespace.\",\n          \"field\": \"Name\",\n          \"values\": [\n            null\n          ]\n        }\n      ],\n      \"title\": \"One or more validation errors occurred.\",\n      \"status\": 400,\n      \"instance\": \"api/v1/accounts/0/persons\",\n      \"requestUid\": \"123e4567-e89b-12d3-a456-426614174000\"\n    }\n</p>\n",
+      "type": "text/plain"
+    }
+  }
+}

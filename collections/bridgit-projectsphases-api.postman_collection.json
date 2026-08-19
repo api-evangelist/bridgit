@@ -1,0 +1,2556 @@
+{
+  "item": [
+    {
+      "id": "66d0ad52-2990-4700-9796-d79722fddbc9",
+      "name": "ProjectsPhases",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4fae3f53-791b-4cdb-bcf2-23aa6a4dec93",
+          "name": "Gets all phases on the given project",
+          "request": {
+            "name": "Gets all phases on the given project",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>Project: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "projects",
+                ":projectId",
+                "phases"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "projectId",
+                  "description": "(Required) The Project ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "91aeef6c-51d0-4cee-8c2a-1f87affdd399",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "phases"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 1234,\n    \"name\": \"Pre-Construction\",\n    \"startDate\": \"2009-01-19T03:20:46.178Z\",\n    \"endDate\": \"2008-05-10T16:48:33.629Z\",\n    \"lastModifiedOn\": \"2021-05-27T10:58:23.530Z\"\n  },\n  {\n    \"id\": 1234,\n    \"name\": \"Pre-Construction\",\n    \"startDate\": \"2019-01-16T01:44:54.879Z\",\n    \"endDate\": \"1973-06-10T13:14:50.237Z\",\n    \"lastModifiedOn\": \"2021-05-27T10:58:23.530Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a515a27d-df3d-4674-9cfb-be5f70fd3ba8",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "phases"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d7bede1e-5658-44b9-b117-6d0b5325efbe",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "phases"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fd4d9f16-6d09-4a4b-9516-0d0ddba1be2a",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "phases"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1feac1e9-6c6b-4240-81d3-d30b1c097418",
+          "name": "Adds a phase to the given project",
+          "request": {
+            "name": "Adds a phase to the given project",
+            "description": {
+              "content": "You must specify \"id\", \"startDate\" and \"endDate\" of any phase for this endpoint.<br/><strong>Permissions</strong><br/>Project: Write",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "projects",
+                ":projectId",
+                "phases"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "projectId",
+                  "description": "(Required) The Project ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<long>\",\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a9d7fb72-b85f-434d-898f-b56a11e3ce5c",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "phases"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": 1234,\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1234,\n  \"name\": \"Pre-Construction\",\n  \"startDate\": \"1992-11-21T17:46:47.388Z\",\n  \"endDate\": \"1980-11-29T14:25:34.661Z\",\n  \"lastModifiedOn\": \"2021-05-27T10:58:23.530Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "82d72d40-d5f7-4258-a11e-2cf913b27fee",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "phases"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": 1234,\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "51b4f94e-f6de-4258-99b7-461d41c8dbd7",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "phases"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": 1234,\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "daf851b6-5e0a-44a5-a7f8-aa98c62526c9",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "phases"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": 1234,\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a08c3b5f-6637-415a-9157-aa76357516be",
+              "name": "Conflict - Phase already exists on the project",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "phases"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": 1234,\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1096939b-0f58-40e6-bd66-56b8856340fc",
+              "name": "Unprocessable Entity - Phase start or end dates outside of project start or end date",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "phases"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": 1234,\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fe38d0b5-656b-422f-9282-814d1d156fde",
+          "name": "Deletes phases from the given project",
+          "request": {
+            "name": "Deletes phases from the given project",
+            "description": {},
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "projects",
+                ":projectId",
+                "phases"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "projectId",
+                  "description": "(Required) The Project ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  \"<long>\"\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c0b5790e-b452-440b-ae6d-d51155c4d7da",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "phases"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<long>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bf876a69-c9aa-414f-879e-5eec862a8360",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "phases"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<long>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "583ef4bb-506f-4b48-9802-e1b4bb284159",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "phases"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<long>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "06718ec9-344c-4a95-96ce-9f65d6c802df",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "phases"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<long>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4d05fa2d-a689-4409-bc93-105046ea92d8",
+          "name": "Adds phases to the given project",
+          "request": {
+            "name": "Adds phases to the given project",
+            "description": {
+              "content": "You must specify \"id\", \"startDate\" and \"endDate\" of any phase for this endpoint.<br/><strong>Permissions</strong><br/>Project: Write",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "projects",
+                ":projectId",
+                "phases",
+                "bulk"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "projectId",
+                  "description": "(Required) The Project ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"id\": \"<long>\",\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8ddb396b-a83a-4498-ac20-05d3044fe215",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "phases",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": 1234,\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 1234,\n    \"name\": \"Pre-Construction\",\n    \"startDate\": \"2009-01-19T03:20:46.178Z\",\n    \"endDate\": \"2008-05-10T16:48:33.629Z\",\n    \"lastModifiedOn\": \"2021-05-27T10:58:23.530Z\"\n  },\n  {\n    \"id\": 1234,\n    \"name\": \"Pre-Construction\",\n    \"startDate\": \"2019-01-16T01:44:54.879Z\",\n    \"endDate\": \"1973-06-10T13:14:50.237Z\",\n    \"lastModifiedOn\": \"2021-05-27T10:58:23.530Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4f6fd3fe-1e85-4ab2-a4d1-d1c1b5c4003a",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "phases",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": 1234,\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d116a7fd-fd05-44f3-b63d-7fba814cad32",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "phases",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": 1234,\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c3108e72-fc4b-4898-8e58-7f1cb55c9f11",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "phases",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": 1234,\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "31491f41-bc73-4176-907a-c2ac0613c308",
+              "name": "Conflict - Phase already exists on the project",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "phases",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": 1234,\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "241c95fd-f977-4c10-be02-bb20aa710ef6",
+              "name": "Unprocessable Entity - Phase start or end dates outside of project start or end date",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "phases",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": 1234,\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3287cae6-aeaf-4d12-9cab-09938d6195d9",
+          "name": "Updates multiple phases on the given project",
+          "request": {
+            "name": "Updates multiple phases on the given project",
+            "description": {
+              "content": "This endpoint will only update the fields that are present in the request.\n\nYou must specify \"id\", \"startDate\" and/or \"endDate\" of the phases for this endpoint.\n\n            \nIf the <strong>\"shiftDates\"</strong> property is true and you specify a changed phase start or end date in this request,\nthen the phase's start and end dates will be adjusted by the same amount.\nIf this property is set to true, then you must only send EITHER startDate OR endDate - only startDate is considered when both dates are set.\n<br/><strong>Permissions</strong><br/>Project: Write",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "projects",
+                ":projectId",
+                "phases",
+                "bulk"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "projectId",
+                  "description": "(Required) The Project ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"id\": \"<long>\",\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\",\n    \"shiftDates\": \"<boolean>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "56b6d137-4233-4391-8fbd-f87a728df553",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "phases",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": 1234,\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\",\n    \"shiftDates\": \"<boolean>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 1234,\n    \"name\": \"Pre-Construction\",\n    \"startDate\": \"2009-01-19T03:20:46.178Z\",\n    \"endDate\": \"2008-05-10T16:48:33.629Z\",\n    \"lastModifiedOn\": \"2021-05-27T10:58:23.530Z\"\n  },\n  {\n    \"id\": 1234,\n    \"name\": \"Pre-Construction\",\n    \"startDate\": \"2019-01-16T01:44:54.879Z\",\n    \"endDate\": \"1973-06-10T13:14:50.237Z\",\n    \"lastModifiedOn\": \"2021-05-27T10:58:23.530Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f8328f66-1832-4453-be67-b286d83dd130",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "phases",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": 1234,\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\",\n    \"shiftDates\": \"<boolean>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e926e9cf-66f3-40c9-8ca7-3187990aa0bd",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "phases",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": 1234,\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\",\n    \"shiftDates\": \"<boolean>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0841069c-0699-4f4f-8508-d8028f0ebcf2",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "phases",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": 1234,\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\",\n    \"shiftDates\": \"<boolean>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2e48a72f-0cbb-4310-952e-5e04aa6b9947",
+              "name": "Unprocessable Entity - Phase start or end dates outside of project start or end date",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "phases",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": 1234,\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\",\n    \"shiftDates\": \"<boolean>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6add0449-cc0f-4258-8cfb-3cebabac4c77",
+          "name": "Updates a phase on the given project",
+          "request": {
+            "name": "Updates a phase on the given project",
+            "description": {
+              "content": "This endpoint will only update the fields that are present in the request.\n\nYou must specify \"startDate\" and/or \"endDate\" for this endpoint.\n\n            \nIf the <strong>\"shiftDates\"</strong> property is true and you specify a changed phase start or end date in this request,\nthen the phase's start and end dates will be adjusted by the same amount.\n\nIf this property is set to true, then you must only send EITHER startDate OR endDate - only startDate is considered when both dates are set.\n<br/><strong>Permissions</strong><br/>Project: Write",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "projects",
+                ":projectId",
+                "phases",
+                ":phaseId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "projectId",
+                  "description": "(Required) The Project ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "phaseId",
+                  "description": "(Required) The Phase ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\",\n  \"shiftDates\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e8ca1df6-d577-4ae1-9c14-7e9017859506",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "phases",
+                    ":phaseId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "phaseId",
+                      "description": "(Required) The Phase ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\",\n  \"shiftDates\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1234,\n  \"name\": \"Pre-Construction\",\n  \"startDate\": \"1992-11-21T17:46:47.388Z\",\n  \"endDate\": \"1980-11-29T14:25:34.661Z\",\n  \"lastModifiedOn\": \"2021-05-27T10:58:23.530Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "26139cca-c05f-4b92-aa42-384dd31c2296",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "phases",
+                    ":phaseId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "phaseId",
+                      "description": "(Required) The Phase ID"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\",\n  \"shiftDates\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "aab54ac6-51d6-4b3a-aaf8-4843feb3f826",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "phases",
+                    ":phaseId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "phaseId",
+                      "description": "(Required) The Phase ID"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\",\n  \"shiftDates\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "24ebd8a4-6a96-4f12-9d59-a374929cfe70",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "phases",
+                    ":phaseId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "phaseId",
+                      "description": "(Required) The Phase ID"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\",\n  \"shiftDates\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "78b6c54d-e1b1-44f2-a66b-5bdcf8f22fb0",
+              "name": "Unprocessable Entity - Phase start or end dates outside of project start or end date",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "phases",
+                    ":phaseId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "phaseId",
+                      "description": "(Required) The Phase ID"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\",\n  \"shiftDates\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e970db8e-3b2d-4706-895d-6a972b33edc4",
+          "name": "Deletes a phase from the given project",
+          "request": {
+            "name": "Deletes a phase from the given project",
+            "description": {},
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "projects",
+                ":projectId",
+                "phases",
+                ":phaseId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "projectId",
+                  "description": "(Required) The Project ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "phaseId",
+                  "description": "(Required) The Phase ID"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "abf33a5d-b3a5-4b46-9058-0121ed22d41b",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "phases",
+                    ":phaseId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "phaseId",
+                      "description": "(Required) The Phase ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6dcde5e9-bb89-43b8-9619-632d079a2ebd",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "phases",
+                    ":phaseId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "phaseId",
+                      "description": "(Required) The Phase ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c6a51dd4-089a-4385-964d-f931d0423c94",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "phases",
+                    ":phaseId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "phaseId",
+                      "description": "(Required) The Phase ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "63916885-7de8-4376-8f38-176ff09c781a",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "phases",
+                    ":phaseId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "phaseId",
+                      "description": "(Required) The Phase ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://bench.gobridgit.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "info": {
+    "_postman_id": "2cbb4664-8d5f-43b2-bb57-22fa600afa25",
+    "name": "Bench AccountActivities ProjectsPhases API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "<h2>Versioning</h2>\n<p>\n    The API is currently at version <code>1.0</code>. All API endpoints (other than\n    authentication) require you to specify the API version as part of the path.\n</p>\n\n<h2>URL Paths</h2>\n<p>\n    Authentication requests should be made to <code>/auth/signin</code>,\n    as documented below. All other API requests should be made to\n    sub-paths of <code>/rp/api/1.0/...</code>.\n</p>\n\n<h2>Authentication</h2>\n<p>\n    API requests are authenticated using an OAuth Bearer token.\n    You can get a token by authenticating your user by sending a\n    POST request to <code>/auth/signin</code>, with \"username and \"password\"\n    parameters form-encoded in the body of the request.\n\n    POST /auth/signin HTTP/1.1\n    Content-Type: application/x-www-form-urlencoded\n\n    username=user@example.com&password=some-secret-password\n</p>\n<p>\n    The response will be a JSON object including both\n    <b>\"access_token\"</b> and <b>\"refresh_token\"</b> property.\n    All other requests against the Bench API should include an\n    authorization header: <code>Authorization: Bearer xxxYYYzzz</code>,\n    where <b>xxxYYYzzz</b> is the value of <b>\"access_token\"</b> in the response.\n    <br><br>\n    For example:\n\n    $ curl https://bench.gobridgit.com/auth/signin -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'username=someone@example.com' --data-urlencode 'password=[...snip...]'\n    {\n        \"access_token\": \"...snip...\",\n        \"token_type\": \"Bearer\",\n        \"refresh_token\": \"...snip...\"\n        \"expiry\": \"2020-01-01T00:00:00.413440849Z\"\n    }\n\n</p>\n\n<p>\n    The refresh token can be used to generate new session by request with <code>/auth/token</code> endpoint:\n\n    POST /auth/token HTTP/1.1\n    Content-Type: application/x-www-form-urlencoded\n\n    grant_type=refresh_token&refresh_token=tGzv3JOkF0XG5Qx2TlKWIA\n</p>\n<p>\n    Note that once the refresh token is used, the previous access and refresh token is no longer valid.\n    <br><br>\n    For example:\n\n    $ curl https://bench.gobridgit.com/auth/token -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'grant_type=refresh_token' --data-urlencode 'refresh_token=[...snip...]'\n    {\n        \"access_token\": \"...snip...\",\n        \"token_type\": \"Bearer\",\n        \"refresh_token\": \"...snip...\"\n        \"expiry\": \"2020-01-01T00:00:00.413440849Z\"\n    }\n</p>\n\n<h2>Pagination</h2>\n<p>\n    Several of the API endpoints are paginated. These are denoted by\n    including the <code>offset</code> (zero-based offset) and <code>limit</code> query\n    parameters. For example, to request the <code>10</code> items,\n    set the <code>offset=0</code> to <code>limit=10</code>.\n    <br>\n    NOTE: the result set contains items with index of 0-9\n    <br>\n    To request the next 10 items (starting at index 10),\n    set the <code>offset=10</code> to <code>limit=10</code>\n</p>\n<p>\n    Responses to paginated API endpoints return a JSON array of objects.\n    If there are results beyond the page you have requested, the server\n    will set a <code>query-has-more: true</code> header in the response.\n</p>\n\n<h2>Request Encoding</h2>\n<p>\n    <code>GET</code> and <code>DELETE</code> requests should have parameters encoded as URL query\n    parameters. Boolean values should be encoded as <code>true</code> and\n    <code>false</code>, not as <code>1</code> and <code>0</code>.\n</p>\n\n<h2>Errors</h2>\n<p>\n    Errors are returned for some response codes such as <code>400 Bad Request</code> in the\n    following format:\n\n    {\n      \"errors\": [\n        {\n          \"errorType\": \"ValidationError\",\n          \"description\": \"The value of Name must be a string with a minimum length of 1 and a maximum length of 8 and not whitespace.\",\n          \"field\": \"Name\",\n          \"values\": [\n            null\n          ]\n        }\n      ],\n      \"title\": \"One or more validation errors occurred.\",\n      \"status\": 400,\n      \"instance\": \"api/v1/accounts/0/persons\",\n      \"requestUid\": \"123e4567-e89b-12d3-a456-426614174000\"\n    }\n</p>\n",
+      "type": "text/plain"
+    }
+  }
+}

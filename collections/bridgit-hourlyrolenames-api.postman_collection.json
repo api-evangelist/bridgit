@@ -1,0 +1,808 @@
+{
+  "item": [
+    {
+      "id": "f9041d89-26f7-4efa-9fde-a9078ab8b880",
+      "name": "HourlyRoleNames",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "553a89f4-83e7-48c5-8e7c-3913202a4cbb",
+          "name": "Get hourly role names in the account",
+          "request": {
+            "name": "Get hourly role names in the account",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>Account: Read<br/>Finance: Read<br/>HourlyRole: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":id",
+                "hourly-role-names"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The account ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "da63384c-abba-42ab-9cf4-3e058afa9b8a",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":id",
+                    "hourly-role-names"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 1,\n    \"name\": \"Project Engineer\",\n    \"type\": \"Salaried\",\n    \"hourlyCost\": 123.45,\n    \"inUse\": true,\n    \"projectIds\": [\n      1\n    ],\n    \"alphabetize\": false\n  },\n  {\n    \"id\": 1,\n    \"name\": \"Project Engineer\",\n    \"type\": \"Salaried\",\n    \"hourlyCost\": 123.45,\n    \"inUse\": false,\n    \"projectIds\": [\n      1\n    ],\n    \"alphabetize\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f1284c3d-7a81-4ca3-810e-d33bad045988",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":id",
+                    "hourly-role-names"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "82165c04-593f-4ff6-ba39-752e7ee4a685",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":id",
+                    "hourly-role-names"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3213596e-09ec-4ae0-892a-8b4ad0493951",
+              "name": "Forbidden - User doesn't have permissions on this resource, or the project couldn't be found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":id",
+                    "hourly-role-names"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9be6bb72-52f4-464b-ba14-f371da074870",
+          "name": "Add/Update hourly role name(s) in the account",
+          "request": {
+            "name": "Add/Update hourly role name(s) in the account",
+            "description": {
+              "content": "If <strong>\"alphabetize\"</strong> parameter flag is true, the role names should be alphabetically ordered by caller, otherwise in the order of the request.\n\nTo add or update role names you must have permissions to manage account properties.<br/><strong>Permissions</strong><br/>Account: Write<br/>HourlyRole: Write",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":id",
+                "hourly-role-names"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "alphabetize",
+                  "value": "false",
+                  "description": "Optional flag to set whether role names should be alphabetically ordered by the caller"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The account ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"hourlyCost\": \"<double>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8e247af1-6e81-4882-9f1d-dcccea123916",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":id",
+                    "hourly-role-names"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "alphabetize",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": 1,\n    \"name\": \"Project Engineer\",\n    \"hourlyCost\": 123.45\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 1,\n    \"name\": \"Project Engineer\",\n    \"type\": \"Salaried\",\n    \"hourlyCost\": 123.45,\n    \"inUse\": false,\n    \"projectIds\": [\n      1\n    ],\n    \"alphabetize\": false\n  },\n  {\n    \"id\": 1,\n    \"name\": \"Project Engineer\",\n    \"type\": \"Salaried\",\n    \"hourlyCost\": 123.45,\n    \"inUse\": false,\n    \"projectIds\": [\n      1\n    ],\n    \"alphabetize\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d9936b37-be1f-434d-bf86-c15c1143b95c",
+              "name": "Bad Request - Request has missing or invalid values",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":id",
+                    "hourly-role-names"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "alphabetize",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The account ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": 1,\n    \"name\": \"Project Engineer\",\n    \"hourlyCost\": 123.45\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cc1939c8-bd31-4cea-b644-9fd90c9a6073",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":id",
+                    "hourly-role-names"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "alphabetize",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The account ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": 1,\n    \"name\": \"Project Engineer\",\n    \"hourlyCost\": 123.45\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e2bfb9cf-d4b6-4c28-80bb-3afa7cd190b1",
+              "name": "Forbidden - User doesn't have permissions on this resource, or the project couldn't be found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":id",
+                    "hourly-role-names"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "alphabetize",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The account ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": 1,\n    \"name\": \"Project Engineer\",\n    \"hourlyCost\": 123.45\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "37aeaf5c-aa19-4c0f-9bce-bd3b1af8999d",
+          "name": "Remove hourly role name(s) by ID in the account",
+          "request": {
+            "name": "Remove hourly role name(s) by ID in the account",
+            "description": {
+              "content": "To remove hourly role names you must have permissions to manage account properties.\n<strong>NOTE:</strong> The account must contain at least 1 role name.<br/><strong>Permissions</strong><br/>Account: Write<br/>HourlyRole: Write",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":id",
+                "hourly-role-names"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The account ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  \"<long>\"\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fa294551-f3e5-40a9-9b01-aab5786be897",
+              "name": "No Content - Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":id",
+                    "hourly-role-names"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The account ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<long>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b412aa32-7c75-40b7-9822-10ee5bd888c8",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":id",
+                    "hourly-role-names"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The account ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<long>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "00142a33-3285-4929-995d-7ae10fd0921c",
+              "name": "Forbidden - User doesn't have permissions on this resource, or the project couldn't be found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":id",
+                    "hourly-role-names"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The account ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<long>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c15dfda7-2c68-471a-984e-94a62015d7d0",
+              "name": "Validation failed - if the role name is being used by any role, the name cannot be removed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":id",
+                    "hourly-role-names"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The account ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<long>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://bench.gobridgit.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "info": {
+    "_postman_id": "80be6a67-47f0-4b90-9511-ebd8d1840634",
+    "name": "Bench AccountActivities HourlyRoleNames API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "<h2>Versioning</h2>\n<p>\n    The API is currently at version <code>1.0</code>. All API endpoints (other than\n    authentication) require you to specify the API version as part of the path.\n</p>\n\n<h2>URL Paths</h2>\n<p>\n    Authentication requests should be made to <code>/auth/signin</code>,\n    as documented below. All other API requests should be made to\n    sub-paths of <code>/rp/api/1.0/...</code>.\n</p>\n\n<h2>Authentication</h2>\n<p>\n    API requests are authenticated using an OAuth Bearer token.\n    You can get a token by authenticating your user by sending a\n    POST request to <code>/auth/signin</code>, with \"username and \"password\"\n    parameters form-encoded in the body of the request.\n\n    POST /auth/signin HTTP/1.1\n    Content-Type: application/x-www-form-urlencoded\n\n    username=user@example.com&password=some-secret-password\n</p>\n<p>\n    The response will be a JSON object including both\n    <b>\"access_token\"</b> and <b>\"refresh_token\"</b> property.\n    All other requests against the Bench API should include an\n    authorization header: <code>Authorization: Bearer xxxYYYzzz</code>,\n    where <b>xxxYYYzzz</b> is the value of <b>\"access_token\"</b> in the response.\n    <br><br>\n    For example:\n\n    $ curl https://bench.gobridgit.com/auth/signin -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'username=someone@example.com' --data-urlencode 'password=[...snip...]'\n    {\n        \"access_token\": \"...snip...\",\n        \"token_type\": \"Bearer\",\n        \"refresh_token\": \"...snip...\"\n        \"expiry\": \"2020-01-01T00:00:00.413440849Z\"\n    }\n\n</p>\n\n<p>\n    The refresh token can be used to generate new session by request with <code>/auth/token</code> endpoint:\n\n    POST /auth/token HTTP/1.1\n    Content-Type: application/x-www-form-urlencoded\n\n    grant_type=refresh_token&refresh_token=tGzv3JOkF0XG5Qx2TlKWIA\n</p>\n<p>\n    Note that once the refresh token is used, the previous access and refresh token is no longer valid.\n    <br><br>\n    For example:\n\n    $ curl https://bench.gobridgit.com/auth/token -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'grant_type=refresh_token' --data-urlencode 'refresh_token=[...snip...]'\n    {\n        \"access_token\": \"...snip...\",\n        \"token_type\": \"Bearer\",\n        \"refresh_token\": \"...snip...\"\n        \"expiry\": \"2020-01-01T00:00:00.413440849Z\"\n    }\n</p>\n\n<h2>Pagination</h2>\n<p>\n    Several of the API endpoints are paginated. These are denoted by\n    including the <code>offset</code> (zero-based offset) and <code>limit</code> query\n    parameters. For example, to request the <code>10</code> items,\n    set the <code>offset=0</code> to <code>limit=10</code>.\n    <br>\n    NOTE: the result set contains items with index of 0-9\n    <br>\n    To request the next 10 items (starting at index 10),\n    set the <code>offset=10</code> to <code>limit=10</code>\n</p>\n<p>\n    Responses to paginated API endpoints return a JSON array of objects.\n    If there are results beyond the page you have requested, the server\n    will set a <code>query-has-more: true</code> header in the response.\n</p>\n\n<h2>Request Encoding</h2>\n<p>\n    <code>GET</code> and <code>DELETE</code> requests should have parameters encoded as URL query\n    parameters. Boolean values should be encoded as <code>true</code> and\n    <code>false</code>, not as <code>1</code> and <code>0</code>.\n</p>\n\n<h2>Errors</h2>\n<p>\n    Errors are returned for some response codes such as <code>400 Bad Request</code> in the\n    following format:\n\n    {\n      \"errors\": [\n        {\n          \"errorType\": \"ValidationError\",\n          \"description\": \"The value of Name must be a string with a minimum length of 1 and a maximum length of 8 and not whitespace.\",\n          \"field\": \"Name\",\n          \"values\": [\n            null\n          ]\n        }\n      ],\n      \"title\": \"One or more validation errors occurred.\",\n      \"status\": 400,\n      \"instance\": \"api/v1/accounts/0/persons\",\n      \"requestUid\": \"123e4567-e89b-12d3-a456-426614174000\"\n    }\n</p>\n",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,4714 @@
+{
+  "item": [
+    {
+      "id": "05c30a09-ef36-4a2c-89b7-9f737bf47f0b",
+      "name": "Persons",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "57ad0da0-73d8-4f2b-9bf0-21bbf887df57",
+          "name": "Gets all people in the given account.",
+          "request": {
+            "name": "Gets all people in the given account.",
+            "description": {
+              "content": "<strong>NOTE:</strong> If there are more persons in the account than were returned, there will be a \"query-has-more\" header that will be set to true.<br/><strong>Permissions</strong><br/>HourlyProfile: Read<br/>Person: Read<br/>Finance: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "Persons"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "relativeDate",
+                  "value": "<dateTime>",
+                  "description": "Optional paramater used to calculate date based properties. If not provided, it is set to today's date in UTC."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Offset for pagination"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "1000",
+                  "description": "Maximum number of results in this page"
+                },
+                {
+                  "disabled": false,
+                  "key": "email",
+                  "value": "<string>",
+                  "description": "Filter user with email"
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "Active",
+                  "description": "If specified and not 'Unknown', only include people matching the given state. The available values are defined as follows:\n- Unknown: By default, includes only Active people.\n- Active: include only Active people\n- Deactivated: include only Deactivated people\n- All: include all people, regardless of state"
+                },
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<long>",
+                  "description": "Optional paramater of comma delimited ids for filtering results based on the person IDs provided"
+                },
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<long>",
+                  "description": "Optional paramater of comma delimited ids for filtering results based on the person IDs provided"
+                },
+                {
+                  "disabled": false,
+                  "key": "uniqueId",
+                  "value": "<string>",
+                  "description": "Optional paramater of unique identifier for filtering results based on the person unique identifier provided"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8c5ae09b-d73f-41a5-96cd-4cff1eb2998f",
+              "name": "Success: List of persons in the account",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "Active"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "uniqueId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 2393,\n    \"email\": \"string\",\n    \"externalId\": \"string\",\n    \"uniqueId\": \"string\",\n    \"name\": \"string\",\n    \"type\": \"Hourly\",\n    \"title\": \"string\",\n    \"photoUrl\": \"string\",\n    \"state\": \"All\",\n    \"hasConflict\": true,\n    \"nextConflict\": \"1972-06-25T21:55:58.536Z\",\n    \"lastModifiedOn\": \"1993-01-07T18:41:40.838Z\",\n    \"hourlyCostRate\": 3013.9247337714546,\n    \"employmentDates\": {\n      \"startDate\": \"1969-08-22T09:23:29.946Z\",\n      \"endDate\": \"1959-12-08T22:54:01.442Z\"\n    },\n    \"workDays\": [\n      2,\n      6\n    ],\n    \"groupings\": [\n      3772,\n      437\n    ],\n    \"industryStartDate\": \"1998-01-10T05:15:02.802Z\",\n    \"deactivationReason\": \"string\",\n    \"deactivationNotes\": \"string\",\n    \"wouldRehire\": false\n  },\n  {\n    \"id\": 6615,\n    \"email\": \"string\",\n    \"externalId\": \"string\",\n    \"uniqueId\": \"string\",\n    \"name\": \"string\",\n    \"type\": \"Salaried\",\n    \"title\": \"string\",\n    \"photoUrl\": \"string\",\n    \"state\": \"Deactivated\",\n    \"hasConflict\": true,\n    \"nextConflict\": \"1959-08-01T13:36:55.828Z\",\n    \"lastModifiedOn\": \"2019-11-17T23:32:18.055Z\",\n    \"hourlyCostRate\": 676.2527811378238,\n    \"employmentDates\": {\n      \"startDate\": \"1972-09-27T22:58:14.136Z\",\n      \"endDate\": \"1990-03-06T13:08:12.269Z\"\n    },\n    \"workDays\": [\n      6,\n      5\n    ],\n    \"groupings\": [\n      9593,\n      2127\n    ],\n    \"industryStartDate\": \"2023-12-14T09:33:39.467Z\",\n    \"deactivationReason\": \"string\",\n    \"deactivationNotes\": \"string\",\n    \"wouldRehire\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ae5592e9-af70-4a37-bd5b-cda8a3b4bf4b",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "Active"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "uniqueId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "db44dcd2-8283-4afb-a783-6ffd360d53c6",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "Active"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "uniqueId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "928fcfc1-a525-4316-93c8-31c939e780d4",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "Active"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "uniqueId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "68dd00a8-7582-4594-b518-5f82304a74cd",
+          "name": "Add a person to the given account",
+          "request": {
+            "name": "Add a person to the given account",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>HourlyProfile: Write<br/>Person: Write<br/>Private: Read<br/>Finance: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "Persons"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<email>\",\n  \"uniqueId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"photoUrl\": \"<uri>\",\n  \"employmentDates\": {\n    \"key_0\": \"<dateTime>\",\n    \"key_1\": \"<dateTime>\"\n  },\n  \"workDays\": [\n    1,\n    2,\n    3,\n    4,\n    5\n  ],\n  \"fields\": [\n    {\n      \"fieldId\": \"<long>\",\n      \"values\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"fieldId\": \"<long>\",\n      \"values\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"groupings\": [\n    \"<long>\"\n  ],\n  \"industryStartDate\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f9602f33-3d46-4773-86f2-3e6073b8158b",
+              "name": "Success: Person model of the newly added person",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"jayne@example.com\",\n  \"uniqueId\": \"jayne@example.com\",\n  \"name\": \"Jayne Peters\",\n  \"type\": \"Salaried\",\n  \"title\": \"Project Engineer\",\n  \"photoUrl\": \"https://www.example.com/jayne.png\",\n  \"employmentDates\": {\n    \"StartDate\": \"2020-01-01T00:00:00\",\n    \"EndDate\": \"2020-12-31T00:00:00\"\n  },\n  \"workDays\": [\n    1,\n    2,\n    3,\n    4,\n    5\n  ],\n  \"fields\": [\n    {\n      \"fieldId\": 1394,\n      \"values\": [\n        \"5195555555\"\n      ]\n    }\n  ],\n  \"groupings\": null,\n  \"industryStartDate\": null\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8631,\n  \"email\": \"string\",\n  \"externalId\": \"string\",\n  \"uniqueId\": \"string\",\n  \"name\": \"string\",\n  \"type\": \"Hourly\",\n  \"title\": \"string\",\n  \"photoUrl\": \"string\",\n  \"state\": \"Active\",\n  \"hasConflict\": false,\n  \"nextConflict\": \"1987-02-17T19:53:47.653Z\",\n  \"lastModifiedOn\": \"1970-03-23T20:04:10.685Z\",\n  \"hourlyCostRate\": 1394.237312949942,\n  \"employmentDates\": {\n    \"startDate\": \"1947-09-11T02:36:40.830Z\",\n    \"endDate\": \"2007-08-30T09:27:36.781Z\"\n  },\n  \"workDays\": [\n    6,\n    2\n  ],\n  \"groupings\": [\n    2202,\n    5805\n  ],\n  \"industryStartDate\": \"1993-05-01T12:01:59.866Z\",\n  \"deactivationReason\": \"string\",\n  \"deactivationNotes\": \"string\",\n  \"wouldRehire\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c3202052-81ee-4ce7-89f6-17606496892c",
+              "name": "Bad Request - Request has missing or invalid values",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"jayne@example.com\",\n  \"uniqueId\": \"jayne@example.com\",\n  \"name\": \"Jayne Peters\",\n  \"type\": \"Salaried\",\n  \"title\": \"Project Engineer\",\n  \"photoUrl\": \"https://www.example.com/jayne.png\",\n  \"employmentDates\": {\n    \"StartDate\": \"2020-01-01T00:00:00\",\n    \"EndDate\": \"2020-12-31T00:00:00\"\n  },\n  \"workDays\": [\n    1,\n    2,\n    3,\n    4,\n    5\n  ],\n  \"fields\": [\n    {\n      \"fieldId\": 1394,\n      \"values\": [\n        \"5195555555\"\n      ]\n    }\n  ],\n  \"groupings\": null,\n  \"industryStartDate\": null\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ac8e98d8-2d33-4482-a52f-538c9c39ef70",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"jayne@example.com\",\n  \"uniqueId\": \"jayne@example.com\",\n  \"name\": \"Jayne Peters\",\n  \"type\": \"Salaried\",\n  \"title\": \"Project Engineer\",\n  \"photoUrl\": \"https://www.example.com/jayne.png\",\n  \"employmentDates\": {\n    \"StartDate\": \"2020-01-01T00:00:00\",\n    \"EndDate\": \"2020-12-31T00:00:00\"\n  },\n  \"workDays\": [\n    1,\n    2,\n    3,\n    4,\n    5\n  ],\n  \"fields\": [\n    {\n      \"fieldId\": 1394,\n      \"values\": [\n        \"5195555555\"\n      ]\n    }\n  ],\n  \"groupings\": null,\n  \"industryStartDate\": null\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "aecaa42d-11cb-4f2c-ba48-78208d6efe3e",
+              "name": "Forbidden - User doesn't have permissions on this resource, or the account couldn't be found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"jayne@example.com\",\n  \"uniqueId\": \"jayne@example.com\",\n  \"name\": \"Jayne Peters\",\n  \"type\": \"Salaried\",\n  \"title\": \"Project Engineer\",\n  \"photoUrl\": \"https://www.example.com/jayne.png\",\n  \"employmentDates\": {\n    \"StartDate\": \"2020-01-01T00:00:00\",\n    \"EndDate\": \"2020-12-31T00:00:00\"\n  },\n  \"workDays\": [\n    1,\n    2,\n    3,\n    4,\n    5\n  ],\n  \"fields\": [\n    {\n      \"fieldId\": 1394,\n      \"values\": [\n        \"5195555555\"\n      ]\n    }\n  ],\n  \"groupings\": null,\n  \"industryStartDate\": null\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7e48a6c9-1cdd-4e31-8a71-fecf791d36d8",
+              "name": "Conflict - A person with the provided email already exists on the account",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"jayne@example.com\",\n  \"uniqueId\": \"jayne@example.com\",\n  \"name\": \"Jayne Peters\",\n  \"type\": \"Salaried\",\n  \"title\": \"Project Engineer\",\n  \"photoUrl\": \"https://www.example.com/jayne.png\",\n  \"employmentDates\": {\n    \"StartDate\": \"2020-01-01T00:00:00\",\n    \"EndDate\": \"2020-12-31T00:00:00\"\n  },\n  \"workDays\": [\n    1,\n    2,\n    3,\n    4,\n    5\n  ],\n  \"fields\": [\n    {\n      \"fieldId\": 1394,\n      \"values\": [\n        \"5195555555\"\n      ]\n    }\n  ],\n  \"groupings\": null,\n  \"industryStartDate\": null\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2a7ecbb7-ec63-4999-a08d-12a2dbdb92e1",
+              "name": "Unprocessable Entity - Validation failure",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"jayne@example.com\",\n  \"uniqueId\": \"jayne@example.com\",\n  \"name\": \"Jayne Peters\",\n  \"type\": \"Salaried\",\n  \"title\": \"Project Engineer\",\n  \"photoUrl\": \"https://www.example.com/jayne.png\",\n  \"employmentDates\": {\n    \"StartDate\": \"2020-01-01T00:00:00\",\n    \"EndDate\": \"2020-12-31T00:00:00\"\n  },\n  \"workDays\": [\n    1,\n    2,\n    3,\n    4,\n    5\n  ],\n  \"fields\": [\n    {\n      \"fieldId\": 1394,\n      \"values\": [\n        \"5195555555\"\n      ]\n    }\n  ],\n  \"groupings\": null,\n  \"industryStartDate\": null\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dfa28fc1-d335-4340-ae0e-fb6870931516",
+          "name": "Gets the number of days until each person in this account is available and their availability ranges for the duration",
+          "request": {
+            "name": "Gets the number of days until each person in this account is available and their availability ranges for the duration",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>HourlyProfile: Read<br/>Person: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "Persons",
+                "availabilities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "relativeDate",
+                  "value": "<dateTime>",
+                  "description": "Optional paramater used to calculate date based properties. If not provided, it is set to today's date in UTC."
+                },
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<dateTime>",
+                  "description": "Start date to filter availabilities from (default today UTC)"
+                },
+                {
+                  "disabled": false,
+                  "key": "end",
+                  "value": "<dateTime>",
+                  "description": "End date to filter availabilities to (default 10 years from today UTC)"
+                },
+                {
+                  "disabled": false,
+                  "key": "boundRange",
+                  "value": "true",
+                  "description": "Setting this value to true will truncate the dates returned to the specified start and end date paramters"
+                },
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<long>",
+                  "description": "Optional paramater of comma delimited ids for filtering results based on the person IDs provided"
+                },
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<long>",
+                  "description": "Optional paramater of comma delimited ids for filtering results based on the person IDs provided"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeUnavailable",
+                  "value": "false",
+                  "description": "If this is set to true it will return the availabilities and next available dates even if a person doesn't have a next availability.\nIf the person does not have a \"nextAvailableDate\", then the \"availableInDays\" property will be -1"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ee5c2334-e3ea-4d30-8ff3-68a52705bf1b",
+              "name": "Success: List of next availabilities",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    "availabilities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "boundRange",
+                      "value": "true"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "includeUnavailable",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"personId\": 8673,\n    \"nextAvailableDate\": \"2015-11-01T10:46:35.886Z\",\n    \"availableInDays\": 82,\n    \"availabilities\": [\n      {\n        \"startDate\": \"2001-12-23T15:51:58.001Z\",\n        \"endDate\": \"1993-08-27T16:05:31.959Z\",\n        \"availablePercent\": 100,\n        \"reason\": \"Unavailability\"\n      },\n      {\n        \"startDate\": \"2020-03-25T01:44:01.663Z\",\n        \"endDate\": \"1961-09-09T04:23:24.884Z\",\n        \"availablePercent\": 100,\n        \"reason\": \"Unavailability\"\n      }\n    ]\n  },\n  {\n    \"personId\": 8673,\n    \"nextAvailableDate\": \"1948-05-02T04:19:03.169Z\",\n    \"availableInDays\": 82,\n    \"availabilities\": [\n      {\n        \"startDate\": \"1969-09-21T20:45:38.152Z\",\n        \"endDate\": \"1949-07-14T01:38:53.157Z\",\n        \"availablePercent\": 100,\n        \"reason\": \"PostEmployment\"\n      },\n      {\n        \"startDate\": \"1952-05-13T19:04:01.415Z\",\n        \"endDate\": \"1946-12-15T16:15:43.418Z\",\n        \"availablePercent\": 100,\n        \"reason\": \"Available\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e95e30a7-e899-4072-9a34-6b5c32d0c723",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    "availabilities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "boundRange",
+                      "value": "true"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "includeUnavailable",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b50c57c1-07c5-4368-9dc0-4ca1bef72df7",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    "availabilities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "boundRange",
+                      "value": "true"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "includeUnavailable",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "85847ebf-d373-4a6e-adba-557431552b02",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    "availabilities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "boundRange",
+                      "value": "true"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "includeUnavailable",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2aceba4c-94e8-4650-a244-d3d2ccc01e77",
+          "name": "Updates a person to set and externalId that can be referenced by external systems.",
+          "request": {
+            "name": "Updates a person to set and externalId that can be referenced by external systems.",
+            "description": {},
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "Persons",
+                ":id",
+                "externalId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) The person ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"externalId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7eb4e43c-3008-4d68-8c82-0f682361fd17",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    ":id",
+                    "externalId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The person ID"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"externalId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a34a13bc-efbc-4206-b6f8-f69644237eb2",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    ":id",
+                    "externalId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The person ID"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"externalId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e9490b16-98bd-4864-92e8-06bfd34073aa",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    ":id",
+                    "externalId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The person ID"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"externalId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "767abe51-7902-4e95-964e-784181ec158b",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    ":id",
+                    "externalId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The person ID"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"externalId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3a55cffd-08ee-478d-bdd7-3634f183c610",
+          "name": "Gets all people in the given account filter by person ids.",
+          "request": {
+            "name": "Gets all people in the given account filter by person ids.",
+            "description": {
+              "content": "<strong>NOTE:</strong> If there are more persons in the account than were returned, there will be a \"query-has-more\" header that will be set to true.<br/><strong>Permissions</strong><br/>HourlyProfile: Read<br/>Person: Read<br/>Finance: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "Persons",
+                "_filter"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"offset\": \"<integer>\",\n  \"limit\": \"<integer>\",\n  \"predicates\": {\n    \"personIds\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"state\": \"<string>\",\n    \"email\": \"<string>\",\n    \"uniqueId\": \"<string>\",\n    \"relativeDate\": \"<dateTime>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "33a33cbf-86e3-4e57-b054-7656474f7842",
+              "name": "Success: List of persons in the account",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    "_filter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"offset\": \"<integer>\",\n  \"limit\": \"<integer>\",\n  \"predicates\": {\n    \"personIds\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"state\": \"<string>\",\n    \"email\": \"<string>\",\n    \"uniqueId\": \"<string>\",\n    \"relativeDate\": \"<dateTime>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 6303,\n    \"email\": \"string\",\n    \"externalId\": \"string\",\n    \"uniqueId\": \"string\",\n    \"name\": \"string\",\n    \"type\": \"Salaried\",\n    \"title\": \"string\",\n    \"photoUrl\": \"string\",\n    \"state\": \"Deactivated\",\n    \"hasConflict\": false,\n    \"nextConflict\": \"2014-09-21T10:43:21.343Z\",\n    \"lastModifiedOn\": \"1965-08-14T19:56:25.792Z\",\n    \"hourlyCostRate\": 7894.263350179762,\n    \"employmentDates\": {\n      \"startDate\": \"1969-04-28T08:06:48.952Z\",\n      \"endDate\": \"1996-02-01T03:00:16.956Z\"\n    },\n    \"workDays\": [\n      1,\n      2\n    ],\n    \"groupings\": [\n      5802,\n      963\n    ],\n    \"industryStartDate\": \"1992-01-08T00:51:28.845Z\",\n    \"deactivationReason\": \"string\",\n    \"deactivationNotes\": \"string\",\n    \"wouldRehire\": false\n  },\n  {\n    \"id\": 1019,\n    \"email\": \"string\",\n    \"externalId\": \"string\",\n    \"uniqueId\": \"string\",\n    \"name\": \"string\",\n    \"type\": \"Salaried\",\n    \"title\": \"string\",\n    \"photoUrl\": \"string\",\n    \"state\": \"All\",\n    \"hasConflict\": false,\n    \"nextConflict\": \"1961-11-08T04:07:17.336Z\",\n    \"lastModifiedOn\": \"2002-08-11T22:57:48.436Z\",\n    \"hourlyCostRate\": 5805.281605625677,\n    \"employmentDates\": {\n      \"startDate\": \"2000-03-31T13:44:56.276Z\",\n      \"endDate\": \"1972-03-17T19:48:21.750Z\"\n    },\n    \"workDays\": [\n      6,\n      6\n    ],\n    \"groupings\": [\n      9580,\n      6760\n    ],\n    \"industryStartDate\": \"1965-08-13T12:07:10.906Z\",\n    \"deactivationReason\": \"string\",\n    \"deactivationNotes\": \"string\",\n    \"wouldRehire\": false\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9b332c60-0796-4f05-b070-5de05bea8332",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    "_filter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"offset\": \"<integer>\",\n  \"limit\": \"<integer>\",\n  \"predicates\": {\n    \"personIds\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"state\": \"<string>\",\n    \"email\": \"<string>\",\n    \"uniqueId\": \"<string>\",\n    \"relativeDate\": \"<dateTime>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1a5748d5-c5f2-4eb9-9461-c30cddc85162",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    "_filter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"offset\": \"<integer>\",\n  \"limit\": \"<integer>\",\n  \"predicates\": {\n    \"personIds\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"state\": \"<string>\",\n    \"email\": \"<string>\",\n    \"uniqueId\": \"<string>\",\n    \"relativeDate\": \"<dateTime>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a6f0b90f-e2c4-4bf8-a522-e9175f8b9e04",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    "_filter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"offset\": \"<integer>\",\n  \"limit\": \"<integer>\",\n  \"predicates\": {\n    \"personIds\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"state\": \"<string>\",\n    \"email\": \"<string>\",\n    \"uniqueId\": \"<string>\",\n    \"relativeDate\": \"<dateTime>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "40530c94-9544-479d-84f0-3d2f46b65ee2",
+          "name": "Update a person in the given account. Each of the fields in the request body is optional - only fields that are present in the request will be updated.",
+          "request": {
+            "name": "Update a person in the given account. Each of the fields in the request body is optional - only fields that are present in the request will be updated.",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>Person: Write<br/>HourlyProfile: Write<br/>Finance: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "Persons",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) The Person ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key_0\": {}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9fd1d16b-098a-4691-8ae8-033a0d717910",
+              "name": "Success: Person model of the updated person",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Person ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Email\": \"jayne@example.com\",\n  \"UniqueId\": \"This is a unique String Id\",\n  \"Name\": \"Jayne Peters\",\n  \"Title\": \"Project Engineer\",\n  \"EmploymentDates\": {\n    \"StartDate\": \"2020-01-01T00:00:00\",\n    \"EndDate\": \"2020-12-31T00:00:00\"\n  },\n  \"WorkDays\": [\n    1,\n    2,\n    3,\n    4,\n    5\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8631,\n  \"email\": \"string\",\n  \"externalId\": \"string\",\n  \"uniqueId\": \"string\",\n  \"name\": \"string\",\n  \"type\": \"Hourly\",\n  \"title\": \"string\",\n  \"photoUrl\": \"string\",\n  \"state\": \"Active\",\n  \"hasConflict\": false,\n  \"nextConflict\": \"1987-02-17T19:53:47.653Z\",\n  \"lastModifiedOn\": \"1970-03-23T20:04:10.685Z\",\n  \"hourlyCostRate\": 1394.237312949942,\n  \"employmentDates\": {\n    \"startDate\": \"1947-09-11T02:36:40.830Z\",\n    \"endDate\": \"2007-08-30T09:27:36.781Z\"\n  },\n  \"workDays\": [\n    6,\n    2\n  ],\n  \"groupings\": [\n    2202,\n    5805\n  ],\n  \"industryStartDate\": \"1993-05-01T12:01:59.866Z\",\n  \"deactivationReason\": \"string\",\n  \"deactivationNotes\": \"string\",\n  \"wouldRehire\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9cf20e7d-5d95-4e4c-a2e7-37a317e9412f",
+              "name": "Bad Request - Request has missing or invalid values",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Person ID"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Email\": \"jayne@example.com\",\n  \"UniqueId\": \"This is a unique String Id\",\n  \"Name\": \"Jayne Peters\",\n  \"Title\": \"Project Engineer\",\n  \"EmploymentDates\": {\n    \"StartDate\": \"2020-01-01T00:00:00\",\n    \"EndDate\": \"2020-12-31T00:00:00\"\n  },\n  \"WorkDays\": [\n    1,\n    2,\n    3,\n    4,\n    5\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cbf982c7-f687-4abe-adee-a94d240b3ee9",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Person ID"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Email\": \"jayne@example.com\",\n  \"UniqueId\": \"This is a unique String Id\",\n  \"Name\": \"Jayne Peters\",\n  \"Title\": \"Project Engineer\",\n  \"EmploymentDates\": {\n    \"StartDate\": \"2020-01-01T00:00:00\",\n    \"EndDate\": \"2020-12-31T00:00:00\"\n  },\n  \"WorkDays\": [\n    1,\n    2,\n    3,\n    4,\n    5\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d872fd2a-b768-4640-b7ad-691fb74380ec",
+              "name": "Forbidden - User doesn't have permissions on this resource, or the person or account couldn't be found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Person ID"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Email\": \"jayne@example.com\",\n  \"UniqueId\": \"This is a unique String Id\",\n  \"Name\": \"Jayne Peters\",\n  \"Title\": \"Project Engineer\",\n  \"EmploymentDates\": {\n    \"StartDate\": \"2020-01-01T00:00:00\",\n    \"EndDate\": \"2020-12-31T00:00:00\"\n  },\n  \"WorkDays\": [\n    1,\n    2,\n    3,\n    4,\n    5\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e7fb478a-02db-479b-843f-bbd5879030a2",
+              "name": "Conflict - A person with the provided email already exists on the account",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Person ID"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Email\": \"jayne@example.com\",\n  \"UniqueId\": \"This is a unique String Id\",\n  \"Name\": \"Jayne Peters\",\n  \"Title\": \"Project Engineer\",\n  \"EmploymentDates\": {\n    \"StartDate\": \"2020-01-01T00:00:00\",\n    \"EndDate\": \"2020-12-31T00:00:00\"\n  },\n  \"WorkDays\": [\n    1,\n    2,\n    3,\n    4,\n    5\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "412ba2db-3c48-4fc2-9fb4-549a8a704147",
+              "name": "Unprocessable Entity - Validation failure",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Person ID"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Email\": \"jayne@example.com\",\n  \"UniqueId\": \"This is a unique String Id\",\n  \"Name\": \"Jayne Peters\",\n  \"Title\": \"Project Engineer\",\n  \"EmploymentDates\": {\n    \"StartDate\": \"2020-01-01T00:00:00\",\n    \"EndDate\": \"2020-12-31T00:00:00\"\n  },\n  \"WorkDays\": [\n    1,\n    2,\n    3,\n    4,\n    5\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "577b5a1e-f8b5-4868-a99b-5e93bafeeab3",
+          "name": "Gets details for the given person",
+          "request": {
+            "name": "Gets details for the given person",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>Finance: Read<br/>Person: Read<br/>HourlyProfile: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "Persons",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "relativeDate",
+                  "value": "<dateTime>",
+                  "description": "Optional paramater used to calculate date based properties. If not provided, it is set to today's date in UTC."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) The Person ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "38a1a468-71e1-450a-b632-c4691c1cbe7b",
+              "name": "Success: Person Model for the requested person",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Person ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8631,\n  \"email\": \"string\",\n  \"externalId\": \"string\",\n  \"uniqueId\": \"string\",\n  \"name\": \"string\",\n  \"type\": \"Hourly\",\n  \"title\": \"string\",\n  \"photoUrl\": \"string\",\n  \"state\": \"Active\",\n  \"hasConflict\": false,\n  \"nextConflict\": \"1987-02-17T19:53:47.653Z\",\n  \"lastModifiedOn\": \"1970-03-23T20:04:10.685Z\",\n  \"hourlyCostRate\": 1394.237312949942,\n  \"employmentDates\": {\n    \"startDate\": \"1947-09-11T02:36:40.830Z\",\n    \"endDate\": \"2007-08-30T09:27:36.781Z\"\n  },\n  \"workDays\": [\n    6,\n    2\n  ],\n  \"groupings\": [\n    2202,\n    5805\n  ],\n  \"industryStartDate\": \"1993-05-01T12:01:59.866Z\",\n  \"deactivationReason\": \"string\",\n  \"deactivationNotes\": \"string\",\n  \"wouldRehire\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8d7aae7a-c761-4f61-8e9b-45fba33b8a76",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Person ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "00aa7aea-442b-4391-a9a8-395333921268",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Person ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "62c9fea5-1ff1-46d4-a266-ec8bcb07d454",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Person ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3b129f41-9b7e-4c23-a85e-9e53812c065d",
+          "name": "Deactivate a person",
+          "request": {
+            "name": "Deactivate a person",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>Person: Write<br/>HourlyProfile: Write",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "Persons",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) The Person ID"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "44122a53-b28d-4b82-9592-2937b379f9c6",
+              "name": "No Content (success)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Person ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dc8462d8-ce81-47c8-b689-0c0e12b62b73",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Person ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8389f20d-baf6-4be1-b2d0-0c317f7453f4",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Person ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7bae1bfa-66bf-4c61-97c7-61850dac3449",
+              "name": "Forbidden - User doesn't have permissions on this resource, or the account couldn't be found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Person ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a2cba8a5-7824-47e5-a4c8-9f7888846dcc",
+          "name": "Deactivate a person with optional deactivation details (reason, notes, would rehire).",
+          "request": {
+            "name": "Deactivate a person with optional deactivation details (reason, notes, would rehire).",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>Person: Write<br/>HourlyProfile: Write",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "Persons",
+                ":id",
+                "deactivate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) The Person ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"deactivationReason\": \"<string>\",\n  \"deactivationNotes\": \"<string>\",\n  \"wouldRehire\": \"<boolean>\",\n  \"employmentEndDate\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6e0e81f4-5c94-4b81-a9e8-fa008033edb2",
+              "name": "No Content (success)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    ":id",
+                    "deactivate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Person ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"deactivationReason\": \"<string>\",\n  \"deactivationNotes\": \"<string>\",\n  \"wouldRehire\": \"<boolean>\",\n  \"employmentEndDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "44d1cb8f-e884-4837-8b20-2ce45fa61b46",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    ":id",
+                    "deactivate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Person ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"deactivationReason\": \"<string>\",\n  \"deactivationNotes\": \"<string>\",\n  \"wouldRehire\": \"<boolean>\",\n  \"employmentEndDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1b99e5bd-fa38-429b-9115-58eee64b0dcd",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    ":id",
+                    "deactivate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Person ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"deactivationReason\": \"<string>\",\n  \"deactivationNotes\": \"<string>\",\n  \"wouldRehire\": \"<boolean>\",\n  \"employmentEndDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e07e77fd-0afc-4107-9f6b-fbb511093834",
+              "name": "Forbidden - User doesn't have permissions on this resource, or the account couldn't be found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    ":id",
+                    "deactivate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Person ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"deactivationReason\": \"<string>\",\n  \"deactivationNotes\": \"<string>\",\n  \"wouldRehire\": \"<boolean>\",\n  \"employmentEndDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4b1bda92-1fcf-4d70-99c9-81129594a12a",
+          "name": "Get all allocations for the given person within the selected date range.",
+          "request": {
+            "name": "Get all allocations for the given person within the selected date range.",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>Role: Read<br/>HourlyRole: Read<br/>Allocation: Read<br/>HourlyAllocation: Read<br/>Person: Read<br/>HourlyProfile: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "Persons",
+                ":id",
+                "allocations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "relativeDate",
+                  "value": "<dateTime>",
+                  "description": "Optional paramater used to calculate date based properties. If not provided, it is set to today's date in UTC."
+                },
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<dateTime>",
+                  "description": "Start date to filter allocations from"
+                },
+                {
+                  "disabled": false,
+                  "key": "end",
+                  "value": "<dateTime>",
+                  "description": "End date to filter allocations to"
+                },
+                {
+                  "disabled": false,
+                  "key": "roleId",
+                  "value": "<integer>",
+                  "description": "Optional parameter to get allocations for a specific role"
+                },
+                {
+                  "disabled": false,
+                  "key": "projectState",
+                  "value": "All",
+                  "description": "Optional parameter for filtering results by project state."
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "Operations",
+                  "description": "Optional parameter Salaried role type to filter results by (Default to Operations)"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) The Person's ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5aa4d41a-07ae-490e-92f3-ce892c3517df",
+              "name": "Success: List of allocations",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    ":id",
+                    "allocations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "roleId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "projectState",
+                      "value": "All"
+                    },
+                    {
+                      "key": "type",
+                      "value": "Operations"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Person's ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"projectId\": 3694,\n    \"projectName\": \"string\",\n    \"projectColour\": \"string\",\n    \"projectType\": \"Awarded\",\n    \"projectStatus\": \"Active\",\n    \"taskId\": \"8f11f605-011a-f988-9054-0f66168c002b\",\n    \"roleId\": 1105,\n    \"roleName\": \"string\",\n    \"startDate\": \"1974-08-05T05:16:17.723Z\",\n    \"endDate\": \"2010-07-14T23:45:51.071Z\",\n    \"allocatedPercent\": 4645\n  },\n  {\n    \"projectId\": 3036,\n    \"projectName\": \"string\",\n    \"projectColour\": \"string\",\n    \"projectType\": \"Awarded\",\n    \"projectStatus\": \"Active\",\n    \"taskId\": \"7d83f6ca-4859-2e75-1476-ed3ac8da28d4\",\n    \"roleId\": 5192,\n    \"roleName\": \"string\",\n    \"startDate\": \"2024-06-16T03:17:19.599Z\",\n    \"endDate\": \"1968-12-21T05:43:44.619Z\",\n    \"allocatedPercent\": 6455\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0d36abd4-d646-4633-9ae6-cb0a270a30dd",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    ":id",
+                    "allocations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "roleId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "projectState",
+                      "value": "All"
+                    },
+                    {
+                      "key": "type",
+                      "value": "Operations"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Person's ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f3774c89-71bc-4fe3-b27f-cdd466507c13",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    ":id",
+                    "allocations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "roleId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "projectState",
+                      "value": "All"
+                    },
+                    {
+                      "key": "type",
+                      "value": "Operations"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Person's ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cf71e394-2c15-4340-ad58-f1654a7b24a9",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    ":id",
+                    "allocations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "roleId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "projectState",
+                      "value": "All"
+                    },
+                    {
+                      "key": "type",
+                      "value": "Operations"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Person's ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8b76cf2c-ad5c-4905-b2e9-f363b3f8b714",
+          "name": "Get all projects that this person is allocated to, including past, present, and future allocations.",
+          "request": {
+            "name": "Get all projects that this person is allocated to, including past, present, and future allocations.",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>Person: Read<br/>HourlyProfile: Read<br/>Allocation: Read<br/>HourlyAllocation: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "Persons",
+                ":id",
+                "projects"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "relativeDate",
+                  "value": "<dateTime>",
+                  "description": "Optional paramater used to calculate date based properties. If not provided, it is set to today's date in UTC."
+                },
+                {
+                  "disabled": false,
+                  "key": "projectState",
+                  "value": "All",
+                  "description": "Optional parameter for filtering results by project state."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) The Person ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8fb294c5-8917-43a2-b411-5c83f488c96e",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    ":id",
+                    "projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "projectState",
+                      "value": "All"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Person ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 8673,\n    \"name\": \"Ahrens Lofts\",\n    \"startDate\": \"2005-09-07T08:18:11.513Z\",\n    \"endDate\": \"1964-12-22T18:53:40.935Z\",\n    \"projectType\": \"Awarded\",\n    \"projectStatus\": \"Active\"\n  },\n  {\n    \"id\": 8673,\n    \"name\": \"Ahrens Lofts\",\n    \"startDate\": \"2007-12-28T23:21:15.470Z\",\n    \"endDate\": \"1980-09-22T21:49:49.069Z\",\n    \"projectType\": \"Awarded\",\n    \"projectStatus\": \"Active\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a76827b8-92db-4628-9cbb-e181d1080c39",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    ":id",
+                    "projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "projectState",
+                      "value": "All"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Person ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6da8c95a-0737-49c6-b48b-038b1a01e354",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    ":id",
+                    "projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "projectState",
+                      "value": "All"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Person ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "52f6a0d4-da5e-4454-b5ec-24f68bd51fd7",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    ":id",
+                    "projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "projectState",
+                      "value": "All"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Person ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0581d024-c8eb-4e64-9fb3-21dc2ecc4181",
+          "name": "Get all projects that any person in the given account has an active allocation for. That is, each allocation's start date is ≦ now and the end date is ≧ now.",
+          "request": {
+            "name": "Get all projects that any person in the given account has an active allocation for. That is, each allocation's start date is ≦ now and the end date is ≧ now.",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>Person: Read<br/>Allocation: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "Persons",
+                "current-projects"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "relativeDate",
+                  "value": "<dateTime>",
+                  "description": "Optional paramater used to calculate date based properties. If not provided, it is set to today's date in UTC."
+                },
+                {
+                  "disabled": false,
+                  "key": "personIds",
+                  "value": "<long>",
+                  "description": "Optional paramater of comma delimited ids for filtering results based on the person IDs provided"
+                },
+                {
+                  "disabled": false,
+                  "key": "personIds",
+                  "value": "<long>",
+                  "description": "Optional paramater of comma delimited ids for filtering results based on the person IDs provided"
+                },
+                {
+                  "disabled": false,
+                  "key": "projectState",
+                  "value": "All",
+                  "description": "Optional parameter for filtering results by project state."
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "All",
+                  "description": "(Optional)Salaried role type to filter results by (Defaults to All)"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8fc719f5-a41d-4e62-8724-330afdd994bf",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    "current-projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "personIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "personIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "projectState",
+                      "value": "All"
+                    },
+                    {
+                      "key": "type",
+                      "value": "All"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"personId\": 8673,\n    \"projects\": [\n      {\n        \"id\": 9381,\n        \"name\": \"Ahrens Lofts\",\n        \"colour\": \"string\",\n        \"startDate\": \"2015-03-24T11:26:15.465Z\",\n        \"endDate\": \"1951-12-17T21:23:05.000Z\",\n        \"projectType\": \"Opportunity\",\n        \"state\": \"Complete\"\n      },\n      {\n        \"id\": 9381,\n        \"name\": \"Ahrens Lofts\",\n        \"colour\": \"string\",\n        \"startDate\": \"1969-05-26T16:33:58.973Z\",\n        \"endDate\": \"1999-06-23T11:23:35.666Z\",\n        \"projectType\": \"Awarded\",\n        \"state\": \"Active\"\n      }\n    ]\n  },\n  {\n    \"personId\": 8673,\n    \"projects\": [\n      {\n        \"id\": 9381,\n        \"name\": \"Ahrens Lofts\",\n        \"colour\": \"string\",\n        \"startDate\": \"2025-12-22T22:20:27.466Z\",\n        \"endDate\": \"1956-12-01T18:46:50.268Z\",\n        \"projectType\": \"Awarded\",\n        \"state\": \"Pursuit\"\n      },\n      {\n        \"id\": 9381,\n        \"name\": \"Ahrens Lofts\",\n        \"colour\": \"string\",\n        \"startDate\": \"2004-12-29T22:06:25.087Z\",\n        \"endDate\": \"2003-02-20T07:58:07.029Z\",\n        \"projectType\": \"Opportunity\",\n        \"state\": \"Pursuit\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0f380e69-724c-4676-a174-3d9f9dc96082",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    "current-projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "personIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "personIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "projectState",
+                      "value": "All"
+                    },
+                    {
+                      "key": "type",
+                      "value": "All"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5306a90c-55d2-4215-8306-ef7e86cd1295",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    "current-projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "personIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "personIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "projectState",
+                      "value": "All"
+                    },
+                    {
+                      "key": "type",
+                      "value": "All"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "aad028ff-17f6-42c2-84c5-b5fa6af2b188",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    "current-projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "personIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "personIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "projectState",
+                      "value": "All"
+                    },
+                    {
+                      "key": "type",
+                      "value": "All"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2494cb7d-fb19-4184-b960-b85b64090bdc",
+          "name": "Get all projects that any person in the given account has an active allocation for. That is, each allocation's start date is ≦ now and the end date is ≧ now.",
+          "request": {
+            "name": "Get all projects that any person in the given account has an active allocation for. That is, each allocation's start date is ≦ now and the end date is ≧ now.",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>HourlyProfile: Read<br/>HourlyAllocation: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "Persons",
+                "current-projects-hourly"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "relativeDate",
+                  "value": "<dateTime>",
+                  "description": "Optional paramater used to calculate date based properties. If not provided, it is set to today's date in UTC."
+                },
+                {
+                  "disabled": false,
+                  "key": "personIds",
+                  "value": "<long>",
+                  "description": "Optional paramater of comma delimited ids for filtering results based on the person IDs provided"
+                },
+                {
+                  "disabled": false,
+                  "key": "personIds",
+                  "value": "<long>",
+                  "description": "Optional paramater of comma delimited ids for filtering results based on the person IDs provided"
+                },
+                {
+                  "disabled": false,
+                  "key": "projectState",
+                  "value": "All",
+                  "description": "Optional parameter for filtering results by project state."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a7153f9f-3893-4768-82d9-bb9957d643c9",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    "current-projects-hourly"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "personIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "personIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "projectState",
+                      "value": "All"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"personId\": 8673,\n    \"projects\": [\n      {\n        \"id\": 9381,\n        \"name\": \"Ahrens Lofts\",\n        \"colour\": \"string\",\n        \"startDate\": \"1959-06-25T18:19:26.693Z\",\n        \"endDate\": \"1967-08-20T13:40:31.685Z\",\n        \"projectType\": \"Awarded\",\n        \"state\": \"Complete\"\n      },\n      {\n        \"id\": 9381,\n        \"name\": \"Ahrens Lofts\",\n        \"colour\": \"string\",\n        \"startDate\": \"1986-12-29T13:39:11.600Z\",\n        \"endDate\": \"1976-10-02T13:39:48.859Z\",\n        \"projectType\": \"Opportunity\",\n        \"state\": \"Canceled\"\n      }\n    ]\n  },\n  {\n    \"personId\": 8673,\n    \"projects\": [\n      {\n        \"id\": 9381,\n        \"name\": \"Ahrens Lofts\",\n        \"colour\": \"string\",\n        \"startDate\": \"2019-08-24T04:15:45.323Z\",\n        \"endDate\": \"1985-06-17T10:38:38.160Z\",\n        \"projectType\": \"Opportunity\",\n        \"state\": \"Active\"\n      },\n      {\n        \"id\": 9381,\n        \"name\": \"Ahrens Lofts\",\n        \"colour\": \"string\",\n        \"startDate\": \"2007-12-14T14:55:07.004Z\",\n        \"endDate\": \"2002-01-25T10:54:09.928Z\",\n        \"projectType\": \"Opportunity\",\n        \"state\": \"Complete\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1a28cd8d-8ee5-4e3d-9b74-1222d0c1316c",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    "current-projects-hourly"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "personIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "personIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "projectState",
+                      "value": "All"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "411402fd-3f90-422a-89db-273f79f8450d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    "current-projects-hourly"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "personIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "personIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "projectState",
+                      "value": "All"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f4df74dc-a053-4615-aa01-1ae7867d67f6",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    "current-projects-hourly"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "personIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "personIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "projectState",
+                      "value": "All"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8be83f70-ff7b-4115-a4cd-900a431add5b",
+          "name": "Reactivate a person",
+          "request": {
+            "name": "Reactivate a person",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>Person: Write<br/>HourlyProfile: Write<br/>Finance: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "Persons",
+                ":id",
+                "restore"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) The Person ID"
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bdc6fe7f-6396-4f6e-bd74-f861a15a84a6",
+              "name": "No Content (success)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    ":id",
+                    "restore"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Person ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fc0be99c-41d3-49f6-b2f5-091866887942",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    ":id",
+                    "restore"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Person ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c2cfe5f7-f14b-43db-8102-83902184a26e",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    ":id",
+                    "restore"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Person ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4b075003-1e10-45b3-949b-2c94533fd8c5",
+              "name": "Forbidden - User doesn't have permissions on this resource, or the account couldn't be found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    ":id",
+                    "restore"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Person ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5ca6d588-e4b4-4998-8b51-c3c159c386dd",
+              "name": "Validation failure - The person is already active in the account",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Persons",
+                    ":id",
+                    "restore"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Person ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://bench.gobridgit.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "info": {
+    "_postman_id": "ba95a499-7a00-45c2-a6a0-620d0f92ebbd",
+    "name": "Bench AccountActivities Persons API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "<h2>Versioning</h2>\n<p>\n    The API is currently at version <code>1.0</code>. All API endpoints (other than\n    authentication) require you to specify the API version as part of the path.\n</p>\n\n<h2>URL Paths</h2>\n<p>\n    Authentication requests should be made to <code>/auth/signin</code>,\n    as documented below. All other API requests should be made to\n    sub-paths of <code>/rp/api/1.0/...</code>.\n</p>\n\n<h2>Authentication</h2>\n<p>\n    API requests are authenticated using an OAuth Bearer token.\n    You can get a token by authenticating your user by sending a\n    POST request to <code>/auth/signin</code>, with \"username and \"password\"\n    parameters form-encoded in the body of the request.\n\n    POST /auth/signin HTTP/1.1\n    Content-Type: application/x-www-form-urlencoded\n\n    username=user@example.com&password=some-secret-password\n</p>\n<p>\n    The response will be a JSON object including both\n    <b>\"access_token\"</b> and <b>\"refresh_token\"</b> property.\n    All other requests against the Bench API should include an\n    authorization header: <code>Authorization: Bearer xxxYYYzzz</code>,\n    where <b>xxxYYYzzz</b> is the value of <b>\"access_token\"</b> in the response.\n    <br><br>\n    For example:\n\n    $ curl https://bench.gobridgit.com/auth/signin -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'username=someone@example.com' --data-urlencode 'password=[...snip...]'\n    {\n        \"access_token\": \"...snip...\",\n        \"token_type\": \"Bearer\",\n        \"refresh_token\": \"...snip...\"\n        \"expiry\": \"2020-01-01T00:00:00.413440849Z\"\n    }\n\n</p>\n\n<p>\n    The refresh token can be used to generate new session by request with <code>/auth/token</code> endpoint:\n\n    POST /auth/token HTTP/1.1\n    Content-Type: application/x-www-form-urlencoded\n\n    grant_type=refresh_token&refresh_token=tGzv3JOkF0XG5Qx2TlKWIA\n</p>\n<p>\n    Note that once the refresh token is used, the previous access and refresh token is no longer valid.\n    <br><br>\n    For example:\n\n    $ curl https://bench.gobridgit.com/auth/token -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'grant_type=refresh_token' --data-urlencode 'refresh_token=[...snip...]'\n    {\n        \"access_token\": \"...snip...\",\n        \"token_type\": \"Bearer\",\n        \"refresh_token\": \"...snip...\"\n        \"expiry\": \"2020-01-01T00:00:00.413440849Z\"\n    }\n</p>\n\n<h2>Pagination</h2>\n<p>\n    Several of the API endpoints are paginated. These are denoted by\n    including the <code>offset</code> (zero-based offset) and <code>limit</code> query\n    parameters. For example, to request the <code>10</code> items,\n    set the <code>offset=0</code> to <code>limit=10</code>.\n    <br>\n    NOTE: the result set contains items with index of 0-9\n    <br>\n    To request the next 10 items (starting at index 10),\n    set the <code>offset=10</code> to <code>limit=10</code>\n</p>\n<p>\n    Responses to paginated API endpoints return a JSON array of objects.\n    If there are results beyond the page you have requested, the server\n    will set a <code>query-has-more: true</code> header in the response.\n</p>\n\n<h2>Request Encoding</h2>\n<p>\n    <code>GET</code> and <code>DELETE</code> requests should have parameters encoded as URL query\n    parameters. Boolean values should be encoded as <code>true</code> and\n    <code>false</code>, not as <code>1</code> and <code>0</code>.\n</p>\n\n<h2>Errors</h2>\n<p>\n    Errors are returned for some response codes such as <code>400 Bad Request</code> in the\n    following format:\n\n    {\n      \"errors\": [\n        {\n          \"errorType\": \"ValidationError\",\n          \"description\": \"The value of Name must be a string with a minimum length of 1 and a maximum length of 8 and not whitespace.\",\n          \"field\": \"Name\",\n          \"values\": [\n            null\n          ]\n        }\n      ],\n      \"title\": \"One or more validation errors occurred.\",\n      \"status\": 400,\n      \"instance\": \"api/v1/accounts/0/persons\",\n      \"requestUid\": \"123e4567-e89b-12d3-a456-426614174000\"\n    }\n</p>\n",
+      "type": "text/plain"
+    }
+  }
+}

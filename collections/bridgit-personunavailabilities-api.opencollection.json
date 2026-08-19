@@ -1,0 +1,215 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bench AccountActivities PersonUnavailabilities API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "PersonUnavailabilities",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Gets the periods of unavailability for persons in the given account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/persons/unavailabilities",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query",
+                "description": "Date from which to start the range (Default: 0001-01-01)"
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query",
+                "description": "Date from which to end the range (Default: 9999-12-31)"
+              },
+              {
+                "name": "boundRange",
+                "value": "",
+                "type": "query",
+                "description": "Setting this value to true will truncate the dates returned to the specified start and end date paramters"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Type of the unavailability date range (Default: Unavailability)"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "State of persons to filter results by (Default: Active)"
+              },
+              {
+                "name": "personIds",
+                "value": "",
+                "type": "query",
+                "description": "Optional comma delimited list of person IDs to filter the results if set"
+              }
+            ]
+          },
+          "docs": "By default this endpoint will return only Periods of Unavailability.\n<strong>NOTE: </strong>If you wish to retrieve Pre and Post employment dates you will need to pass the \"type\" param in the query.\n<strong>NOTE: </strong>If you do not have Private Read permissions, description will return as null for private periods of unavailability.<br/><strong>Permissions</strong><br/>Person: Read<br/>HourlyProfile: Read<br/>Unavailabilities: Read<br/>HourlyUnavailabilities: Read<br/>Private: Read"
+        },
+        {
+          "info": {
+            "name": "Gets the periods of unavailability for a person in the given account.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/persons/:id/unavailabilities",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the person to get unavailabilities for"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query",
+                "description": "Date from which to start the range (Default: 0001-01-01)"
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query",
+                "description": "Date from which to end the range (Default: 9999-12-31)"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The number of items to skip before starting to collect the result set"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of results to return"
+              },
+              {
+                "name": "sortOrder",
+                "value": "",
+                "type": "query",
+                "description": "The order to return unavailabilities. Default is StartDateAscending"
+              }
+            ]
+          },
+          "docs": "<strong>NOTE: </strong>If you do not have Private Read permissions, description will return as null for private periods of unavailability.<br/><strong>Permissions</strong><br/>Person: Read<br/>HourlyProfile: Read<br/>Unavailabilities: Read<br/>HourlyUnavailabilities: Read<br/>Private: Read"
+        },
+        {
+          "info": {
+            "name": "Adds periods of unavailability to a person in the given account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/persons/:id/unavailabilities",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the person to get unavailabilities for"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Periods of unavailability cannot overlap with employment dates and cannot overlap with existing periods of unavailability.\n<strong>NOTE: </strong>If you do not have Private Write permissions, you cannot create private periods of unavailability.<br/><strong>Permissions</strong><br/>Private: Write<br/>Person: Read<br/>HourlyProfile: Read<br/>Unavailabilities: Write<br/>HourlyUnavailabilities: Write"
+        },
+        {
+          "info": {
+            "name": "Updates periods of unavailability to a person in the given account",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/persons/:id/unavailabilities",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the person to get unavailabilities for"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint will only update the fields that are provided in the objects of the array. Any fields not included will use the existing values.\n<strong>NOTE: </strong>Periods of unavailability cannot overlap with employment dates and cannot overlap with existing periods of unavailability.\n<strong>NOTE: </strong>If you do not have Private Write permissions, you can update the start and end date of private periods of unavailability, but not the description or whether it's private.<br/><strong>Permi"
+        },
+        {
+          "info": {
+            "name": "Removes periods of unavailability from a person in the given account",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/persons/:id/unavailabilities",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the person to get unavailabilities for"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Person: Read<br/>HourlyProfile: Read<br/>Private: Read<br/>Unavailabilities: Write<br/>HourlyUnavailabilities: Write"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

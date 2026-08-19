@@ -1,0 +1,1161 @@
+{
+  "item": [
+    {
+      "id": "5365e04a-4201-43a2-8e38-a90462f3cd89",
+      "name": "PersonFields",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9b0088a2-6f78-45a6-9edd-1ac22c447c0d",
+          "name": "Get all the person field definitions on the given account.",
+          "request": {
+            "name": "Get all the person field definitions on the given account.",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>Account: Read<br/>Private: Read<br/>Finance: Read<br/>Person: Read<br/>HourlyProfile: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":id",
+                "person-fields"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The account ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7b8b2ad9-6e12-425d-8a11-91a09bb33e21",
+              "name": "Success: List of Field Definitions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":id",
+                    "person-fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"personType\": [\n      \"Salaried\",\n      \"Hourly\"\n    ],\n    \"displayOrder\": 1,\n    \"id\": 1394,\n    \"name\": \"Contact Number\",\n    \"type\": \"PhoneNumber\",\n    \"definedValues\": [\n      {\n        \"valueId\": 13,\n        \"definedValue\": \"Defined Value\",\n        \"inUse\": [\n          776,\n          8676\n        ]\n      },\n      {\n        \"valueId\": 13,\n        \"definedValue\": \"Defined Value\",\n        \"inUse\": [\n          3573,\n          3046\n        ]\n      }\n    ],\n    \"isRequired\": false,\n    \"isSystem\": false,\n    \"isPrivate\": false,\n    \"isFinancials\": false,\n    \"isLocked\": false\n  },\n  {\n    \"personType\": [\n      \"Hourly\",\n      \"Hourly\"\n    ],\n    \"displayOrder\": 1,\n    \"id\": 1394,\n    \"name\": \"Contact Number\",\n    \"type\": \"PhoneNumber\",\n    \"definedValues\": [\n      {\n        \"valueId\": 13,\n        \"definedValue\": \"Defined Value\",\n        \"inUse\": [\n          3637,\n          6245\n        ]\n      },\n      {\n        \"valueId\": 13,\n        \"definedValue\": \"Defined Value\",\n        \"inUse\": [\n          5647,\n          9106\n        ]\n      }\n    ],\n    \"isRequired\": false,\n    \"isSystem\": false,\n    \"isPrivate\": false,\n    \"isFinancials\": false,\n    \"isLocked\": false\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eddcb84b-f058-4556-82b6-2c050a3022b2",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":id",
+                    "person-fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8a53e199-3a11-424c-949a-3a37d47296bb",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":id",
+                    "person-fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f688e071-c59d-4ab6-8dd3-822f61bb4d3c",
+          "name": "Adds or updates person field definitions on the given account.",
+          "request": {
+            "name": "Adds or updates person field definitions on the given account.",
+            "description": {
+              "content": "If you pass in a FieldDefRequest object without an \"id\" this endpoint will add a new one to the account if the name isn't reserved or in use.\n\nIf you pass in a FieldDefRequest object with an \"id\" this endpoint will update an existing one that matches the id.\n\nTo add a value or multiple values to a selection list you must pass an array of \"definedValues\" that contain objects with a \"definedValue\" property of the value you want to add.\n\nTo update a value or multiple values in a selection list you must pass an array of \"definedValues\" that contain objects with a \"valueId\" property of the value id to update and a \"definedValue\" property of the value you want to update it to.\n\nTo remove a value or multiple values from a selection list you must pass an array of \"definedValues\" that contain objects with a \"valueId\" property of the value id to remove, a \"definedValue\" property of the value you want to remove, and a \"forRemoval\" property set to true.\n\nExample: You have a list of \"Years\" and you want to change \"5\" to \"5-9\" and remove values \"6\" through \"9\" and add a value of \"10+\"\n<code>[<br/>&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;\"id\":&nbsp;123,<br/>&nbsp;&nbsp;&nbsp;&nbsp;\"name\":&nbsp;\"Years\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;\"type\":&nbsp;\"SingleSelect\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;\"definedValues\":&nbsp;[<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"valueId\":&nbsp;584,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"definedValue\":&nbsp;\"5-9\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"forRemoval\":&nbsp;false,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"deleteExperienceFieldValues\":&nbsp;false<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"valueId\":&nbsp;585,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"definedValue\":&nbsp;\"6\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"forRemoval\":&nbsp;true,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"deleteExperienceFieldValues\":&nbsp;false<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"valueId\":&nbsp;586,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"definedValue\":&nbsp;\"7\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"forRemoval\":&nbsp;true,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"deleteExperienceFieldValues\":&nbsp;false<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"valueId\":&nbsp;587,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"definedValue\":&nbsp;\"8\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"forRemoval\":&nbsp;true,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"deleteExperienceFieldValues\":&nbsp;false<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"valueId\":&nbsp;588,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"definedValue\":&nbsp;\"9\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"forRemoval\":&nbsp;true,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"deleteExperienceFieldValues\":&nbsp;false<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"valueId\":&nbsp;0,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"definedValue\":&nbsp;\"10+\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"forRemoval\":&nbsp;false,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"deleteExperienceFieldValues\":&nbsp;false<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;],<br/>&nbsp;&nbsp;&nbsp;&nbsp;\"isRequired\":&nbsp;true,<br/>&nbsp;&nbsp;&nbsp;&nbsp;\"isPrivate\":&nbsp;false,<br/>&nbsp;&nbsp;&nbsp;&nbsp;\"isLocked\":&nbsp;false<br/>&nbsp;&nbsp;}<br/>]</code>\n<strong>NOTE:</strong> There are a few reserved field names that cannot be used.\n\n\"Person ID\",\"Photo\",\"Name\",\"Title\",\"Next Availability\",\"Current Project\",\"Issues\",\"Email\",\"Hire Date\",\"Termination Date\",\"Allocated People\",\"Next project\",\"Past projects\",\"Next project start\",\"Current project end\",\"Notes\",\"Certifications\",\"Group\", \"Company Tenure\", \"Industry Tenure\", \"Industry Start Date\"\n<h2>Validation</h2><b>Title</b>: SingleSelect. A list where only 1 value can be selected. When creating the list, each value should be between 1 and 250 non-empty characters.\n\n<b>Title (Hourly)</b>: SingleSelect. A list where only 1 value can be selected. When creating the list, each value should be between 1 and 250 non-empty characters.\n\n<b>Skill Set</b>: Multi List Selection. A list where 0 or more values can be selected. When creating the list, each value should be between 1 and 250 non-empty characters\n\n<b>Skill Set (Hourly)</b>: Multi List Selection. A list where 0 or more values can be selected. When creating the list, each value should be between 1 and 250 non-empty characters\n\n<b>Other</b>: Free text. Max length: 2400\n\n<b>Home Address</b>: Max length: 250\n\n<b>Cost Rate (hr)</b>: Currency. Should be greater or equal to zero, starts with 0 to 15 digits of ```0-9``` then optionally followed by ```.``` with 0 to 2 digits of ```0-9```\n\n<b>Employee ID</b>: Free text. Max length: 250\n\n<b>Date</b>: Format: dd/MM/yyyy\n\n<b>Checkbox</b>: Accepted values: true or false\n\n<br/><strong>Permissions</strong><br/>Account: Write<br/>Private: Read<br/>Finance: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":id",
+                "person-fields"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"type\": \"<string>\",\n    \"definedValues\": [\n      {\n        \"valueId\": \"<long>\",\n        \"definedValue\": \"<string>\",\n        \"forRemoval\": \"<boolean>\",\n        \"deleteExperienceFieldValues\": \"<boolean>\"\n      },\n      {\n        \"valueId\": \"<long>\",\n        \"definedValue\": \"<string>\",\n        \"forRemoval\": \"<boolean>\",\n        \"deleteExperienceFieldValues\": \"<boolean>\"\n      }\n    ],\n    \"isRequired\": \"<boolean>\",\n    \"isPrivate\": \"<boolean>\",\n    \"isLocked\": \"<boolean>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4ed01ca0-bae5-4e95-adc8-0ffa36f94cde",
+              "name": "Success: List of Field Definitions added or updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":id",
+                    "person-fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": 123,\n    \"name\": \"Years\",\n    \"type\": \"SingleSelect\",\n    \"definedValues\": [\n      {\n        \"valueId\": 584,\n        \"definedValue\": \"5-9\",\n        \"forRemoval\": false,\n        \"deleteExperienceFieldValues\": false\n      },\n      {\n        \"valueId\": 585,\n        \"definedValue\": \"6\",\n        \"forRemoval\": true,\n        \"deleteExperienceFieldValues\": false\n      },\n      {\n        \"valueId\": 586,\n        \"definedValue\": \"7\",\n        \"forRemoval\": true,\n        \"deleteExperienceFieldValues\": false\n      },\n      {\n        \"valueId\": 587,\n        \"definedValue\": \"8\",\n        \"forRemoval\": true,\n        \"deleteExperienceFieldValues\": false\n      },\n      {\n        \"valueId\": 588,\n        \"definedValue\": \"9\",\n        \"forRemoval\": true,\n        \"deleteExperienceFieldValues\": false\n      },\n      {\n        \"valueId\": 0,\n        \"definedValue\": \"10+\",\n        \"forRemoval\": false,\n        \"deleteExperienceFieldValues\": false\n      }\n    ],\n    \"isRequired\": true,\n    \"isPrivate\": false,\n    \"isLocked\": false\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"personType\": [\n      \"Hourly\",\n      \"Salaried\"\n    ],\n    \"displayOrder\": 1,\n    \"id\": 1394,\n    \"name\": \"Contact Number\",\n    \"type\": \"PhoneNumber\",\n    \"definedValues\": [\n      {\n        \"valueId\": 13,\n        \"definedValue\": \"Defined Value\",\n        \"inUse\": [\n          7449,\n          8754\n        ]\n      },\n      {\n        \"valueId\": 13,\n        \"definedValue\": \"Defined Value\",\n        \"inUse\": [\n          8268,\n          2940\n        ]\n      }\n    ],\n    \"isRequired\": false,\n    \"isSystem\": false,\n    \"isPrivate\": false,\n    \"isFinancials\": false,\n    \"isLocked\": false\n  },\n  {\n    \"personType\": [\n      \"Hourly\",\n      \"Salaried\"\n    ],\n    \"displayOrder\": 1,\n    \"id\": 1394,\n    \"name\": \"Contact Number\",\n    \"type\": \"PhoneNumber\",\n    \"definedValues\": [\n      {\n        \"valueId\": 13,\n        \"definedValue\": \"Defined Value\",\n        \"inUse\": [\n          8935,\n          1964\n        ]\n      },\n      {\n        \"valueId\": 13,\n        \"definedValue\": \"Defined Value\",\n        \"inUse\": [\n          8994,\n          5445\n        ]\n      }\n    ],\n    \"isRequired\": false,\n    \"isSystem\": false,\n    \"isPrivate\": false,\n    \"isFinancials\": false,\n    \"isLocked\": false\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c99cf5e1-4994-4b3f-bbeb-5b0b2c0e52a7",
+              "name": "Bad Request: Example when trying to set system fields to private that aren't allowed to be private:\n<code>{<br/>&nbsp;&nbsp;\"errors\":&nbsp;[<br/>&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"errorType\":&nbsp;\"CannotBeMadePrivate\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"description\":&nbsp;\"Fields&nbsp;in&nbsp;request&nbsp;cannot&nbsp;be&nbsp;made&nbsp;private.\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"errorCode\":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"field\":&nbsp;\"Id\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"values\":&nbsp;[<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"5\"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"innerException\":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"hResult\":&nbsp;-2146233088<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;],<br/>&nbsp;&nbsp;\"title\":&nbsp;\"One&nbsp;or&nbsp;more&nbsp;validation&nbsp;errors&nbsp;occurred.\",<br/>&nbsp;&nbsp;\"status\":&nbsp;400,<br/>&nbsp;&nbsp;\"instance\":&nbsp;\"/api/v1/accounts/2/person-fields\",<br/>&nbsp;&nbsp;\"requestUid\":&nbsp;\"3dd10d1b-392f-4d5a-b736-50ea1f072342\"<br/>}</code>",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":id",
+                    "person-fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": 123,\n    \"name\": \"Years\",\n    \"type\": \"SingleSelect\",\n    \"definedValues\": [\n      {\n        \"valueId\": 584,\n        \"definedValue\": \"5-9\",\n        \"forRemoval\": false,\n        \"deleteExperienceFieldValues\": false\n      },\n      {\n        \"valueId\": 585,\n        \"definedValue\": \"6\",\n        \"forRemoval\": true,\n        \"deleteExperienceFieldValues\": false\n      },\n      {\n        \"valueId\": 586,\n        \"definedValue\": \"7\",\n        \"forRemoval\": true,\n        \"deleteExperienceFieldValues\": false\n      },\n      {\n        \"valueId\": 587,\n        \"definedValue\": \"8\",\n        \"forRemoval\": true,\n        \"deleteExperienceFieldValues\": false\n      },\n      {\n        \"valueId\": 588,\n        \"definedValue\": \"9\",\n        \"forRemoval\": true,\n        \"deleteExperienceFieldValues\": false\n      },\n      {\n        \"valueId\": 0,\n        \"definedValue\": \"10+\",\n        \"forRemoval\": false,\n        \"deleteExperienceFieldValues\": false\n      }\n    ],\n    \"isRequired\": true,\n    \"isPrivate\": false,\n    \"isLocked\": false\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "abd4d179-5562-4d2f-b213-434ae5fbac3c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":id",
+                    "person-fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": 123,\n    \"name\": \"Years\",\n    \"type\": \"SingleSelect\",\n    \"definedValues\": [\n      {\n        \"valueId\": 584,\n        \"definedValue\": \"5-9\",\n        \"forRemoval\": false,\n        \"deleteExperienceFieldValues\": false\n      },\n      {\n        \"valueId\": 585,\n        \"definedValue\": \"6\",\n        \"forRemoval\": true,\n        \"deleteExperienceFieldValues\": false\n      },\n      {\n        \"valueId\": 586,\n        \"definedValue\": \"7\",\n        \"forRemoval\": true,\n        \"deleteExperienceFieldValues\": false\n      },\n      {\n        \"valueId\": 587,\n        \"definedValue\": \"8\",\n        \"forRemoval\": true,\n        \"deleteExperienceFieldValues\": false\n      },\n      {\n        \"valueId\": 588,\n        \"definedValue\": \"9\",\n        \"forRemoval\": true,\n        \"deleteExperienceFieldValues\": false\n      },\n      {\n        \"valueId\": 0,\n        \"definedValue\": \"10+\",\n        \"forRemoval\": false,\n        \"deleteExperienceFieldValues\": false\n      }\n    ],\n    \"isRequired\": true,\n    \"isPrivate\": false,\n    \"isLocked\": false\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a0ce2830-5676-4040-99ca-f92c2ff08862",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":id",
+                    "person-fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": 123,\n    \"name\": \"Years\",\n    \"type\": \"SingleSelect\",\n    \"definedValues\": [\n      {\n        \"valueId\": 584,\n        \"definedValue\": \"5-9\",\n        \"forRemoval\": false,\n        \"deleteExperienceFieldValues\": false\n      },\n      {\n        \"valueId\": 585,\n        \"definedValue\": \"6\",\n        \"forRemoval\": true,\n        \"deleteExperienceFieldValues\": false\n      },\n      {\n        \"valueId\": 586,\n        \"definedValue\": \"7\",\n        \"forRemoval\": true,\n        \"deleteExperienceFieldValues\": false\n      },\n      {\n        \"valueId\": 587,\n        \"definedValue\": \"8\",\n        \"forRemoval\": true,\n        \"deleteExperienceFieldValues\": false\n      },\n      {\n        \"valueId\": 588,\n        \"definedValue\": \"9\",\n        \"forRemoval\": true,\n        \"deleteExperienceFieldValues\": false\n      },\n      {\n        \"valueId\": 0,\n        \"definedValue\": \"10+\",\n        \"forRemoval\": false,\n        \"deleteExperienceFieldValues\": false\n      }\n    ],\n    \"isRequired\": true,\n    \"isPrivate\": false,\n    \"isLocked\": false\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9bcec38c-9e62-4b22-ba4d-48e5baf2dde8",
+              "name": "Conflict - Field definition with name already exists in the account or trying to add or update a field to a system field.\n\n            Example when trying to add a field that has the same name as an existing one:\n<code>{<br/>&nbsp;&nbsp;\"errors\":&nbsp;[<br/>&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"errorType\":&nbsp;\"Duplicate\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"description\":&nbsp;\"A&nbsp;name&nbsp;in&nbsp;the&nbsp;request&nbsp;is&nbsp;already&nbsp;in&nbsp;use.\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"errorCode\":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"innerException\":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"hResult\":&nbsp;-2146233088<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;],<br/>&nbsp;&nbsp;\"title\":&nbsp;\"One&nbsp;or&nbsp;more&nbsp;validation&nbsp;errors&nbsp;occurred.\",<br/>&nbsp;&nbsp;\"status\":&nbsp;409,<br/>&nbsp;&nbsp;\"instance\":&nbsp;\"/api/v1/accounts/2/person-fields\",<br/>&nbsp;&nbsp;\"requestUid\":&nbsp;\"8ba8f060-858b-46d9-b3cc-fa1c391ebc66\"<br/>}</code>",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":id",
+                    "person-fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": 123,\n    \"name\": \"Years\",\n    \"type\": \"SingleSelect\",\n    \"definedValues\": [\n      {\n        \"valueId\": 584,\n        \"definedValue\": \"5-9\",\n        \"forRemoval\": false,\n        \"deleteExperienceFieldValues\": false\n      },\n      {\n        \"valueId\": 585,\n        \"definedValue\": \"6\",\n        \"forRemoval\": true,\n        \"deleteExperienceFieldValues\": false\n      },\n      {\n        \"valueId\": 586,\n        \"definedValue\": \"7\",\n        \"forRemoval\": true,\n        \"deleteExperienceFieldValues\": false\n      },\n      {\n        \"valueId\": 587,\n        \"definedValue\": \"8\",\n        \"forRemoval\": true,\n        \"deleteExperienceFieldValues\": false\n      },\n      {\n        \"valueId\": 588,\n        \"definedValue\": \"9\",\n        \"forRemoval\": true,\n        \"deleteExperienceFieldValues\": false\n      },\n      {\n        \"valueId\": 0,\n        \"definedValue\": \"10+\",\n        \"forRemoval\": false,\n        \"deleteExperienceFieldValues\": false\n      }\n    ],\n    \"isRequired\": true,\n    \"isPrivate\": false,\n    \"isLocked\": false\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "926530f0-5a52-4727-be4f-102274f73cc4",
+              "name": "Unprocessable Entity - Couldn't remove all defined values from list.\n\n            Example when trying to remove a defined value in use from a required list:\n<code>{<br/>&nbsp;&nbsp;\"errors\":&nbsp;[<br/>&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"errorType\":&nbsp;\"DefinedValueError\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"description\":&nbsp;\"23001:&nbsp;Cannot&nbsp;remove&nbsp;field&nbsp;defined&nbsp;value.&nbsp;It&nbsp;is&nbsp;in&nbsp;use&nbsp;for&nbsp;required&nbsp;field(s)\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"errorCode\":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"innerException\":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"hResult\":&nbsp;-2146233088<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;],<br/>&nbsp;&nbsp;\"title\":&nbsp;\"One&nbsp;or&nbsp;more&nbsp;validation&nbsp;errors&nbsp;occurred.\",<br/>&nbsp;&nbsp;\"status\":&nbsp;422,<br/>&nbsp;&nbsp;\"instance\":&nbsp;\"/api/v1/accounts/2/person-fields\",<br/>&nbsp;&nbsp;\"requestUid\":&nbsp;\"fb8b2dd9-360f-4a81-852c-e5b70cfa5a85\"<br/>}</code>",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":id",
+                    "person-fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": 123,\n    \"name\": \"Years\",\n    \"type\": \"SingleSelect\",\n    \"definedValues\": [\n      {\n        \"valueId\": 584,\n        \"definedValue\": \"5-9\",\n        \"forRemoval\": false,\n        \"deleteExperienceFieldValues\": false\n      },\n      {\n        \"valueId\": 585,\n        \"definedValue\": \"6\",\n        \"forRemoval\": true,\n        \"deleteExperienceFieldValues\": false\n      },\n      {\n        \"valueId\": 586,\n        \"definedValue\": \"7\",\n        \"forRemoval\": true,\n        \"deleteExperienceFieldValues\": false\n      },\n      {\n        \"valueId\": 587,\n        \"definedValue\": \"8\",\n        \"forRemoval\": true,\n        \"deleteExperienceFieldValues\": false\n      },\n      {\n        \"valueId\": 588,\n        \"definedValue\": \"9\",\n        \"forRemoval\": true,\n        \"deleteExperienceFieldValues\": false\n      },\n      {\n        \"valueId\": 0,\n        \"definedValue\": \"10+\",\n        \"forRemoval\": false,\n        \"deleteExperienceFieldValues\": false\n      }\n    ],\n    \"isRequired\": true,\n    \"isPrivate\": false,\n    \"isLocked\": false\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "262c3864-47c2-4ffd-9b13-a1c60e8933c0",
+          "name": "Deletes one or more person field definitions in the given account by ids",
+          "request": {
+            "name": "Deletes one or more person field definitions in the given account by ids",
+            "description": {
+              "content": "<strong>NOTE:</strong> system fields cannot be deleted.<br/><strong>Permissions</strong><br/>Account: Write",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":id",
+                "person-fields"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  \"<long>\"\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bb244250-9ea9-4ec2-8b84-d6a477b20621",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":id",
+                    "person-fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<long>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "eb90785a-95ae-497f-b876-8e6af736c025",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":id",
+                    "person-fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<long>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "219e5524-0f4d-4235-acc9-6f14feb72124",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":id",
+                    "person-fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<long>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e58735fe-3eff-46e4-a80a-27b9445c19a7",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":id",
+                    "person-fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<long>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "18f08e47-7aef-4122-b30d-7235a4597c3b",
+              "name": "Unprocessable Entity: Attempted to remove system field(s)\n\n            Example Response:\n<code>{<br/>&nbsp;&nbsp;\"errors\":&nbsp;[<br/>&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"errorType\":&nbsp;\"NotAllowed\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"description\":&nbsp;\"Cannot&nbsp;delete&nbsp;system&nbsp;field(s)\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"errorCode\":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"innerException\":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"hResult\":&nbsp;-2146233088<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;],<br/>&nbsp;&nbsp;\"title\":&nbsp;\"One&nbsp;or&nbsp;more&nbsp;validation&nbsp;errors&nbsp;occurred.\",<br/>&nbsp;&nbsp;\"status\":&nbsp;422,<br/>&nbsp;&nbsp;\"instance\":&nbsp;\"/api/v1/accounts/2/person-fields\",<br/>&nbsp;&nbsp;\"requestUid\":&nbsp;\"3b3cbfaa-a809-4529-8870-317654a3311e\"<br/>}</code>",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":id",
+                    "person-fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<long>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "653b7d0d-32e0-4718-ab14-ffc886616a85",
+          "name": "Update the display order of person field definitions for the given account.",
+          "request": {
+            "name": "Update the display order of person field definitions for the given account.",
+            "description": {
+              "content": "Accepts an array of objects containing fieldId and displayOrder.\n\nSystem fields cannot be reordered and should not be included in the request.\n\nAll custom fields should be included with their new display order values.<br/><strong>Permissions</strong><br/>Account: Write",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":id",
+                "person-fields",
+                "_reorder"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The account ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"displayOrder\": \"<integer>\",\n    \"fieldId\": \"<long>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "87d00df2-120f-4589-9df0-f50c10b8f979",
+              "name": "Success: Field order updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":id",
+                    "person-fields",
+                    "_reorder"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"displayOrder\": 1,\n    \"fieldId\": 1234\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"personType\": [\n      \"Hourly\",\n      \"Salaried\"\n    ],\n    \"displayOrder\": 1,\n    \"id\": 1394,\n    \"name\": \"Contact Number\",\n    \"type\": \"PhoneNumber\",\n    \"definedValues\": [\n      {\n        \"valueId\": 13,\n        \"definedValue\": \"Defined Value\",\n        \"inUse\": [\n          7449,\n          8754\n        ]\n      },\n      {\n        \"valueId\": 13,\n        \"definedValue\": \"Defined Value\",\n        \"inUse\": [\n          8268,\n          2940\n        ]\n      }\n    ],\n    \"isRequired\": false,\n    \"isSystem\": false,\n    \"isPrivate\": false,\n    \"isFinancials\": false,\n    \"isLocked\": false\n  },\n  {\n    \"personType\": [\n      \"Hourly\",\n      \"Salaried\"\n    ],\n    \"displayOrder\": 1,\n    \"id\": 1394,\n    \"name\": \"Contact Number\",\n    \"type\": \"PhoneNumber\",\n    \"definedValues\": [\n      {\n        \"valueId\": 13,\n        \"definedValue\": \"Defined Value\",\n        \"inUse\": [\n          8935,\n          1964\n        ]\n      },\n      {\n        \"valueId\": 13,\n        \"definedValue\": \"Defined Value\",\n        \"inUse\": [\n          8994,\n          5445\n        ]\n      }\n    ],\n    \"isRequired\": false,\n    \"isSystem\": false,\n    \"isPrivate\": false,\n    \"isFinancials\": false,\n    \"isLocked\": false\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aa8a056c-9fde-44a2-8058-26cc76b425fa",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":id",
+                    "person-fields",
+                    "_reorder"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The account ID"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"displayOrder\": 1,\n    \"fieldId\": 1234\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4a75f0cd-60d7-4ddc-8332-8b4ee1718ac8",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":id",
+                    "person-fields",
+                    "_reorder"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The account ID"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"displayOrder\": 1,\n    \"fieldId\": 1234\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "20d16ecf-2791-4175-9015-f18a72418709",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":id",
+                    "person-fields",
+                    "_reorder"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The account ID"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"displayOrder\": 1,\n    \"fieldId\": 1234\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://bench.gobridgit.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "info": {
+    "_postman_id": "72140d5c-98a4-4442-83ff-3d5adee715f7",
+    "name": "Bench AccountActivities PersonFields API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "<h2>Versioning</h2>\n<p>\n    The API is currently at version <code>1.0</code>. All API endpoints (other than\n    authentication) require you to specify the API version as part of the path.\n</p>\n\n<h2>URL Paths</h2>\n<p>\n    Authentication requests should be made to <code>/auth/signin</code>,\n    as documented below. All other API requests should be made to\n    sub-paths of <code>/rp/api/1.0/...</code>.\n</p>\n\n<h2>Authentication</h2>\n<p>\n    API requests are authenticated using an OAuth Bearer token.\n    You can get a token by authenticating your user by sending a\n    POST request to <code>/auth/signin</code>, with \"username and \"password\"\n    parameters form-encoded in the body of the request.\n\n    POST /auth/signin HTTP/1.1\n    Content-Type: application/x-www-form-urlencoded\n\n    username=user@example.com&password=some-secret-password\n</p>\n<p>\n    The response will be a JSON object including both\n    <b>\"access_token\"</b> and <b>\"refresh_token\"</b> property.\n    All other requests against the Bench API should include an\n    authorization header: <code>Authorization: Bearer xxxYYYzzz</code>,\n    where <b>xxxYYYzzz</b> is the value of <b>\"access_token\"</b> in the response.\n    <br><br>\n    For example:\n\n    $ curl https://bench.gobridgit.com/auth/signin -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'username=someone@example.com' --data-urlencode 'password=[...snip...]'\n    {\n        \"access_token\": \"...snip...\",\n        \"token_type\": \"Bearer\",\n        \"refresh_token\": \"...snip...\"\n        \"expiry\": \"2020-01-01T00:00:00.413440849Z\"\n    }\n\n</p>\n\n<p>\n    The refresh token can be used to generate new session by request with <code>/auth/token</code> endpoint:\n\n    POST /auth/token HTTP/1.1\n    Content-Type: application/x-www-form-urlencoded\n\n    grant_type=refresh_token&refresh_token=tGzv3JOkF0XG5Qx2TlKWIA\n</p>\n<p>\n    Note that once the refresh token is used, the previous access and refresh token is no longer valid.\n    <br><br>\n    For example:\n\n    $ curl https://bench.gobridgit.com/auth/token -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'grant_type=refresh_token' --data-urlencode 'refresh_token=[...snip...]'\n    {\n        \"access_token\": \"...snip...\",\n        \"token_type\": \"Bearer\",\n        \"refresh_token\": \"...snip...\"\n        \"expiry\": \"2020-01-01T00:00:00.413440849Z\"\n    }\n</p>\n\n<h2>Pagination</h2>\n<p>\n    Several of the API endpoints are paginated. These are denoted by\n    including the <code>offset</code> (zero-based offset) and <code>limit</code> query\n    parameters. For example, to request the <code>10</code> items,\n    set the <code>offset=0</code> to <code>limit=10</code>.\n    <br>\n    NOTE: the result set contains items with index of 0-9\n    <br>\n    To request the next 10 items (starting at index 10),\n    set the <code>offset=10</code> to <code>limit=10</code>\n</p>\n<p>\n    Responses to paginated API endpoints return a JSON array of objects.\n    If there are results beyond the page you have requested, the server\n    will set a <code>query-has-more: true</code> header in the response.\n</p>\n\n<h2>Request Encoding</h2>\n<p>\n    <code>GET</code> and <code>DELETE</code> requests should have parameters encoded as URL query\n    parameters. Boolean values should be encoded as <code>true</code> and\n    <code>false</code>, not as <code>1</code> and <code>0</code>.\n</p>\n\n<h2>Errors</h2>\n<p>\n    Errors are returned for some response codes such as <code>400 Bad Request</code> in the\n    following format:\n\n    {\n      \"errors\": [\n        {\n          \"errorType\": \"ValidationError\",\n          \"description\": \"The value of Name must be a string with a minimum length of 1 and a maximum length of 8 and not whitespace.\",\n          \"field\": \"Name\",\n          \"values\": [\n            null\n          ]\n        }\n      ],\n      \"title\": \"One or more validation errors occurred.\",\n      \"status\": 400,\n      \"instance\": \"api/v1/accounts/0/persons\",\n      \"requestUid\": \"123e4567-e89b-12d3-a456-426614174000\"\n    }\n</p>\n",
+      "type": "text/plain"
+    }
+  }
+}

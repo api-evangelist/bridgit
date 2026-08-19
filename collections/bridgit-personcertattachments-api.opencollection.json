@@ -1,0 +1,182 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bench AccountActivities PersonCertAttachments API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "PersonCertAttachments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get all attachments for a person's certification.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/persons/:personId/certifications/:certId/attachments",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The account ID"
+              },
+              {
+                "name": "personId",
+                "value": "",
+                "type": "path",
+                "description": "The person ID"
+              },
+              {
+                "name": "certId",
+                "value": "",
+                "type": "path",
+                "description": "The certification ID"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset for paging response"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The amount of items in the response"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "The state of the attachment for filter"
+              },
+              {
+                "name": "creatorId",
+                "value": "",
+                "type": "query",
+                "description": "The ID of attachment creator for filter"
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Person: Read<br/>HourlyProfile: Read<br/>PersonCerts: Read<br/>HourlyCerts: Read<br/>Private: Read"
+        },
+        {
+          "info": {
+            "name": "Link an attachment to a person's certification.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/persons/:personId/certifications/:certId/attachments",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The account ID"
+              },
+              {
+                "name": "personId",
+                "value": "",
+                "type": "path",
+                "description": "The person ID"
+              },
+              {
+                "name": "certId",
+                "value": "",
+                "type": "path",
+                "description": "The certification ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Person: Read<br/>HourlyProfile: Read<br/>Private: Read<br/>PersonCerts: Write<br/>HourlyCerts: Write"
+        },
+        {
+          "info": {
+            "name": "Get an attachment by ID for a person's certification.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/persons/:personId/certifications/:certId/attachments/:id",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The account ID"
+              },
+              {
+                "name": "personId",
+                "value": "",
+                "type": "path",
+                "description": "The person ID"
+              },
+              {
+                "name": "certId",
+                "value": "",
+                "type": "path",
+                "description": "The certification ID"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The attachment ID"
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Person: Read<br/>HourlyProfile: Read<br/>PersonCerts: Read<br/>HourlyCerts: Read<br/>Private: Read"
+        },
+        {
+          "info": {
+            "name": "Unlink an attachment from a person's certification.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/persons/:personId/certifications/:certId/attachments/:id",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The account ID"
+              },
+              {
+                "name": "personId",
+                "value": "",
+                "type": "path",
+                "description": "The person ID"
+              },
+              {
+                "name": "certId",
+                "value": "",
+                "type": "path",
+                "description": "The certification ID"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The attachment ID"
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Person: Read<br/>HourlyProfile: Read<br/>Private: Read<br/>PersonCerts: Write<br/>HourlyCerts: Write"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

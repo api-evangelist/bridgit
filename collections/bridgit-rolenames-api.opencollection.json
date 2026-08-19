@@ -1,0 +1,89 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bench AccountActivities RoleNames API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "RoleNames",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get role names in the account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/role-names",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The account ID"
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Account: Read<br/>Finance: Read<br/>Role: Read"
+        },
+        {
+          "info": {
+            "name": "Add/Update role name(s) in the account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/role-names",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The account ID"
+              },
+              {
+                "name": "alphabetize",
+                "value": "",
+                "type": "query",
+                "description": "Optional flag to set whether role names should be alphabetically ordered by the caller"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "If <strong>\"alphabetize\"</strong> parameter flag is true, the role names should be alphabetically ordered by caller, otherwise in the order of the request.\n\nTo add or update role names you must have permissions to manage account properties.<br/><strong>Permissions</strong><br/>Account: Write<br/>Role: Write"
+        },
+        {
+          "info": {
+            "name": "Remove role name(s) by ID in the account",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/role-names",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The account ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "To remove role names you must have permissions to manage account properties.\n<strong>NOTE:</strong> The account must contain at least 1 role name.<br/><strong>Permissions</strong><br/>Account: Write<br/>Role: Write"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

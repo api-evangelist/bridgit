@@ -1,0 +1,2360 @@
+{
+  "item": [
+    {
+      "id": "24f62532-8842-4639-aee3-9285bdd1533d",
+      "name": "Projects",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "581141b6-8fc8-42c2-a24e-046524b586c6",
+          "name": "Gets all projects in the given account",
+          "request": {
+            "name": "Gets all projects in the given account",
+            "description": {
+              "content": "<strong>NOTE:</strong> If there are more projects in the account than were returned, there will be a \"query-has-more\" header that will be set to true.<br/><strong>Permissions</strong><br/>Project: Read<br/>Role: Read<br/>HourlyRole: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "Projects"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "relativeDate",
+                  "value": "<dateTime>",
+                  "description": "Optional paramater used to calculate date based properties. If not provided, it is set to today's date in UTC."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Offset for pagination"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "1000",
+                  "description": "Maximum number of results in this page"
+                },
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "Name filter that affects whether or not to return projects back with/without the name contains partial match (Default: Empty)"
+                },
+                {
+                  "disabled": false,
+                  "key": "issues",
+                  "value": "2",
+                  "description": "State filter that affects whether or not to return projects back with/without or any issues (Default: All)"
+                },
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<long>",
+                  "description": "Optional comma delimited list of project IDs to filter the result on"
+                },
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<long>",
+                  "description": "Optional comma delimited list of project IDs to filter the result on"
+                },
+                {
+                  "disabled": false,
+                  "key": "projectState",
+                  "value": "All",
+                  "description": "Optional comma delimited list for filtering results by project state."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeProjectNumber",
+                  "value": "false",
+                  "description": "Whether to include the Project Number field in the response (Default: false)"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "eaa9723e-3361-4495-80f9-3264c2d447ca",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "issues",
+                      "value": "2"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "projectState",
+                      "value": "All"
+                    },
+                    {
+                      "key": "includeProjectNumber",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 8673,\n    \"name\": \"Ahrens Lofts\",\n    \"colour\": \"#00FF00\",\n    \"startDate\": \"2019-01-01\",\n    \"endDate\": \"2020-12-31\",\n    \"startTime\": \"08:00:00\",\n    \"endTime\": \"17:00:00\",\n    \"workDays\": [\n      1,\n      2,\n      3,\n      4,\n      5\n    ],\n    \"state\": \"Active\",\n    \"winPercent\": null,\n    \"unfilledRoles\": 3,\n    \"totalRoles\": 16,\n    \"unfilledHourlyRoles\": 4,\n    \"totalHourlyRoles\": 7,\n    \"totalTasks\": 9,\n    \"unfilledTaskRoles\": 0,\n    \"totalTaskRoles\": 0,\n    \"issuesCount\": 5,\n    \"lastModifiedOn\": \"2019-01-01T00:00:00\",\n    \"type\": \"Awarded\",\n    \"currentPhases\": [\n      {\n        \"name\": \"Precon\"\n      }\n    ],\n    \"phases\": [],\n    \"groupings\": null,\n    \"description\": \"Project Description\",\n    \"truncatedDescription\": \"Project Desc\",\n    \"externalId\": null\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e47dd57b-b32f-47ed-a7e4-d3fddd54b311",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "issues",
+                      "value": "2"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "projectState",
+                      "value": "All"
+                    },
+                    {
+                      "key": "includeProjectNumber",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dcb00fcb-bd7e-4b49-9914-b8197befdc8a",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "issues",
+                      "value": "2"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "projectState",
+                      "value": "All"
+                    },
+                    {
+                      "key": "includeProjectNumber",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4fa1935b-c30a-45a7-8b7c-cb985565ff2f",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "issues",
+                      "value": "2"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "projectState",
+                      "value": "All"
+                    },
+                    {
+                      "key": "includeProjectNumber",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8f8c503f-9023-4f24-a872-f347350f84ed",
+          "name": "Add a project to the given account",
+          "request": {
+            "name": "Add a project to the given account",
+            "description": {
+              "content": "If you add a project with a type of Awarded, it will be created with a state based on the date.\n\nIf you add a project with a type of Opportunity, it will be created with a state of Pursuit.\n\nThe <strong>\"winPercent\"</strong> is associated with an Opportunity, you can create an Opportunity with a winPercent but not for an Awarded project.\n<strong>NOTE:</strong> Opportunities do not count towards allocation statistics so, any roles and allocations set on the project will not cause conflicts, issues, over-allocations etc.<br/><strong>Permissions</strong><br/>Project: Write<br/>Private: Read<br/>Finance: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "Projects"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"colour\": \"<string>\",\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\",\n  \"startTime\": \"<date-span>\",\n  \"endTime\": \"<date-span>\",\n  \"workDays\": [\n    \"<integer>\"\n  ],\n  \"type\": \"<string>\",\n  \"winPercent\": \"<integer>\",\n  \"fields\": [\n    {\n      \"fieldId\": \"<long>\",\n      \"values\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"fieldId\": \"<long>\",\n      \"values\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"groupings\": [\n    \"<long>\"\n  ],\n  \"description\": \"<string>\",\n  \"phases\": [\n    {\n      \"id\": \"<long>\",\n      \"startDate\": \"<dateTime>\",\n      \"endDate\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"startDate\": \"<dateTime>\",\n      \"endDate\": \"<dateTime>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8a337b18-18bf-4562-b6ec-52af5ff2b009",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Ahrens Lofts\",\n  \"colour\": \"#00FF00\",\n  \"startDate\": \"2019-01-01\",\n  \"endDate\": \"2020-12-31\",\n  \"startTime\": \"08:00:00\",\n  \"endTime\": \"17:00:00\",\n  \"workDays\": [\n    1,\n    2,\n    3,\n    4,\n    5\n  ],\n  \"type\": \"Awarded\",\n  \"fields\": [\n    {\n      \"fieldId\": 1394,\n      \"values\": [\n        \"5195555555\"\n      ]\n    }\n  ],\n  \"groupings\": null,\n  \"description\": \"Project Description\",\n  \"phases\": null\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8673,\n  \"name\": \"Ahrens Lofts\",\n  \"colour\": \"#00FF00\",\n  \"startDate\": \"2019-01-01\",\n  \"endDate\": \"2020-12-31\",\n  \"startTime\": \"08:00:00\",\n  \"endTime\": \"17:00:00\",\n  \"workDays\": [\n    1,\n    2,\n    3,\n    4,\n    5\n  ],\n  \"state\": \"Active\",\n  \"winPercent\": null,\n  \"unfilledRoles\": 3,\n  \"totalRoles\": 16,\n  \"unfilledHourlyRoles\": 4,\n  \"totalHourlyRoles\": 7,\n  \"totalTasks\": 9,\n  \"unfilledTaskRoles\": 0,\n  \"totalTaskRoles\": 0,\n  \"issuesCount\": 5,\n  \"lastModifiedOn\": \"2019-01-01T00:00:00\",\n  \"type\": \"Awarded\",\n  \"currentPhases\": [\n    {\n      \"name\": \"Precon\"\n    }\n  ],\n  \"phases\": [],\n  \"groupings\": null,\n  \"description\": \"Project Description\",\n  \"truncatedDescription\": \"Project Desc\",\n  \"externalId\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1cbabf85-a27f-41e9-97f4-042abe96b8ed",
+              "name": "Bad Request - Request has missing or invalid values\n\n            Example when trying to add a project with an invalid colour value:\n<code>{<br/>&nbsp;&nbsp;\"errors\":&nbsp;[<br/>&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"errorType\":&nbsp;\"ValidationError\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"description\":&nbsp;\"colour&nbsp;must&nbsp;be&nbsp;a&nbsp;six-digit&nbsp;hexadecimal&nbsp;number&nbsp;with&nbsp;a&nbsp;'#'&nbsp;in&nbsp;front&nbsp;of&nbsp;it.&nbsp;Ex:&nbsp;#00FF00\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"errorCode\":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"field\":&nbsp;\"Colour\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"innerException\":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"hResult\":&nbsp;-2146233088<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;],<br/>&nbsp;&nbsp;\"title\":&nbsp;\"One&nbsp;or&nbsp;more&nbsp;validation&nbsp;errors&nbsp;occurred.\",<br/>&nbsp;&nbsp;\"status\":&nbsp;400,<br/>&nbsp;&nbsp;\"instance\":&nbsp;\"/api/v1/accounts/2/projects\",<br/>&nbsp;&nbsp;\"requestUid\":&nbsp;\"82a530a1-36b1-4a8a-8bd9-9833de5b0cbd\"<br/>}</code>",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Ahrens Lofts\",\n  \"colour\": \"#00FF00\",\n  \"startDate\": \"2019-01-01\",\n  \"endDate\": \"2020-12-31\",\n  \"startTime\": \"08:00:00\",\n  \"endTime\": \"17:00:00\",\n  \"workDays\": [\n    1,\n    2,\n    3,\n    4,\n    5\n  ],\n  \"type\": \"Awarded\",\n  \"fields\": [\n    {\n      \"fieldId\": 1394,\n      \"values\": [\n        \"5195555555\"\n      ]\n    }\n  ],\n  \"groupings\": null,\n  \"description\": \"Project Description\",\n  \"phases\": null\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9c525000-d058-4832-a9f0-6bf150df9518",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Ahrens Lofts\",\n  \"colour\": \"#00FF00\",\n  \"startDate\": \"2019-01-01\",\n  \"endDate\": \"2020-12-31\",\n  \"startTime\": \"08:00:00\",\n  \"endTime\": \"17:00:00\",\n  \"workDays\": [\n    1,\n    2,\n    3,\n    4,\n    5\n  ],\n  \"type\": \"Awarded\",\n  \"fields\": [\n    {\n      \"fieldId\": 1394,\n      \"values\": [\n        \"5195555555\"\n      ]\n    }\n  ],\n  \"groupings\": null,\n  \"description\": \"Project Description\",\n  \"phases\": null\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3918bfc4-4521-4ef7-ba15-9d7116c72040",
+              "name": "Forbidden - User doesn't have permissions on this resource, or the project couldn't be found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Ahrens Lofts\",\n  \"colour\": \"#00FF00\",\n  \"startDate\": \"2019-01-01\",\n  \"endDate\": \"2020-12-31\",\n  \"startTime\": \"08:00:00\",\n  \"endTime\": \"17:00:00\",\n  \"workDays\": [\n    1,\n    2,\n    3,\n    4,\n    5\n  ],\n  \"type\": \"Awarded\",\n  \"fields\": [\n    {\n      \"fieldId\": 1394,\n      \"values\": [\n        \"5195555555\"\n      ]\n    }\n  ],\n  \"groupings\": null,\n  \"description\": \"Project Description\",\n  \"phases\": null\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fb193baa-49b7-498b-930e-13b0116dacd8",
+              "name": "Conflict - A project already exists in the account with the same name.\n\n            Example when trying to add a project that has the same name as an existing one:\n<code>{<br/>&nbsp;&nbsp;\"errors\":&nbsp;[<br/>&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"errorType\":&nbsp;\"Duplicate\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"description\":&nbsp;\"A&nbsp;project&nbsp;in&nbsp;the&nbsp;account&nbsp;already&nbsp;exists&nbsp;with&nbsp;the&nbsp;requested&nbsp;name.\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"errorCode\":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"innerException\":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"hResult\":&nbsp;-2146233088<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;],<br/>&nbsp;&nbsp;\"title\":&nbsp;\"One&nbsp;or&nbsp;more&nbsp;validation&nbsp;errors&nbsp;occurred.\",<br/>&nbsp;&nbsp;\"status\":&nbsp;409,<br/>&nbsp;&nbsp;\"instance\":&nbsp;\"/api/v1/accounts/2/projects\",<br/>&nbsp;&nbsp;\"requestUid\":&nbsp;\"8ba8f060-858b-46d9-b3cc-fa1c391ebc66\"<br/>}</code>",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Ahrens Lofts\",\n  \"colour\": \"#00FF00\",\n  \"startDate\": \"2019-01-01\",\n  \"endDate\": \"2020-12-31\",\n  \"startTime\": \"08:00:00\",\n  \"endTime\": \"17:00:00\",\n  \"workDays\": [\n    1,\n    2,\n    3,\n    4,\n    5\n  ],\n  \"type\": \"Awarded\",\n  \"fields\": [\n    {\n      \"fieldId\": 1394,\n      \"values\": [\n        \"5195555555\"\n      ]\n    }\n  ],\n  \"groupings\": null,\n  \"description\": \"Project Description\",\n  \"phases\": null\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "276b1e82-648d-415f-8ed1-19305e6a0580",
+          "name": "Gets all projects in the given account filter by project ids.",
+          "request": {
+            "name": "Gets all projects in the given account filter by project ids.",
+            "description": {
+              "content": "<strong>NOTE:</strong> If there are more projects in the account than were returned, there will be a \"query-has-more\" header that will be set to true.<br/><strong>Permissions</strong><br/>Project: Read<br/>Role: Read<br/>HourlyRole: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "Projects",
+                "_filter"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"offset\": \"<integer>\",\n  \"limit\": \"<integer>\",\n  \"predicates\": {\n    \"projectIds\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"projectState\": \"<string>\",\n    \"name\": \"<string>\",\n    \"issues\": \"<integer>\",\n    \"relativeDate\": \"<dateTime>\",\n    \"includeProjectNumber\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2580fd1d-68f2-4925-8011-1294c66f1374",
+              "name": "Success: List of projects in the account",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Projects",
+                    "_filter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"offset\": \"<integer>\",\n  \"limit\": \"<integer>\",\n  \"predicates\": {\n    \"projectIds\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"projectState\": \"<string>\",\n    \"name\": \"<string>\",\n    \"issues\": \"<integer>\",\n    \"relativeDate\": \"<dateTime>\",\n    \"includeProjectNumber\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 8673,\n    \"name\": \"Ahrens Lofts\",\n    \"colour\": \"#00FF00\",\n    \"startDate\": \"2019-01-01\",\n    \"endDate\": \"2020-12-31\",\n    \"startTime\": \"08:00:00\",\n    \"endTime\": \"17:00:00\",\n    \"workDays\": [\n      1,\n      2,\n      3,\n      4,\n      5\n    ],\n    \"state\": \"Active\",\n    \"winPercent\": null,\n    \"unfilledRoles\": 3,\n    \"totalRoles\": 16,\n    \"unfilledHourlyRoles\": 4,\n    \"totalHourlyRoles\": 7,\n    \"totalTasks\": 9,\n    \"unfilledTaskRoles\": 0,\n    \"totalTaskRoles\": 0,\n    \"issuesCount\": 5,\n    \"lastModifiedOn\": \"2019-01-01T00:00:00\",\n    \"type\": \"Awarded\",\n    \"currentPhases\": [\n      {\n        \"name\": \"Precon\"\n      }\n    ],\n    \"phases\": [],\n    \"groupings\": null,\n    \"description\": \"Project Description\",\n    \"truncatedDescription\": \"Project Desc\",\n    \"externalId\": null\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8c484418-10a7-416f-bceb-f04cc7826e07",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Projects",
+                    "_filter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"offset\": \"<integer>\",\n  \"limit\": \"<integer>\",\n  \"predicates\": {\n    \"projectIds\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"projectState\": \"<string>\",\n    \"name\": \"<string>\",\n    \"issues\": \"<integer>\",\n    \"relativeDate\": \"<dateTime>\",\n    \"includeProjectNumber\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9cb1af3d-f05f-4747-8b28-7b8ebc5e9701",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Projects",
+                    "_filter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"offset\": \"<integer>\",\n  \"limit\": \"<integer>\",\n  \"predicates\": {\n    \"projectIds\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"projectState\": \"<string>\",\n    \"name\": \"<string>\",\n    \"issues\": \"<integer>\",\n    \"relativeDate\": \"<dateTime>\",\n    \"includeProjectNumber\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b2aeb7b0-33de-4817-9ff9-c9fcb654555f",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Projects",
+                    "_filter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"offset\": \"<integer>\",\n  \"limit\": \"<integer>\",\n  \"predicates\": {\n    \"projectIds\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"projectState\": \"<string>\",\n    \"name\": \"<string>\",\n    \"issues\": \"<integer>\",\n    \"relativeDate\": \"<dateTime>\",\n    \"includeProjectNumber\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cdc0b3ff-05db-4ef3-9fff-5b02dba80205",
+          "name": "Updates a project to set and externalId that can be referenced by external systems.",
+          "request": {
+            "name": "Updates a project to set and externalId that can be referenced by external systems.",
+            "description": {},
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "Projects",
+                ":id",
+                "externalId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) The Project ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"externalId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3645a4a4-2259-4a66-9265-986a9e5c397e",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Projects",
+                    ":id",
+                    "externalId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"externalId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8b8b5027-fc8b-4308-b144-455f512aa707",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Projects",
+                    ":id",
+                    "externalId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"externalId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3f75f71c-03f4-4705-a030-4fc7542e8edd",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Projects",
+                    ":id",
+                    "externalId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"externalId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e2a6b384-6f57-437a-befc-beaa5471920f",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Projects",
+                    ":id",
+                    "externalId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"externalId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c3d6fff5-5190-4280-8fca-40c0342fb0ad",
+          "name": "Gets details for the given project",
+          "request": {
+            "name": "Gets details for the given project",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>Project: Read<br/>Role: Read<br/>HourlyRole: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "Projects",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "relativeDate",
+                  "value": "<dateTime>",
+                  "description": "Optional paramater used to calculate date based properties. If not provided, it is set to today's date in UTC."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) The Project ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8a0e2e24-3d0b-41b6-9fce-91275271351a",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Projects",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8673,\n  \"name\": \"Ahrens Lofts\",\n  \"colour\": \"#00FF00\",\n  \"startDate\": \"2019-01-01\",\n  \"endDate\": \"2020-12-31\",\n  \"startTime\": \"08:00:00\",\n  \"endTime\": \"17:00:00\",\n  \"workDays\": [\n    1,\n    2,\n    3,\n    4,\n    5\n  ],\n  \"state\": \"Active\",\n  \"winPercent\": null,\n  \"unfilledRoles\": 3,\n  \"totalRoles\": 16,\n  \"unfilledHourlyRoles\": 4,\n  \"totalHourlyRoles\": 7,\n  \"totalTasks\": 9,\n  \"unfilledTaskRoles\": 0,\n  \"totalTaskRoles\": 0,\n  \"issuesCount\": 5,\n  \"lastModifiedOn\": \"2019-01-01T00:00:00\",\n  \"type\": \"Awarded\",\n  \"currentPhases\": [\n    {\n      \"name\": \"Precon\"\n    }\n  ],\n  \"phases\": [],\n  \"groupings\": null,\n  \"description\": \"Project Description\",\n  \"truncatedDescription\": \"Project Desc\",\n  \"externalId\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8a939270-688b-408a-b39b-7855b30c026a",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Projects",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "eeba2ac1-0dc6-49af-b2a6-a8196f2a7545",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Projects",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4de1de9f-8103-4baf-b4a6-2113436e93a0",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Projects",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "367dc538-1417-4ca2-b2f2-b54317aef610",
+          "name": "Update a project in the given account. Each of the fields in the request body is optional - only fields that are present in the request will be updated.\nWhen changing the start or end dates for a project, you can customize how the start and end dates for roles and phases will change in response. See the Model below for details.\nNote that roles or phases whose start and end dates change such that the start date is after the end date will be automatically deleted from the project.",
+          "request": {
+            "name": "Update a project in the given account. Each of the fields in the request body is optional - only fields that are present in the request will be updated.\nWhen changing the start or end dates for a project, you can customize how the start and end dates for roles and phases will change in response. See the Model below for details.\nNote that roles or phases whose start and end dates change such that the start date is after the end date will be automatically deleted from the project.",
+            "description": {
+              "content": "To update a project's dates you need the ProjectDates permission, which is separate from the Project Write permission that is required to update other project details. \nThis is because changing project dates can have a significant impact on any associated roles and phases, and therefore only users with the ProjectDates permission should be allowed to make those changes.\n\n\nIf the <strong>\"shiftDates\"</strong> property is true and you specify a changed project start or end date in this request,\nthen the project's start and end dates, and the start and end dates for all roles and phases\nwill be adjusted by the same amount. If this property is set to true, then you must only send\nEITHER startDate OR endDate - behavior when setting both is to shift with project start date..\n\n            \nIf the <strong>\"removeRoleSetup\"</strong> property is true, then all roles are removed from the given project.\n\n            \nIf the <strong>\"expandRole\"</strong> property is true and you specify a changed project start to be earlier than the\ncurrent start date, or you specify a changed project end date to be later than the current\nend date, then any roles that share the same date will be expanded so that they\nstill start or end on the same date that the project starts or ends. The duration of those\nroles will be expanded in this case.\n\n            \nFor example, take a project running from February 1, 2020 to July 1, 2020, where Role A runs from\nFebruary 1, 2020 to March 1, 2020, and Role B runs from February 15, 2020 to July 1, 2020.\nIf a PATCH request is sent with startDate = January 15, 2020 and expandRole = true, then\nthe project will be modified to run from January 15, 2020 to July 1, 2020, role A will be modified\nto run from January 15, 2020 to March 1, 2020, and role B will remain unmodified. If instead you\nspecify expandRole = false, then the roles will be unmodified in this situation.\n\n            \nIf the <strong>\"expandPhases\"</strong> property is true and you specify a changed project start to be earlier than the\ncurrent start date, or you specify a changed project end date to be later than the current\nend date, then any phases that share the same date will be expanded so that they\nstill start or end on the same date that the project starts or ends. The duration of those\nphases will be expanded in this case.\n\n            \nFor example, take a project running from February 1, 2020 to July 1, 2020, where Phase A runs from\nFebruary 1, 2020 to March 1, 2020, and Phase B runs from March 2, 2020 to July 1, 2020.\nIf a PATCH request is sent with startDate = January 15, 2020 and expandPhases = true, then\nthe project will be modified to run from January 15, 2020 to July 1, 2020, Phase A will be modified\nto run from January 15, 2020 to March 1, 2020, and Phase B will remain unmodified. If instead you\nspecify expandPhase = false, then the phases will be unmodified in this situation.\n\n            \nIf you update a project to a <strong>\"type\"</strong> of Awarded without specifying a state, it will default to a date based state.\nYou can specify a state, but if you pass Active, Completed or Upcoming the API will ignore those values and return a date based state.\nIf you set it to Canceled it will cancel the project and the allocation stats for the account will no longer be affected by the project.\nYou can re-activate a project by passing Active, Completed or Upcoming and the API will return the proper date based state.\nAn Awarded project can only have a state of Active, Completed, Upcoming or Canceled.\n\nIf you update a project to type of Opportunity without specifying a state, default to a state of Pursuit.\nAn Opportunity can only have a state of Pursuit or Lost.\n\nThe <strong>\"winPercent\"</strong> is associated with an Opportunity, you can update the winPercent for an Opportunity in Pursuit state but not for an Awarded project.\n<strong>NOTE:</strong> Opportunities do not count towards allocation statistics so, any roles and allocations set on the project will not cause conflicts, issues, over-allocations etc.<br/><strong>Permissions</strong><br/>Project: Write<br/>ProjectDates: Write<br/>Role: Read<br/>HourlyRole: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "Projects",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) The Project ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key_0\": {},\n  \"key_1\": {}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5c4ca3e1-6314-4c58-a264-090fb22ecea6",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Projects",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Ahrens Lofts\",\n  \"colour\": \"#00FF00\",\n  \"startDate\": \"2019-01-01T00:00:00\",\n  \"endDate\": \"2020-12-31T00:00:00\",\n  \"startTime\": \"08:00:00\",\n  \"endTime\": \"17:00:00\",\n  \"workDays\": [\n    1,\n    2,\n    3,\n    4,\n    5\n  ],\n  \"type\": \"Awarded\",\n  \"state\": \"Active\",\n  \"winPercent\": 80,\n  \"description\": \"Project Description\",\n  \"shiftDates\": false,\n  \"removeRoleSetup\": false,\n  \"expandPhases\": false,\n  \"expandRole\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8673,\n  \"name\": \"Ahrens Lofts\",\n  \"colour\": \"#00FF00\",\n  \"startDate\": \"2019-01-01\",\n  \"endDate\": \"2020-12-31\",\n  \"startTime\": \"08:00:00\",\n  \"endTime\": \"17:00:00\",\n  \"workDays\": [\n    1,\n    2,\n    3,\n    4,\n    5\n  ],\n  \"state\": \"Active\",\n  \"winPercent\": null,\n  \"unfilledRoles\": 3,\n  \"totalRoles\": 16,\n  \"unfilledHourlyRoles\": 4,\n  \"totalHourlyRoles\": 7,\n  \"totalTasks\": 9,\n  \"unfilledTaskRoles\": 0,\n  \"totalTaskRoles\": 0,\n  \"issuesCount\": 5,\n  \"lastModifiedOn\": \"2019-01-01T00:00:00\",\n  \"type\": \"Awarded\",\n  \"currentPhases\": [\n    {\n      \"name\": \"Precon\"\n    }\n  ],\n  \"phases\": [],\n  \"groupings\": null,\n  \"description\": \"Project Description\",\n  \"truncatedDescription\": \"Project Desc\",\n  \"externalId\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b2d868eb-dd62-4b05-b19b-d16dc3a0daba",
+              "name": "Bad Request - Request has missing or invalid values\n\n             Example when trying to update a project with an invalid colour value:\n<code>{<br/>&nbsp;&nbsp;\"errors\":&nbsp;[<br/>&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"errorType\":&nbsp;\"ValidationError\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"description\":&nbsp;\"colour&nbsp;must&nbsp;be&nbsp;a&nbsp;six-digit&nbsp;hexadecimal&nbsp;number&nbsp;with&nbsp;a&nbsp;'#'&nbsp;in&nbsp;front&nbsp;of&nbsp;it.&nbsp;Ex:&nbsp;#00FF00\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"errorCode\":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"field\":&nbsp;\"Colour\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"innerException\":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"hResult\":&nbsp;-2146233088<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;],<br/>&nbsp;&nbsp;\"title\":&nbsp;\"One&nbsp;or&nbsp;more&nbsp;validation&nbsp;errors&nbsp;occurred.\",<br/>&nbsp;&nbsp;\"status\":&nbsp;400,<br/>&nbsp;&nbsp;\"instance\":&nbsp;\"/api/v1/accounts/2/projects\",<br/>&nbsp;&nbsp;\"requestUid\":&nbsp;\"82a530a1-36b1-4a8a-8bd9-9833de5b0cbd\"<br/>}</code>",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Projects",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Ahrens Lofts\",\n  \"colour\": \"#00FF00\",\n  \"startDate\": \"2019-01-01T00:00:00\",\n  \"endDate\": \"2020-12-31T00:00:00\",\n  \"startTime\": \"08:00:00\",\n  \"endTime\": \"17:00:00\",\n  \"workDays\": [\n    1,\n    2,\n    3,\n    4,\n    5\n  ],\n  \"type\": \"Awarded\",\n  \"state\": \"Active\",\n  \"winPercent\": 80,\n  \"description\": \"Project Description\",\n  \"shiftDates\": false,\n  \"removeRoleSetup\": false,\n  \"expandPhases\": false,\n  \"expandRole\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5af6aab5-3432-4c93-8837-5784967f212d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Projects",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Ahrens Lofts\",\n  \"colour\": \"#00FF00\",\n  \"startDate\": \"2019-01-01T00:00:00\",\n  \"endDate\": \"2020-12-31T00:00:00\",\n  \"startTime\": \"08:00:00\",\n  \"endTime\": \"17:00:00\",\n  \"workDays\": [\n    1,\n    2,\n    3,\n    4,\n    5\n  ],\n  \"type\": \"Awarded\",\n  \"state\": \"Active\",\n  \"winPercent\": 80,\n  \"description\": \"Project Description\",\n  \"shiftDates\": false,\n  \"removeRoleSetup\": false,\n  \"expandPhases\": false,\n  \"expandRole\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0e8ef1e4-7f50-45d0-b5c2-f780aaa2b34b",
+              "name": "Forbidden - User doesn't have permissions on this resource, or the project couldn't be found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Projects",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Ahrens Lofts\",\n  \"colour\": \"#00FF00\",\n  \"startDate\": \"2019-01-01T00:00:00\",\n  \"endDate\": \"2020-12-31T00:00:00\",\n  \"startTime\": \"08:00:00\",\n  \"endTime\": \"17:00:00\",\n  \"workDays\": [\n    1,\n    2,\n    3,\n    4,\n    5\n  ],\n  \"type\": \"Awarded\",\n  \"state\": \"Active\",\n  \"winPercent\": 80,\n  \"description\": \"Project Description\",\n  \"shiftDates\": false,\n  \"removeRoleSetup\": false,\n  \"expandPhases\": false,\n  \"expandRole\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3e0027a1-84ce-4850-ab10-b4b52ad328fb",
+              "name": "Conflict - A project already exists in the account with the same name.\n\n             Example when trying to update a project name to the same name as an existing one:\n<code>{<br/>&nbsp;&nbsp;\"errors\":&nbsp;[<br/>&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"errorType\":&nbsp;\"Duplicate\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"description\":&nbsp;\"A&nbsp;project&nbsp;in&nbsp;the&nbsp;account&nbsp;already&nbsp;exists&nbsp;with&nbsp;the&nbsp;requested&nbsp;name.\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"errorCode\":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"innerException\":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"hResult\":&nbsp;-2146233088<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;],<br/>&nbsp;&nbsp;\"title\":&nbsp;\"One&nbsp;or&nbsp;more&nbsp;validation&nbsp;errors&nbsp;occurred.\",<br/>&nbsp;&nbsp;\"status\":&nbsp;409,<br/>&nbsp;&nbsp;\"instance\":&nbsp;\"/api/v1/accounts/2/projects\",<br/>&nbsp;&nbsp;\"requestUid\":&nbsp;\"8ba8f060-858b-46d9-b3cc-fa1c391ebc66\"<br/>}</code>",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Projects",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Ahrens Lofts\",\n  \"colour\": \"#00FF00\",\n  \"startDate\": \"2019-01-01T00:00:00\",\n  \"endDate\": \"2020-12-31T00:00:00\",\n  \"startTime\": \"08:00:00\",\n  \"endTime\": \"17:00:00\",\n  \"workDays\": [\n    1,\n    2,\n    3,\n    4,\n    5\n  ],\n  \"type\": \"Awarded\",\n  \"state\": \"Active\",\n  \"winPercent\": 80,\n  \"description\": \"Project Description\",\n  \"shiftDates\": false,\n  \"removeRoleSetup\": false,\n  \"expandPhases\": false,\n  \"expandRole\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ee6ed576-7764-4727-a168-03e07d3e8daf",
+              "name": "Unprocessable Entity - Updated end or start date is invalid.\n\n             Example when trying to update a project end date that would result in the end date being before the current start date:\n<code>{<br/>&nbsp;&nbsp;\"errors\":&nbsp;[<br/>&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"errorType\":&nbsp;\"ValidationError\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"description\":&nbsp;\"Project&nbsp;new&nbsp;end&nbsp;date&nbsp;cannot&nbsp;be&nbsp;before&nbsp;current&nbsp;project&nbsp;start&nbsp;date\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"errorCode\":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"innerException\":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"hResult\":&nbsp;-2146233088<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;],<br/>&nbsp;&nbsp;\"title\":&nbsp;\"One&nbsp;or&nbsp;more&nbsp;validation&nbsp;errors&nbsp;occurred.\",<br/>&nbsp;&nbsp;\"status\":&nbsp;422,<br/>&nbsp;&nbsp;\"instance\":&nbsp;\"/api/v1/accounts/2/projects/1\",<br/>&nbsp;&nbsp;\"requestUid\":&nbsp;\"fd024b9c-6432-4a38-a5eb-5ee458866620\"<br/>}</code>",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Projects",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Ahrens Lofts\",\n  \"colour\": \"#00FF00\",\n  \"startDate\": \"2019-01-01T00:00:00\",\n  \"endDate\": \"2020-12-31T00:00:00\",\n  \"startTime\": \"08:00:00\",\n  \"endTime\": \"17:00:00\",\n  \"workDays\": [\n    1,\n    2,\n    3,\n    4,\n    5\n  ],\n  \"type\": \"Awarded\",\n  \"state\": \"Active\",\n  \"winPercent\": 80,\n  \"description\": \"Project Description\",\n  \"shiftDates\": false,\n  \"removeRoleSetup\": false,\n  \"expandPhases\": false,\n  \"expandRole\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "611f78b8-99a3-46ad-be7e-a5ee73d68f8f",
+          "name": "Delete a project",
+          "request": {
+            "name": "Delete a project",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>Project: Write",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "Projects",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) The Project ID"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c609f8c4-13c0-4f54-b368-8694f7596eba",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Projects",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b759d3a9-bd00-4fc4-88d2-e80171cc6baa",
+              "name": "No Content (success)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Projects",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4e8b38fd-de52-4482-a561-8369a77e2310",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Projects",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f3ba1615-9a25-45a9-966f-79e4913f8533",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Projects",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f46c796e-54cd-4f7d-9a3a-603d586ea415",
+              "name": "Forbidden - User doesn't have permissions on this resource, or the project couldn't be found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "Projects",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The Project ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://bench.gobridgit.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "info": {
+    "_postman_id": "5f3fdf45-6342-4d80-bb43-6d6724654c5d",
+    "name": "Bench AccountActivities Projects API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "<h2>Versioning</h2>\n<p>\n    The API is currently at version <code>1.0</code>. All API endpoints (other than\n    authentication) require you to specify the API version as part of the path.\n</p>\n\n<h2>URL Paths</h2>\n<p>\n    Authentication requests should be made to <code>/auth/signin</code>,\n    as documented below. All other API requests should be made to\n    sub-paths of <code>/rp/api/1.0/...</code>.\n</p>\n\n<h2>Authentication</h2>\n<p>\n    API requests are authenticated using an OAuth Bearer token.\n    You can get a token by authenticating your user by sending a\n    POST request to <code>/auth/signin</code>, with \"username and \"password\"\n    parameters form-encoded in the body of the request.\n\n    POST /auth/signin HTTP/1.1\n    Content-Type: application/x-www-form-urlencoded\n\n    username=user@example.com&password=some-secret-password\n</p>\n<p>\n    The response will be a JSON object including both\n    <b>\"access_token\"</b> and <b>\"refresh_token\"</b> property.\n    All other requests against the Bench API should include an\n    authorization header: <code>Authorization: Bearer xxxYYYzzz</code>,\n    where <b>xxxYYYzzz</b> is the value of <b>\"access_token\"</b> in the response.\n    <br><br>\n    For example:\n\n    $ curl https://bench.gobridgit.com/auth/signin -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'username=someone@example.com' --data-urlencode 'password=[...snip...]'\n    {\n        \"access_token\": \"...snip...\",\n        \"token_type\": \"Bearer\",\n        \"refresh_token\": \"...snip...\"\n        \"expiry\": \"2020-01-01T00:00:00.413440849Z\"\n    }\n\n</p>\n\n<p>\n    The refresh token can be used to generate new session by request with <code>/auth/token</code> endpoint:\n\n    POST /auth/token HTTP/1.1\n    Content-Type: application/x-www-form-urlencoded\n\n    grant_type=refresh_token&refresh_token=tGzv3JOkF0XG5Qx2TlKWIA\n</p>\n<p>\n    Note that once the refresh token is used, the previous access and refresh token is no longer valid.\n    <br><br>\n    For example:\n\n    $ curl https://bench.gobridgit.com/auth/token -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'grant_type=refresh_token' --data-urlencode 'refresh_token=[...snip...]'\n    {\n        \"access_token\": \"...snip...\",\n        \"token_type\": \"Bearer\",\n        \"refresh_token\": \"...snip...\"\n        \"expiry\": \"2020-01-01T00:00:00.413440849Z\"\n    }\n</p>\n\n<h2>Pagination</h2>\n<p>\n    Several of the API endpoints are paginated. These are denoted by\n    including the <code>offset</code> (zero-based offset) and <code>limit</code> query\n    parameters. For example, to request the <code>10</code> items,\n    set the <code>offset=0</code> to <code>limit=10</code>.\n    <br>\n    NOTE: the result set contains items with index of 0-9\n    <br>\n    To request the next 10 items (starting at index 10),\n    set the <code>offset=10</code> to <code>limit=10</code>\n</p>\n<p>\n    Responses to paginated API endpoints return a JSON array of objects.\n    If there are results beyond the page you have requested, the server\n    will set a <code>query-has-more: true</code> header in the response.\n</p>\n\n<h2>Request Encoding</h2>\n<p>\n    <code>GET</code> and <code>DELETE</code> requests should have parameters encoded as URL query\n    parameters. Boolean values should be encoded as <code>true</code> and\n    <code>false</code>, not as <code>1</code> and <code>0</code>.\n</p>\n\n<h2>Errors</h2>\n<p>\n    Errors are returned for some response codes such as <code>400 Bad Request</code> in the\n    following format:\n\n    {\n      \"errors\": [\n        {\n          \"errorType\": \"ValidationError\",\n          \"description\": \"The value of Name must be a string with a minimum length of 1 and a maximum length of 8 and not whitespace.\",\n          \"field\": \"Name\",\n          \"values\": [\n            null\n          ]\n        }\n      ],\n      \"title\": \"One or more validation errors occurred.\",\n      \"status\": 400,\n      \"instance\": \"api/v1/accounts/0/persons\",\n      \"requestUid\": \"123e4567-e89b-12d3-a456-426614174000\"\n    }\n</p>\n",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,216 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bench AccountActivities PersonHistoricalExperiences API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "PersonHistoricalExperiences",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List historical experience entries for a person.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/persons/:personId/historical-experiences",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The account ID."
+              },
+              {
+                "name": "personId",
+                "value": "",
+                "type": "path",
+                "description": "The person ID."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "How many to retrieve (1-100, default 50)."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "How many to skip (default 0)."
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Person: Read"
+        },
+        {
+          "info": {
+            "name": "Create a new historical experience entry.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/persons/:personId/historical-experiences",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The account ID."
+              },
+              {
+                "name": "personId",
+                "value": "",
+                "type": "path",
+                "description": "The person ID."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Account: Write"
+        },
+        {
+          "info": {
+            "name": "Get a single historical experience entry.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/persons/:personId/historical-experiences/:historicalExperienceId",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The account ID."
+              },
+              {
+                "name": "personId",
+                "value": "",
+                "type": "path",
+                "description": "The person ID."
+              },
+              {
+                "name": "historicalExperienceId",
+                "value": "",
+                "type": "path",
+                "description": "The historical experience ID."
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Person: Read"
+        },
+        {
+          "info": {
+            "name": "Update historical experience entry for a person",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/persons/:personId/historical-experiences/:historicalExperienceId",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "personId",
+                "value": "",
+                "type": "path",
+                "description": "The Person ID"
+              },
+              {
+                "name": "historicalExperienceId",
+                "value": "",
+                "type": "path",
+                "description": "The Historical Experience ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Account: Write"
+        },
+        {
+          "info": {
+            "name": "Patch historical experience entry for a person",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/persons/:personId/historical-experiences/:historicalExperienceId",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "personId",
+                "value": "",
+                "type": "path",
+                "description": "The Person ID"
+              },
+              {
+                "name": "historicalExperienceId",
+                "value": "",
+                "type": "path",
+                "description": "The Historical Experience ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Account: Write"
+        },
+        {
+          "info": {
+            "name": "Delete a historical experience entry.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/persons/:personId/historical-experiences/:historicalExperienceId",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The account ID."
+              },
+              {
+                "name": "personId",
+                "value": "",
+                "type": "path",
+                "description": "The person ID."
+              },
+              {
+                "name": "historicalExperienceId",
+                "value": "",
+                "type": "path",
+                "description": "The historical experience ID."
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Account: Write"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,106 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bench AccountActivities ProjectFields API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ProjectFields",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Gets all project field definitions in the given account.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:id/project-fields",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Account: Read<br/>Private: Read<br/>Finance: Read"
+        },
+        {
+          "info": {
+            "name": "Adds or updates field definitions on the given account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:id/project-fields",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "If you pass in a FieldDefRequest object without an \"id\" this endpoint will add a new one to the account if the name isn't reserved or in use.\n\nIf you pass in a FieldDefRequest object with an \"id\" this endpoint will update an existing one that matches the id.\n\nTo add a value or multiple values to a selection list you must pass an array of \"definedValues\" that contain objects with a \"definedValue\" property of the value you want to add.\n\nTo update a value or multiple values in a selection list you "
+        },
+        {
+          "info": {
+            "name": "Removes project field definitions in the given account.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:id/project-fields",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Account: Write"
+        },
+        {
+          "info": {
+            "name": "Update the display order of project field definitions for the given account.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:id/project-fields/_reorder",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The account ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Accepts an array of objects containing fieldId and displayOrder.\n\nSystem fields cannot be reordered and should not be included in the request.\n\nAll custom fields should be included with their new display order values.<br/><strong>Permissions</strong><br/>Account: Write"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bench AccountActivities API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "AccountActivities",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieves activity logs for the specified account with optional filtering and pagination.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/activities/_filter",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The account ID (must be greater than zero)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint returns a paginated list of activities that occurred within the account. The results can be filtered by:\n- Person IDs (maximum 10)\n- Project IDs (maximum 10)\n- Date range (happenedFrom and happenedTo)\n- User IDs who triggered the events (maximum 10)\n- Activity types (maximum 25)\n\nNote: Either PersonIds or ProjectIds can be specified, but not both simultaneously.\n\nThe response includes a `query-has-more` header indicating whether additional records are available beyond the current p"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

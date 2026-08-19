@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bench AccountActivities Users API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Modify system user's permission group.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://bench.gobridgit.com/rp/api/v1/Users/:id/membership",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the user to remove"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Modify system user's permission group."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

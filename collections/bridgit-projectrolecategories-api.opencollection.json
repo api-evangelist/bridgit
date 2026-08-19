@@ -1,0 +1,130 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bench AccountActivities ProjectRoleCategories API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ProjectRoleCategories",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Gets categories on the given account's project.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/projects/:projectId/role-categories",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The project ID to get categories from"
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Role: Read<br/>HourlyRole: Read"
+        },
+        {
+          "info": {
+            "name": "Adds a category on the given account's project.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/projects/:projectId/role-categories",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The project ID to add the category to"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "You must be able to manage salaried OR hourly roles.<br/><strong>Permissions</strong><br/>Role: Write<br/>HourlyRole: Write"
+        },
+        {
+          "info": {
+            "name": "Bulk update categories on the given account's project.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/projects/:projectId/role-categories",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The project ID to add the category to"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "NOTE: The category name must not be greater than 100 characters.<br/><strong>Permissions</strong><br/>Role: Write<br/>HourlyRole: Write"
+        },
+        {
+          "info": {
+            "name": "Removes categories on the given account's project.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/projects/:projectId/role-categories",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The project ID to delete the categories from"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "You must be able to manage salaried OR hourly roles.<br/><strong>Permissions</strong><br/>Role: Write<br/>HourlyRole: Write"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

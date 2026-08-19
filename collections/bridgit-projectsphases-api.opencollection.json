@@ -1,0 +1,225 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bench AccountActivities ProjectsPhases API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ProjectsPhases",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Gets all phases on the given project",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/projects/:projectId/phases",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The Project ID"
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Project: Read"
+        },
+        {
+          "info": {
+            "name": "Adds a phase to the given project",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/projects/:projectId/phases",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The Project ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "You must specify \"id\", \"startDate\" and \"endDate\" of any phase for this endpoint.<br/><strong>Permissions</strong><br/>Project: Write"
+        },
+        {
+          "info": {
+            "name": "Deletes phases from the given project",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/projects/:projectId/phases",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The Project ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Deletes phases from the given project"
+        },
+        {
+          "info": {
+            "name": "Adds phases to the given project",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/projects/:projectId/phases/bulk",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The Project ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "You must specify \"id\", \"startDate\" and \"endDate\" of any phase for this endpoint.<br/><strong>Permissions</strong><br/>Project: Write"
+        },
+        {
+          "info": {
+            "name": "Updates multiple phases on the given project",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/projects/:projectId/phases/bulk",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The Project ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint will only update the fields that are present in the request.\n\nYou must specify \"id\", \"startDate\" and/or \"endDate\" of the phases for this endpoint.\n\n            \nIf the <strong>\"shiftDates\"</strong> property is true and you specify a changed phase start or end date in this request,\nthen the phase's start and end dates will be adjusted by the same amount.\nIf this property is set to true, then you must only send EITHER startDate OR endDate - only startDate is considered when both date"
+        },
+        {
+          "info": {
+            "name": "Updates a phase on the given project",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/projects/:projectId/phases/:phaseId",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The Project ID"
+              },
+              {
+                "name": "phaseId",
+                "value": "",
+                "type": "path",
+                "description": "The Phase ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint will only update the fields that are present in the request.\n\nYou must specify \"startDate\" and/or \"endDate\" for this endpoint.\n\n            \nIf the <strong>\"shiftDates\"</strong> property is true and you specify a changed phase start or end date in this request,\nthen the phase's start and end dates will be adjusted by the same amount.\n\nIf this property is set to true, then you must only send EITHER startDate OR endDate - only startDate is considered when both dates are set.\n<br/><st"
+        },
+        {
+          "info": {
+            "name": "Deletes a phase from the given project",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/projects/:projectId/phases/:phaseId",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The Project ID"
+              },
+              {
+                "name": "phaseId",
+                "value": "",
+                "type": "path",
+                "description": "The Phase ID"
+              }
+            ]
+          },
+          "docs": "Deletes a phase from the given project"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

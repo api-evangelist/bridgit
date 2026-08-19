@@ -1,0 +1,158 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bench AccountActivities PersonAttachments API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "PersonAttachments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Gets the attachments for the given person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/persons/:personId/attachments",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "personId",
+                "value": "",
+                "type": "path",
+                "description": "The Person ID"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset for pagination"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results in this page"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "The state of the attachment for filter"
+              },
+              {
+                "name": "creatorId",
+                "value": "",
+                "type": "query",
+                "description": "The ID of attachment creator for filter"
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Person: Read<br/>HourlyProfile: Read<br/>Private: Read"
+        },
+        {
+          "info": {
+            "name": "Add an attachment to a person.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/persons/:personId/attachments",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The account ID"
+              },
+              {
+                "name": "personId",
+                "value": "",
+                "type": "path",
+                "description": "The person ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "User needs either Person:Write or HourlyProfile:Write or PeopleCerts:Write or HourlyPeopleCerts:Write permissions depending on the person type to add an attachment.<br/><strong>Permissions</strong><br/>Person: Write<br/>HourlyProfile: Write<br/>PeopleCerts: Write<br/>HourlyPeopleCerts: Write<br/>Private: Read"
+        },
+        {
+          "info": {
+            "name": "Get a person's attachment by ID.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/persons/:personId/attachments/:id",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The account ID"
+              },
+              {
+                "name": "personId",
+                "value": "",
+                "type": "path",
+                "description": "The person ID"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The attachment ID"
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Person: Read<br/>HourlyProfile: Read<br/>Private: Read"
+        },
+        {
+          "info": {
+            "name": "Delete an attachment from a person.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/persons/:personId/attachments/:id",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The account ID"
+              },
+              {
+                "name": "personId",
+                "value": "",
+                "type": "path",
+                "description": "The person ID"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The attachment ID"
+              }
+            ]
+          },
+          "docs": "User needs either Person:Write or HourlyProfile:Write or PeopleCerts:Write or HourlyPeopleCerts:Write permissions depending on the person type to delete an attachment.<br/><strong>Permissions</strong><br/>Person: Write<br/>HourlyProfile: Write<br/>PeopleCerts: Write<br/>HourlyPeopleCerts: Write<br/>Private: Read"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,187 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bench AccountActivities PersonCertifications API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "PersonCertifications",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Gets the certifications for the given person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/persons/:personId/certifications",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "personId",
+                "value": "",
+                "type": "path",
+                "description": "The Person ID"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset for pagination"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results in this page"
+              },
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "(Optional) Filters the result to contain person certifications that match the ids passed in."
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Person: Read<br/>HourlyProfile: Read<br/>PersonCerts: Read<br/>HourlyCerts: Read<br/>Private: Read"
+        },
+        {
+          "info": {
+            "name": "Adds a certification on the given person.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/persons/:personId/certifications",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "personId",
+                "value": "",
+                "type": "path",
+                "description": "The Person ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Person: Read<br/>HourlyProfile: Read<br/>PersonCerts: Write<br/>HourlyCerts: Write"
+        },
+        {
+          "info": {
+            "name": "Gets the specified certification for the given person by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/persons/:personId/certifications/:id",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "personId",
+                "value": "",
+                "type": "path",
+                "description": "The Person ID"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The Certification's ID"
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Person: Read<br/>HourlyProfile: Read<br/>PersonCerts: Read<br/>HourlyCerts: Read<br/>Private: Read"
+        },
+        {
+          "info": {
+            "name": "Updates a certification for the given person",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/persons/:personId/certifications/:id",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "personId",
+                "value": "",
+                "type": "path",
+                "description": "The Person ID"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the certification to update"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Person: Read<br/>HourlyProfile: Read<br/>PersonCerts: Write<br/>HourlyCerts: Write"
+        },
+        {
+          "info": {
+            "name": "Deletes a certification from the given person and the linked attachments",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/persons/:personId/certifications/:id",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "personId",
+                "value": "",
+                "type": "path",
+                "description": "The Person ID"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the certification to remove"
+              }
+            ]
+          },
+          "docs": "<strong>NOTE:</strong> this will delete all linked attachments.<br/><strong>Permissions</strong><br/>Person: Read<br/>HourlyProfile: Read<br/>Private: Read<br/>PersonCerts: Write<br/>HourlyCerts: Write"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

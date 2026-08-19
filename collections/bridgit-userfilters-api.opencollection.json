@@ -1,0 +1,163 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bench AccountActivities UserFilters API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "UserFilters",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Gets user's saved filters in the given account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/my-filters",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset for pagination"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results in this page"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "The filter type to return in the result"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "The filter name by partial match to return in the result"
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Account: Read"
+        },
+        {
+          "info": {
+            "name": "Add a filter for the user in the given account.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/my-filters",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Account: Read"
+        },
+        {
+          "info": {
+            "name": "Get user's saved filter for the given account by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/my-filters/:id",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The filter's ID"
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Account: Read"
+        },
+        {
+          "info": {
+            "name": "Update user's saved filter from the given account",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/my-filters/:id",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the filter to remove"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Account: Read"
+        },
+        {
+          "info": {
+            "name": "Delete user's saved filter from the given account",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/my-filters/:id",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the filter to remove"
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Account: Read"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

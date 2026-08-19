@@ -1,0 +1,177 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bench AccountActivities ProjectFieldValue API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ProjectFieldValue",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Gets all custom field values for the given project in the given account.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/projects/:projectId/project-field-values",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The project ID the role belongs to"
+              },
+              {
+                "name": "includeEmpty",
+                "value": "",
+                "type": "query",
+                "description": "Returns fields with empty/unset value as well"
+              },
+              {
+                "name": "classification",
+                "value": "",
+                "type": "query",
+                "description": "Optional - for filtering result by classification: All or Experience\""
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Project: Read<br/>Private: Read<br/>Finance: Read"
+        },
+        {
+          "info": {
+            "name": "Set project's field values in the given account.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/projects/:projectId/project-field-values",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The project ID the role belongs to"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "NOTE: It is mandatory that the fields with isRequired set to true be passed in as part of the request.\n\n\nExample: Say you have 2 project fields on an account \"Budget\" and \"City\" where isRequired is set to true on \"Budget\".\n\nFieldDefinition Example Response - GET ProjectFields (/api/v{version}/accounts/{id}/project-fields)\n<code>[<br/>&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;\"id\":&nbsp;1394,<br/>&nbsp;&nbsp;&nbsp;&nbsp;\"name\":&nbsp;\"Budget\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;\"type\":&nbsp;\"Currency\",<b"
+        },
+        {
+          "info": {
+            "name": "Update field values on a project",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/projects/:projectId/project-field-values",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The Project ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<h2>Validation</h2>\n<b>Other</b>: Free text. Max length: 2400\n\n<b>Address</b>: Free text. Max length: 250\n\n<b>Project Number</b>: Free text. Max length: 250\n\n<b>Budget</b>: Currency. Starts with 0 to 15 digits of ```0-9``` then optionally followed by ```.``` with 0 to 2 digits of ```0-9```\n\n<b>External ID</b>: Free text. Max length: 250\n\n<b>Labor Hours (Salaried)</b>: Positive integer. Must be greater than 0 and not exceed 2,147,483,647 (Int32.MaxValue). Decimals are not allowed. This is a syste"
+        },
+        {
+          "info": {
+            "name": "Clear project's field values by field IDs in the given account.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/projects/:projectId/project-field-values",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The project ID the role belongs to"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Project: Write<br/>Private: Read<br/>Finance: Read"
+        },
+        {
+          "info": {
+            "name": "Update a single field's value(s) for project in the given account.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/projects/:projectId/project-field-values/:fieldId",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The project ID the role belongs to"
+              },
+              {
+                "name": "fieldId",
+                "value": "",
+                "type": "path",
+                "description": "The field ID that the data can be updated"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<h2>Validation</h2>\n<b>Other</b>: Free text. Max length: 2400\n\n<b>Address</b>: Free text. Max length: 250\n\n<b>Project Number</b>: Free text. Max length: 250\n\n<b>Budget</b>: Currency. Starts with 0 to 15 digits of ```0-9``` then optionally followed by ```.``` with 0 to 2 digits of ```0-9```\n\n<b>External ID</b>: Free text. Max length: 250\n\n<b>Labor Hours (Salaried)</b>: Positive integer. Must be greater than 0 and not exceed 2,147,483,647 (Int32.MaxValue). Decimals are not allowed. This is a syste"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

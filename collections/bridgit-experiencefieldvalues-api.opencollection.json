@@ -1,0 +1,156 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bench AccountActivities ExperienceFieldValues API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ExperienceFieldValues",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query all existing values for an experience field",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/experience-fields/:experienceFieldId/values",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "experienceFieldId",
+                "value": "",
+                "type": "path",
+                "description": "The Experience Field UUID"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset value for paging results"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of results per page"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Filter by name with a contains check not exact match"
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Account: Read"
+        },
+        {
+          "info": {
+            "name": "Create new experience field values",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/experience-fields/:experienceFieldId/values",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "experienceFieldId",
+                "value": "",
+                "type": "path",
+                "description": "The Experience Field UUID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Account: Write"
+        },
+        {
+          "info": {
+            "name": "Update a value for an existing experience field",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/experience-fields/:experienceFieldId/values/:experienceFieldValueId",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "experienceFieldId",
+                "value": "",
+                "type": "path",
+                "description": "The Experience Field UUID"
+              },
+              {
+                "name": "experienceFieldValueId",
+                "value": "",
+                "type": "path",
+                "description": "The Experience Field Value ID UUID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Account: Write"
+        },
+        {
+          "info": {
+            "name": "Delete an existing experience field value",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/experience-fields/:experienceFieldId/values/:experienceFieldValueId",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "experienceFieldId",
+                "value": "",
+                "type": "path",
+                "description": "The Experience Field UUID"
+              },
+              {
+                "name": "experienceFieldValueId",
+                "value": "",
+                "type": "path",
+                "description": "The Field Value ID UUID"
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Account: Write"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

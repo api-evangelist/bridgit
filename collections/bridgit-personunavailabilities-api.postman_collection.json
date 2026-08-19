@@ -1,0 +1,1788 @@
+{
+  "item": [
+    {
+      "id": "78e7c13b-e060-46e2-bc6a-ae496a15aecd",
+      "name": "PersonUnavailabilities",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1c4a3cc9-ad60-47e8-a4bc-7466abc08e29",
+          "name": "Gets the periods of unavailability for persons in the given account",
+          "request": {
+            "name": "Gets the periods of unavailability for persons in the given account",
+            "description": {
+              "content": "By default this endpoint will return only Periods of Unavailability.\n<strong>NOTE: </strong>If you wish to retrieve Pre and Post employment dates you will need to pass the \"type\" param in the query.\n<strong>NOTE: </strong>If you do not have Private Read permissions, description will return as null for private periods of unavailability.<br/><strong>Permissions</strong><br/>Person: Read<br/>HourlyProfile: Read<br/>Unavailabilities: Read<br/>HourlyUnavailabilities: Read<br/>Private: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "persons",
+                "unavailabilities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<dateTime>",
+                  "description": "Date from which to start the range (Default: 0001-01-01)"
+                },
+                {
+                  "disabled": false,
+                  "key": "end",
+                  "value": "<dateTime>",
+                  "description": "Date from which to end the range (Default: 9999-12-31)"
+                },
+                {
+                  "disabled": false,
+                  "key": "boundRange",
+                  "value": "false",
+                  "description": "Setting this value to true will truncate the dates returned to the specified start and end date paramters"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "Unavailability, TimeOff",
+                  "description": "Type of the unavailability date range (Default: Unavailability)"
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "Active",
+                  "description": "State of persons to filter results by (Default: Active)"
+                },
+                {
+                  "disabled": false,
+                  "key": "personIds",
+                  "value": "<long>",
+                  "description": "Optional comma delimited list of person IDs to filter the results if set"
+                },
+                {
+                  "disabled": false,
+                  "key": "personIds",
+                  "value": "<long>",
+                  "description": "Optional comma delimited list of person IDs to filter the results if set"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b4e8ed0e-41af-4b11-bb6d-5a765eb89a83",
+              "name": "Success: List of unavailabilities for people in the account by person id",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    "unavailabilities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "boundRange",
+                      "value": "false"
+                    },
+                    {
+                      "key": "type",
+                      "value": "Unavailability, TimeOff"
+                    },
+                    {
+                      "key": "state",
+                      "value": "Active"
+                    },
+                    {
+                      "key": "personIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "personIds",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"state\": \"Active\",\n    \"personId\": 82,\n    \"unavailabilities\": [\n      {\n        \"id\": 46,\n        \"rangeType\": \"Unavailability\",\n        \"startDate\": \"1998-09-22T07:55:39.631Z\",\n        \"endDate\": \"1990-06-02T13:08:12.528Z\",\n        \"isPrivate\": false,\n        \"description\": \"Parental Leave\",\n        \"externalId\": \"46\"\n      },\n      {\n        \"id\": 46,\n        \"rangeType\": \"Unavailability\",\n        \"startDate\": \"2022-06-14T17:32:04.372Z\",\n        \"endDate\": \"2018-11-12T03:39:57.450Z\",\n        \"isPrivate\": false,\n        \"description\": \"Parental Leave\",\n        \"externalId\": \"46\"\n      }\n    ]\n  },\n  {\n    \"state\": \"Active\",\n    \"personId\": 82,\n    \"unavailabilities\": [\n      {\n        \"id\": 46,\n        \"rangeType\": \"Unavailability\",\n        \"startDate\": \"1995-10-31T07:51:44.065Z\",\n        \"endDate\": \"1949-05-30T06:25:09.014Z\",\n        \"isPrivate\": false,\n        \"description\": \"Parental Leave\",\n        \"externalId\": \"46\"\n      },\n      {\n        \"id\": 46,\n        \"rangeType\": \"Unavailability\",\n        \"startDate\": \"1996-06-20T17:46:29.852Z\",\n        \"endDate\": \"2008-04-06T06:56:57.469Z\",\n        \"isPrivate\": false,\n        \"description\": \"Parental Leave\",\n        \"externalId\": \"46\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b1a8268d-dc9f-41b6-8f5d-622e678f6ff7",
+              "name": "Bad Request: Example when end date before start date:\n<code>{<br/>&nbsp;&nbsp;\"errors\":&nbsp;[<br/>&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"errorType\":&nbsp;\"ValidationError\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"description\":&nbsp;\"End&nbsp;date&nbsp;cannot&nbsp;be&nbsp;before&nbsp;start&nbsp;date\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"errorCode\":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"values\":&nbsp;[<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"2020-04-19\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"2020-04-18\"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"innerException\":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"hResult\":&nbsp;-2146233088<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;],<br/>&nbsp;&nbsp;\"title\":&nbsp;\"One&nbsp;or&nbsp;more&nbsp;validation&nbsp;errors&nbsp;occurred.\",<br/>&nbsp;&nbsp;\"status\":&nbsp;400,<br/>&nbsp;&nbsp;\"instance\":&nbsp;\"/api/v1/accounts/7/persons/unavailabilities?start=2020-04-19&end=2020-04-18\",<br/>&nbsp;&nbsp;\"requestUid\":&nbsp;\"603504966a0861525e83e9f7dfbc2706\"<br/>}</code>",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    "unavailabilities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "boundRange",
+                      "value": "false"
+                    },
+                    {
+                      "key": "type",
+                      "value": "Unavailability, TimeOff"
+                    },
+                    {
+                      "key": "state",
+                      "value": "Active"
+                    },
+                    {
+                      "key": "personIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "personIds",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "423c043a-fae9-4ec3-90e5-9ee2d09a8e1d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    "unavailabilities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "boundRange",
+                      "value": "false"
+                    },
+                    {
+                      "key": "type",
+                      "value": "Unavailability, TimeOff"
+                    },
+                    {
+                      "key": "state",
+                      "value": "Active"
+                    },
+                    {
+                      "key": "personIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "personIds",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4af3c355-5d66-43a8-b8a7-7a72e54c788b",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    "unavailabilities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "boundRange",
+                      "value": "false"
+                    },
+                    {
+                      "key": "type",
+                      "value": "Unavailability, TimeOff"
+                    },
+                    {
+                      "key": "state",
+                      "value": "Active"
+                    },
+                    {
+                      "key": "personIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "personIds",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6ea87c4f-cdfe-4f98-b508-cc0567b25c78",
+          "name": "Gets the periods of unavailability for a person in the given account.",
+          "request": {
+            "name": "Gets the periods of unavailability for a person in the given account.",
+            "description": {
+              "content": "<strong>NOTE: </strong>If you do not have Private Read permissions, description will return as null for private periods of unavailability.<br/><strong>Permissions</strong><br/>Person: Read<br/>HourlyProfile: Read<br/>Unavailabilities: Read<br/>HourlyUnavailabilities: Read<br/>Private: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "persons",
+                ":id",
+                "unavailabilities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<dateTime>",
+                  "description": "Date from which to start the range (Default: 0001-01-01)"
+                },
+                {
+                  "disabled": false,
+                  "key": "end",
+                  "value": "<dateTime>",
+                  "description": "Date from which to end the range (Default: 9999-12-31)"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "The number of items to skip before starting to collect the result set"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "2147483647",
+                  "description": "The maximum number of results to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortOrder",
+                  "value": "StartDateAscending",
+                  "description": "The order to return unavailabilities. Default is StartDateAscending"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) Id of the person to get unavailabilities for"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "33b4693c-175d-4935-b4f4-7998847364a2",
+              "name": "Success: List of unavailabilities for the person in the account",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":id",
+                    "unavailabilities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "2147483647"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "StartDateAscending"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) Id of the person to get unavailabilities for"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 46,\n    \"rangeType\": \"Unavailability\",\n    \"startDate\": \"2001-02-21T03:22:06.505Z\",\n    \"endDate\": \"1962-04-16T01:53:03.507Z\",\n    \"isPrivate\": false,\n    \"description\": \"Parental Leave\",\n    \"externalId\": \"46\"\n  },\n  {\n    \"id\": 46,\n    \"rangeType\": \"Unavailability\",\n    \"startDate\": \"1987-09-05T22:11:07.401Z\",\n    \"endDate\": \"1982-09-29T21:55:48.465Z\",\n    \"isPrivate\": false,\n    \"description\": \"Parental Leave\",\n    \"externalId\": \"46\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e0dcc5b2-d6ca-416f-a779-105e6ba8aadd",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":id",
+                    "unavailabilities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "2147483647"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "StartDateAscending"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) Id of the person to get unavailabilities for"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2e40de00-a0ec-43b1-b520-1f6ebe8baf7d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":id",
+                    "unavailabilities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "2147483647"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "StartDateAscending"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) Id of the person to get unavailabilities for"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "02d143c2-678b-4163-bc2d-007721ab8c05",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":id",
+                    "unavailabilities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "2147483647"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "StartDateAscending"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) Id of the person to get unavailabilities for"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bda418eb-c9d3-4090-8751-49c8b2bd8660",
+          "name": "Adds periods of unavailability to a person in the given account",
+          "request": {
+            "name": "Adds periods of unavailability to a person in the given account",
+            "description": {
+              "content": "Periods of unavailability cannot overlap with employment dates and cannot overlap with existing periods of unavailability.\n<strong>NOTE: </strong>If you do not have Private Write permissions, you cannot create private periods of unavailability.<br/><strong>Permissions</strong><br/>Private: Write<br/>Person: Read<br/>HourlyProfile: Read<br/>Unavailabilities: Write<br/>HourlyUnavailabilities: Write",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "persons",
+                ":id",
+                "unavailabilities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) Id of the person to get unavailabilities for"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"description\": \"<string>\",\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\",\n    \"isPrivate\": \"<boolean>\",\n    \"rangeType\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9457c44a-5719-4c18-9648-ae257b9def0f",
+              "name": "Success: List of the newly created unavailabilities for the person in the account",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":id",
+                    "unavailabilities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) Id of the person to get unavailabilities for"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"description\": \"<string>\",\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\",\n    \"isPrivate\": \"<boolean>\",\n    \"rangeType\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 46,\n    \"rangeType\": \"Unavailability\",\n    \"startDate\": \"2001-02-21T03:22:06.505Z\",\n    \"endDate\": \"1962-04-16T01:53:03.507Z\",\n    \"isPrivate\": false,\n    \"description\": \"Parental Leave\",\n    \"externalId\": \"46\"\n  },\n  {\n    \"id\": 46,\n    \"rangeType\": \"Unavailability\",\n    \"startDate\": \"1987-09-05T22:11:07.401Z\",\n    \"endDate\": \"1982-09-29T21:55:48.465Z\",\n    \"isPrivate\": false,\n    \"description\": \"Parental Leave\",\n    \"externalId\": \"46\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0d6868b5-95b3-4584-90e4-b4154d21a1ef",
+              "name": "Bad Request: Example when start and end date are outside employment dates\n<code>{<br/>&nbsp;&nbsp;\"errors\":&nbsp;[<br/>&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"errorType\":&nbsp;\"Overlapped\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"description\":&nbsp;\"Requested&nbsp;unavailable&nbsp;date&nbsp;range&nbsp;outside&nbsp;of&nbsp;employment&nbsp;dates.\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"errorCode\":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"values\":&nbsp;[<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"2015-04-01&nbsp;-&nbsp;2015-04-30\"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"innerException\":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"hResult\":&nbsp;-2146233088<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;],<br/>&nbsp;&nbsp;\"title\":&nbsp;\"One&nbsp;or&nbsp;more&nbsp;validation&nbsp;errors&nbsp;occurred.\",<br/>&nbsp;&nbsp;\"status\":&nbsp;400,<br/>&nbsp;&nbsp;\"instance\":&nbsp;\"/api/v1/accounts/7/persons/unavailabilities/2\",<br/>&nbsp;&nbsp;\"requestUid\":&nbsp;\"603504966a0861525e83e9f7dfbc2706\"<br/>}</code>\n\nExample when start and end dates overlap with each other\n<code>{<br/>&nbsp;&nbsp;\"errors\":&nbsp;[<br/>&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"errorType\":&nbsp;\"Overlapped\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"description\":&nbsp;\"Unavailable&nbsp;date&nbsp;ranges&nbsp;overlap&nbsp;with&nbsp;each&nbsp;other.\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"errorCode\":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"values\":&nbsp;[<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"2015-04-01&nbsp;-&nbsp;2015-04-30\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"2015-04-15&nbsp;-&nbsp;2015-05-30\"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"innerException\":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"hResult\":&nbsp;-2146233088<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;],<br/>&nbsp;&nbsp;\"title\":&nbsp;\"One&nbsp;or&nbsp;more&nbsp;validation&nbsp;errors&nbsp;occurred.\",<br/>&nbsp;&nbsp;\"status\":&nbsp;400,<br/>&nbsp;&nbsp;\"instance\":&nbsp;\"/api/v1/accounts/7/persons/unavailabilities/2\",<br/>&nbsp;&nbsp;\"requestUid\":&nbsp;\"603504966a0861525e83e9f7dfbc2706\"<br/>}</code>",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":id",
+                    "unavailabilities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) Id of the person to get unavailabilities for"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"description\": \"<string>\",\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\",\n    \"isPrivate\": \"<boolean>\",\n    \"rangeType\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4f0a28d6-c431-4110-b958-e92e4bba6789",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":id",
+                    "unavailabilities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) Id of the person to get unavailabilities for"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"description\": \"<string>\",\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\",\n    \"isPrivate\": \"<boolean>\",\n    \"rangeType\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d3d34a65-92a3-47d8-b739-99732adacd5c",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":id",
+                    "unavailabilities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) Id of the person to get unavailabilities for"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"description\": \"<string>\",\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\",\n    \"isPrivate\": \"<boolean>\",\n    \"rangeType\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "182d01dc-7118-4c47-9444-22559f244a35",
+          "name": "Updates periods of unavailability to a person in the given account",
+          "request": {
+            "name": "Updates periods of unavailability to a person in the given account",
+            "description": {
+              "content": "This endpoint will only update the fields that are provided in the objects of the array. Any fields not included will use the existing values.\n<strong>NOTE: </strong>Periods of unavailability cannot overlap with employment dates and cannot overlap with existing periods of unavailability.\n<strong>NOTE: </strong>If you do not have Private Write permissions, you can update the start and end date of private periods of unavailability, but not the description or whether it's private.<br/><strong>Permissions</strong><br/>Person: Read<br/>HourlyProfile: Read<br/>Private: Write<br/>Unavailabilities: Write<br/>HourlyUnavailabilities: Write",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "persons",
+                ":id",
+                "unavailabilities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) Id of the person to get unavailabilities for"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"id\": \"<long>\",\n    \"description\": \"<string>\",\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\",\n    \"isPrivate\": \"<boolean>\"\n  },\n  {\n    \"id\": \"<long>\",\n    \"description\": \"<string>\",\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\",\n    \"isPrivate\": \"<boolean>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3e55f879-a703-4798-badf-642e594a6010",
+              "name": "Success: List of the updated unavailabilities for the person in the account",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":id",
+                    "unavailabilities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) Id of the person to get unavailabilities for"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": \"<long>\",\n    \"description\": \"<string>\",\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\",\n    \"isPrivate\": \"<boolean>\"\n  },\n  {\n    \"id\": \"<long>\",\n    \"description\": \"<string>\",\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\",\n    \"isPrivate\": \"<boolean>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 46,\n    \"rangeType\": \"Unavailability\",\n    \"startDate\": \"2001-02-21T03:22:06.505Z\",\n    \"endDate\": \"1962-04-16T01:53:03.507Z\",\n    \"isPrivate\": false,\n    \"description\": \"Parental Leave\",\n    \"externalId\": \"46\"\n  },\n  {\n    \"id\": 46,\n    \"rangeType\": \"Unavailability\",\n    \"startDate\": \"1987-09-05T22:11:07.401Z\",\n    \"endDate\": \"1982-09-29T21:55:48.465Z\",\n    \"isPrivate\": false,\n    \"description\": \"Parental Leave\",\n    \"externalId\": \"46\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f2cd426f-2a3e-4cdf-bd19-08de0f468726",
+              "name": "Bad Request: Example when wrong id passed in body\n<code>{<br/>&nbsp;&nbsp;\"errors\":&nbsp;[<br/>&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"errorType\":&nbsp;\"InvalidId\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"description\":&nbsp;\"Invalid&nbsp;unavailability&nbsp;id&nbsp;provided.\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"errorCode\":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"values\":&nbsp;[<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"5\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"7\"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"innerException\":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"hResult\":&nbsp;-2146233088<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;],<br/>&nbsp;&nbsp;\"title\":&nbsp;\"One&nbsp;or&nbsp;more&nbsp;validation&nbsp;errors&nbsp;occurred.\",<br/>&nbsp;&nbsp;\"status\":&nbsp;400,<br/>&nbsp;&nbsp;\"instance\":&nbsp;\"/api/v1/accounts/7/persons/unavailabilities/2\",<br/>&nbsp;&nbsp;\"requestUid\":&nbsp;\"603504966a0861525e83e9f7dfbc2706\"<br/>}</code>\n\nExample when new start date after end date or new end date before start date\n<code>{<br/>&nbsp;&nbsp;\"errors\":&nbsp;[<br/>&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"errorType\":&nbsp;\"ValidationError\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"description\":&nbsp;\"End&nbsp;date&nbsp;cannot&nbsp;be&nbsp;before&nbsp;start&nbsp;date\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"errorCode\":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"values\":&nbsp;[<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"2020-04-19\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"2020-04-18\"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"innerException\":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"hResult\":&nbsp;-2146233088<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;],<br/>&nbsp;&nbsp;\"title\":&nbsp;\"One&nbsp;or&nbsp;more&nbsp;validation&nbsp;errors&nbsp;occurred.\",<br/>&nbsp;&nbsp;\"status\":&nbsp;400,<br/>&nbsp;&nbsp;\"instance\":&nbsp;\"/api/v1/accounts/7/persons/unavailabilities/2\",<br/>&nbsp;&nbsp;\"requestUid\":&nbsp;\"603504966a0861525e83e9f7dfbc2706\"<br/>}</code>\n\nExample when start and end date are outside employment dates\n<code>{<br/>&nbsp;&nbsp;\"errors\":&nbsp;[<br/>&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"errorType\":&nbsp;\"Overlapped\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"description\":&nbsp;\"Requested&nbsp;unavailable&nbsp;date&nbsp;range&nbsp;outside&nbsp;of&nbsp;employment&nbsp;dates.\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"errorCode\":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"values\":&nbsp;[<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"2015-04-01&nbsp;-&nbsp;2015-04-30\"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"innerException\":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"hResult\":&nbsp;-2146233088<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;],<br/>&nbsp;&nbsp;\"title\":&nbsp;\"One&nbsp;or&nbsp;more&nbsp;validation&nbsp;errors&nbsp;occurred.\",<br/>&nbsp;&nbsp;\"status\":&nbsp;400,<br/>&nbsp;&nbsp;\"instance\":&nbsp;\"/api/v1/accounts/7/persons/unavailabilities/2\",<br/>&nbsp;&nbsp;\"requestUid\":&nbsp;\"603504966a0861525e83e9f7dfbc2706\"<br/>}</code>\n\nExample when start and end dates overlap with each other\n<code>{<br/>&nbsp;&nbsp;\"errors\":&nbsp;[<br/>&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"errorType\":&nbsp;\"Overlapped\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"description\":&nbsp;\"Unavailable&nbsp;date&nbsp;ranges&nbsp;overlap&nbsp;with&nbsp;each&nbsp;other.\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"errorCode\":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"values\":&nbsp;[<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"2015-04-01&nbsp;-&nbsp;2015-04-30\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"2015-04-15&nbsp;-&nbsp;2015-05-30\"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"innerException\":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"hResult\":&nbsp;-2146233088<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;],<br/>&nbsp;&nbsp;\"title\":&nbsp;\"One&nbsp;or&nbsp;more&nbsp;validation&nbsp;errors&nbsp;occurred.\",<br/>&nbsp;&nbsp;\"status\":&nbsp;400,<br/>&nbsp;&nbsp;\"instance\":&nbsp;\"/api/v1/accounts/7/persons/unavailabilities/2\",<br/>&nbsp;&nbsp;\"requestUid\":&nbsp;\"603504966a0861525e83e9f7dfbc2706\"<br/>}</code>",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":id",
+                    "unavailabilities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) Id of the person to get unavailabilities for"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": \"<long>\",\n    \"description\": \"<string>\",\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\",\n    \"isPrivate\": \"<boolean>\"\n  },\n  {\n    \"id\": \"<long>\",\n    \"description\": \"<string>\",\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\",\n    \"isPrivate\": \"<boolean>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "74eb28e6-a986-4cb9-b5fe-9ffaeac2debd",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":id",
+                    "unavailabilities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) Id of the person to get unavailabilities for"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": \"<long>\",\n    \"description\": \"<string>\",\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\",\n    \"isPrivate\": \"<boolean>\"\n  },\n  {\n    \"id\": \"<long>\",\n    \"description\": \"<string>\",\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\",\n    \"isPrivate\": \"<boolean>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "54c8f390-f01a-496c-89d5-4327feeaf227",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":id",
+                    "unavailabilities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) Id of the person to get unavailabilities for"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": \"<long>\",\n    \"description\": \"<string>\",\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\",\n    \"isPrivate\": \"<boolean>\"\n  },\n  {\n    \"id\": \"<long>\",\n    \"description\": \"<string>\",\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\",\n    \"isPrivate\": \"<boolean>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d115d774-bb39-4b0c-a883-1c272839bc75",
+              "name": "Conflict: Example when updated unavailabilities overlap with existing unavailabilities\n<code>{<br/>&nbsp;&nbsp;\"errors\":&nbsp;[<br/>&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"errorType\":&nbsp;\"Overlapped\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"description\":&nbsp;\"Unavailable&nbsp;date&nbsp;ranges&nbsp;overlap&nbsp;with&nbsp;existing&nbsp;unavailable&nbsp;dates.\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"errorCode\":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"innerException\":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"hResult\":&nbsp;-2146233088<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;],<br/>&nbsp;&nbsp;\"title\":&nbsp;\"One&nbsp;or&nbsp;more&nbsp;validation&nbsp;errors&nbsp;occurred.\",<br/>&nbsp;&nbsp;\"status\":&nbsp;409,<br/>&nbsp;&nbsp;\"instance\":&nbsp;\"/api/v1/accounts/7/persons/unavailabilities/2\",<br/>&nbsp;&nbsp;\"requestUid\":&nbsp;\"603504966a0861525e83e9f7dfbc2706\"<br/>}</code>",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":id",
+                    "unavailabilities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) Id of the person to get unavailabilities for"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": \"<long>\",\n    \"description\": \"<string>\",\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\",\n    \"isPrivate\": \"<boolean>\"\n  },\n  {\n    \"id\": \"<long>\",\n    \"description\": \"<string>\",\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\",\n    \"isPrivate\": \"<boolean>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "16ef8407-1cd0-41d4-b59e-63f72c0a504a",
+          "name": "Removes periods of unavailability from a person in the given account",
+          "request": {
+            "name": "Removes periods of unavailability from a person in the given account",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>Person: Read<br/>HourlyProfile: Read<br/>Private: Read<br/>Unavailabilities: Write<br/>HourlyUnavailabilities: Write",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "persons",
+                ":id",
+                "unavailabilities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) Id of the person to get unavailabilities for"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  \"<long>\"\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d9d32e27-119e-4b16-adcc-a74274367c08",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":id",
+                    "unavailabilities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) Id of the person to get unavailabilities for"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<long>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bbfc17f2-a033-4c02-b4df-ed3cd527f28a",
+              "name": "Bad Request: Example when wrong id passed in body\n<code>{<br/>&nbsp;&nbsp;\"errors\":&nbsp;[<br/>&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"errorType\":&nbsp;\"InvalidId\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"description\":&nbsp;\"Invalid&nbsp;unavailability&nbsp;id&nbsp;provided.\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"errorCode\":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"values\":&nbsp;[<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"5\",<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"7\"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"innerException\":&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"hResult\":&nbsp;-2146233088<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;],<br/>&nbsp;&nbsp;\"title\":&nbsp;\"One&nbsp;or&nbsp;more&nbsp;validation&nbsp;errors&nbsp;occurred.\",<br/>&nbsp;&nbsp;\"status\":&nbsp;400,<br/>&nbsp;&nbsp;\"instance\":&nbsp;\"/api/v1/accounts/7/persons/unavailabilities/2\",<br/>&nbsp;&nbsp;\"requestUid\":&nbsp;\"603504966a0861525e83e9f7dfbc2706\"<br/>}</code>\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":id",
+                    "unavailabilities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) Id of the person to get unavailabilities for"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<long>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cc7c803c-fee6-4d71-afc2-a12c362d6ea7",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":id",
+                    "unavailabilities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) Id of the person to get unavailabilities for"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<long>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "31131367-4575-4056-988a-a5bc1b2e6d9c",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":id",
+                    "unavailabilities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) Id of the person to get unavailabilities for"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<long>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://bench.gobridgit.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "info": {
+    "_postman_id": "92d68348-6b50-4c37-bf81-2d277e136170",
+    "name": "Bench AccountActivities PersonUnavailabilities API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "<h2>Versioning</h2>\n<p>\n    The API is currently at version <code>1.0</code>. All API endpoints (other than\n    authentication) require you to specify the API version as part of the path.\n</p>\n\n<h2>URL Paths</h2>\n<p>\n    Authentication requests should be made to <code>/auth/signin</code>,\n    as documented below. All other API requests should be made to\n    sub-paths of <code>/rp/api/1.0/...</code>.\n</p>\n\n<h2>Authentication</h2>\n<p>\n    API requests are authenticated using an OAuth Bearer token.\n    You can get a token by authenticating your user by sending a\n    POST request to <code>/auth/signin</code>, with \"username and \"password\"\n    parameters form-encoded in the body of the request.\n\n    POST /auth/signin HTTP/1.1\n    Content-Type: application/x-www-form-urlencoded\n\n    username=user@example.com&password=some-secret-password\n</p>\n<p>\n    The response will be a JSON object including both\n    <b>\"access_token\"</b> and <b>\"refresh_token\"</b> property.\n    All other requests against the Bench API should include an\n    authorization header: <code>Authorization: Bearer xxxYYYzzz</code>,\n    where <b>xxxYYYzzz</b> is the value of <b>\"access_token\"</b> in the response.\n    <br><br>\n    For example:\n\n    $ curl https://bench.gobridgit.com/auth/signin -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'username=someone@example.com' --data-urlencode 'password=[...snip...]'\n    {\n        \"access_token\": \"...snip...\",\n        \"token_type\": \"Bearer\",\n        \"refresh_token\": \"...snip...\"\n        \"expiry\": \"2020-01-01T00:00:00.413440849Z\"\n    }\n\n</p>\n\n<p>\n    The refresh token can be used to generate new session by request with <code>/auth/token</code> endpoint:\n\n    POST /auth/token HTTP/1.1\n    Content-Type: application/x-www-form-urlencoded\n\n    grant_type=refresh_token&refresh_token=tGzv3JOkF0XG5Qx2TlKWIA\n</p>\n<p>\n    Note that once the refresh token is used, the previous access and refresh token is no longer valid.\n    <br><br>\n    For example:\n\n    $ curl https://bench.gobridgit.com/auth/token -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'grant_type=refresh_token' --data-urlencode 'refresh_token=[...snip...]'\n    {\n        \"access_token\": \"...snip...\",\n        \"token_type\": \"Bearer\",\n        \"refresh_token\": \"...snip...\"\n        \"expiry\": \"2020-01-01T00:00:00.413440849Z\"\n    }\n</p>\n\n<h2>Pagination</h2>\n<p>\n    Several of the API endpoints are paginated. These are denoted by\n    including the <code>offset</code> (zero-based offset) and <code>limit</code> query\n    parameters. For example, to request the <code>10</code> items,\n    set the <code>offset=0</code> to <code>limit=10</code>.\n    <br>\n    NOTE: the result set contains items with index of 0-9\n    <br>\n    To request the next 10 items (starting at index 10),\n    set the <code>offset=10</code> to <code>limit=10</code>\n</p>\n<p>\n    Responses to paginated API endpoints return a JSON array of objects.\n    If there are results beyond the page you have requested, the server\n    will set a <code>query-has-more: true</code> header in the response.\n</p>\n\n<h2>Request Encoding</h2>\n<p>\n    <code>GET</code> and <code>DELETE</code> requests should have parameters encoded as URL query\n    parameters. Boolean values should be encoded as <code>true</code> and\n    <code>false</code>, not as <code>1</code> and <code>0</code>.\n</p>\n\n<h2>Errors</h2>\n<p>\n    Errors are returned for some response codes such as <code>400 Bad Request</code> in the\n    following format:\n\n    {\n      \"errors\": [\n        {\n          \"errorType\": \"ValidationError\",\n          \"description\": \"The value of Name must be a string with a minimum length of 1 and a maximum length of 8 and not whitespace.\",\n          \"field\": \"Name\",\n          \"values\": [\n            null\n          ]\n        }\n      ],\n      \"title\": \"One or more validation errors occurred.\",\n      \"status\": 400,\n      \"instance\": \"api/v1/accounts/0/persons\",\n      \"requestUid\": \"123e4567-e89b-12d3-a456-426614174000\"\n    }\n</p>\n",
+      "type": "text/plain"
+    }
+  }
+}

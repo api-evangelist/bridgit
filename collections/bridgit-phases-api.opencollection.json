@@ -1,0 +1,160 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bench AccountActivities Phases API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Phases",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Gets the list of phases in the given account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/Phases",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Account: Read"
+        },
+        {
+          "info": {
+            "name": "Adds a new phase to the given account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/Phases",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "You must specify \"name\" for this endpoint.\n\n            \nIf the <strong>\"includeOnNewProjects\"</strong> property is true, then the phase is included by default on new projects.\n\n            \nAn account can have a maximum of 20 phases.<br/><strong>Permissions</strong><br/>Account: Write"
+        },
+        {
+          "info": {
+            "name": "Updates and re-orders the list of phases on an account",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/Phases",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint will update the order of the phases in the account by the order that is sent in\n<strong>NOTE:</strong> This endpoint does not require all of the phases to be sent in.\n<strong>HOWEVER</strong>, if you do not pass in all of the phases on the account, the order may not come back in an expected order.<br/><strong>Permissions</strong><br/>Account: Write"
+        },
+        {
+          "info": {
+            "name": "Removes phases from the given account",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/Phases",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Account: Write"
+        },
+        {
+          "info": {
+            "name": "Gets the phase by id in the given account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/Phases/:id",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The Phase ID"
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Account: Read"
+        },
+        {
+          "info": {
+            "name": "Updates a single phase on an account",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/Phases/:id",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The Phase ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Account: Write"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

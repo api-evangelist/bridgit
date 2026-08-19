@@ -1,0 +1,280 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bench AccountActivities ProjectRoles API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ProjectRoles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Gets all roles in the given account's project.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/projects/:projectId/roles",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The project ID the role belongs to"
+              },
+              {
+                "name": "relativeDate",
+                "value": "2021-01-01",
+                "type": "query",
+                "description": "Optional paramater used to calculate date based properties. If not provided, it is set to today's date in UTC."
+              },
+              {
+                "name": "roleState",
+                "value": "",
+                "type": "query",
+                "description": "(Optional) Filters the result by the state of the role dates: Current, Upcoming, Past, or All"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "(Optional)Salaried role type to filter results by (Defaults to Operations)"
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Role: Read<br/>Finance: Read"
+        },
+        {
+          "info": {
+            "name": "Add role for the given account's project.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/projects/:projectId/roles",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The project ID the role belongs to"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Role: Write<br/>Finance: Read"
+        },
+        {
+          "info": {
+            "name": "Bulk add roles for the given account's project.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/projects/:projectId/roles/bulk",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The project ID the role belongs to"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Role: Write<br/>Finance: Read"
+        },
+        {
+          "info": {
+            "name": "Remove role by IDs in the given account's project.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/projects/:projectId/roles/bulk",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The project ID that the role belongs to"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Role: Write"
+        },
+        {
+          "info": {
+            "name": "Get role by ID in the given account's project.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/projects/:projectId/roles/:id",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The project ID that the role belongs to"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The role ID"
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Role: Read<br/>Finance: Read"
+        },
+        {
+          "info": {
+            "name": "Update role by ID in the given account's project.\nThe task ID is required when updating a task role.\nThe task ID cannot be updated.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/projects/:projectId/roles/:id",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The project ID that the role belongs to"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The role ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Role: Write<br/>Finance: Read"
+        },
+        {
+          "info": {
+            "name": "Remove role by ID in the given account's project.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/projects/:projectId/roles/:id",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The project ID that the role belongs to"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The role ID"
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Role: Write"
+        },
+        {
+          "info": {
+            "name": "Updates a role to set an external ID that can be referenced by external systems.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/projects/:projectId/roles/:id/externalId",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The Project ID"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The Role ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a role to set an external ID that can be referenced by external systems."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

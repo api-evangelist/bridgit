@@ -1,0 +1,181 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bench AccountActivities ProjectNotes API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ProjectNotes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Gets all notes on the given account's project.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/projects/:projectId/notes",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The project ID the note belongs to"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset for pagination"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results per page"
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Project: Read<br/>Private: Read"
+        },
+        {
+          "info": {
+            "name": "Adds a note on the given account's project.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/projects/:projectId/notes",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The project ID to add the note to"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "When trying to create a private note you must have permissions to manage private values in the account. \n\nWhen trying to mention a user, you must provide their userID in the following pattern [[mention:userID#123]].<br/><strong>Permissions</strong><br/>Project: Read<br/>Private: Write"
+        },
+        {
+          "info": {
+            "name": "Gets a note on the given account's project by id.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/projects/:projectId/notes/:id",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The project ID the note belongs to"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the note"
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Project: Read<br/>Private: Read"
+        },
+        {
+          "info": {
+            "name": "Updates a note on the given account's project.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/projects/:projectId/notes/:id",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The project ID the note is on"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the note to update"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "When trying to update a note's privacy you must have permissions to manage private values in the account.\n\nOnly the creator of a note can edit it.\n\nWhen trying to mention a user, you must provide their userID in the following pattern [[mention:userID#123]].<br/><strong>Permissions</strong><br/>Project: Read<br/>Private: Write"
+        },
+        {
+          "info": {
+            "name": "Deletes a note from the given account's project.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/projects/:projectId/notes/:id",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The project ID the note is on"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the note to update"
+              }
+            ]
+          },
+          "docs": "Only the creator or an account admin can delete it.<br/><strong>Permissions</strong><br/>Project: Read<br/>Account: Write"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

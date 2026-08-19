@@ -1,0 +1,1526 @@
+{
+  "item": [
+    {
+      "id": "78bce32c-bc23-4108-847b-49944abca784",
+      "name": "UserFilters",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "178a3c18-755b-4e48-a81b-26aa05887eb8",
+          "name": "Gets user's saved filters in the given account",
+          "request": {
+            "name": "Gets user's saved filters in the given account",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>Account: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "my-filters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Offset for pagination"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100",
+                  "description": "Maximum number of results in this page"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "The filter type to return in the result"
+                },
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "The filter name by partial match to return in the result"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e22a2983-1012-4815-958b-9abed06407cb",
+              "name": "Success: List of saved filters on the account",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "my-filters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 123,\n    \"name\": \"My filter\",\n    \"type\": \"Project\",\n    \"predicates\": \"[{\\\"activeFilters\\\":[{\\\"value\\\":true}],\\\"filterType\\\":\\\"FILTER_ISSUES\\\"}]\",\n    \"filtersSet\": [\n      {\n        \"id\": 94,\n        \"type\": \"Roles\",\n        \"fieldDefId\": 2429,\n        \"filterType\": \"string\",\n        \"filters\": [\n          {\n            \"id\": 8359,\n            \"verb\": \"Includes\",\n            \"valueIds\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"shortValues\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"intValues\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"longValues\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"decimalValues\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"dateValues\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"stringValue\": \"string\",\n            \"blankValue\": true,\n            \"dynamicData\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          {\n            \"id\": 3552,\n            \"verb\": \"Between\",\n            \"valueIds\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"shortValues\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"intValues\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"longValues\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"decimalValues\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"dateValues\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"stringValue\": \"string\",\n            \"blankValue\": true,\n            \"dynamicData\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_2\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        ]\n      },\n      {\n        \"id\": 6537,\n        \"type\": \"Project\",\n        \"fieldDefId\": 8548,\n        \"filterType\": \"string\",\n        \"filters\": [\n          {\n            \"id\": 1747,\n            \"verb\": \"Excludes\",\n            \"valueIds\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"shortValues\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"intValues\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"longValues\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"decimalValues\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"dateValues\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"stringValue\": \"string\",\n            \"blankValue\": false,\n            \"dynamicData\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_2\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          {\n            \"id\": 9985,\n            \"verb\": \"Above\",\n            \"valueIds\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"shortValues\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"intValues\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"longValues\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"decimalValues\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"dateValues\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"stringValue\": \"string\",\n            \"blankValue\": false,\n            \"dynamicData\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_2\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        ]\n      }\n    ]\n  },\n  {\n    \"id\": 123,\n    \"name\": \"My filter\",\n    \"type\": \"Project\",\n    \"predicates\": \"[{\\\"activeFilters\\\":[{\\\"value\\\":true}],\\\"filterType\\\":\\\"FILTER_ISSUES\\\"}]\",\n    \"filtersSet\": [\n      {\n        \"id\": 5901,\n        \"type\": \"Roles\",\n        \"fieldDefId\": 8435,\n        \"filterType\": \"string\",\n        \"filters\": [\n          {\n            \"id\": 2074,\n            \"verb\": \"Includes\",\n            \"valueIds\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"shortValues\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"intValues\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"longValues\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"decimalValues\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"dateValues\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"stringValue\": \"string\",\n            \"blankValue\": true,\n            \"dynamicData\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          {\n            \"id\": 6453,\n            \"verb\": \"Between\",\n            \"valueIds\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"shortValues\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"intValues\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"longValues\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"decimalValues\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"dateValues\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"stringValue\": \"string\",\n            \"blankValue\": false,\n            \"dynamicData\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        ]\n      },\n      {\n        \"id\": 4176,\n        \"type\": \"People\",\n        \"fieldDefId\": 7106,\n        \"filterType\": \"string\",\n        \"filters\": [\n          {\n            \"id\": 5297,\n            \"verb\": \"Includes\",\n            \"valueIds\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"shortValues\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"intValues\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"longValues\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"decimalValues\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"dateValues\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"stringValue\": \"string\",\n            \"blankValue\": false,\n            \"dynamicData\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          {\n            \"id\": 5798,\n            \"verb\": \"Below\",\n            \"valueIds\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"shortValues\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"intValues\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"longValues\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"decimalValues\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"dateValues\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"stringValue\": \"string\",\n            \"blankValue\": true,\n            \"dynamicData\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        ]\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "22a5e5d6-9407-4ce8-b80e-888fc5128bed",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "my-filters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a71353ea-f05a-43d5-9b6d-a89ce18b9bde",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "my-filters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8dc8c2bd-7250-42a1-a2c4-11c1f0e8b162",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "my-filters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "629f195f-81ee-46e7-bdf1-422e8d5303fd",
+          "name": "Add a filter for the user in the given account.",
+          "request": {
+            "name": "Add a filter for the user in the given account.",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>Account: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "my-filters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"predicates\": \"<string>\",\n  \"type\": \"<string>\",\n  \"filtersSet\": [\n    {\n      \"filters\": [\n        {\n          \"verb\": \"<string>\",\n          \"valueIds\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        },\n        {\n          \"verb\": \"<string>\",\n          \"valueIds\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        }\n      ],\n      \"type\": \"<string>\",\n      \"fieldDefId\": \"<long>\",\n      \"filterType\": \"<string>\"\n    },\n    {\n      \"filters\": [\n        {\n          \"verb\": \"<string>\",\n          \"valueIds\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        },\n        {\n          \"verb\": \"<string>\",\n          \"valueIds\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        }\n      ],\n      \"type\": \"<string>\",\n      \"fieldDefId\": \"<long>\",\n      \"filterType\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0bf3a598-87ea-4c2f-a801-6faa32ae8781",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "my-filters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"My filter\",\n  \"predicates\": \"[{\\\"activeFilters\\\":[{\\\"value\\\":true}],\\\"filterType\\\":\\\"FILTER_ISSUES\\\"}]\",\n  \"type\": \"Project\",\n  \"filtersSet\": [\n    {\n      \"filters\": [\n        {\n          \"verb\": \"Includes\",\n          \"valueIds\": [\n            1,\n            2,\n            3\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\"\n          }\n        },\n        {\n          \"verb\": \"Includes\",\n          \"valueIds\": [\n            1,\n            2,\n            3\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\",\n            \"key_3\": \"<string>\"\n          }\n        }\n      ],\n      \"type\": \"Project\",\n      \"fieldDefId\": 123,\n      \"filterType\": \"ProjectStartDate\"\n    },\n    {\n      \"filters\": [\n        {\n          \"verb\": \"Includes\",\n          \"valueIds\": [\n            1,\n            2,\n            3\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\"\n          }\n        },\n        {\n          \"verb\": \"Includes\",\n          \"valueIds\": [\n            1,\n            2,\n            3\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\"\n          }\n        }\n      ],\n      \"type\": \"Project\",\n      \"fieldDefId\": 123,\n      \"filterType\": \"ProjectStartDate\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 123,\n  \"name\": \"My filter\",\n  \"type\": \"Project\",\n  \"predicates\": \"[{\\\"activeFilters\\\":[{\\\"value\\\":true}],\\\"filterType\\\":\\\"FILTER_ISSUES\\\"}]\",\n  \"filtersSet\": [\n    {\n      \"id\": 9993,\n      \"type\": \"Project\",\n      \"fieldDefId\": 1792,\n      \"filterType\": \"string\",\n      \"filters\": [\n        {\n          \"id\": 3608,\n          \"verb\": \"Equals\",\n          \"valueIds\": [\n            4680,\n            692\n          ],\n          \"shortValues\": [\n            663,\n            8811\n          ],\n          \"intValues\": [\n            4001,\n            1223\n          ],\n          \"longValues\": [\n            1628,\n            991\n          ],\n          \"decimalValues\": [\n            5027.129570678374,\n            7390.962230066443\n          ],\n          \"dateValues\": [\n            \"2004-10-28\",\n            \"2022-01-26\"\n          ],\n          \"stringValue\": \"string\",\n          \"blankValue\": false,\n          \"dynamicData\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        },\n        {\n          \"id\": 2564,\n          \"verb\": \"Below\",\n          \"valueIds\": [\n            1879,\n            6635\n          ],\n          \"shortValues\": [\n            1825,\n            6888\n          ],\n          \"intValues\": [\n            705,\n            6387\n          ],\n          \"longValues\": [\n            6018,\n            4389\n          ],\n          \"decimalValues\": [\n            4882.972670114218,\n            1782.368782739626\n          ],\n          \"dateValues\": [\n            \"1998-01-08\",\n            \"1974-04-17\"\n          ],\n          \"stringValue\": \"string\",\n          \"blankValue\": false,\n          \"dynamicData\": {\n            \"key_0\": \"string\"\n          }\n        }\n      ]\n    },\n    {\n      \"id\": 3637,\n      \"type\": \"People\",\n      \"fieldDefId\": 5087,\n      \"filterType\": \"string\",\n      \"filters\": [\n        {\n          \"id\": 7195,\n          \"verb\": \"Above\",\n          \"valueIds\": [\n            3379,\n            7707\n          ],\n          \"shortValues\": [\n            4126,\n            8335\n          ],\n          \"intValues\": [\n            7535,\n            7059\n          ],\n          \"longValues\": [\n            7188,\n            8825\n          ],\n          \"decimalValues\": [\n            8727.791690673823,\n            7310.003344324138\n          ],\n          \"dateValues\": [\n            \"2024-04-23\",\n            \"1967-02-09\"\n          ],\n          \"stringValue\": \"string\",\n          \"blankValue\": false,\n          \"dynamicData\": {\n            \"key_0\": \"string\"\n          }\n        },\n        {\n          \"id\": 9587,\n          \"verb\": \"Excludes\",\n          \"valueIds\": [\n            8355,\n            1583\n          ],\n          \"shortValues\": [\n            2353,\n            9990\n          ],\n          \"intValues\": [\n            7109,\n            8809\n          ],\n          \"longValues\": [\n            3922,\n            6823\n          ],\n          \"decimalValues\": [\n            1632.0798051201257,\n            501.35392967924577\n          ],\n          \"dateValues\": [\n            \"1950-08-25\",\n            \"2005-02-10\"\n          ],\n          \"stringValue\": \"string\",\n          \"blankValue\": false,\n          \"dynamicData\": {\n            \"key_0\": \"string\"\n          }\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "50a47f64-b377-4da8-ac50-48929aefe3bb",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "my-filters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"My filter\",\n  \"predicates\": \"[{\\\"activeFilters\\\":[{\\\"value\\\":true}],\\\"filterType\\\":\\\"FILTER_ISSUES\\\"}]\",\n  \"type\": \"Project\",\n  \"filtersSet\": [\n    {\n      \"filters\": [\n        {\n          \"verb\": \"Includes\",\n          \"valueIds\": [\n            1,\n            2,\n            3\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\"\n          }\n        },\n        {\n          \"verb\": \"Includes\",\n          \"valueIds\": [\n            1,\n            2,\n            3\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\",\n            \"key_3\": \"<string>\"\n          }\n        }\n      ],\n      \"type\": \"Project\",\n      \"fieldDefId\": 123,\n      \"filterType\": \"ProjectStartDate\"\n    },\n    {\n      \"filters\": [\n        {\n          \"verb\": \"Includes\",\n          \"valueIds\": [\n            1,\n            2,\n            3\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\"\n          }\n        },\n        {\n          \"verb\": \"Includes\",\n          \"valueIds\": [\n            1,\n            2,\n            3\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\"\n          }\n        }\n      ],\n      \"type\": \"Project\",\n      \"fieldDefId\": 123,\n      \"filterType\": \"ProjectStartDate\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b21da6cd-3f12-4f5d-9a2e-f3a67b7a4747",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "my-filters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"My filter\",\n  \"predicates\": \"[{\\\"activeFilters\\\":[{\\\"value\\\":true}],\\\"filterType\\\":\\\"FILTER_ISSUES\\\"}]\",\n  \"type\": \"Project\",\n  \"filtersSet\": [\n    {\n      \"filters\": [\n        {\n          \"verb\": \"Includes\",\n          \"valueIds\": [\n            1,\n            2,\n            3\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\"\n          }\n        },\n        {\n          \"verb\": \"Includes\",\n          \"valueIds\": [\n            1,\n            2,\n            3\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\",\n            \"key_3\": \"<string>\"\n          }\n        }\n      ],\n      \"type\": \"Project\",\n      \"fieldDefId\": 123,\n      \"filterType\": \"ProjectStartDate\"\n    },\n    {\n      \"filters\": [\n        {\n          \"verb\": \"Includes\",\n          \"valueIds\": [\n            1,\n            2,\n            3\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\"\n          }\n        },\n        {\n          \"verb\": \"Includes\",\n          \"valueIds\": [\n            1,\n            2,\n            3\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\"\n          }\n        }\n      ],\n      \"type\": \"Project\",\n      \"fieldDefId\": 123,\n      \"filterType\": \"ProjectStartDate\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "44ba8869-c813-4e4c-9f51-62e2f1c3dc4f",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "my-filters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"My filter\",\n  \"predicates\": \"[{\\\"activeFilters\\\":[{\\\"value\\\":true}],\\\"filterType\\\":\\\"FILTER_ISSUES\\\"}]\",\n  \"type\": \"Project\",\n  \"filtersSet\": [\n    {\n      \"filters\": [\n        {\n          \"verb\": \"Includes\",\n          \"valueIds\": [\n            1,\n            2,\n            3\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\"\n          }\n        },\n        {\n          \"verb\": \"Includes\",\n          \"valueIds\": [\n            1,\n            2,\n            3\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\",\n            \"key_3\": \"<string>\"\n          }\n        }\n      ],\n      \"type\": \"Project\",\n      \"fieldDefId\": 123,\n      \"filterType\": \"ProjectStartDate\"\n    },\n    {\n      \"filters\": [\n        {\n          \"verb\": \"Includes\",\n          \"valueIds\": [\n            1,\n            2,\n            3\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\"\n          }\n        },\n        {\n          \"verb\": \"Includes\",\n          \"valueIds\": [\n            1,\n            2,\n            3\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\"\n          }\n        }\n      ],\n      \"type\": \"Project\",\n      \"fieldDefId\": 123,\n      \"filterType\": \"ProjectStartDate\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "87eb6e8b-99e8-438b-b5c5-4006bf7644a7",
+              "name": "Conflict",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "my-filters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"My filter\",\n  \"predicates\": \"[{\\\"activeFilters\\\":[{\\\"value\\\":true}],\\\"filterType\\\":\\\"FILTER_ISSUES\\\"}]\",\n  \"type\": \"Project\",\n  \"filtersSet\": [\n    {\n      \"filters\": [\n        {\n          \"verb\": \"Includes\",\n          \"valueIds\": [\n            1,\n            2,\n            3\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\"\n          }\n        },\n        {\n          \"verb\": \"Includes\",\n          \"valueIds\": [\n            1,\n            2,\n            3\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\",\n            \"key_3\": \"<string>\"\n          }\n        }\n      ],\n      \"type\": \"Project\",\n      \"fieldDefId\": 123,\n      \"filterType\": \"ProjectStartDate\"\n    },\n    {\n      \"filters\": [\n        {\n          \"verb\": \"Includes\",\n          \"valueIds\": [\n            1,\n            2,\n            3\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\"\n          }\n        },\n        {\n          \"verb\": \"Includes\",\n          \"valueIds\": [\n            1,\n            2,\n            3\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\"\n          }\n        }\n      ],\n      \"type\": \"Project\",\n      \"fieldDefId\": 123,\n      \"filterType\": \"ProjectStartDate\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "73f8980e-c4b6-4dcb-8688-8f01cf1fa92a",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "my-filters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"My filter\",\n  \"predicates\": \"[{\\\"activeFilters\\\":[{\\\"value\\\":true}],\\\"filterType\\\":\\\"FILTER_ISSUES\\\"}]\",\n  \"type\": \"Project\",\n  \"filtersSet\": [\n    {\n      \"filters\": [\n        {\n          \"verb\": \"Includes\",\n          \"valueIds\": [\n            1,\n            2,\n            3\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\"\n          }\n        },\n        {\n          \"verb\": \"Includes\",\n          \"valueIds\": [\n            1,\n            2,\n            3\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\",\n            \"key_3\": \"<string>\"\n          }\n        }\n      ],\n      \"type\": \"Project\",\n      \"fieldDefId\": 123,\n      \"filterType\": \"ProjectStartDate\"\n    },\n    {\n      \"filters\": [\n        {\n          \"verb\": \"Includes\",\n          \"valueIds\": [\n            1,\n            2,\n            3\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\"\n          }\n        },\n        {\n          \"verb\": \"Includes\",\n          \"valueIds\": [\n            1,\n            2,\n            3\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\"\n          }\n        }\n      ],\n      \"type\": \"Project\",\n      \"fieldDefId\": 123,\n      \"filterType\": \"ProjectStartDate\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9187cb40-ba72-449b-a2a6-1a2db710d04a",
+          "name": "Get user's saved filter for the given account by ID",
+          "request": {
+            "name": "Get user's saved filter for the given account by ID",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>Account: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "my-filters",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The filter's ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "92dcbc29-3653-4803-9da1-c92a0fece0df",
+              "name": "Success: filter model",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "my-filters",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The filter's ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 123,\n  \"name\": \"My filter\",\n  \"type\": \"Project\",\n  \"predicates\": \"[{\\\"activeFilters\\\":[{\\\"value\\\":true}],\\\"filterType\\\":\\\"FILTER_ISSUES\\\"}]\",\n  \"filtersSet\": [\n    {\n      \"id\": 9993,\n      \"type\": \"Project\",\n      \"fieldDefId\": 1792,\n      \"filterType\": \"string\",\n      \"filters\": [\n        {\n          \"id\": 3608,\n          \"verb\": \"Equals\",\n          \"valueIds\": [\n            4680,\n            692\n          ],\n          \"shortValues\": [\n            663,\n            8811\n          ],\n          \"intValues\": [\n            4001,\n            1223\n          ],\n          \"longValues\": [\n            1628,\n            991\n          ],\n          \"decimalValues\": [\n            5027.129570678374,\n            7390.962230066443\n          ],\n          \"dateValues\": [\n            \"2004-10-28\",\n            \"2022-01-26\"\n          ],\n          \"stringValue\": \"string\",\n          \"blankValue\": false,\n          \"dynamicData\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        },\n        {\n          \"id\": 2564,\n          \"verb\": \"Below\",\n          \"valueIds\": [\n            1879,\n            6635\n          ],\n          \"shortValues\": [\n            1825,\n            6888\n          ],\n          \"intValues\": [\n            705,\n            6387\n          ],\n          \"longValues\": [\n            6018,\n            4389\n          ],\n          \"decimalValues\": [\n            4882.972670114218,\n            1782.368782739626\n          ],\n          \"dateValues\": [\n            \"1998-01-08\",\n            \"1974-04-17\"\n          ],\n          \"stringValue\": \"string\",\n          \"blankValue\": false,\n          \"dynamicData\": {\n            \"key_0\": \"string\"\n          }\n        }\n      ]\n    },\n    {\n      \"id\": 3637,\n      \"type\": \"People\",\n      \"fieldDefId\": 5087,\n      \"filterType\": \"string\",\n      \"filters\": [\n        {\n          \"id\": 7195,\n          \"verb\": \"Above\",\n          \"valueIds\": [\n            3379,\n            7707\n          ],\n          \"shortValues\": [\n            4126,\n            8335\n          ],\n          \"intValues\": [\n            7535,\n            7059\n          ],\n          \"longValues\": [\n            7188,\n            8825\n          ],\n          \"decimalValues\": [\n            8727.791690673823,\n            7310.003344324138\n          ],\n          \"dateValues\": [\n            \"2024-04-23\",\n            \"1967-02-09\"\n          ],\n          \"stringValue\": \"string\",\n          \"blankValue\": false,\n          \"dynamicData\": {\n            \"key_0\": \"string\"\n          }\n        },\n        {\n          \"id\": 9587,\n          \"verb\": \"Excludes\",\n          \"valueIds\": [\n            8355,\n            1583\n          ],\n          \"shortValues\": [\n            2353,\n            9990\n          ],\n          \"intValues\": [\n            7109,\n            8809\n          ],\n          \"longValues\": [\n            3922,\n            6823\n          ],\n          \"decimalValues\": [\n            1632.0798051201257,\n            501.35392967924577\n          ],\n          \"dateValues\": [\n            \"1950-08-25\",\n            \"2005-02-10\"\n          ],\n          \"stringValue\": \"string\",\n          \"blankValue\": false,\n          \"dynamicData\": {\n            \"key_0\": \"string\"\n          }\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "72ca97e1-d7ce-4af2-8c1e-594e4359074d",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "my-filters",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The filter's ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f004a8ef-822f-4bfb-b375-4bf0520bb1e3",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "my-filters",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The filter's ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "db7ae6ae-29b8-4a7d-9d18-7e6811b35a5d",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "my-filters",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The filter's ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d65f25f1-dfb5-4c3a-92a7-8e784ca865b2",
+          "name": "Update user's saved filter from the given account",
+          "request": {
+            "name": "Update user's saved filter from the given account",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>Account: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "my-filters",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Id of the filter to remove"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"predicates\": \"<string>\",\n  \"filtersSet\": [\n    {\n      \"filters\": [\n        {\n          \"verb\": \"<string>\",\n          \"valueIds\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\"\n          }\n        },\n        {\n          \"verb\": \"<string>\",\n          \"valueIds\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        }\n      ],\n      \"type\": \"<string>\",\n      \"fieldDefId\": \"<long>\",\n      \"filterType\": \"<string>\"\n    },\n    {\n      \"filters\": [\n        {\n          \"verb\": \"<string>\",\n          \"valueIds\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        },\n        {\n          \"verb\": \"<string>\",\n          \"valueIds\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\"\n          }\n        }\n      ],\n      \"type\": \"<string>\",\n      \"fieldDefId\": \"<long>\",\n      \"filterType\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "58599f31-7abf-4584-93b3-7324d56d0f37",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "my-filters",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Id of the filter to remove"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"My filter\",\n  \"predicates\": \"[{\\\"activeFilters\\\":[{\\\"value\\\":true}],\\\"filterType\\\":\\\"FILTER_ISSUES\\\"}]\",\n  \"filtersSet\": [\n    {\n      \"filters\": [\n        {\n          \"verb\": \"Includes\",\n          \"valueIds\": [\n            1,\n            2,\n            3\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        },\n        {\n          \"verb\": \"Includes\",\n          \"valueIds\": [\n            1,\n            2,\n            3\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\"\n          }\n        }\n      ],\n      \"type\": \"Project\",\n      \"fieldDefId\": 123,\n      \"filterType\": \"ProjectStartDate\"\n    },\n    {\n      \"filters\": [\n        {\n          \"verb\": \"Includes\",\n          \"valueIds\": [\n            1,\n            2,\n            3\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        },\n        {\n          \"verb\": \"Includes\",\n          \"valueIds\": [\n            1,\n            2,\n            3\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\"\n          }\n        }\n      ],\n      \"type\": \"Project\",\n      \"fieldDefId\": 123,\n      \"filterType\": \"ProjectStartDate\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4953ee34-57eb-4fa5-9cc4-b0b10f31d21c",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "my-filters",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Id of the filter to remove"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"My filter\",\n  \"predicates\": \"[{\\\"activeFilters\\\":[{\\\"value\\\":true}],\\\"filterType\\\":\\\"FILTER_ISSUES\\\"}]\",\n  \"filtersSet\": [\n    {\n      \"filters\": [\n        {\n          \"verb\": \"Includes\",\n          \"valueIds\": [\n            1,\n            2,\n            3\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        },\n        {\n          \"verb\": \"Includes\",\n          \"valueIds\": [\n            1,\n            2,\n            3\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\"\n          }\n        }\n      ],\n      \"type\": \"Project\",\n      \"fieldDefId\": 123,\n      \"filterType\": \"ProjectStartDate\"\n    },\n    {\n      \"filters\": [\n        {\n          \"verb\": \"Includes\",\n          \"valueIds\": [\n            1,\n            2,\n            3\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        },\n        {\n          \"verb\": \"Includes\",\n          \"valueIds\": [\n            1,\n            2,\n            3\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\"\n          }\n        }\n      ],\n      \"type\": \"Project\",\n      \"fieldDefId\": 123,\n      \"filterType\": \"ProjectStartDate\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "85f3a4e6-6f27-4e90-969b-2861eaddf4d2",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "my-filters",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Id of the filter to remove"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"My filter\",\n  \"predicates\": \"[{\\\"activeFilters\\\":[{\\\"value\\\":true}],\\\"filterType\\\":\\\"FILTER_ISSUES\\\"}]\",\n  \"filtersSet\": [\n    {\n      \"filters\": [\n        {\n          \"verb\": \"Includes\",\n          \"valueIds\": [\n            1,\n            2,\n            3\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        },\n        {\n          \"verb\": \"Includes\",\n          \"valueIds\": [\n            1,\n            2,\n            3\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\"\n          }\n        }\n      ],\n      \"type\": \"Project\",\n      \"fieldDefId\": 123,\n      \"filterType\": \"ProjectStartDate\"\n    },\n    {\n      \"filters\": [\n        {\n          \"verb\": \"Includes\",\n          \"valueIds\": [\n            1,\n            2,\n            3\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        },\n        {\n          \"verb\": \"Includes\",\n          \"valueIds\": [\n            1,\n            2,\n            3\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\"\n          }\n        }\n      ],\n      \"type\": \"Project\",\n      \"fieldDefId\": 123,\n      \"filterType\": \"ProjectStartDate\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8f3145f1-7a56-4ddf-8baf-af7cf59da448",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "my-filters",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Id of the filter to remove"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"My filter\",\n  \"predicates\": \"[{\\\"activeFilters\\\":[{\\\"value\\\":true}],\\\"filterType\\\":\\\"FILTER_ISSUES\\\"}]\",\n  \"filtersSet\": [\n    {\n      \"filters\": [\n        {\n          \"verb\": \"Includes\",\n          \"valueIds\": [\n            1,\n            2,\n            3\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        },\n        {\n          \"verb\": \"Includes\",\n          \"valueIds\": [\n            1,\n            2,\n            3\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\"\n          }\n        }\n      ],\n      \"type\": \"Project\",\n      \"fieldDefId\": 123,\n      \"filterType\": \"ProjectStartDate\"\n    },\n    {\n      \"filters\": [\n        {\n          \"verb\": \"Includes\",\n          \"valueIds\": [\n            1,\n            2,\n            3\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          }\n        },\n        {\n          \"verb\": \"Includes\",\n          \"valueIds\": [\n            1,\n            2,\n            3\n          ],\n          \"shortValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"intValues\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"longValues\": [\n            \"<long>\",\n            \"<long>\"\n          ],\n          \"decimalValues\": [\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"dateValues\": [\n            \"<date>\",\n            \"<date>\"\n          ],\n          \"stringValue\": \"<string>\",\n          \"blankValue\": \"<boolean>\",\n          \"dynamicData\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\"\n          }\n        }\n      ],\n      \"type\": \"Project\",\n      \"fieldDefId\": 123,\n      \"filterType\": \"ProjectStartDate\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "809fa289-5ff3-4472-8989-d0ac254b4544",
+          "name": "Delete user's saved filter from the given account",
+          "request": {
+            "name": "Delete user's saved filter from the given account",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>Account: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "my-filters",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Id of the filter to remove"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7dab80b7-356e-4335-950b-5325b82164c4",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "my-filters",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Id of the filter to remove"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "41756147-b23d-4880-ba61-93b30bd71479",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "my-filters",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Id of the filter to remove"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fec183c7-816d-43e7-a3fe-9c4e26c31ac7",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "my-filters",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Id of the filter to remove"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "de50a5d3-df7c-4d37-adb6-6c1ff2d269f5",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "my-filters",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Id of the filter to remove"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://bench.gobridgit.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "info": {
+    "_postman_id": "a39e00c2-48be-4e5b-aaae-89500190762d",
+    "name": "Bench AccountActivities UserFilters API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "<h2>Versioning</h2>\n<p>\n    The API is currently at version <code>1.0</code>. All API endpoints (other than\n    authentication) require you to specify the API version as part of the path.\n</p>\n\n<h2>URL Paths</h2>\n<p>\n    Authentication requests should be made to <code>/auth/signin</code>,\n    as documented below. All other API requests should be made to\n    sub-paths of <code>/rp/api/1.0/...</code>.\n</p>\n\n<h2>Authentication</h2>\n<p>\n    API requests are authenticated using an OAuth Bearer token.\n    You can get a token by authenticating your user by sending a\n    POST request to <code>/auth/signin</code>, with \"username and \"password\"\n    parameters form-encoded in the body of the request.\n\n    POST /auth/signin HTTP/1.1\n    Content-Type: application/x-www-form-urlencoded\n\n    username=user@example.com&password=some-secret-password\n</p>\n<p>\n    The response will be a JSON object including both\n    <b>\"access_token\"</b> and <b>\"refresh_token\"</b> property.\n    All other requests against the Bench API should include an\n    authorization header: <code>Authorization: Bearer xxxYYYzzz</code>,\n    where <b>xxxYYYzzz</b> is the value of <b>\"access_token\"</b> in the response.\n    <br><br>\n    For example:\n\n    $ curl https://bench.gobridgit.com/auth/signin -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'username=someone@example.com' --data-urlencode 'password=[...snip...]'\n    {\n        \"access_token\": \"...snip...\",\n        \"token_type\": \"Bearer\",\n        \"refresh_token\": \"...snip...\"\n        \"expiry\": \"2020-01-01T00:00:00.413440849Z\"\n    }\n\n</p>\n\n<p>\n    The refresh token can be used to generate new session by request with <code>/auth/token</code> endpoint:\n\n    POST /auth/token HTTP/1.1\n    Content-Type: application/x-www-form-urlencoded\n\n    grant_type=refresh_token&refresh_token=tGzv3JOkF0XG5Qx2TlKWIA\n</p>\n<p>\n    Note that once the refresh token is used, the previous access and refresh token is no longer valid.\n    <br><br>\n    For example:\n\n    $ curl https://bench.gobridgit.com/auth/token -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'grant_type=refresh_token' --data-urlencode 'refresh_token=[...snip...]'\n    {\n        \"access_token\": \"...snip...\",\n        \"token_type\": \"Bearer\",\n        \"refresh_token\": \"...snip...\"\n        \"expiry\": \"2020-01-01T00:00:00.413440849Z\"\n    }\n</p>\n\n<h2>Pagination</h2>\n<p>\n    Several of the API endpoints are paginated. These are denoted by\n    including the <code>offset</code> (zero-based offset) and <code>limit</code> query\n    parameters. For example, to request the <code>10</code> items,\n    set the <code>offset=0</code> to <code>limit=10</code>.\n    <br>\n    NOTE: the result set contains items with index of 0-9\n    <br>\n    To request the next 10 items (starting at index 10),\n    set the <code>offset=10</code> to <code>limit=10</code>\n</p>\n<p>\n    Responses to paginated API endpoints return a JSON array of objects.\n    If there are results beyond the page you have requested, the server\n    will set a <code>query-has-more: true</code> header in the response.\n</p>\n\n<h2>Request Encoding</h2>\n<p>\n    <code>GET</code> and <code>DELETE</code> requests should have parameters encoded as URL query\n    parameters. Boolean values should be encoded as <code>true</code> and\n    <code>false</code>, not as <code>1</code> and <code>0</code>.\n</p>\n\n<h2>Errors</h2>\n<p>\n    Errors are returned for some response codes such as <code>400 Bad Request</code> in the\n    following format:\n\n    {\n      \"errors\": [\n        {\n          \"errorType\": \"ValidationError\",\n          \"description\": \"The value of Name must be a string with a minimum length of 1 and a maximum length of 8 and not whitespace.\",\n          \"field\": \"Name\",\n          \"values\": [\n            null\n          ]\n        }\n      ],\n      \"title\": \"One or more validation errors occurred.\",\n      \"status\": 400,\n      \"instance\": \"api/v1/accounts/0/persons\",\n      \"requestUid\": \"123e4567-e89b-12d3-a456-426614174000\"\n    }\n</p>\n",
+      "type": "text/plain"
+    }
+  }
+}

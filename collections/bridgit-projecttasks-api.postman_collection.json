@@ -1,0 +1,4630 @@
+{
+  "item": [
+    {
+      "id": "91be439e-3966-46b7-96bd-6f8539b9027b",
+      "name": "ProjectTasks",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "02b1a249-adda-43f5-ba75-4175455b1c14",
+          "name": "Bulk add tasks for the given account's project.",
+          "request": {
+            "name": "Bulk add tasks for the given account's project.",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>Project: Read<br/>Person: Read<br/>Role: Write<br/>Allocation: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "projects",
+                ":projectId",
+                "tasks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "projectId",
+                  "description": "(Required) The project ID the task belongs to"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"name\": \"<string>\",\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a535cfe3-6685-41f3-badd-8efcc7baaa28",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID the task belongs to"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"name\": \"Design Plan\",\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"00000000-0000-0000-0000-000000000000\",\n    \"name\": \"Project Engineer\",\n    \"startDate\": \"2012-01-29T06:32:49.022Z\",\n    \"endDate\": \"1976-10-23T09:36:20.296Z\",\n    \"createdOn\": \"2021-05-27T10:47:23.530Z\",\n    \"lastModifiedOn\": \"2021-05-27T10:58:23.530Z\"\n  },\n  {\n    \"id\": \"00000000-0000-0000-0000-000000000000\",\n    \"name\": \"Project Engineer\",\n    \"startDate\": \"2018-12-20T20:19:54.992Z\",\n    \"endDate\": \"1980-07-16T23:00:15.937Z\",\n    \"createdOn\": \"2021-05-27T10:47:23.530Z\",\n    \"lastModifiedOn\": \"2021-05-27T10:58:23.530Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e6f6595a-79cf-489d-9e13-4711dd4bba13",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID the task belongs to"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"name\": \"Design Plan\",\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1577846a-d78e-4bc2-a22e-cf43c3c20e52",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID the task belongs to"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"name\": \"Design Plan\",\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7b3a0424-2785-4656-b1a7-38cd18fbb4d4",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID the task belongs to"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"name\": \"Design Plan\",\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cb3f2f8a-c050-444c-8201-bb28a143a366",
+              "name": "Unprocessable Entity - Validation failures",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID the task belongs to"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"name\": \"Design Plan\",\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2e096246-9d7c-420e-98ce-db333a7cfa2b",
+          "name": "Bulk update tasks for the given account's project.",
+          "request": {
+            "name": "Bulk update tasks for the given account's project.",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>Project: Read<br/>Person: Read<br/>Role: Write",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "projects",
+                ":projectId",
+                "tasks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "projectId",
+                  "description": "(Required) The project ID the task belongs to"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\",\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\",\n    \"shiftDates\": \"<boolean>\",\n    \"shiftSubsequentTasks\": \"<boolean>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0023bb45-2753-409b-be91-6cb17d379734",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID the task belongs to"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": \"<uuid>\",\n    \"name\": \"Project Engineer\",\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\",\n    \"shiftDates\": false,\n    \"shiftSubsequentTasks\": \"<boolean>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"00000000-0000-0000-0000-000000000000\",\n    \"name\": \"Project Engineer\",\n    \"startDate\": \"2012-01-29T06:32:49.022Z\",\n    \"endDate\": \"1976-10-23T09:36:20.296Z\",\n    \"createdOn\": \"2021-05-27T10:47:23.530Z\",\n    \"lastModifiedOn\": \"2021-05-27T10:58:23.530Z\"\n  },\n  {\n    \"id\": \"00000000-0000-0000-0000-000000000000\",\n    \"name\": \"Project Engineer\",\n    \"startDate\": \"2018-12-20T20:19:54.992Z\",\n    \"endDate\": \"1980-07-16T23:00:15.937Z\",\n    \"createdOn\": \"2021-05-27T10:47:23.530Z\",\n    \"lastModifiedOn\": \"2021-05-27T10:58:23.530Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2b5a9b38-9f4a-4bd9-affd-73cf7d715173",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID the task belongs to"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": \"<uuid>\",\n    \"name\": \"Project Engineer\",\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\",\n    \"shiftDates\": false,\n    \"shiftSubsequentTasks\": \"<boolean>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6078c45d-2133-466a-9ade-a38a07063765",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID the task belongs to"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": \"<uuid>\",\n    \"name\": \"Project Engineer\",\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\",\n    \"shiftDates\": false,\n    \"shiftSubsequentTasks\": \"<boolean>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9383facd-728d-47f0-b55d-92d1102b1dea",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID the task belongs to"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": \"<uuid>\",\n    \"name\": \"Project Engineer\",\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\",\n    \"shiftDates\": false,\n    \"shiftSubsequentTasks\": \"<boolean>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1157332b-683d-4fba-89e0-a74511ecc4af",
+              "name": "Unprocessable Entity - Validation failures",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID the task belongs to"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": \"<uuid>\",\n    \"name\": \"Project Engineer\",\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\",\n    \"shiftDates\": false,\n    \"shiftSubsequentTasks\": \"<boolean>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "daeb3c7d-0de9-4927-971b-7c00b1fe01fe",
+          "name": "Add a role to a task for the given account's project.",
+          "request": {
+            "name": "Add a role to a task for the given account's project.",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>Project: Read<br/>Person: Read<br/>Role: Write<br/>Allocation: Read<br/>Finance: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "projects",
+                ":projectId",
+                "tasks",
+                ":id",
+                "roles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "projectId",
+                  "description": "(Required) The project ID the task belongs to"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) The task ID the task belongs to"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"skillSet\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"note\": \"<string>\",\n  \"billable\": \"<boolean>\",\n  \"allocatedPercent\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "86f151bc-87cf-4518-882f-30002af6301c",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks",
+                    ":id",
+                    "roles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID the task belongs to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) The task ID the task belongs to"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Project Engineer\",\n  \"skillSet\": [\n    1,\n    2,\n    3\n  ],\n  \"note\": \"Some note\",\n  \"billable\": false,\n  \"allocatedPercent\": 100\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 123,\n  \"taskId\": \"00000000-0000-0000-0000-000000000000\",\n  \"nameId\": 1,\n  \"name\": \"Project Engineer\",\n  \"roleCost\": 123.45,\n  \"startDate\": \"2003-03-08T22:20:17.358Z\",\n  \"endDate\": \"1991-04-07T09:27:42.960Z\",\n  \"type\": \"Salaried\",\n  \"skillSet\": [\n    3765,\n    9587\n  ],\n  \"isFilled\": false,\n  \"billable\": false,\n  \"allocations\": [\n    {\n      \"startDate\": \"2013-03-24T20:08:47.509Z\",\n      \"endDate\": \"1964-11-06T12:20:39.983Z\",\n      \"allocatedPercent\": 100\n    },\n    {\n      \"startDate\": \"1965-05-02T14:41:04.491Z\",\n      \"endDate\": \"1995-07-17T11:29:43.771Z\",\n      \"allocatedPercent\": 100\n    }\n  ],\n  \"unfilledRanges\": [\n    {\n      \"startDate\": \"1960-06-04T13:18:33.699Z\",\n      \"endDate\": \"1971-05-05T20:35:26.897Z\"\n    },\n    {\n      \"startDate\": \"2025-05-17T12:55:40.399Z\",\n      \"endDate\": \"1974-10-26T23:28:25.136Z\"\n    }\n  ],\n  \"note\": \"string\",\n  \"categoryId\": 4568,\n  \"notification\": {\n    \"notifiedOn\": \"2003-10-26T09:57:59.352Z\",\n    \"recipientIds\": [\n      8024,\n      1555\n    ]\n  },\n  \"isCommunicated\": false,\n  \"relatedTitles\": [\n    \"string\",\n    \"string\"\n  ],\n  \"externalId\": \"string\",\n  \"createdBy\": 8809,\n  \"createdOn\": \"1962-05-26T10:56:12.516Z\",\n  \"hire\": {\n    \"isHireRequired\": false,\n    \"hireDescription\": \"string\",\n    \"previousIsHireRequired\": true,\n    \"hireStatus\": \"Hired\",\n    \"previousHireStatus\": \"Hired\",\n    \"taggedByUserId\": 8837,\n    \"taggedAt\": \"1971-08-12T12:04:57.132Z\",\n    \"hiredAt\": \"2016-04-30T08:48:48.479Z\"\n  },\n  \"roleTags\": [\n    {\n      \"id\": 8392,\n      \"collectionId\": 5409,\n      \"name\": \"string\",\n      \"collectionName\": \"string\",\n      \"collectionColor\": \"string\"\n    },\n    {\n      \"id\": 6039,\n      \"collectionId\": 297,\n      \"name\": \"string\",\n      \"collectionName\": \"string\",\n      \"collectionColor\": \"string\"\n    }\n  ],\n  \"assignmentBreakdownBy\": \"Phases\",\n  \"assignedPersonId\": 1383,\n  \"assignedPersonName\": \"string\",\n  \"crew\": {\n    \"id\": 42,\n    \"name\": \"Concrete crew A\",\n    \"memberCount\": 5,\n    \"trade\": {\n      \"id\": 1,\n      \"name\": \"Electrician\",\n      \"colour\": \"#D6F0F5\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1873aee2-d958-4b77-9e19-72810a703345",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks",
+                    ":id",
+                    "roles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID the task belongs to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) The task ID the task belongs to"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Project Engineer\",\n  \"skillSet\": [\n    1,\n    2,\n    3\n  ],\n  \"note\": \"Some note\",\n  \"billable\": false,\n  \"allocatedPercent\": 100\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e8d4649b-79cf-4004-a44b-0c7f20c8d9da",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks",
+                    ":id",
+                    "roles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID the task belongs to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) The task ID the task belongs to"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Project Engineer\",\n  \"skillSet\": [\n    1,\n    2,\n    3\n  ],\n  \"note\": \"Some note\",\n  \"billable\": false,\n  \"allocatedPercent\": 100\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "beedb3d0-e16c-4ed5-95f2-a8a2ae1a2821",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks",
+                    ":id",
+                    "roles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID the task belongs to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) The task ID the task belongs to"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Project Engineer\",\n  \"skillSet\": [\n    1,\n    2,\n    3\n  ],\n  \"note\": \"Some note\",\n  \"billable\": false,\n  \"allocatedPercent\": 100\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "786e583c-5ab4-44f9-9b3f-421519b535a2",
+              "name": "Unprocessable Entity - Validation failures",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks",
+                    ":id",
+                    "roles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID the task belongs to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) The task ID the task belongs to"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Project Engineer\",\n  \"skillSet\": [\n    1,\n    2,\n    3\n  ],\n  \"note\": \"Some note\",\n  \"billable\": false,\n  \"allocatedPercent\": 100\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "94cec8f8-b761-47ae-8821-650bbabdfce9",
+          "name": "Bulk add roles to a task for the given account's project.",
+          "request": {
+            "name": "Bulk add roles to a task for the given account's project.",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>Project: Read<br/>Person: Read<br/>Role: Write<br/>Allocation: Read<br/>Finance: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "projects",
+                ":projectId",
+                "tasks",
+                ":id",
+                "roles",
+                "bulk"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "projectId",
+                  "description": "(Required) The project ID the task belongs to"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) The task ID the task belongs to"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"name\": \"<string>\",\n    \"skillSet\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"note\": \"<string>\",\n    \"billable\": \"<boolean>\",\n    \"allocatedPercent\": \"<integer>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "16f54ec8-0e88-4aa8-87d3-f5e9a67815cb",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks",
+                    ":id",
+                    "roles",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID the task belongs to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) The task ID the task belongs to"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"name\": \"Project Engineer\",\n    \"skillSet\": [\n      1,\n      2,\n      3\n    ],\n    \"note\": \"Some note\",\n    \"billable\": false,\n    \"allocatedPercent\": 100\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 123,\n    \"taskId\": \"00000000-0000-0000-0000-000000000000\",\n    \"nameId\": 1,\n    \"name\": \"Project Engineer\",\n    \"roleCost\": 123.45,\n    \"startDate\": \"1948-07-24T14:35:22.910Z\",\n    \"endDate\": \"1993-10-30T04:30:10.113Z\",\n    \"type\": \"Salaried\",\n    \"skillSet\": [\n      4077,\n      126\n    ],\n    \"isFilled\": false,\n    \"billable\": false,\n    \"allocations\": [\n      {\n        \"startDate\": \"2020-07-16T12:47:26.288Z\",\n        \"endDate\": \"1963-07-18T00:06:05.413Z\",\n        \"allocatedPercent\": 100\n      },\n      {\n        \"startDate\": \"2013-09-22T06:29:42.410Z\",\n        \"endDate\": \"2021-07-25T16:46:24.494Z\",\n        \"allocatedPercent\": 100\n      }\n    ],\n    \"unfilledRanges\": [\n      {\n        \"startDate\": \"2005-08-06T21:44:39.247Z\",\n        \"endDate\": \"1969-07-26T13:22:00.706Z\"\n      },\n      {\n        \"startDate\": \"1979-01-25T05:33:33.652Z\",\n        \"endDate\": \"1971-02-13T15:53:02.526Z\"\n      }\n    ],\n    \"note\": \"string\",\n    \"categoryId\": 7212,\n    \"notification\": {\n      \"notifiedOn\": \"2015-06-14T03:30:08.340Z\",\n      \"recipientIds\": [\n        6790,\n        336\n      ]\n    },\n    \"isCommunicated\": false,\n    \"relatedTitles\": [\n      \"string\",\n      \"string\"\n    ],\n    \"externalId\": \"string\",\n    \"createdBy\": 4356,\n    \"createdOn\": \"2024-07-11T05:12:51.447Z\",\n    \"hire\": {\n      \"isHireRequired\": true,\n      \"hireDescription\": \"string\",\n      \"previousIsHireRequired\": false,\n      \"hireStatus\": \"Hired\",\n      \"previousHireStatus\": \"Hired\",\n      \"taggedByUserId\": 4421,\n      \"taggedAt\": \"1960-09-21T09:13:04.045Z\",\n      \"hiredAt\": \"1980-10-28T04:31:01.162Z\"\n    },\n    \"roleTags\": [\n      {\n        \"id\": 791,\n        \"collectionId\": 5368,\n        \"name\": \"string\",\n        \"collectionName\": \"string\",\n        \"collectionColor\": \"string\"\n      },\n      {\n        \"id\": 6781,\n        \"collectionId\": 2579,\n        \"name\": \"string\",\n        \"collectionName\": \"string\",\n        \"collectionColor\": \"string\"\n      }\n    ],\n    \"assignmentBreakdownBy\": \"Custom\",\n    \"assignedPersonId\": 6382,\n    \"assignedPersonName\": \"string\",\n    \"crew\": {\n      \"id\": 42,\n      \"name\": \"Concrete crew A\",\n      \"memberCount\": 5,\n      \"trade\": {\n        \"id\": 1,\n        \"name\": \"Electrician\",\n        \"colour\": \"#D6F0F5\"\n      }\n    }\n  },\n  {\n    \"id\": 123,\n    \"taskId\": \"00000000-0000-0000-0000-000000000000\",\n    \"nameId\": 1,\n    \"name\": \"Project Engineer\",\n    \"roleCost\": 123.45,\n    \"startDate\": \"1949-12-27T07:15:46.591Z\",\n    \"endDate\": \"2016-11-14T08:49:22.721Z\",\n    \"type\": \"Salaried\",\n    \"skillSet\": [\n      2331,\n      9422\n    ],\n    \"isFilled\": false,\n    \"billable\": false,\n    \"allocations\": [\n      {\n        \"startDate\": \"1953-08-19T18:55:57.545Z\",\n        \"endDate\": \"2014-07-21T09:43:34.915Z\",\n        \"allocatedPercent\": 100\n      },\n      {\n        \"startDate\": \"1996-07-17T17:52:17.585Z\",\n        \"endDate\": \"1957-12-29T17:11:34.042Z\",\n        \"allocatedPercent\": 100\n      }\n    ],\n    \"unfilledRanges\": [\n      {\n        \"startDate\": \"1963-09-21T14:25:33.996Z\",\n        \"endDate\": \"2009-09-01T21:03:17.511Z\"\n      },\n      {\n        \"startDate\": \"2001-11-14T08:36:00.162Z\",\n        \"endDate\": \"1996-04-10T22:46:10.732Z\"\n      }\n    ],\n    \"note\": \"string\",\n    \"categoryId\": 9890,\n    \"notification\": {\n      \"notifiedOn\": \"2024-05-01T15:24:50.706Z\",\n      \"recipientIds\": [\n        7872,\n        4737\n      ]\n    },\n    \"isCommunicated\": false,\n    \"relatedTitles\": [\n      \"string\",\n      \"string\"\n    ],\n    \"externalId\": \"string\",\n    \"createdBy\": 1684,\n    \"createdOn\": \"1981-01-31T18:04:39.231Z\",\n    \"hire\": {\n      \"isHireRequired\": true,\n      \"hireDescription\": \"string\",\n      \"previousIsHireRequired\": false,\n      \"hireStatus\": \"Hired\",\n      \"previousHireStatus\": \"Hire\",\n      \"taggedByUserId\": 8483,\n      \"taggedAt\": \"2024-01-12T10:01:10.318Z\",\n      \"hiredAt\": \"1965-07-13T18:17:16.425Z\"\n    },\n    \"roleTags\": [\n      {\n        \"id\": 1591,\n        \"collectionId\": 249,\n        \"name\": \"string\",\n        \"collectionName\": \"string\",\n        \"collectionColor\": \"string\"\n      },\n      {\n        \"id\": 2915,\n        \"collectionId\": 9068,\n        \"name\": \"string\",\n        \"collectionName\": \"string\",\n        \"collectionColor\": \"string\"\n      }\n    ],\n    \"assignmentBreakdownBy\": \"Custom\",\n    \"assignedPersonId\": 4274,\n    \"assignedPersonName\": \"string\",\n    \"crew\": {\n      \"id\": 42,\n      \"name\": \"Concrete crew A\",\n      \"memberCount\": 5,\n      \"trade\": {\n        \"id\": 1,\n        \"name\": \"Electrician\",\n        \"colour\": \"#D6F0F5\"\n      }\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "af92545d-8c56-4459-b4cc-f8f1d8561ec2",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks",
+                    ":id",
+                    "roles",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID the task belongs to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) The task ID the task belongs to"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"name\": \"Project Engineer\",\n    \"skillSet\": [\n      1,\n      2,\n      3\n    ],\n    \"note\": \"Some note\",\n    \"billable\": false,\n    \"allocatedPercent\": 100\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8ed22655-fa0e-43e7-8782-df70e38081a9",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks",
+                    ":id",
+                    "roles",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID the task belongs to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) The task ID the task belongs to"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"name\": \"Project Engineer\",\n    \"skillSet\": [\n      1,\n      2,\n      3\n    ],\n    \"note\": \"Some note\",\n    \"billable\": false,\n    \"allocatedPercent\": 100\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "24a5214e-b405-4a8e-b1e8-354912422c8e",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks",
+                    ":id",
+                    "roles",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID the task belongs to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) The task ID the task belongs to"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"name\": \"Project Engineer\",\n    \"skillSet\": [\n      1,\n      2,\n      3\n    ],\n    \"note\": \"Some note\",\n    \"billable\": false,\n    \"allocatedPercent\": 100\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cce7ba24-cc38-4fa6-8831-f87ce5d98cb0",
+              "name": "Unprocessable Entity - Validation failures",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks",
+                    ":id",
+                    "roles",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID the task belongs to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) The task ID the task belongs to"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"name\": \"Project Engineer\",\n    \"skillSet\": [\n      1,\n      2,\n      3\n    ],\n    \"note\": \"Some note\",\n    \"billable\": false,\n    \"allocatedPercent\": 100\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e86b338b-0f79-41b0-816a-ecbfed6c6e19",
+          "name": "Update a task role by ID in the given account's project.",
+          "request": {
+            "name": "Update a task role by ID in the given account's project.",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>Project: Read<br/>Person: Read<br/>Role: Write<br/>Allocation: Read<br/>Finance: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "projects",
+                ":projectId",
+                "tasks",
+                ":taskId",
+                "roles",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "projectId",
+                  "description": "(Required) The project ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "taskId",
+                  "description": "(Required) The task ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) The role ID the task role belongs to"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"skillSet\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"note\": \"<string>\",\n  \"billable\": \"<boolean>\",\n  \"allocatedPercent\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2505f97b-f231-43c8-863b-35b1daffccf2",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks",
+                    ":taskId",
+                    "roles",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "taskId",
+                      "description": "(Required) The task ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The role ID the task role belongs to"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Project Engineer\",\n  \"skillSet\": [\n    1,\n    2,\n    3\n  ],\n  \"note\": \"Some note\",\n  \"billable\": false,\n  \"allocatedPercent\": 100\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 123,\n  \"taskId\": \"00000000-0000-0000-0000-000000000000\",\n  \"nameId\": 1,\n  \"name\": \"Project Engineer\",\n  \"roleCost\": 123.45,\n  \"startDate\": \"2012-11-12T10:13:18.982Z\",\n  \"endDate\": \"2014-03-06T05:51:18.934Z\",\n  \"type\": \"Salaried\",\n  \"skillSet\": [\n    8883,\n    8912\n  ],\n  \"isFilled\": false,\n  \"billable\": false,\n  \"allocations\": [\n    {\n      \"startDate\": \"2002-09-04T22:07:42.711Z\",\n      \"endDate\": \"1971-09-08T09:23:20.015Z\",\n      \"allocatedPercent\": 100\n    },\n    {\n      \"startDate\": \"1950-10-09T12:01:47.934Z\",\n      \"endDate\": \"2005-07-09T20:48:09.576Z\",\n      \"allocatedPercent\": 100\n    }\n  ],\n  \"unfilledRanges\": [\n    {\n      \"startDate\": \"1977-07-28T18:58:07.556Z\",\n      \"endDate\": \"1994-04-19T07:10:42.518Z\"\n    },\n    {\n      \"startDate\": \"1979-05-07T23:55:02.217Z\",\n      \"endDate\": \"1970-06-06T19:50:31.744Z\"\n    }\n  ],\n  \"note\": \"string\",\n  \"categoryId\": 3679,\n  \"notification\": {\n    \"notifiedOn\": \"1966-12-01T21:30:05.224Z\",\n    \"recipientIds\": [\n      4305,\n      5928\n    ]\n  },\n  \"isCommunicated\": false,\n  \"relatedTitles\": [\n    \"string\",\n    \"string\"\n  ],\n  \"externalId\": \"string\",\n  \"createdBy\": 1049,\n  \"createdOn\": \"2006-07-16T13:24:15.213Z\",\n  \"hire\": {\n    \"isHireRequired\": true,\n    \"hireDescription\": \"string\",\n    \"previousIsHireRequired\": false,\n    \"hireStatus\": \"Hire\",\n    \"previousHireStatus\": \"Hire\",\n    \"taggedByUserId\": 6185,\n    \"taggedAt\": \"1946-11-15T08:35:36.937Z\",\n    \"hiredAt\": \"1962-02-11T20:06:35.950Z\"\n  },\n  \"roleTags\": [\n    {\n      \"id\": 8377,\n      \"collectionId\": 9116,\n      \"name\": \"string\",\n      \"collectionName\": \"string\",\n      \"collectionColor\": \"string\"\n    },\n    {\n      \"id\": 7742,\n      \"collectionId\": 9727,\n      \"name\": \"string\",\n      \"collectionName\": \"string\",\n      \"collectionColor\": \"string\"\n    }\n  ],\n  \"assignmentBreakdownBy\": \"Custom\",\n  \"assignedPersonId\": 8034,\n  \"assignedPersonName\": \"string\",\n  \"crew\": {\n    \"id\": 42,\n    \"name\": \"Concrete crew A\",\n    \"memberCount\": 5,\n    \"trade\": {\n      \"id\": 1,\n      \"name\": \"Electrician\",\n      \"colour\": \"#D6F0F5\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "41e43514-f320-4c72-8334-20cf54401913",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks",
+                    ":taskId",
+                    "roles",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "taskId",
+                      "description": "(Required) The task ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The role ID the task role belongs to"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Project Engineer\",\n  \"skillSet\": [\n    1,\n    2,\n    3\n  ],\n  \"note\": \"Some note\",\n  \"billable\": false,\n  \"allocatedPercent\": 100\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8f6ffed7-7a75-4d0a-8750-768dd080a0b5",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks",
+                    ":taskId",
+                    "roles",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "taskId",
+                      "description": "(Required) The task ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The role ID the task role belongs to"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Project Engineer\",\n  \"skillSet\": [\n    1,\n    2,\n    3\n  ],\n  \"note\": \"Some note\",\n  \"billable\": false,\n  \"allocatedPercent\": 100\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a293fdaa-3e5f-4e1f-b740-308d6a5cfa96",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks",
+                    ":taskId",
+                    "roles",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "taskId",
+                      "description": "(Required) The task ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The role ID the task role belongs to"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Project Engineer\",\n  \"skillSet\": [\n    1,\n    2,\n    3\n  ],\n  \"note\": \"Some note\",\n  \"billable\": false,\n  \"allocatedPercent\": 100\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "045c8ece-21ad-4b8b-bca9-369fc72aeb18",
+              "name": "Unprocessable Entity - Validation failures",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks",
+                    ":taskId",
+                    "roles",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "taskId",
+                      "description": "(Required) The task ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The role ID the task role belongs to"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Project Engineer\",\n  \"skillSet\": [\n    1,\n    2,\n    3\n  ],\n  \"note\": \"Some note\",\n  \"billable\": false,\n  \"allocatedPercent\": 100\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1c5ac917-757c-42f9-a24d-5ac5180e4d6e",
+          "name": "Remove task role by ID in the given account's project.",
+          "request": {
+            "name": "Remove task role by ID in the given account's project.",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>Project: Read<br/>Person: Read<br/>Role: Write<br/>Allocation: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "projects",
+                ":projectId",
+                "tasks",
+                ":taskId",
+                "roles",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "projectId",
+                  "description": "(Required) The project ID that the task belongs to"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "taskId",
+                  "description": "(Required) The task ID that the role belongs to"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) The role ID"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "53ccf768-1781-48e1-838a-0a465a890d3e",
+              "name": "No Content - Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks",
+                    ":taskId",
+                    "roles",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID that the task belongs to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "taskId",
+                      "description": "(Required) The task ID that the role belongs to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The role ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "22703f3d-32f3-4d53-83fe-f68b6f304bf8",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks",
+                    ":taskId",
+                    "roles",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID that the task belongs to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "taskId",
+                      "description": "(Required) The task ID that the role belongs to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The role ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0399dad9-a4ef-4629-b5bf-fcc4f4ce4106",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks",
+                    ":taskId",
+                    "roles",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID that the task belongs to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "taskId",
+                      "description": "(Required) The task ID that the role belongs to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The role ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e79022f9-251d-42e3-8968-9040d9edb82f",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks",
+                    ":taskId",
+                    "roles",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID that the task belongs to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "taskId",
+                      "description": "(Required) The task ID that the role belongs to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The role ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b8035bfc-46be-4810-b949-beb83d8ffbee",
+          "name": "Allocates a person to a task role on the given account and project",
+          "request": {
+            "name": "Allocates a person to a task role on the given account and project",
+            "description": {
+              "content": "A person cannot be allocated entirely inside a period of unavailability and cannot be allocated outside of their employment dates.\n\nFor allocations that overlap a period of unavailability, the API will truncate or not set the date range that the person is unavailable.\n\nExamples: Unavailable from 2020-01-11 to 2020-01-25, Allocation date from 2020-01-20 to 2020-03-31, will alocate the person from 2020-01-26 to 2020-03-31\n\nUnavailable from 2020-01-11 to 2020-01-25, Allocation date from 2020-01-01 to 2020-03-31, will alocate the person from 2020-01-01 to 2020-01-10 AND 2020-01-26 to 2020-03-31<br/><strong>Permissions</strong><br/>Project: Read<br/>Person: Read<br/>Role: Read<br/>Allocation: Write",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "projects",
+                ":projectId",
+                "tasks",
+                ":taskId",
+                "roles",
+                ":id",
+                "allocations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "projectId",
+                  "description": "(Required) The project ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "taskId",
+                  "description": "(Required) The task ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) The role ID the task role belongs to"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"personId\": \"<long>\",\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\",\n  \"roleStartDate\": \"<dateTime>\",\n  \"roleEndDate\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fec76249-b9f7-4407-be59-bec7bfba7588",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks",
+                    ":taskId",
+                    "roles",
+                    ":id",
+                    "allocations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "taskId",
+                      "description": "(Required) The task ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The role ID the task role belongs to"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"personId\": 1,\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\",\n  \"roleStartDate\": \"<dateTime>\",\n  \"roleEndDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bb834aba-6793-4e2e-bcef-43238232659e",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks",
+                    ":taskId",
+                    "roles",
+                    ":id",
+                    "allocations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "taskId",
+                      "description": "(Required) The task ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The role ID the task role belongs to"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"personId\": 1,\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\",\n  \"roleStartDate\": \"<dateTime>\",\n  \"roleEndDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1948b781-2871-44f4-948c-d8fbaa425600",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks",
+                    ":taskId",
+                    "roles",
+                    ":id",
+                    "allocations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "taskId",
+                      "description": "(Required) The task ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The role ID the task role belongs to"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"personId\": 1,\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\",\n  \"roleStartDate\": \"<dateTime>\",\n  \"roleEndDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8c25c2a8-ffeb-4e34-9321-52f47b1bc52d",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks",
+                    ":taskId",
+                    "roles",
+                    ":id",
+                    "allocations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "taskId",
+                      "description": "(Required) The task ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The role ID the task role belongs to"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"personId\": 1,\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\",\n  \"roleStartDate\": \"<dateTime>\",\n  \"roleEndDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5d57c950-f92c-48b2-b31f-f37df36b0e51",
+              "name": "Conflict",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks",
+                    ":taskId",
+                    "roles",
+                    ":id",
+                    "allocations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "taskId",
+                      "description": "(Required) The task ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The role ID the task role belongs to"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"personId\": 1,\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\",\n  \"roleStartDate\": \"<dateTime>\",\n  \"roleEndDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8fe82390-9573-428b-82d4-ba4168c26cba",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks",
+                    ":taskId",
+                    "roles",
+                    ":id",
+                    "allocations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "taskId",
+                      "description": "(Required) The task ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The role ID the task role belongs to"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"personId\": 1,\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\",\n  \"roleStartDate\": \"<dateTime>\",\n  \"roleEndDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3ce3a7ba-d9be-4c1f-9fda-caedb83504d5",
+          "name": "Removes a person's allocation on a task role on the given account and project",
+          "request": {
+            "name": "Removes a person's allocation on a task role on the given account and project",
+            "description": {
+              "content": "The request must contain the person id, start and end date to ensure that the role and allocation is correct and hasn't been modified before trying to delete it.<br/><strong>Permissions</strong><br/>Project: Read<br/>Person: Read<br/>Role: Read<br/>Allocation: Write",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "projects",
+                ":projectId",
+                "tasks",
+                ":taskId",
+                "roles",
+                ":id",
+                "allocations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "projectId",
+                  "description": "(Required) The Project ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "taskId",
+                  "description": "(Required) The task ID that the role belongs to"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) The role ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"personId\": \"<long>\",\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\",\n  \"roleStartDate\": \"<dateTime>\",\n  \"roleEndDate\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "779ff03b-a6b0-4d45-931c-327d0b9264bc",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks",
+                    ":taskId",
+                    "roles",
+                    ":id",
+                    "allocations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "taskId",
+                      "description": "(Required) The task ID that the role belongs to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The role ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"personId\": 1,\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\",\n  \"roleStartDate\": \"<dateTime>\",\n  \"roleEndDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b5ec5be5-5233-49c2-b9d2-66e83e177207",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks",
+                    ":taskId",
+                    "roles",
+                    ":id",
+                    "allocations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "taskId",
+                      "description": "(Required) The task ID that the role belongs to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The role ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"personId\": 1,\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\",\n  \"roleStartDate\": \"<dateTime>\",\n  \"roleEndDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f3f428d9-9ab2-43d3-95bd-5c072da31b71",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks",
+                    ":taskId",
+                    "roles",
+                    ":id",
+                    "allocations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "taskId",
+                      "description": "(Required) The task ID that the role belongs to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The role ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"personId\": 1,\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\",\n  \"roleStartDate\": \"<dateTime>\",\n  \"roleEndDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7cadb299-d98f-4964-85eb-580f9dc3bc07",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks",
+                    ":taskId",
+                    "roles",
+                    ":id",
+                    "allocations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "taskId",
+                      "description": "(Required) The task ID that the role belongs to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The role ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"personId\": 1,\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\",\n  \"roleStartDate\": \"<dateTime>\",\n  \"roleEndDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6c115cef-8dbc-4654-ba30-8b8b3bd5c924",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks",
+                    ":taskId",
+                    "roles",
+                    ":id",
+                    "allocations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The Project ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "taskId",
+                      "description": "(Required) The task ID that the role belongs to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The role ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"personId\": 1,\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\",\n  \"roleStartDate\": \"<dateTime>\",\n  \"roleEndDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "acf4bc0a-2a27-4861-b09c-9b54a8c543b0",
+          "name": "Bulk allocates people to task roles on the given account and project task",
+          "request": {
+            "name": "Bulk allocates people to task roles on the given account and project task",
+            "description": {
+              "content": "A person cannot be allocated entirely inside a period of unavailability and cannot be allocated outside of their employment dates.\n\nFor allocations that overlap a period of unavailability, the API will truncate or not set the date range that the person is unavailable.\n\nExamples: Unavailable from 2020-01-11 to 2020-01-25, Allocation date from 2020-01-20 to 2020-03-31, will alocate the person from 2020-01-26 to 2020-03-31\n\nUnavailable from 2020-01-11 to 2020-01-25, Allocation date from 2020-01-01 to 2020-03-31, will alocate the person from 2020-01-01 to 2020-01-10 AND 2020-01-26 to 2020-03-31<br/><strong>Permissions</strong><br/>Project: Read<br/>Person: Read<br/>Role: Read<br/>Allocation: Write",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "projects",
+                ":projectId",
+                "tasks",
+                ":taskId",
+                "roles",
+                "allocations",
+                "bulk"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "projectId",
+                  "description": "(Required) The project ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "taskId",
+                  "description": "(Required) The task ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"roleId\": \"<long>\",\n    \"personId\": \"<long>\",\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\",\n    \"roleStartDate\": \"<dateTime>\",\n    \"roleEndDate\": \"<dateTime>\"\n  },\n  {\n    \"roleId\": \"<long>\",\n    \"personId\": \"<long>\",\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\",\n    \"roleStartDate\": \"<dateTime>\",\n    \"roleEndDate\": \"<dateTime>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "301b4056-1c10-4dca-becb-2355becf2e64",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks",
+                    ":taskId",
+                    "roles",
+                    "allocations",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "taskId",
+                      "description": "(Required) The task ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"roleId\": 1,\n    \"personId\": 1,\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\",\n    \"roleStartDate\": \"<dateTime>\",\n    \"roleEndDate\": \"<dateTime>\"\n  },\n  {\n    \"roleId\": 1,\n    \"personId\": 1,\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\",\n    \"roleStartDate\": \"<dateTime>\",\n    \"roleEndDate\": \"<dateTime>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4febfa95-d7a3-4778-bdda-601ace2e91ea",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks",
+                    ":taskId",
+                    "roles",
+                    "allocations",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "taskId",
+                      "description": "(Required) The task ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"roleId\": 1,\n    \"personId\": 1,\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\",\n    \"roleStartDate\": \"<dateTime>\",\n    \"roleEndDate\": \"<dateTime>\"\n  },\n  {\n    \"roleId\": 1,\n    \"personId\": 1,\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\",\n    \"roleStartDate\": \"<dateTime>\",\n    \"roleEndDate\": \"<dateTime>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4d2ecfb2-71ea-420d-8d8f-f76483c7d93e",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks",
+                    ":taskId",
+                    "roles",
+                    "allocations",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "taskId",
+                      "description": "(Required) The task ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"roleId\": 1,\n    \"personId\": 1,\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\",\n    \"roleStartDate\": \"<dateTime>\",\n    \"roleEndDate\": \"<dateTime>\"\n  },\n  {\n    \"roleId\": 1,\n    \"personId\": 1,\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\",\n    \"roleStartDate\": \"<dateTime>\",\n    \"roleEndDate\": \"<dateTime>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1ce7f756-4835-4027-9d1c-b251aac45d47",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks",
+                    ":taskId",
+                    "roles",
+                    "allocations",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "taskId",
+                      "description": "(Required) The task ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"roleId\": 1,\n    \"personId\": 1,\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\",\n    \"roleStartDate\": \"<dateTime>\",\n    \"roleEndDate\": \"<dateTime>\"\n  },\n  {\n    \"roleId\": 1,\n    \"personId\": 1,\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\",\n    \"roleStartDate\": \"<dateTime>\",\n    \"roleEndDate\": \"<dateTime>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9f0a39a9-a9a1-4585-8ba0-3a69fbef0f40",
+              "name": "Conflict",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks",
+                    ":taskId",
+                    "roles",
+                    "allocations",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "taskId",
+                      "description": "(Required) The task ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"roleId\": 1,\n    \"personId\": 1,\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\",\n    \"roleStartDate\": \"<dateTime>\",\n    \"roleEndDate\": \"<dateTime>\"\n  },\n  {\n    \"roleId\": 1,\n    \"personId\": 1,\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\",\n    \"roleStartDate\": \"<dateTime>\",\n    \"roleEndDate\": \"<dateTime>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "353be84e-94d1-41d3-8fb8-1e15599ea2ac",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks",
+                    ":taskId",
+                    "roles",
+                    "allocations",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "taskId",
+                      "description": "(Required) The task ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"roleId\": 1,\n    \"personId\": 1,\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\",\n    \"roleStartDate\": \"<dateTime>\",\n    \"roleEndDate\": \"<dateTime>\"\n  },\n  {\n    \"roleId\": 1,\n    \"personId\": 1,\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\",\n    \"roleStartDate\": \"<dateTime>\",\n    \"roleEndDate\": \"<dateTime>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0448d1ed-b486-4f21-aa2d-da68f2c2c88c",
+          "name": "Remove task by ID in the given account's project.",
+          "request": {
+            "name": "Remove task by ID in the given account's project.",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>Project: Read<br/>Person: Read<br/>Role: Write",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "projects",
+                ":projectId",
+                "tasks",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "projectId",
+                  "description": "(Required) The project ID that the role belongs to"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) The task ID"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "40ca261f-047c-41e2-8080-d4b57b832919",
+              "name": "No Content - Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID that the role belongs to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) The task ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "90a747b6-a6de-43f1-a8b8-5a32a7856a58",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID that the role belongs to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) The task ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dbb9f834-66fb-42b7-a9fc-92351922058f",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID that the role belongs to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) The task ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cc540ead-2c47-44ac-bb52-57a293a3cfc6",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID that the role belongs to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) The task ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f9efd5d9-004d-450d-beba-e07877d0854d",
+          "name": "Add tasks and roles for the given account's project using task template definition.",
+          "request": {
+            "name": "Add tasks and roles for the given account's project using task template definition.",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>Project: Read<br/>Person: Read<br/>Role: Write<br/>Allocation: Read<br/>Finance: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "projects",
+                ":projectId",
+                "tasks",
+                "by-templates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "projectId",
+                  "description": "(Required) The project ID the tasks belongs to"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"templateId\": \"<uuid>\",\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ff36e65f-8a97-4a27-8f3b-c3879805aec4",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks",
+                    "by-templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID the tasks belongs to"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"templateId\": \"00000000-0000-0000-0000-000000000000\",\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"projectId\": 9381,\n    \"taskId\": \"00000000-0000-0000-0000-000000000000\",\n    \"name\": \"Design Plan\",\n    \"startDate\": \"2014-12-30T16:30:17.310Z\",\n    \"endDate\": \"1982-09-08T22:47:14.112Z\",\n    \"roles\": [\n      {\n        \"id\": 2027,\n        \"nameId\": 6766,\n        \"name\": \"string\",\n        \"roleCost\": 7384.997717426724,\n        \"startDate\": \"1950-05-01T04:58:34.300Z\",\n        \"endDate\": \"2026-07-25T09:11:10.557Z\",\n        \"type\": \"Salaried\",\n        \"skillSet\": [\n          4260,\n          8297\n        ],\n        \"isFilled\": false,\n        \"billable\": false,\n        \"requirements\": [\n          {\n            \"startDate\": \"2004-01-31T07:46:02.687Z\",\n            \"endDate\": \"2001-05-29T21:56:54.527Z\",\n            \"allocatedPercent\": 100\n          },\n          {\n            \"startDate\": \"1992-08-24T20:36:40.268Z\",\n            \"endDate\": \"1959-12-13T18:21:10.676Z\",\n            \"allocatedPercent\": 100\n          }\n        ],\n        \"unfilledRanges\": [\n          {\n            \"startDate\": \"2018-07-24T14:39:47.914Z\",\n            \"endDate\": \"1955-01-08T02:40:59.695Z\"\n          },\n          {\n            \"startDate\": \"1979-07-16T20:22:09.775Z\",\n            \"endDate\": \"1956-11-23T09:34:29.469Z\"\n          }\n        ],\n        \"note\": \"string\",\n        \"sortOrder\": 2553,\n        \"notification\": {\n          \"notifiedOn\": \"2024-06-11T09:42:23.155Z\",\n          \"recipientIds\": [\n            3058,\n            2679\n          ]\n        },\n        \"relatedTitles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"allocations\": [\n          {\n            \"personId\": 7675,\n            \"startDate\": \"1996-11-03T00:47:06.901Z\",\n            \"endDate\": \"2013-09-23T09:50:11.795Z\",\n            \"allocatedPercent\": 100,\n            \"personCost\": 8596.17887555822,\n            \"id\": \"d43f31d4-62fd-497b-c5db-710f30c171e0\"\n          },\n          {\n            \"personId\": 212,\n            \"startDate\": \"2002-01-31T14:51:52.961Z\",\n            \"endDate\": \"2004-03-07T09:49:22.743Z\",\n            \"allocatedPercent\": 100,\n            \"personCost\": 2028.6357955934543,\n            \"id\": \"0705b7ac-c80c-e04a-5a4d-99b0ed6856e0\"\n          }\n        ],\n        \"hire\": {\n          \"isHireRequired\": false,\n          \"hireDescription\": \"string\",\n          \"previousIsHireRequired\": false,\n          \"hireStatus\": \"Hire\",\n          \"previousHireStatus\": \"Hire\",\n          \"taggedByUserId\": 3899,\n          \"taggedAt\": \"1970-05-11T17:36:48.410Z\",\n          \"hiredAt\": \"1981-05-24T21:50:13.645Z\"\n        }\n      },\n      {\n        \"id\": 6878,\n        \"nameId\": 820,\n        \"name\": \"string\",\n        \"roleCost\": 1668.4541881200864,\n        \"startDate\": \"2009-01-07T10:51:02.748Z\",\n        \"endDate\": \"1972-06-01T20:35:39.526Z\",\n        \"type\": \"Salaried\",\n        \"skillSet\": [\n          1631,\n          4187\n        ],\n        \"isFilled\": true,\n        \"billable\": true,\n        \"requirements\": [\n          {\n            \"startDate\": \"1976-04-04T14:05:32.161Z\",\n            \"endDate\": \"1989-11-23T12:17:07.008Z\",\n            \"allocatedPercent\": 100\n          },\n          {\n            \"startDate\": \"1991-05-09T10:44:53.756Z\",\n            \"endDate\": \"1996-04-29T23:54:19.944Z\",\n            \"allocatedPercent\": 100\n          }\n        ],\n        \"unfilledRanges\": [\n          {\n            \"startDate\": \"1998-09-24T13:15:54.843Z\",\n            \"endDate\": \"1950-08-31T05:46:09.528Z\"\n          },\n          {\n            \"startDate\": \"1973-10-14T15:32:24.123Z\",\n            \"endDate\": \"1974-07-07T18:03:16.479Z\"\n          }\n        ],\n        \"note\": \"string\",\n        \"sortOrder\": 1720,\n        \"notification\": {\n          \"notifiedOn\": \"2010-09-09T18:57:07.205Z\",\n          \"recipientIds\": [\n            4388,\n            1320\n          ]\n        },\n        \"relatedTitles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"allocations\": [\n          {\n            \"personId\": 787,\n            \"startDate\": \"1988-03-26T14:03:23.648Z\",\n            \"endDate\": \"1974-08-21T14:16:16.420Z\",\n            \"allocatedPercent\": 100,\n            \"personCost\": 8827.109878939036,\n            \"id\": \"d3071cfc-b64d-20de-8969-4309af8aca53\"\n          },\n          {\n            \"personId\": 3143,\n            \"startDate\": \"1946-08-20T19:35:48.773Z\",\n            \"endDate\": \"1979-03-01T14:03:32.478Z\",\n            \"allocatedPercent\": 100,\n            \"personCost\": 3478.7163387312503,\n            \"id\": \"156de2dc-2483-215f-971a-caea16e44bfe\"\n          }\n        ],\n        \"hire\": {\n          \"isHireRequired\": false,\n          \"hireDescription\": \"string\",\n          \"previousIsHireRequired\": false,\n          \"hireStatus\": \"Hire\",\n          \"previousHireStatus\": \"Hired\",\n          \"taggedByUserId\": 9404,\n          \"taggedAt\": \"2021-12-26T22:58:40.736Z\",\n          \"hiredAt\": \"1972-07-21T01:49:17.554Z\"\n        }\n      }\n    ],\n    \"createdOn\": \"2021-05-27T10:47:23.530Z\",\n    \"lastModifiedOn\": \"2021-05-27T10:58:23.530Z\"\n  },\n  {\n    \"projectId\": 9381,\n    \"taskId\": \"00000000-0000-0000-0000-000000000000\",\n    \"name\": \"Design Plan\",\n    \"startDate\": \"2021-09-15T12:59:42.136Z\",\n    \"endDate\": \"2016-05-17T07:57:50.464Z\",\n    \"roles\": [\n      {\n        \"id\": 4162,\n        \"nameId\": 7766,\n        \"name\": \"string\",\n        \"roleCost\": 7338.5971639746585,\n        \"startDate\": \"2026-03-21T13:22:00.391Z\",\n        \"endDate\": \"1994-08-04T15:35:00.887Z\",\n        \"type\": \"Salaried\",\n        \"skillSet\": [\n          5572,\n          7016\n        ],\n        \"isFilled\": true,\n        \"billable\": true,\n        \"requirements\": [\n          {\n            \"startDate\": \"1963-01-29T13:34:20.184Z\",\n            \"endDate\": \"2023-10-31T16:38:00.266Z\",\n            \"allocatedPercent\": 100\n          },\n          {\n            \"startDate\": \"1976-09-02T20:30:25.929Z\",\n            \"endDate\": \"1999-05-19T00:29:53.732Z\",\n            \"allocatedPercent\": 100\n          }\n        ],\n        \"unfilledRanges\": [\n          {\n            \"startDate\": \"1964-12-29T17:36:46.716Z\",\n            \"endDate\": \"1993-01-30T21:17:20.810Z\"\n          },\n          {\n            \"startDate\": \"2018-10-18T23:51:47.946Z\",\n            \"endDate\": \"1957-09-12T03:40:04.960Z\"\n          }\n        ],\n        \"note\": \"string\",\n        \"sortOrder\": 8461,\n        \"notification\": {\n          \"notifiedOn\": \"1997-03-27T04:31:11.932Z\",\n          \"recipientIds\": [\n            2273,\n            5978\n          ]\n        },\n        \"relatedTitles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"allocations\": [\n          {\n            \"personId\": 2175,\n            \"startDate\": \"2020-11-09T19:03:21.429Z\",\n            \"endDate\": \"2007-10-05T21:00:53.854Z\",\n            \"allocatedPercent\": 100,\n            \"personCost\": 8950.916297988457,\n            \"id\": \"172a7dd7-e277-ffae-25c6-eafac06de3e6\"\n          },\n          {\n            \"personId\": 5316,\n            \"startDate\": \"2012-09-14T21:03:04.095Z\",\n            \"endDate\": \"2003-07-18T14:31:16.040Z\",\n            \"allocatedPercent\": 100,\n            \"personCost\": 7616.937946733976,\n            \"id\": \"dbb663c3-cf13-475e-9e0e-9b1b613133ca\"\n          }\n        ],\n        \"hire\": {\n          \"isHireRequired\": true,\n          \"hireDescription\": \"string\",\n          \"previousIsHireRequired\": false,\n          \"hireStatus\": \"Hired\",\n          \"previousHireStatus\": \"Hired\",\n          \"taggedByUserId\": 2795,\n          \"taggedAt\": \"1980-03-11T23:06:13.588Z\",\n          \"hiredAt\": \"2022-01-02T13:35:34.931Z\"\n        }\n      },\n      {\n        \"id\": 8736,\n        \"nameId\": 1678,\n        \"name\": \"string\",\n        \"roleCost\": 8700.909580536912,\n        \"startDate\": \"1950-09-29T08:50:18.231Z\",\n        \"endDate\": \"1965-07-23T16:53:42.157Z\",\n        \"type\": \"All\",\n        \"skillSet\": [\n          952,\n          8555\n        ],\n        \"isFilled\": false,\n        \"billable\": false,\n        \"requirements\": [\n          {\n            \"startDate\": \"2020-06-13T23:16:29.912Z\",\n            \"endDate\": \"2014-01-06T11:04:44.720Z\",\n            \"allocatedPercent\": 100\n          },\n          {\n            \"startDate\": \"2007-12-25T08:03:39.495Z\",\n            \"endDate\": \"1957-02-09T17:11:17.503Z\",\n            \"allocatedPercent\": 100\n          }\n        ],\n        \"unfilledRanges\": [\n          {\n            \"startDate\": \"2009-06-28T05:15:23.889Z\",\n            \"endDate\": \"2015-11-25T06:37:01.284Z\"\n          },\n          {\n            \"startDate\": \"2015-05-06T02:14:29.445Z\",\n            \"endDate\": \"2019-10-23T21:25:42.035Z\"\n          }\n        ],\n        \"note\": \"string\",\n        \"sortOrder\": 3979,\n        \"notification\": {\n          \"notifiedOn\": \"2006-04-30T06:56:14.478Z\",\n          \"recipientIds\": [\n            5517,\n            717\n          ]\n        },\n        \"relatedTitles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"allocations\": [\n          {\n            \"personId\": 4464,\n            \"startDate\": \"1985-11-08T03:48:04.562Z\",\n            \"endDate\": \"1954-01-27T01:45:13.488Z\",\n            \"allocatedPercent\": 100,\n            \"personCost\": 8917.116321080428,\n            \"id\": \"197abe03-6b59-d282-7eaa-040fe4489e4d\"\n          },\n          {\n            \"personId\": 538,\n            \"startDate\": \"1974-01-29T19:50:03.180Z\",\n            \"endDate\": \"1957-02-16T01:55:19.280Z\",\n            \"allocatedPercent\": 100,\n            \"personCost\": 9255.56569251271,\n            \"id\": \"3d77cf9d-02bb-6622-e34a-ade15f864653\"\n          }\n        ],\n        \"hire\": {\n          \"isHireRequired\": true,\n          \"hireDescription\": \"string\",\n          \"previousIsHireRequired\": true,\n          \"hireStatus\": \"Hire\",\n          \"previousHireStatus\": \"Hire\",\n          \"taggedByUserId\": 9203,\n          \"taggedAt\": \"2008-02-10T04:39:24.565Z\",\n          \"hiredAt\": \"1960-03-22T13:37:16.681Z\"\n        }\n      }\n    ],\n    \"createdOn\": \"2021-05-27T10:47:23.530Z\",\n    \"lastModifiedOn\": \"2021-05-27T10:58:23.530Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "43cb2796-ee9a-4d22-b11e-8516ebfa4499",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks",
+                    "by-templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID the tasks belongs to"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"templateId\": \"00000000-0000-0000-0000-000000000000\",\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ee5d8812-0ea7-467c-bda3-c41fe8857890",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks",
+                    "by-templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID the tasks belongs to"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"templateId\": \"00000000-0000-0000-0000-000000000000\",\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7e69f59d-a0a6-4fcb-b33f-ebd7c6d0c472",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks",
+                    "by-templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID the tasks belongs to"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"templateId\": \"00000000-0000-0000-0000-000000000000\",\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "696fef3d-9ec6-4bf1-ae49-6cbf1923ec88",
+              "name": "Unprocessable Entity - Validation failures",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "tasks",
+                    "by-templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "projectId",
+                      "description": "(Required) The project ID the tasks belongs to"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"templateId\": \"00000000-0000-0000-0000-000000000000\",\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://bench.gobridgit.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "info": {
+    "_postman_id": "0d7c0ccd-9f3b-46bb-8726-006f4f5d8d83",
+    "name": "Bench AccountActivities ProjectTasks API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "<h2>Versioning</h2>\n<p>\n    The API is currently at version <code>1.0</code>. All API endpoints (other than\n    authentication) require you to specify the API version as part of the path.\n</p>\n\n<h2>URL Paths</h2>\n<p>\n    Authentication requests should be made to <code>/auth/signin</code>,\n    as documented below. All other API requests should be made to\n    sub-paths of <code>/rp/api/1.0/...</code>.\n</p>\n\n<h2>Authentication</h2>\n<p>\n    API requests are authenticated using an OAuth Bearer token.\n    You can get a token by authenticating your user by sending a\n    POST request to <code>/auth/signin</code>, with \"username and \"password\"\n    parameters form-encoded in the body of the request.\n\n    POST /auth/signin HTTP/1.1\n    Content-Type: application/x-www-form-urlencoded\n\n    username=user@example.com&password=some-secret-password\n</p>\n<p>\n    The response will be a JSON object including both\n    <b>\"access_token\"</b> and <b>\"refresh_token\"</b> property.\n    All other requests against the Bench API should include an\n    authorization header: <code>Authorization: Bearer xxxYYYzzz</code>,\n    where <b>xxxYYYzzz</b> is the value of <b>\"access_token\"</b> in the response.\n    <br><br>\n    For example:\n\n    $ curl https://bench.gobridgit.com/auth/signin -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'username=someone@example.com' --data-urlencode 'password=[...snip...]'\n    {\n        \"access_token\": \"...snip...\",\n        \"token_type\": \"Bearer\",\n        \"refresh_token\": \"...snip...\"\n        \"expiry\": \"2020-01-01T00:00:00.413440849Z\"\n    }\n\n</p>\n\n<p>\n    The refresh token can be used to generate new session by request with <code>/auth/token</code> endpoint:\n\n    POST /auth/token HTTP/1.1\n    Content-Type: application/x-www-form-urlencoded\n\n    grant_type=refresh_token&refresh_token=tGzv3JOkF0XG5Qx2TlKWIA\n</p>\n<p>\n    Note that once the refresh token is used, the previous access and refresh token is no longer valid.\n    <br><br>\n    For example:\n\n    $ curl https://bench.gobridgit.com/auth/token -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'grant_type=refresh_token' --data-urlencode 'refresh_token=[...snip...]'\n    {\n        \"access_token\": \"...snip...\",\n        \"token_type\": \"Bearer\",\n        \"refresh_token\": \"...snip...\"\n        \"expiry\": \"2020-01-01T00:00:00.413440849Z\"\n    }\n</p>\n\n<h2>Pagination</h2>\n<p>\n    Several of the API endpoints are paginated. These are denoted by\n    including the <code>offset</code> (zero-based offset) and <code>limit</code> query\n    parameters. For example, to request the <code>10</code> items,\n    set the <code>offset=0</code> to <code>limit=10</code>.\n    <br>\n    NOTE: the result set contains items with index of 0-9\n    <br>\n    To request the next 10 items (starting at index 10),\n    set the <code>offset=10</code> to <code>limit=10</code>\n</p>\n<p>\n    Responses to paginated API endpoints return a JSON array of objects.\n    If there are results beyond the page you have requested, the server\n    will set a <code>query-has-more: true</code> header in the response.\n</p>\n\n<h2>Request Encoding</h2>\n<p>\n    <code>GET</code> and <code>DELETE</code> requests should have parameters encoded as URL query\n    parameters. Boolean values should be encoded as <code>true</code> and\n    <code>false</code>, not as <code>1</code> and <code>0</code>.\n</p>\n\n<h2>Errors</h2>\n<p>\n    Errors are returned for some response codes such as <code>400 Bad Request</code> in the\n    following format:\n\n    {\n      \"errors\": [\n        {\n          \"errorType\": \"ValidationError\",\n          \"description\": \"The value of Name must be a string with a minimum length of 1 and a maximum length of 8 and not whitespace.\",\n          \"field\": \"Name\",\n          \"values\": [\n            null\n          ]\n        }\n      ],\n      \"title\": \"One or more validation errors occurred.\",\n      \"status\": 400,\n      \"instance\": \"api/v1/accounts/0/persons\",\n      \"requestUid\": \"123e4567-e89b-12d3-a456-426614174000\"\n    }\n</p>\n",
+      "type": "text/plain"
+    }
+  }
+}

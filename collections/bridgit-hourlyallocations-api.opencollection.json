@@ -1,0 +1,160 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bench AccountActivities HourlyAllocations API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "HourlyAllocations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Gets the allocations for hourly roles in the given account and project",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/projects/:projectId/hourly-allocations",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The Project ID"
+              },
+              {
+                "name": "relativeDate",
+                "value": "2021-01-01",
+                "type": "query",
+                "description": "Optional paramater used to calculate date based properties. If not provided, it is set to today's date in UTC."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset for pagination"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results in this page"
+              },
+              {
+                "name": "personstate",
+                "value": "",
+                "type": "query",
+                "description": "State of persons to filter results by (Default Active)"
+              },
+              {
+                "name": "daysUntilTimeOff",
+                "value": "",
+                "type": "query",
+                "description": "Used to calculate the upcoming TimeOff unavailabilities based on the relativeDate"
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>HourlyProfile: Read<br/>HourlyRole: Read<br/>HourlyAllocation: Read<br/>Private: Read<br/>Finance: Read"
+        },
+        {
+          "info": {
+            "name": "Allocates an hourly person to an hourly role on the given account and project",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/projects/:projectId/hourly-allocations",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The Project ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "A person cannot be allocated entirely inside a period of unavailability and cannot be allocated outside of their employment dates.\n\nFor allocations that overlap a period of unavailability, the API will truncate or not set the date range that the person is unavailable.\n\nExamples: Unavaialble from 2020-01-11 to 2020-01-25, Allocation date from 2020-01-20 to 2020-03-31, will alocate the person from 2020-01-26 to 2020-03-31\n\nUnavaialble from 2020-01-11 to 2020-01-25, Allocation date from 2020-01-01 "
+        },
+        {
+          "info": {
+            "name": "Updates an hourly person's allocation on an hourly role on the given account and project",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/projects/:projectId/hourly-allocations",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The Project ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "An hourly person cannot be allocated entirely inside a period of unavailability and cannot be allocated outside of their employment dates.\n\nFor allocations that overlap a period of unavailability, the API will truncate or not set the date range that the person is unavailable.\n\nExamples: Unavaialble from 2020-01-11 to 2020-01-25, Allocation date from 2020-01-20 to 2020-03-31, will alocate the hourly person from 2020-01-26 to 2020-03-31\n\nUnavaialble from 2020-01-11 to 2020-01-25, Allocation date f"
+        },
+        {
+          "info": {
+            "name": "Removes an hourly person's allocation on a role on the given account and project",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/projects/:projectId/hourly-allocations",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The Project ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The request must contain the role id, person id, start and end date to ensure that the role and allocation is correct and hasn't been modified before trying to delete it.<br/><strong>Permissions</strong><br/>HourlyProfile: Write<br/>HourlyRole: Write<br/>HourlyAllocation: Write"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

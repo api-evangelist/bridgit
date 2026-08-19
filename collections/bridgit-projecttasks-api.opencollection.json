@@ -1,0 +1,401 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bench AccountActivities ProjectTasks API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ProjectTasks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Bulk add tasks for the given account's project.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/projects/:projectId/tasks",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The project ID the task belongs to"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Project: Read<br/>Person: Read<br/>Role: Write<br/>Allocation: Read"
+        },
+        {
+          "info": {
+            "name": "Bulk update tasks for the given account's project.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/projects/:projectId/tasks",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The project ID the task belongs to"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Project: Read<br/>Person: Read<br/>Role: Write"
+        },
+        {
+          "info": {
+            "name": "Add a role to a task for the given account's project.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/projects/:projectId/tasks/:id/roles",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The project ID the task belongs to"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The task ID the task belongs to"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Project: Read<br/>Person: Read<br/>Role: Write<br/>Allocation: Read<br/>Finance: Read"
+        },
+        {
+          "info": {
+            "name": "Bulk add roles to a task for the given account's project.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/projects/:projectId/tasks/:id/roles/bulk",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The project ID the task belongs to"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The task ID the task belongs to"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Project: Read<br/>Person: Read<br/>Role: Write<br/>Allocation: Read<br/>Finance: Read"
+        },
+        {
+          "info": {
+            "name": "Update a task role by ID in the given account's project.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/projects/:projectId/tasks/:taskId/roles/:id",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The project ID"
+              },
+              {
+                "name": "taskId",
+                "value": "",
+                "type": "path",
+                "description": "The task ID"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The role ID the task role belongs to"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Project: Read<br/>Person: Read<br/>Role: Write<br/>Allocation: Read<br/>Finance: Read"
+        },
+        {
+          "info": {
+            "name": "Remove task role by ID in the given account's project.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/projects/:projectId/tasks/:taskId/roles/:id",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The project ID that the task belongs to"
+              },
+              {
+                "name": "taskId",
+                "value": "",
+                "type": "path",
+                "description": "The task ID that the role belongs to"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The role ID"
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Project: Read<br/>Person: Read<br/>Role: Write<br/>Allocation: Read"
+        },
+        {
+          "info": {
+            "name": "Allocates a person to a task role on the given account and project",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/projects/:projectId/tasks/:taskId/roles/:id/allocations",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The project ID"
+              },
+              {
+                "name": "taskId",
+                "value": "",
+                "type": "path",
+                "description": "The task ID"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The role ID the task role belongs to"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "A person cannot be allocated entirely inside a period of unavailability and cannot be allocated outside of their employment dates.\n\nFor allocations that overlap a period of unavailability, the API will truncate or not set the date range that the person is unavailable.\n\nExamples: Unavailable from 2020-01-11 to 2020-01-25, Allocation date from 2020-01-20 to 2020-03-31, will alocate the person from 2020-01-26 to 2020-03-31\n\nUnavailable from 2020-01-11 to 2020-01-25, Allocation date from 2020-01-01 "
+        },
+        {
+          "info": {
+            "name": "Removes a person's allocation on a task role on the given account and project",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/projects/:projectId/tasks/:taskId/roles/:id/allocations",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The Project ID"
+              },
+              {
+                "name": "taskId",
+                "value": "",
+                "type": "path",
+                "description": "The task ID that the role belongs to"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The role ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The request must contain the person id, start and end date to ensure that the role and allocation is correct and hasn't been modified before trying to delete it.<br/><strong>Permissions</strong><br/>Project: Read<br/>Person: Read<br/>Role: Read<br/>Allocation: Write"
+        },
+        {
+          "info": {
+            "name": "Bulk allocates people to task roles on the given account and project task",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/projects/:projectId/tasks/:taskId/roles/allocations/bulk",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The project ID"
+              },
+              {
+                "name": "taskId",
+                "value": "",
+                "type": "path",
+                "description": "The task ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "A person cannot be allocated entirely inside a period of unavailability and cannot be allocated outside of their employment dates.\n\nFor allocations that overlap a period of unavailability, the API will truncate or not set the date range that the person is unavailable.\n\nExamples: Unavailable from 2020-01-11 to 2020-01-25, Allocation date from 2020-01-20 to 2020-03-31, will alocate the person from 2020-01-26 to 2020-03-31\n\nUnavailable from 2020-01-11 to 2020-01-25, Allocation date from 2020-01-01 "
+        },
+        {
+          "info": {
+            "name": "Remove task by ID in the given account's project.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/projects/:projectId/tasks/:id",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The project ID that the role belongs to"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The task ID"
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Project: Read<br/>Person: Read<br/>Role: Write"
+        },
+        {
+          "info": {
+            "name": "Add tasks and roles for the given account's project using task template definition.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/projects/:projectId/tasks/by-templates",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The project ID the tasks belongs to"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Project: Read<br/>Person: Read<br/>Role: Write<br/>Allocation: Read<br/>Finance: Read"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,76 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bench AccountActivities ProjectWorkforceSpendReports API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ProjectWorkforceSpendReports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the workforce spend reports (salaried only) on hours with breakdown, grouped by role name, period, then by assignee, given the project ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/projects/:projectId/workforce-spend-reports/hours-breakdown",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The project ID the workforce belongs to"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<strong>NOTE:</strong> If there are more workforce spend reports in the project than were returned, there will be a \"query-has-more\" header that will be set to true.<br/><strong>Permissions</strong><br/>Project: Read<br/>Person: Read<br/>Role: Read"
+        },
+        {
+          "info": {
+            "name": "Get the workforce spend reports (salaried only) on hours with overview on elapsed, remainder, grouped by role name, and assignee, given the project ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/projects/:projectId/workforce-spend-reports/hours-overview",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The project ID the workforce belongs to"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<strong>NOTE:</strong> If there are more workforce spend reports in the project than were returned, there will be a \"query-has-more\" header that will be set to true.<br/><strong>Permissions</strong><br/>Project: Read<br/>Person: Read<br/>Role: Read"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

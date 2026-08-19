@@ -1,0 +1,53 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bench AccountActivities RoleAllocations API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "RoleAllocations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Allocates a person to a role on the given account and project",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/projects/:projectId/roles/:roleId/allocations",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The Project ID"
+              },
+              {
+                "name": "roleId",
+                "value": "",
+                "type": "path",
+                "description": "The Role ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "A person cannot be allocated entirely inside a period of unavailability and cannot be allocated outside of their employment dates.\n\nFor allocations that overlap a period of unavailability, the API will truncate or not set the date range that the person is unavailable.\n\nExamples: Unavaialble from 2020-01-11 to 2020-01-25, Allocation date from 2020-01-20 to 2020-03-31, will alocate the person from 2020-01-26 to 2020-03-31\n\nUnavaialble from 2020-01-11 to 2020-01-25, Allocation date from 2020-01-01 "
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,245 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bench AccountActivities Projects API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Projects",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Gets all projects in the given account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/Projects",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "relativeDate",
+                "value": "2021-01-01",
+                "type": "query",
+                "description": "Optional paramater used to calculate date based properties. If not provided, it is set to today's date in UTC."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset for pagination"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results in this page"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Name filter that affects whether or not to return projects back with/without the name contains partial match (Default: Empty)"
+              },
+              {
+                "name": "issues",
+                "value": "",
+                "type": "query",
+                "description": "State filter that affects whether or not to return projects back with/without or any issues (Default: All)"
+              },
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Optional comma delimited list of project IDs to filter the result on"
+              },
+              {
+                "name": "projectState",
+                "value": "",
+                "type": "query",
+                "description": "Optional comma delimited list for filtering results by project state."
+              },
+              {
+                "name": "includeProjectNumber",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include the Project Number field in the response (Default: false)"
+              }
+            ]
+          },
+          "docs": "<strong>NOTE:</strong> If there are more projects in the account than were returned, there will be a \"query-has-more\" header that will be set to true.<br/><strong>Permissions</strong><br/>Project: Read<br/>Role: Read<br/>HourlyRole: Read"
+        },
+        {
+          "info": {
+            "name": "Add a project to the given account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/Projects",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "If you add a project with a type of Awarded, it will be created with a state based on the date.\n\nIf you add a project with a type of Opportunity, it will be created with a state of Pursuit.\n\nThe <strong>\"winPercent\"</strong> is associated with an Opportunity, you can create an Opportunity with a winPercent but not for an Awarded project.\n<strong>NOTE:</strong> Opportunities do not count towards allocation statistics so, any roles and allocations set on the project will not cause conflicts, issue"
+        },
+        {
+          "info": {
+            "name": "Gets all projects in the given account filter by project ids.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/Projects/_filter",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<strong>NOTE:</strong> If there are more projects in the account than were returned, there will be a \"query-has-more\" header that will be set to true.<br/><strong>Permissions</strong><br/>Project: Read<br/>Role: Read<br/>HourlyRole: Read"
+        },
+        {
+          "info": {
+            "name": "Updates a project to set and externalId that can be referenced by external systems.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/Projects/:id/externalId",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The Project ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a project to set and externalId that can be referenced by external systems."
+        },
+        {
+          "info": {
+            "name": "Gets details for the given project",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/Projects/:id",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The Project ID"
+              },
+              {
+                "name": "relativeDate",
+                "value": "2021-01-01",
+                "type": "query",
+                "description": "Optional paramater used to calculate date based properties. If not provided, it is set to today's date in UTC."
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Project: Read<br/>Role: Read<br/>HourlyRole: Read"
+        },
+        {
+          "info": {
+            "name": "Update a project in the given account. Each of the fields in the request body is optional - only fields that are present in the request will be updated.\nWhen changing the start or end dates for a project, you can customize how the start and end dates for roles and phases will change in response. See the Model below for details.\nNote that roles or phases whose start and end dates change such that the start date is after the end date will be automatically deleted from the project.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/Projects/:id",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The Project ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "To update a project's dates you need the ProjectDates permission, which is separate from the Project Write permission that is required to update other project details. \nThis is because changing project dates can have a significant impact on any associated roles and phases, and therefore only users with the ProjectDates permission should be allowed to make those changes.\n\n\nIf the <strong>\"shiftDates\"</strong> property is true and you specify a changed project start or end date in this request,\nth"
+        },
+        {
+          "info": {
+            "name": "Delete a project",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/Projects/:id",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The Project ID"
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Project: Write"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

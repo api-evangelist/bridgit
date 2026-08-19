@@ -1,0 +1,171 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bench AccountActivities PersonFieldValue API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "PersonFieldValue",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Gets all custom field values for the given person.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/persons/:personId/person-field-values",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "personId",
+                "value": "",
+                "type": "path",
+                "description": "The Person ID"
+              },
+              {
+                "name": "includeEmpty",
+                "value": "",
+                "type": "query",
+                "description": "If true, the response will include all person field values, even if no value is set for a given field. If false, field values that are empty are not included in the response."
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Person: Read<br/>HourlyProfile: Read<br/>Private: Read<br/>Finance: Read"
+        },
+        {
+          "info": {
+            "name": "Add or update one or more custom field values on a person",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/persons/:personId/person-field-values",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "personId",
+                "value": "",
+                "type": "path",
+                "description": "The Person ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "It is mandatory that the fields with isRequired set to true be passed in as part of the request.\n\n\nExample: Say you have 2 person fields on an account \"Contact Number\" and \"Certifications\" where isRequired is set to true on \"Contact Number\".\n\nFieldDefinition Example Response - GET PersonFields (/api/v{version}/accounts/{id}/person-fields)\n<code>[<br/>&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;\"id\":&nbsp;1394,<br/>&nbsp;&nbsp;&nbsp;&nbsp;\"name\":&nbsp;\"Contact&nbsp;Number\",<br/>&nbsp;&nbsp;&nbsp;&n"
+        },
+        {
+          "info": {
+            "name": "Update field values on a person",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/persons/:personId/person-field-values",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "personId",
+                "value": "",
+                "type": "path",
+                "description": "The Person ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<h2>Validation</h2>\n<b>Single List Selection</b>: A list where only 1 value can be selected. When creating the list, each value should be between 1 and 250 non-empty characters.\n\n<b>Multi List Selection</b>: A list where 0 or more values can be selected. When creating the list, each value should be between 1 and 250 non-empty characters.\n\n<b>Text</b>: Min length: 0. Max length: 250\n\n<b>Date selector</b>: Format: dd/MM/yyyy\n\n<b>Other</b>: Max length: 2400\n\n<b>Checkbox</b>: Accepted values: ```tru"
+        },
+        {
+          "info": {
+            "name": "Delete one or more custom field values for a person",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/persons/:personId/person-field-values",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "personId",
+                "value": "",
+                "type": "path",
+                "description": "The Person ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Person: Write<br/>HourlyProfile: Write<br/>Private: Read<br/>Finance: Read"
+        },
+        {
+          "info": {
+            "name": "Update a single field's value(s) for person in the given account.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/persons/:personId/person-field-values/:fieldId",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "personId",
+                "value": "",
+                "type": "path",
+                "description": "The Person ID"
+              },
+              {
+                "name": "fieldId",
+                "value": "",
+                "type": "path",
+                "description": "The field ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<h2>Validation</h2>\n<b>Single List Selection</b>: A list where only 1 value can be selected. When creating the list, each value should be between 1 and 250 non-empty characters.\n\n<b>Multi List Selection</b>: A list where 0 or more values can be selected. When creating the list, each value should be between 1 and 250 non-empty characters.\n\n<b>Text</b>: Min length: 0. Max length: 250\n\n<b>Date selector</b>: Format: dd/MM/yyyy\n\n<b>Other</b>: Max length: 2400\n\n<b>Checkbox</b>: Accepted values: ```tru"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,4084 @@
+{
+  "item": [
+    {
+      "id": "992a8628-eef9-4d78-b903-d842193754a1",
+      "name": "Accounts",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "65c6c40b-1535-48d8-836c-4371328a0a00",
+          "name": "Get all accounts that the user has access to.",
+          "request": {
+            "name": "Get all accounts that the user has access to.",
+            "description": {},
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "Accounts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Offset for pagination"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "1000",
+                  "description": "Maximum number of results in this page"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e874da94-2a2f-48b5-a958-d381d4d7702c",
+              "name": "Success: All account models the user has access to",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "Accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1000"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 45,\n    \"name\": \"A Great Account\",\n    \"logoUrl\": \"http://www.example.com/logo.png\",\n    \"status\": \"Active\",\n    \"numProjects\": 14,\n    \"numPeople\": 68,\n    \"numMembers\": 7,\n    \"expiryDate\": \"1954-03-29T13:35:16.003Z\",\n    \"totalPeopleAttachmentBytes\": 512,\n    \"useMetricUnits\": true,\n    \"organizationId\": \"0c18217e-9b36-c4dc-00ec-84a78b958f40\",\n    \"oktaOrganizationId\": \"org_fdfjhsdflsdfsd\",\n    \"isDemo\": true,\n    \"companyType\": \"General Contractor\",\n    \"marketSegment\": \"SMB\",\n    \"oktaOrgName\": \"Okta Organization Name\",\n    \"crmAccountId\": \"string\",\n    \"crmOpportunityId\": \"string\"\n  },\n  {\n    \"id\": 45,\n    \"name\": \"A Great Account\",\n    \"logoUrl\": \"http://www.example.com/logo.png\",\n    \"status\": \"Active\",\n    \"numProjects\": 14,\n    \"numPeople\": 68,\n    \"numMembers\": 7,\n    \"expiryDate\": \"2022-06-27T13:33:57.689Z\",\n    \"totalPeopleAttachmentBytes\": 512,\n    \"useMetricUnits\": true,\n    \"organizationId\": \"8a11f6fc-da66-002d-fa57-3b5844bc9bec\",\n    \"oktaOrganizationId\": \"org_fdfjhsdflsdfsd\",\n    \"isDemo\": true,\n    \"companyType\": \"General Contractor\",\n    \"marketSegment\": \"SMB\",\n    \"oktaOrgName\": \"Okta Organization Name\",\n    \"crmAccountId\": \"string\",\n    \"crmOpportunityId\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9949ee04-c3a0-4f27-86e6-804a722f8201",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "Accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1000"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "049edeb0-f5bb-4580-9d72-d71d6a9f8f43",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "Accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1000"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c2758d93-a021-4166-b204-349420771b60",
+          "name": "Get all accounts that the user has access to, filter by name (contains), account ids, organization ids, and/or account states (0 = Active, 1 = Deactivated, 2 = All).\nSort options include: name = 0, numProjects = 1, numPeople = 2, numMembers = 3 and organizationId = 4\nSort order options include: asc = 0, desc = 1",
+          "request": {
+            "name": "Get all accounts that the user has access to, filter by name (contains), account ids, organization ids, and/or account states (0 = Active, 1 = Deactivated, 2 = All).\nSort options include: name = 0, numProjects = 1, numPeople = 2, numMembers = 3 and organizationId = 4\nSort order options include: asc = 0, desc = 1",
+            "description": {
+              "content": "<strong>NOTE:</strong> Paging limit defaults to 50, and is maximized at 100 items per request.  If there are more accounts than were returned, there will be a \"query-has-more\" header that will be set to true.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "Accounts",
+                "_filter"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"offset\": \"<integer>\",\n  \"limit\": \"<integer>\",\n  \"predicates\": {\n    \"accountIds\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"state\": \"<string>\",\n    \"name\": \"<string>\",\n    \"organizationId\": \"<uuid>\",\n    \"isDemo\": \"<boolean>\"\n  },\n  \"sort\": {\n    \"sortBy\": \"<integer>\",\n    \"direction\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fc1d7ece-121c-4d81-bf3f-afd74a068479",
+              "name": "Success: All account models the user has access to",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "Accounts",
+                    "_filter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"offset\": \"<integer>\",\n  \"limit\": \"<integer>\",\n  \"predicates\": {\n    \"accountIds\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"state\": \"<string>\",\n    \"name\": \"<string>\",\n    \"organizationId\": \"<uuid>\",\n    \"isDemo\": \"<boolean>\"\n  },\n  \"sort\": {\n    \"sortBy\": \"<integer>\",\n    \"direction\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 45,\n    \"name\": \"A Great Account\",\n    \"logoUrl\": \"http://www.example.com/logo.png\",\n    \"status\": \"Active\",\n    \"numProjects\": 14,\n    \"numPeople\": 68,\n    \"numMembers\": 7,\n    \"expiryDate\": \"1954-03-29T13:35:16.003Z\",\n    \"totalPeopleAttachmentBytes\": 512,\n    \"useMetricUnits\": true,\n    \"organizationId\": \"0c18217e-9b36-c4dc-00ec-84a78b958f40\",\n    \"oktaOrganizationId\": \"org_fdfjhsdflsdfsd\",\n    \"isDemo\": true,\n    \"companyType\": \"General Contractor\",\n    \"marketSegment\": \"SMB\",\n    \"oktaOrgName\": \"Okta Organization Name\",\n    \"crmAccountId\": \"string\",\n    \"crmOpportunityId\": \"string\"\n  },\n  {\n    \"id\": 45,\n    \"name\": \"A Great Account\",\n    \"logoUrl\": \"http://www.example.com/logo.png\",\n    \"status\": \"Active\",\n    \"numProjects\": 14,\n    \"numPeople\": 68,\n    \"numMembers\": 7,\n    \"expiryDate\": \"2022-06-27T13:33:57.689Z\",\n    \"totalPeopleAttachmentBytes\": 512,\n    \"useMetricUnits\": true,\n    \"organizationId\": \"8a11f6fc-da66-002d-fa57-3b5844bc9bec\",\n    \"oktaOrganizationId\": \"org_fdfjhsdflsdfsd\",\n    \"isDemo\": true,\n    \"companyType\": \"General Contractor\",\n    \"marketSegment\": \"SMB\",\n    \"oktaOrgName\": \"Okta Organization Name\",\n    \"crmAccountId\": \"string\",\n    \"crmOpportunityId\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ad5f08fe-6a94-4457-a089-c7124a22e354",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "Accounts",
+                    "_filter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"offset\": \"<integer>\",\n  \"limit\": \"<integer>\",\n  \"predicates\": {\n    \"accountIds\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"state\": \"<string>\",\n    \"name\": \"<string>\",\n    \"organizationId\": \"<uuid>\",\n    \"isDemo\": \"<boolean>\"\n  },\n  \"sort\": {\n    \"sortBy\": \"<integer>\",\n    \"direction\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ae76d217-c967-4a33-9dc6-36f576b1c507",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "Accounts",
+                    "_filter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"offset\": \"<integer>\",\n  \"limit\": \"<integer>\",\n  \"predicates\": {\n    \"accountIds\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"state\": \"<string>\",\n    \"name\": \"<string>\",\n    \"organizationId\": \"<uuid>\",\n    \"isDemo\": \"<boolean>\"\n  },\n  \"sort\": {\n    \"sortBy\": \"<integer>\",\n    \"direction\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "02a6ad44-ef02-42f3-8c0b-8b4f38396c75",
+          "name": "Gets details for the given account",
+          "request": {
+            "name": "Gets details for the given account",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>Account: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "Accounts",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The Account ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c712c66c-5b67-4089-a607-9520cad59985",
+              "name": "Success: Account model",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "Accounts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 45,\n  \"name\": \"A Great Account\",\n  \"logoUrl\": \"http://www.example.com/logo.png\",\n  \"status\": \"Active\",\n  \"numProjects\": 14,\n  \"numPeople\": 68,\n  \"numMembers\": 7,\n  \"expiryDate\": \"1994-08-30T07:33:13.036Z\",\n  \"totalPeopleAttachmentBytes\": 512,\n  \"useMetricUnits\": true,\n  \"organizationId\": \"122b82aa-5f5b-1790-0a62-d865bf43288c\",\n  \"oktaOrganizationId\": \"org_fdfjhsdflsdfsd\",\n  \"isDemo\": true,\n  \"companyType\": \"General Contractor\",\n  \"marketSegment\": \"SMB\",\n  \"oktaOrgName\": \"Okta Organization Name\",\n  \"crmAccountId\": \"string\",\n  \"crmOpportunityId\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "56f35a6f-16f6-4547-ad6e-dfa2da1825a3",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "Accounts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ba3de3f5-7c6c-4820-b946-7a98278060a1",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "Accounts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "888b5012-9e4b-4687-94e8-cfbe64b0cfd6",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "Accounts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5009b1e1-d55d-429d-a06e-00856c6741dd",
+          "name": "Get all custom field values for all people for the given account",
+          "request": {
+            "name": "Get all custom field values for all people for the given account",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>HourlyProfile: Read<br/>Person: Read<br/>Private: Read<br/>Finance: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "Accounts",
+                ":id",
+                "person-field-values"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "includeEmpty",
+                  "value": "false",
+                  "description": "If true, the response will include all person field values, even if no value is set for a given field. If false, field values that are empty are not included in the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "Active",
+                  "description": "If specified and non-zero, only include field vlaues for people matching the given state. The available values are defined as follows:\n- active: include only Active people\n- deactivated: include only Deactivated people\n- all: include all people, regardless of state"
+                },
+                {
+                  "disabled": false,
+                  "key": "personIds",
+                  "value": "<long>",
+                  "description": "Optional paramater of comma delimited ids for filtering results based on the person IDs provided"
+                },
+                {
+                  "disabled": false,
+                  "key": "personIds",
+                  "value": "<long>",
+                  "description": "Optional paramater of comma delimited ids for filtering results based on the person IDs provided"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "The offset of the result to begin with"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "1000",
+                  "description": "Optional - The number of items return by result set. If no limit given, return all results"
+                },
+                {
+                  "disabled": false,
+                  "key": "employeeId",
+                  "value": "<string>",
+                  "description": "Optional - for filtering result by system field \"Employee ID\""
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The Account ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d212af05-5e81-4ea3-87b0-bf3300800d53",
+              "name": "Success: All person field values by person Id on the account",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "Accounts",
+                    ":id",
+                    "person-field-values"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeEmpty",
+                      "value": "false"
+                    },
+                    {
+                      "key": "state",
+                      "value": "Active"
+                    },
+                    {
+                      "key": "personIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "personIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "employeeId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"personId\": 1280,\n    \"fields\": [\n      {\n        \"fieldId\": 1394,\n        \"name\": \"Contact Number\",\n        \"type\": \"PhoneNumber\",\n        \"values\": [\n          \"5195555555\"\n        ],\n        \"isRequired\": true,\n        \"isSystem\": false,\n        \"isPrivate\": true,\n        \"isFinancials\": true,\n        \"lastModifiedOn\": \"2021-05-27T10:58:23.530Z\"\n      },\n      {\n        \"fieldId\": 1394,\n        \"name\": \"Contact Number\",\n        \"type\": \"PhoneNumber\",\n        \"values\": [\n          \"5195555555\"\n        ],\n        \"isRequired\": false,\n        \"isSystem\": false,\n        \"isPrivate\": true,\n        \"isFinancials\": true,\n        \"lastModifiedOn\": \"2021-05-27T10:58:23.530Z\"\n      }\n    ]\n  },\n  {\n    \"personId\": 1280,\n    \"fields\": [\n      {\n        \"fieldId\": 1394,\n        \"name\": \"Contact Number\",\n        \"type\": \"PhoneNumber\",\n        \"values\": [\n          \"5195555555\"\n        ],\n        \"isRequired\": true,\n        \"isSystem\": false,\n        \"isPrivate\": true,\n        \"isFinancials\": true,\n        \"lastModifiedOn\": \"2021-05-27T10:58:23.530Z\"\n      },\n      {\n        \"fieldId\": 1394,\n        \"name\": \"Contact Number\",\n        \"type\": \"PhoneNumber\",\n        \"values\": [\n          \"5195555555\"\n        ],\n        \"isRequired\": true,\n        \"isSystem\": false,\n        \"isPrivate\": true,\n        \"isFinancials\": true,\n        \"lastModifiedOn\": \"2021-05-27T10:58:23.530Z\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eb794993-feb9-486b-9894-ee262225d392",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "Accounts",
+                    ":id",
+                    "person-field-values"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeEmpty",
+                      "value": "false"
+                    },
+                    {
+                      "key": "state",
+                      "value": "Active"
+                    },
+                    {
+                      "key": "personIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "personIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "employeeId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3250666c-8605-4003-9464-4aa74af8db5e",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "Accounts",
+                    ":id",
+                    "person-field-values"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeEmpty",
+                      "value": "false"
+                    },
+                    {
+                      "key": "state",
+                      "value": "Active"
+                    },
+                    {
+                      "key": "personIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "personIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "employeeId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9bafa25f-11b1-44a2-9b79-132b7c76f74d",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "Accounts",
+                    ":id",
+                    "person-field-values"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeEmpty",
+                      "value": "false"
+                    },
+                    {
+                      "key": "state",
+                      "value": "Active"
+                    },
+                    {
+                      "key": "personIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "personIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "employeeId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "393f1af9-7cf2-4718-8a89-41b5dada4747",
+          "name": "Get all custom field values for all projects for the given account",
+          "request": {
+            "name": "Get all custom field values for all projects for the given account",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>Project: Read<br/>Private: Read<br/>Finance: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "Accounts",
+                ":id",
+                "project-field-values"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "includeEmpty",
+                  "value": "false",
+                  "description": "If true, the response will include all project field values, even if no value is set for a given field. If false, field values that are empty are not included in the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "projectIds",
+                  "value": "<long>",
+                  "description": "Optional paramater of comma delimited ids for filtering results based on the project IDs provided"
+                },
+                {
+                  "disabled": false,
+                  "key": "projectIds",
+                  "value": "<long>",
+                  "description": "Optional paramater of comma delimited ids for filtering results based on the project IDs provided"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "The offset of the result to begin with"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "1000",
+                  "description": "Optional - The number of items return by result set. If no limit given, return all results"
+                },
+                {
+                  "disabled": false,
+                  "key": "projectNumber",
+                  "value": "<string>",
+                  "description": "Optional - for filtering result by system field \"Project Number\""
+                },
+                {
+                  "disabled": false,
+                  "key": "externalId",
+                  "value": "<string>",
+                  "description": "Optional - for filtering result by system field \"External ID\""
+                },
+                {
+                  "disabled": false,
+                  "key": "classification",
+                  "value": "All",
+                  "description": "Optional - for filtering result by classification: All or Experience\""
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The Account ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7529a9bd-9dd5-4985-b036-ed51881f9769",
+              "name": "Success: All project field values by person id on the account",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "Accounts",
+                    ":id",
+                    "project-field-values"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeEmpty",
+                      "value": "false"
+                    },
+                    {
+                      "key": "projectIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "projectIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "projectNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "externalId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "classification",
+                      "value": "All"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"projectId\": 8391,\n    \"fields\": [\n      {\n        \"experienceFieldId\": \"6be45297-5513-e66e-f97e-de42d367e64c\",\n        \"experienceFieldValueIds\": [\n          \"271810d8-a6cd-4f97-8890-be67544fc354\",\n          \"e1d0b5ef-79b9-76b3-2c15-de114fa6701d\"\n        ],\n        \"fieldId\": 1394,\n        \"name\": \"Contact Number\",\n        \"type\": \"PhoneNumber\",\n        \"values\": [\n          \"5195555555\"\n        ],\n        \"isRequired\": true,\n        \"isSystem\": false,\n        \"isPrivate\": true,\n        \"isFinancials\": true,\n        \"lastModifiedOn\": \"2021-05-27T10:58:23.530Z\"\n      },\n      {\n        \"experienceFieldId\": \"80f9632a-71a0-c69f-8ef0-ace152325aa9\",\n        \"experienceFieldValueIds\": [\n          \"443f56f9-4bf6-cc1b-69e6-312d92f2f892\",\n          \"f76c82ab-1543-597c-3d97-3a224ef5534b\"\n        ],\n        \"fieldId\": 1394,\n        \"name\": \"Contact Number\",\n        \"type\": \"PhoneNumber\",\n        \"values\": [\n          \"5195555555\"\n        ],\n        \"isRequired\": false,\n        \"isSystem\": false,\n        \"isPrivate\": true,\n        \"isFinancials\": true,\n        \"lastModifiedOn\": \"2021-05-27T10:58:23.530Z\"\n      }\n    ]\n  },\n  {\n    \"projectId\": 8391,\n    \"fields\": [\n      {\n        \"experienceFieldId\": \"3592c086-f05e-e505-f6e9-08e5a86c326e\",\n        \"experienceFieldValueIds\": [\n          \"cbe464bb-e832-a77a-8d2f-32adfa041950\",\n          \"98f3fd52-3725-29ab-d56e-04ea84b1574f\"\n        ],\n        \"fieldId\": 1394,\n        \"name\": \"Contact Number\",\n        \"type\": \"PhoneNumber\",\n        \"values\": [\n          \"5195555555\"\n        ],\n        \"isRequired\": false,\n        \"isSystem\": false,\n        \"isPrivate\": true,\n        \"isFinancials\": true,\n        \"lastModifiedOn\": \"2021-05-27T10:58:23.530Z\"\n      },\n      {\n        \"experienceFieldId\": \"565df881-630e-4d08-8fd5-1d5bfecccfdb\",\n        \"experienceFieldValueIds\": [\n          \"143c14cf-5fad-e992-fc41-5c8e1e2cb3e5\",\n          \"7c07f675-6b5e-aae2-e4d4-b359440fc92e\"\n        ],\n        \"fieldId\": 1394,\n        \"name\": \"Contact Number\",\n        \"type\": \"PhoneNumber\",\n        \"values\": [\n          \"5195555555\"\n        ],\n        \"isRequired\": true,\n        \"isSystem\": false,\n        \"isPrivate\": true,\n        \"isFinancials\": true,\n        \"lastModifiedOn\": \"2021-05-27T10:58:23.530Z\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e9747f08-9ae4-498c-b776-983c902f6262",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "Accounts",
+                    ":id",
+                    "project-field-values"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeEmpty",
+                      "value": "false"
+                    },
+                    {
+                      "key": "projectIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "projectIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "projectNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "externalId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "classification",
+                      "value": "All"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b5856160-9d5b-4005-8aeb-05d1c5e2b3b5",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "Accounts",
+                    ":id",
+                    "project-field-values"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeEmpty",
+                      "value": "false"
+                    },
+                    {
+                      "key": "projectIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "projectIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "projectNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "externalId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "classification",
+                      "value": "All"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "46528c6e-0078-4fe4-a0e1-da53dcf33740",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "Accounts",
+                    ":id",
+                    "project-field-values"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeEmpty",
+                      "value": "false"
+                    },
+                    {
+                      "key": "projectIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "projectIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "projectNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "externalId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "classification",
+                      "value": "All"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7a43d2d9-4483-4393-b2ad-1d58622754bc",
+          "name": "Get all Tasks for all projects in the given account",
+          "request": {
+            "name": "Get all Tasks for all projects in the given account",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>Project: Read<br/>Person: Read<br/>Role: Read<br/>Allocation: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "Accounts",
+                ":id",
+                "tasks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "relativeDate",
+                  "value": "<dateTime>",
+                  "description": "Optional paramater used to calculate date based properties. If not provided, it is set to today's date in UTC."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Offset for pagination"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "5000",
+                  "description": "Maximum number of results in this page"
+                },
+                {
+                  "disabled": false,
+                  "key": "projectIds",
+                  "value": "<long>",
+                  "description": "(Optional) Filter task(s) to contain tasks that match the projectIds passed in."
+                },
+                {
+                  "disabled": false,
+                  "key": "projectIds",
+                  "value": "<long>",
+                  "description": "(Optional) Filter task(s) to contain tasks that match the projectIds passed in."
+                },
+                {
+                  "disabled": false,
+                  "key": "projectState",
+                  "value": "All",
+                  "description": "(Optional) Filters the result by the state of the project the role is on"
+                },
+                {
+                  "disabled": false,
+                  "key": "taskIds",
+                  "value": "<uuid>",
+                  "description": "(Optional) Filters the result to contain tasks that match the taskIds passed in. Works as an AND with filledState and roleNameIds"
+                },
+                {
+                  "disabled": false,
+                  "key": "taskIds",
+                  "value": "<uuid>",
+                  "description": "(Optional) Filters the result to contain tasks that match the taskIds passed in. Works as an AND with filledState and roleNameIds"
+                },
+                {
+                  "disabled": false,
+                  "key": "filledState",
+                  "value": "2",
+                  "description": "(Optional) Filters the result by the filled state of the roles"
+                },
+                {
+                  "disabled": false,
+                  "key": "roleIds",
+                  "value": "<long>",
+                  "description": "(Optional) Filters the result to contain roles that match the ids passed in. Works as an AND with filledState and roleNameIds"
+                },
+                {
+                  "disabled": false,
+                  "key": "roleIds",
+                  "value": "<long>",
+                  "description": "(Optional) Filters the result to contain roles that match the ids passed in. Works as an AND with filledState and roleNameIds"
+                },
+                {
+                  "disabled": false,
+                  "key": "roleNameIds",
+                  "value": "<long>",
+                  "description": "(Optional) Filters the result to contain roles that match the ids passed in. Works as an AND with filledState and roleIds"
+                },
+                {
+                  "disabled": false,
+                  "key": "roleNameIds",
+                  "value": "<long>",
+                  "description": "(Optional) Filters the result to contain roles that match the ids passed in. Works as an AND with filledState and roleIds"
+                },
+                {
+                  "disabled": false,
+                  "key": "roleState",
+                  "value": "All",
+                  "description": "(Optional) Filters the result by the state of the role dates: Current, Upcoming, Past, or All"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The Account ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f670e2ff-7bab-40bf-b1b3-66bbc588830d",
+              "name": "Success: All tasks on projects in the given account with some project information, role requirements and allocations",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "Accounts",
+                    ":id",
+                    "tasks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "5000"
+                    },
+                    {
+                      "key": "projectIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "projectIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "projectState",
+                      "value": "All"
+                    },
+                    {
+                      "key": "taskIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "taskIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "filledState",
+                      "value": "2"
+                    },
+                    {
+                      "key": "roleIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "roleIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "roleNameIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "roleNameIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "roleState",
+                      "value": "All"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"projectId\": 9381,\n    \"taskId\": \"00000000-0000-0000-0000-000000000000\",\n    \"name\": \"Design Plan\",\n    \"startDate\": \"1966-04-05T10:27:16.585Z\",\n    \"endDate\": \"1957-03-16T20:49:44.271Z\",\n    \"roles\": [\n      {\n        \"id\": 5136,\n        \"nameId\": 8143,\n        \"name\": \"string\",\n        \"roleCost\": 5881.532226752,\n        \"startDate\": \"1952-04-12T02:50:43.116Z\",\n        \"endDate\": \"1969-07-03T17:14:58.147Z\",\n        \"type\": \"Hourly\",\n        \"skillSet\": [\n          7606,\n          5283\n        ],\n        \"isFilled\": true,\n        \"billable\": false,\n        \"requirements\": [\n          {\n            \"startDate\": \"1974-02-13T13:24:27.877Z\",\n            \"endDate\": \"1952-01-05T05:30:10.508Z\",\n            \"allocatedPercent\": 100\n          },\n          {\n            \"startDate\": \"2019-04-23T15:44:34.804Z\",\n            \"endDate\": \"1994-08-28T04:48:42.955Z\",\n            \"allocatedPercent\": 100\n          }\n        ],\n        \"unfilledRanges\": [\n          {\n            \"startDate\": \"1947-02-22T14:36:45.557Z\",\n            \"endDate\": \"2006-11-30T11:03:50.613Z\"\n          },\n          {\n            \"startDate\": \"1954-11-28T04:39:59.979Z\",\n            \"endDate\": \"1974-04-22T16:08:12.141Z\"\n          }\n        ],\n        \"note\": \"string\",\n        \"sortOrder\": 8369,\n        \"notification\": {\n          \"notifiedOn\": \"1984-10-22T03:28:39.111Z\",\n          \"recipientIds\": [\n            9557,\n            3623\n          ]\n        },\n        \"relatedTitles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"allocations\": [\n          {\n            \"personId\": 5151,\n            \"startDate\": \"1990-03-11T03:30:26.714Z\",\n            \"endDate\": \"1985-05-19T18:54:22.860Z\",\n            \"allocatedPercent\": 100,\n            \"personCost\": 5723.851349848293,\n            \"id\": \"dda7e994-91df-8a0c-a5fa-6d979ac010a0\"\n          },\n          {\n            \"personId\": 2078,\n            \"startDate\": \"2012-11-14T22:36:07.841Z\",\n            \"endDate\": \"2003-09-20T15:50:43.807Z\",\n            \"allocatedPercent\": 100,\n            \"personCost\": 1404.1856803728147,\n            \"id\": \"3eee9dc7-5c8f-9f4e-50cc-9e9f7807c40a\"\n          }\n        ],\n        \"hire\": {\n          \"isHireRequired\": false,\n          \"hireDescription\": \"string\",\n          \"previousIsHireRequired\": true,\n          \"hireStatus\": \"Hire\",\n          \"previousHireStatus\": \"Hired\",\n          \"taggedByUserId\": 8987,\n          \"taggedAt\": \"2019-11-28T18:24:27.887Z\",\n          \"hiredAt\": \"2018-05-07T17:28:02.967Z\"\n        }\n      },\n      {\n        \"id\": 6941,\n        \"nameId\": 5738,\n        \"name\": \"string\",\n        \"roleCost\": 6449.634407634727,\n        \"startDate\": \"1963-03-06T14:04:31.578Z\",\n        \"endDate\": \"1962-10-15T20:38:05.235Z\",\n        \"type\": \"All\",\n        \"skillSet\": [\n          5587,\n          326\n        ],\n        \"isFilled\": false,\n        \"billable\": false,\n        \"requirements\": [\n          {\n            \"startDate\": \"1976-07-05T20:21:08.201Z\",\n            \"endDate\": \"1968-05-19T02:17:51.326Z\",\n            \"allocatedPercent\": 100\n          },\n          {\n            \"startDate\": \"2019-09-08T01:34:55.827Z\",\n            \"endDate\": \"2021-08-30T12:05:22.174Z\",\n            \"allocatedPercent\": 100\n          }\n        ],\n        \"unfilledRanges\": [\n          {\n            \"startDate\": \"1959-06-02T06:01:22.661Z\",\n            \"endDate\": \"1995-06-03T04:26:37.089Z\"\n          },\n          {\n            \"startDate\": \"2013-07-24T17:46:22.600Z\",\n            \"endDate\": \"2008-02-27T00:56:14.720Z\"\n          }\n        ],\n        \"note\": \"string\",\n        \"sortOrder\": 5208,\n        \"notification\": {\n          \"notifiedOn\": \"1979-03-09T12:39:53.694Z\",\n          \"recipientIds\": [\n            7388,\n            4131\n          ]\n        },\n        \"relatedTitles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"allocations\": [\n          {\n            \"personId\": 9977,\n            \"startDate\": \"2007-10-24T14:45:23.006Z\",\n            \"endDate\": \"1958-07-02T07:16:24.449Z\",\n            \"allocatedPercent\": 100,\n            \"personCost\": 9474.620195527215,\n            \"id\": \"7d6c3e47-b387-208b-70bc-663991e68554\"\n          },\n          {\n            \"personId\": 9989,\n            \"startDate\": \"1952-03-05T17:36:53.373Z\",\n            \"endDate\": \"2022-12-07T05:10:45.366Z\",\n            \"allocatedPercent\": 100,\n            \"personCost\": 1487.7126121133178,\n            \"id\": \"a8606750-328a-e221-78b5-478e441ff0ae\"\n          }\n        ],\n        \"hire\": {\n          \"isHireRequired\": false,\n          \"hireDescription\": \"string\",\n          \"previousIsHireRequired\": false,\n          \"hireStatus\": \"Hire\",\n          \"previousHireStatus\": \"Hired\",\n          \"taggedByUserId\": 5236,\n          \"taggedAt\": \"2014-08-13T19:46:56.283Z\",\n          \"hiredAt\": \"2018-01-08T16:38:38.557Z\"\n        }\n      }\n    ],\n    \"createdOn\": \"2021-05-27T10:47:23.530Z\",\n    \"lastModifiedOn\": \"2021-05-27T10:58:23.530Z\"\n  },\n  {\n    \"projectId\": 9381,\n    \"taskId\": \"00000000-0000-0000-0000-000000000000\",\n    \"name\": \"Design Plan\",\n    \"startDate\": \"2014-11-01T15:53:23.790Z\",\n    \"endDate\": \"2004-09-26T22:02:47.328Z\",\n    \"roles\": [\n      {\n        \"id\": 2503,\n        \"nameId\": 5436,\n        \"name\": \"string\",\n        \"roleCost\": 6181.850348540118,\n        \"startDate\": \"1967-03-24T15:42:56.175Z\",\n        \"endDate\": \"1981-07-22T05:03:01.487Z\",\n        \"type\": \"All\",\n        \"skillSet\": [\n          8090,\n          3048\n        ],\n        \"isFilled\": true,\n        \"billable\": false,\n        \"requirements\": [\n          {\n            \"startDate\": \"2001-04-05T09:41:05.906Z\",\n            \"endDate\": \"1975-06-06T20:06:05.482Z\",\n            \"allocatedPercent\": 100\n          },\n          {\n            \"startDate\": \"1982-05-30T21:41:05.245Z\",\n            \"endDate\": \"1952-06-06T23:26:59.087Z\",\n            \"allocatedPercent\": 100\n          }\n        ],\n        \"unfilledRanges\": [\n          {\n            \"startDate\": \"1992-05-29T15:37:46.655Z\",\n            \"endDate\": \"1958-05-10T08:45:47.704Z\"\n          },\n          {\n            \"startDate\": \"1975-08-22T03:42:34.126Z\",\n            \"endDate\": \"1971-07-03T04:24:22.906Z\"\n          }\n        ],\n        \"note\": \"string\",\n        \"sortOrder\": 7257,\n        \"notification\": {\n          \"notifiedOn\": \"1951-04-23T06:33:37.864Z\",\n          \"recipientIds\": [\n            1248,\n            6455\n          ]\n        },\n        \"relatedTitles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"allocations\": [\n          {\n            \"personId\": 4038,\n            \"startDate\": \"1998-11-15T04:23:10.168Z\",\n            \"endDate\": \"1967-09-20T10:41:58.704Z\",\n            \"allocatedPercent\": 100,\n            \"personCost\": 1349.1279795011035,\n            \"id\": \"b8e710b0-0825-d750-e87e-7d011961f22a\"\n          },\n          {\n            \"personId\": 2815,\n            \"startDate\": \"1972-01-02T02:54:23.755Z\",\n            \"endDate\": \"2009-09-30T09:30:09.217Z\",\n            \"allocatedPercent\": 100,\n            \"personCost\": 2315.293573797371,\n            \"id\": \"d8140aee-3ce1-f3fb-9a72-c4f7b2d9dfb1\"\n          }\n        ],\n        \"hire\": {\n          \"isHireRequired\": false,\n          \"hireDescription\": \"string\",\n          \"previousIsHireRequired\": false,\n          \"hireStatus\": \"Hire\",\n          \"previousHireStatus\": \"Hire\",\n          \"taggedByUserId\": 1107,\n          \"taggedAt\": \"1994-04-25T13:59:39.016Z\",\n          \"hiredAt\": \"2002-03-07T18:08:11.342Z\"\n        }\n      },\n      {\n        \"id\": 2915,\n        \"nameId\": 6018,\n        \"name\": \"string\",\n        \"roleCost\": 4417.660592078074,\n        \"startDate\": \"1973-03-02T02:58:05.370Z\",\n        \"endDate\": \"1963-09-03T23:17:54.571Z\",\n        \"type\": \"All\",\n        \"skillSet\": [\n          7875,\n          7092\n        ],\n        \"isFilled\": true,\n        \"billable\": true,\n        \"requirements\": [\n          {\n            \"startDate\": \"1957-08-23T06:35:29.902Z\",\n            \"endDate\": \"1995-10-21T13:42:29.657Z\",\n            \"allocatedPercent\": 100\n          },\n          {\n            \"startDate\": \"1950-07-28T23:45:47.576Z\",\n            \"endDate\": \"1973-07-06T18:04:22.539Z\",\n            \"allocatedPercent\": 100\n          }\n        ],\n        \"unfilledRanges\": [\n          {\n            \"startDate\": \"1970-11-26T00:43:27.976Z\",\n            \"endDate\": \"1951-02-28T08:00:48.522Z\"\n          },\n          {\n            \"startDate\": \"1979-12-24T00:29:36.977Z\",\n            \"endDate\": \"1957-04-03T15:34:36.168Z\"\n          }\n        ],\n        \"note\": \"string\",\n        \"sortOrder\": 8561,\n        \"notification\": {\n          \"notifiedOn\": \"1965-11-12T14:58:26.419Z\",\n          \"recipientIds\": [\n            3731,\n            1159\n          ]\n        },\n        \"relatedTitles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"allocations\": [\n          {\n            \"personId\": 3504,\n            \"startDate\": \"1990-02-08T14:32:51.410Z\",\n            \"endDate\": \"2008-06-07T15:22:42.440Z\",\n            \"allocatedPercent\": 100,\n            \"personCost\": 6933.486282612876,\n            \"id\": \"723ba1d4-b930-1f2c-8e41-ec5115895df2\"\n          },\n          {\n            \"personId\": 3371,\n            \"startDate\": \"2003-08-20T15:10:16.123Z\",\n            \"endDate\": \"2006-04-23T03:04:37.600Z\",\n            \"allocatedPercent\": 100,\n            \"personCost\": 2523.3766599057285,\n            \"id\": \"0e0364ab-aa84-9ff7-0c41-203a54f435c9\"\n          }\n        ],\n        \"hire\": {\n          \"isHireRequired\": false,\n          \"hireDescription\": \"string\",\n          \"previousIsHireRequired\": true,\n          \"hireStatus\": \"Hire\",\n          \"previousHireStatus\": \"Hired\",\n          \"taggedByUserId\": 3940,\n          \"taggedAt\": \"1970-09-05T07:52:52.622Z\",\n          \"hiredAt\": \"1952-06-11T11:45:12.822Z\"\n        }\n      }\n    ],\n    \"createdOn\": \"2021-05-27T10:47:23.530Z\",\n    \"lastModifiedOn\": \"2021-05-27T10:58:23.530Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "39a97e05-e9e2-4bf0-b443-cb7e1d7e595f",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "Accounts",
+                    ":id",
+                    "tasks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "5000"
+                    },
+                    {
+                      "key": "projectIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "projectIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "projectState",
+                      "value": "All"
+                    },
+                    {
+                      "key": "taskIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "taskIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "filledState",
+                      "value": "2"
+                    },
+                    {
+                      "key": "roleIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "roleIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "roleNameIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "roleNameIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "roleState",
+                      "value": "All"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "80515beb-9e0c-4ab9-b789-0e91a98c4730",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "Accounts",
+                    ":id",
+                    "tasks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "5000"
+                    },
+                    {
+                      "key": "projectIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "projectIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "projectState",
+                      "value": "All"
+                    },
+                    {
+                      "key": "taskIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "taskIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "filledState",
+                      "value": "2"
+                    },
+                    {
+                      "key": "roleIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "roleIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "roleNameIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "roleNameIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "roleState",
+                      "value": "All"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "82c2be1d-1798-4420-86e9-06262d4b7f0f",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "Accounts",
+                    ":id",
+                    "tasks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "5000"
+                    },
+                    {
+                      "key": "projectIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "projectIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "projectState",
+                      "value": "All"
+                    },
+                    {
+                      "key": "taskIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "taskIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "filledState",
+                      "value": "2"
+                    },
+                    {
+                      "key": "roleIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "roleIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "roleNameIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "roleNameIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "roleState",
+                      "value": "All"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8591b1ae-c92d-4eee-83dd-a0dbe23089d1",
+          "name": "Get all categories for all projects in the given account",
+          "request": {
+            "name": "Get all categories for all projects in the given account",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>Project: Read<br/>Role: Read<br/>HourlyRole: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "Accounts",
+                ":id",
+                "role-categories"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Offset for pagination"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "5000",
+                  "description": "Maximum number of results in this page"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The Account ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "945a346d-c368-428d-8e1f-88fae64903fd",
+              "name": "Success: All categories on projects in the given account",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "Accounts",
+                    ":id",
+                    "role-categories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "5000"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"projectId\": 213,\n    \"id\": 134,\n    \"name\": \"North Tower\"\n  },\n  {\n    \"projectId\": 213,\n    \"id\": 134,\n    \"name\": \"North Tower\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8591a9fc-4c81-4908-99cf-ae758db87afe",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "Accounts",
+                    ":id",
+                    "role-categories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "5000"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "eeb730fc-3ade-4c73-8ff3-f76eff51a561",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "Accounts",
+                    ":id",
+                    "role-categories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "5000"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "455ab3b4-0ec7-499d-80f2-118400f20965",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "Accounts",
+                    ":id",
+                    "role-categories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "5000"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "868c16f3-d783-43ef-827f-caae38460341",
+          "name": "Get all Salaried roles for all projects in the given account",
+          "request": {
+            "name": "Get all Salaried roles for all projects in the given account",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>Role: Read<br/>Finance: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "Accounts",
+                ":id",
+                "roles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "relativeDate",
+                  "value": "<dateTime>",
+                  "description": "Optional paramater used to calculate date based properties. If not provided, it is set to today's date in UTC."
+                },
+                {
+                  "disabled": false,
+                  "key": "unfilled",
+                  "value": "false",
+                  "description": "If true, limits the results to include only roles that are unfilled; that is, they don't have any allocations. If false, the results include all roles in the account, both filled and unfilled."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Offset for pagination"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "5000",
+                  "description": "Maximum number of results in this page"
+                },
+                {
+                  "disabled": false,
+                  "key": "projectId",
+                  "value": "<long>",
+                  "description": "(Optional) Filter role(s) for specified project ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "filledState",
+                  "value": "2",
+                  "description": "(Optional) Filters the result by the filled state of the roles"
+                },
+                {
+                  "disabled": false,
+                  "key": "roleIds",
+                  "value": "<long>",
+                  "description": "(Optional) Filters the result to contain roles that match the ids passed in. Works as an AND with filledState and roleNameIds"
+                },
+                {
+                  "disabled": false,
+                  "key": "roleIds",
+                  "value": "<long>",
+                  "description": "(Optional) Filters the result to contain roles that match the ids passed in. Works as an AND with filledState and roleNameIds"
+                },
+                {
+                  "disabled": false,
+                  "key": "roleNameIds",
+                  "value": "<long>",
+                  "description": "(Optional) Filters the result to contain roles that match the ids passed in. Works as an AND with filledState and roleIds"
+                },
+                {
+                  "disabled": false,
+                  "key": "roleNameIds",
+                  "value": "<long>",
+                  "description": "(Optional) Filters the result to contain roles that match the ids passed in. Works as an AND with filledState and roleIds"
+                },
+                {
+                  "disabled": false,
+                  "key": "projectState",
+                  "value": "All",
+                  "description": "(Optional) Filters the result by the state of the project the role is on"
+                },
+                {
+                  "disabled": false,
+                  "key": "roleState",
+                  "value": "All",
+                  "description": "(Optional) Filters the result by the state of the role dates: Current, Upcoming, Past, or All"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "Operations",
+                  "description": "(Optional)Salaried role type to filter results by (Defaults to Operations)"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The Account ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "742ff36a-69d2-4744-9969-7bbddc0ccdf8",
+              "name": "Success: All roles on projects in the given account with some project information, role requirements and allocations",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "Accounts",
+                    ":id",
+                    "roles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "unfilled",
+                      "value": "false"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "5000"
+                    },
+                    {
+                      "key": "projectId",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "filledState",
+                      "value": "2"
+                    },
+                    {
+                      "key": "roleIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "roleIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "roleNameIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "roleNameIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "projectState",
+                      "value": "All"
+                    },
+                    {
+                      "key": "roleState",
+                      "value": "All"
+                    },
+                    {
+                      "key": "type",
+                      "value": "Operations"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"projectId\": 9381,\n    \"projectName\": \"Ahrens Lofts\",\n    \"projectColour\": \"#4B6BAA\",\n    \"projectStatus\": \"Active\",\n    \"projectType\": \"Awarded\",\n    \"taskId\": \"00000000-0000-0000-0000-000000000000\",\n    \"roleId\": 3817,\n    \"roleName\": \"Project Manager\",\n    \"roleCost\": 123.45,\n    \"roleType\": \"Salaried\",\n    \"sortOrder\": 7568,\n    \"startDate\": \"1955-08-15T10:00:55.091Z\",\n    \"endDate\": \"1973-12-06T06:57:51.783Z\",\n    \"skillSet\": [\n      6973,\n      4178\n    ],\n    \"roleNote\": \"string\",\n    \"categoryId\": 5077,\n    \"isFilled\": true,\n    \"billable\": true,\n    \"roleTags\": [\n      {\n        \"id\": 2699,\n        \"collectionId\": 8829,\n        \"name\": \"string\",\n        \"collectionName\": \"string\",\n        \"collectionColor\": \"string\"\n      },\n      {\n        \"id\": 7595,\n        \"collectionId\": 6977,\n        \"name\": \"string\",\n        \"collectionName\": \"string\",\n        \"collectionColor\": \"string\"\n      }\n    ],\n    \"requirements\": [\n      {\n        \"startDate\": \"1958-02-17T00:24:03.316Z\",\n        \"endDate\": \"1989-10-09T00:14:41.356Z\",\n        \"allocatedPercent\": 100\n      },\n      {\n        \"startDate\": \"1986-02-06T21:51:05.807Z\",\n        \"endDate\": \"2010-07-14T06:08:18.561Z\",\n        \"allocatedPercent\": 100\n      }\n    ],\n    \"allocations\": [\n      {\n        \"personId\": 6001,\n        \"startDate\": \"1952-05-15T04:16:15.278Z\",\n        \"endDate\": \"2004-12-12T06:48:35.860Z\",\n        \"allocatedPercent\": 100,\n        \"personCost\": 3423.936851817422,\n        \"id\": \"e481a2f7-9673-e9d6-d04f-8782ee34ee9c\"\n      },\n      {\n        \"personId\": 5836,\n        \"startDate\": \"2015-04-30T07:58:12.381Z\",\n        \"endDate\": \"2003-05-29T03:41:46.779Z\",\n        \"allocatedPercent\": 100,\n        \"personCost\": 1612.0732544237349,\n        \"id\": \"7b705601-1e0e-e46c-3c60-215fb1ef4f96\"\n      }\n    ],\n    \"unfilledRanges\": [\n      {\n        \"startDate\": \"2014-03-24T01:43:31.287Z\",\n        \"endDate\": \"1986-02-21T04:14:30.960Z\"\n      },\n      {\n        \"startDate\": \"1994-04-20T04:11:27.447Z\",\n        \"endDate\": \"1983-03-23T22:49:04.903Z\"\n      }\n    ],\n    \"externalId\": \"string\",\n    \"notification\": {\n      \"notifiedOn\": \"2007-08-28T10:15:05.471Z\",\n      \"recipientIds\": [\n        7015,\n        4917\n      ]\n    },\n    \"isCommunicated\": true,\n    \"hire\": {\n      \"isHireRequired\": false,\n      \"hireDescription\": \"string\",\n      \"previousIsHireRequired\": false,\n      \"hireStatus\": \"Hired\",\n      \"previousHireStatus\": \"Hired\",\n      \"taggedByUserId\": 7104,\n      \"taggedAt\": \"1973-12-15T05:11:10.956Z\",\n      \"hiredAt\": \"2021-07-05T08:49:19.198Z\"\n    },\n    \"createdBy\": 2696,\n    \"createdOn\": \"1967-02-23T08:44:48.856Z\"\n  },\n  {\n    \"projectId\": 9381,\n    \"projectName\": \"Ahrens Lofts\",\n    \"projectColour\": \"#4B6BAA\",\n    \"projectStatus\": \"Pursuit\",\n    \"projectType\": \"Awarded\",\n    \"taskId\": \"00000000-0000-0000-0000-000000000000\",\n    \"roleId\": 3817,\n    \"roleName\": \"Project Manager\",\n    \"roleCost\": 123.45,\n    \"roleType\": \"Salaried\",\n    \"sortOrder\": 2251,\n    \"startDate\": \"1978-11-23T17:25:54.033Z\",\n    \"endDate\": \"1996-03-11T13:21:59.892Z\",\n    \"skillSet\": [\n      8774,\n      494\n    ],\n    \"roleNote\": \"string\",\n    \"categoryId\": 9583,\n    \"isFilled\": true,\n    \"billable\": false,\n    \"roleTags\": [\n      {\n        \"id\": 2697,\n        \"collectionId\": 1256,\n        \"name\": \"string\",\n        \"collectionName\": \"string\",\n        \"collectionColor\": \"string\"\n      },\n      {\n        \"id\": 2262,\n        \"collectionId\": 2214,\n        \"name\": \"string\",\n        \"collectionName\": \"string\",\n        \"collectionColor\": \"string\"\n      }\n    ],\n    \"requirements\": [\n      {\n        \"startDate\": \"1966-07-25T17:43:39.916Z\",\n        \"endDate\": \"2011-05-15T07:18:24.410Z\",\n        \"allocatedPercent\": 100\n      },\n      {\n        \"startDate\": \"2013-09-27T09:03:56.152Z\",\n        \"endDate\": \"1973-06-30T13:32:24.484Z\",\n        \"allocatedPercent\": 100\n      }\n    ],\n    \"allocations\": [\n      {\n        \"personId\": 1200,\n        \"startDate\": \"1967-11-09T18:41:02.565Z\",\n        \"endDate\": \"1953-02-15T04:34:45.635Z\",\n        \"allocatedPercent\": 100,\n        \"personCost\": 433.72747538170995,\n        \"id\": \"86802c90-27a6-c460-9017-78a905dcce7f\"\n      },\n      {\n        \"personId\": 1708,\n        \"startDate\": \"1958-09-14T06:47:14.638Z\",\n        \"endDate\": \"2016-08-07T00:15:57.885Z\",\n        \"allocatedPercent\": 100,\n        \"personCost\": 5520.527704714517,\n        \"id\": \"517add3a-db01-65d5-0abc-e58ed37adbab\"\n      }\n    ],\n    \"unfilledRanges\": [\n      {\n        \"startDate\": \"1964-03-05T22:17:03.592Z\",\n        \"endDate\": \"2008-03-11T20:18:44.998Z\"\n      },\n      {\n        \"startDate\": \"1963-04-15T09:02:42.628Z\",\n        \"endDate\": \"1981-01-26T11:40:53.460Z\"\n      }\n    ],\n    \"externalId\": \"string\",\n    \"notification\": {\n      \"notifiedOn\": \"1983-09-05T06:38:54.246Z\",\n      \"recipientIds\": [\n        1297,\n        5090\n      ]\n    },\n    \"isCommunicated\": true,\n    \"hire\": {\n      \"isHireRequired\": true,\n      \"hireDescription\": \"string\",\n      \"previousIsHireRequired\": false,\n      \"hireStatus\": \"Hired\",\n      \"previousHireStatus\": \"Hired\",\n      \"taggedByUserId\": 287,\n      \"taggedAt\": \"1995-08-13T12:20:28.656Z\",\n      \"hiredAt\": \"1966-03-24T21:49:36.051Z\"\n    },\n    \"createdBy\": 3515,\n    \"createdOn\": \"1952-02-08T16:58:52.350Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3cdd4b19-d8db-4e4e-a02b-2cf4c326be58",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "Accounts",
+                    ":id",
+                    "roles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "unfilled",
+                      "value": "false"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "5000"
+                    },
+                    {
+                      "key": "projectId",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "filledState",
+                      "value": "2"
+                    },
+                    {
+                      "key": "roleIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "roleIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "roleNameIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "roleNameIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "projectState",
+                      "value": "All"
+                    },
+                    {
+                      "key": "roleState",
+                      "value": "All"
+                    },
+                    {
+                      "key": "type",
+                      "value": "Operations"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2626cb29-30b4-4b8e-bf60-b367a6768048",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "Accounts",
+                    ":id",
+                    "roles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "unfilled",
+                      "value": "false"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "5000"
+                    },
+                    {
+                      "key": "projectId",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "filledState",
+                      "value": "2"
+                    },
+                    {
+                      "key": "roleIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "roleIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "roleNameIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "roleNameIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "projectState",
+                      "value": "All"
+                    },
+                    {
+                      "key": "roleState",
+                      "value": "All"
+                    },
+                    {
+                      "key": "type",
+                      "value": "Operations"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0929158d-73fa-4752-befb-be09ade4e6e0",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "Accounts",
+                    ":id",
+                    "roles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "unfilled",
+                      "value": "false"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "5000"
+                    },
+                    {
+                      "key": "projectId",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "filledState",
+                      "value": "2"
+                    },
+                    {
+                      "key": "roleIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "roleIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "roleNameIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "roleNameIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "projectState",
+                      "value": "All"
+                    },
+                    {
+                      "key": "roleState",
+                      "value": "All"
+                    },
+                    {
+                      "key": "type",
+                      "value": "Operations"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cae5a110-0c7e-43d2-850f-7bba1e1ca5da",
+          "name": "Get all Hourly roles for all projects in the given account",
+          "request": {
+            "name": "Get all Hourly roles for all projects in the given account",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>HourlyRole: Read<br/>Finance: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "Accounts",
+                ":id",
+                "hourly-roles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "relativeDate",
+                  "value": "<dateTime>",
+                  "description": "Optional paramater used to calculate date based properties. If not provided, it is set to today's date in UTC."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Offset for pagination"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "5000",
+                  "description": "Maximum number of results in this page"
+                },
+                {
+                  "disabled": false,
+                  "key": "projectId",
+                  "value": "<long>",
+                  "description": "(Optional) Filter role(s) for specified project ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "filledState",
+                  "value": "2",
+                  "description": "(Optional) Filters the result by the filled state of the roles"
+                },
+                {
+                  "disabled": false,
+                  "key": "roleIds",
+                  "value": "<long>",
+                  "description": "(Optional) Filters the result to contain roles that match the ids passed in. Works as an AND with filledState and roleNameIds"
+                },
+                {
+                  "disabled": false,
+                  "key": "roleIds",
+                  "value": "<long>",
+                  "description": "(Optional) Filters the result to contain roles that match the ids passed in. Works as an AND with filledState and roleNameIds"
+                },
+                {
+                  "disabled": false,
+                  "key": "roleNameIds",
+                  "value": "<long>",
+                  "description": "(Optional) Filters the result to contain roles that match the ids passed in. Works as an AND with filledState and roleIds"
+                },
+                {
+                  "disabled": false,
+                  "key": "roleNameIds",
+                  "value": "<long>",
+                  "description": "(Optional) Filters the result to contain roles that match the ids passed in. Works as an AND with filledState and roleIds"
+                },
+                {
+                  "disabled": false,
+                  "key": "projectState",
+                  "value": "All",
+                  "description": "(Optional) Filters the result by the state of the project the role is on"
+                },
+                {
+                  "disabled": false,
+                  "key": "roleState",
+                  "value": "All",
+                  "description": "(Optional) Filters the result by the state of the role dates: Current, Upcoming, Past, or All"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The Account ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9811f074-b593-4581-8812-06bb412438e1",
+              "name": "Success: All roles on projects in the given account with some project information, role requirements and allocations",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "Accounts",
+                    ":id",
+                    "hourly-roles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "5000"
+                    },
+                    {
+                      "key": "projectId",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "filledState",
+                      "value": "2"
+                    },
+                    {
+                      "key": "roleIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "roleIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "roleNameIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "roleNameIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "projectState",
+                      "value": "All"
+                    },
+                    {
+                      "key": "roleState",
+                      "value": "All"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"projectId\": 9381,\n    \"projectName\": \"Ahrens Lofts\",\n    \"projectColour\": \"#4B6BAA\",\n    \"projectStatus\": \"Lost\",\n    \"projectType\": \"Awarded\",\n    \"roleId\": 3817,\n    \"roleName\": \"Project Manager\",\n    \"roleHourlyCost\": 123.45,\n    \"roleType\": \"Hourly\",\n    \"sortOrder\": 599,\n    \"startDate\": \"2015-01-11T22:54:46.483Z\",\n    \"endDate\": \"1972-06-19T11:42:54.226Z\",\n    \"startTime\": \"09:00:00\",\n    \"endTime\": \"17:00:00\",\n    \"workDays\": [\n      1,\n      2,\n      3,\n      4,\n      5\n    ],\n    \"skillSet\": [\n      4667,\n      2219\n    ],\n    \"roleNote\": \"string\",\n    \"categoryId\": 141,\n    \"isFilled\": true,\n    \"billable\": true,\n    \"requirements\": [\n      {\n        \"startDate\": \"1958-04-26T09:52:34.066Z\",\n        \"endDate\": \"2014-09-19T00:49:10.264Z\"\n      },\n      {\n        \"startDate\": \"2008-08-22T18:06:45.090Z\",\n        \"endDate\": \"1969-12-11T13:41:56.841Z\"\n      }\n    ],\n    \"allocations\": [\n      {\n        \"personId\": 1698,\n        \"startDate\": \"2024-07-22T23:20:00.259Z\",\n        \"endDate\": \"2003-10-28T15:43:40.333Z\",\n        \"allocatedPercent\": 100,\n        \"personHourlyCost\": 6413.301689544134\n      },\n      {\n        \"personId\": 6631,\n        \"startDate\": \"1980-10-07T06:27:15.758Z\",\n        \"endDate\": \"1999-08-27T18:13:22.259Z\",\n        \"allocatedPercent\": 100,\n        \"personHourlyCost\": 4787.801243322731\n      }\n    ],\n    \"unfilledRanges\": [\n      {\n        \"startDate\": \"2005-12-13T01:37:23.323Z\",\n        \"endDate\": \"1958-07-22T11:13:31.388Z\"\n      },\n      {\n        \"startDate\": \"2006-07-06T09:22:29.951Z\",\n        \"endDate\": \"1996-10-26T13:59:20.023Z\"\n      }\n    ],\n    \"notification\": {\n      \"notifiedOn\": \"1966-07-01T23:10:33.822Z\",\n      \"recipientIds\": [\n        4737,\n        1841\n      ]\n    },\n    \"isCommunicated\": true,\n    \"hire\": {\n      \"isHireRequired\": false,\n      \"hireDescription\": \"string\",\n      \"previousIsHireRequired\": false,\n      \"hireStatus\": \"Hire\",\n      \"previousHireStatus\": \"Hire\",\n      \"taggedByUserId\": 6079,\n      \"taggedAt\": \"1967-01-27T08:52:48.374Z\",\n      \"hiredAt\": \"2005-08-28T09:39:50.003Z\"\n    },\n    \"createdBy\": 4465,\n    \"createdOn\": \"2024-03-21T23:05:08.081Z\",\n    \"roleTags\": [\n      {\n        \"id\": 591,\n        \"collectionId\": 1332,\n        \"name\": \"string\",\n        \"collectionName\": \"string\",\n        \"collectionColor\": \"string\"\n      },\n      {\n        \"id\": 1512,\n        \"collectionId\": 3853,\n        \"name\": \"string\",\n        \"collectionName\": \"string\",\n        \"collectionColor\": \"string\"\n      }\n    ]\n  },\n  {\n    \"projectId\": 9381,\n    \"projectName\": \"Ahrens Lofts\",\n    \"projectColour\": \"#4B6BAA\",\n    \"projectStatus\": \"Lost\",\n    \"projectType\": \"Opportunity\",\n    \"roleId\": 3817,\n    \"roleName\": \"Project Manager\",\n    \"roleHourlyCost\": 123.45,\n    \"roleType\": \"Hourly\",\n    \"sortOrder\": 4753,\n    \"startDate\": \"1979-10-12T23:27:03.252Z\",\n    \"endDate\": \"1993-08-28T12:45:58.021Z\",\n    \"startTime\": \"09:00:00\",\n    \"endTime\": \"17:00:00\",\n    \"workDays\": [\n      1,\n      2,\n      3,\n      4,\n      5\n    ],\n    \"skillSet\": [\n      1926,\n      3451\n    ],\n    \"roleNote\": \"string\",\n    \"categoryId\": 6983,\n    \"isFilled\": false,\n    \"billable\": false,\n    \"requirements\": [\n      {\n        \"startDate\": \"2008-02-05T11:06:11.462Z\",\n        \"endDate\": \"1964-09-30T23:24:28.700Z\"\n      },\n      {\n        \"startDate\": \"1957-05-21T00:10:52.743Z\",\n        \"endDate\": \"2023-05-19T05:50:31.248Z\"\n      }\n    ],\n    \"allocations\": [\n      {\n        \"personId\": 1478,\n        \"startDate\": \"1986-05-17T08:45:30.915Z\",\n        \"endDate\": \"2002-11-04T15:21:19.248Z\",\n        \"allocatedPercent\": 100,\n        \"personHourlyCost\": 7241.303481333461\n      },\n      {\n        \"personId\": 5882,\n        \"startDate\": \"1990-09-08T03:36:04.043Z\",\n        \"endDate\": \"2017-04-28T21:19:38.626Z\",\n        \"allocatedPercent\": 100,\n        \"personHourlyCost\": 2993.522692641192\n      }\n    ],\n    \"unfilledRanges\": [\n      {\n        \"startDate\": \"1983-09-28T15:46:07.655Z\",\n        \"endDate\": \"2015-05-06T06:55:32.320Z\"\n      },\n      {\n        \"startDate\": \"1986-01-06T05:03:50.450Z\",\n        \"endDate\": \"1977-04-08T02:05:05.153Z\"\n      }\n    ],\n    \"notification\": {\n      \"notifiedOn\": \"1953-06-05T17:48:28.703Z\",\n      \"recipientIds\": [\n        2602,\n        9404\n      ]\n    },\n    \"isCommunicated\": true,\n    \"hire\": {\n      \"isHireRequired\": false,\n      \"hireDescription\": \"string\",\n      \"previousIsHireRequired\": false,\n      \"hireStatus\": \"Hire\",\n      \"previousHireStatus\": \"Hire\",\n      \"taggedByUserId\": 6452,\n      \"taggedAt\": \"1981-03-01T15:03:46.735Z\",\n      \"hiredAt\": \"1947-12-09T00:25:26.570Z\"\n    },\n    \"createdBy\": 595,\n    \"createdOn\": \"2018-09-20T14:56:03.877Z\",\n    \"roleTags\": [\n      {\n        \"id\": 3888,\n        \"collectionId\": 1585,\n        \"name\": \"string\",\n        \"collectionName\": \"string\",\n        \"collectionColor\": \"string\"\n      },\n      {\n        \"id\": 4265,\n        \"collectionId\": 7225,\n        \"name\": \"string\",\n        \"collectionName\": \"string\",\n        \"collectionColor\": \"string\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3055e454-018b-41b9-a094-9af2f0f74135",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "Accounts",
+                    ":id",
+                    "hourly-roles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "5000"
+                    },
+                    {
+                      "key": "projectId",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "filledState",
+                      "value": "2"
+                    },
+                    {
+                      "key": "roleIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "roleIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "roleNameIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "roleNameIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "projectState",
+                      "value": "All"
+                    },
+                    {
+                      "key": "roleState",
+                      "value": "All"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "317c7239-0ad4-4d47-a910-e95c8ce8ca76",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "Accounts",
+                    ":id",
+                    "hourly-roles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "5000"
+                    },
+                    {
+                      "key": "projectId",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "filledState",
+                      "value": "2"
+                    },
+                    {
+                      "key": "roleIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "roleIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "roleNameIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "roleNameIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "projectState",
+                      "value": "All"
+                    },
+                    {
+                      "key": "roleState",
+                      "value": "All"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6a5b9776-2120-472b-b583-e354cb41da57",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "Accounts",
+                    ":id",
+                    "hourly-roles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "relativeDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "5000"
+                    },
+                    {
+                      "key": "projectId",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "filledState",
+                      "value": "2"
+                    },
+                    {
+                      "key": "roleIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "roleIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "roleNameIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "roleNameIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "projectState",
+                      "value": "All"
+                    },
+                    {
+                      "key": "roleState",
+                      "value": "All"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ea3b14e7-25c8-408b-ad30-f330feb15dec",
+          "name": "Gets the persons certifications for the given account",
+          "request": {
+            "name": "Gets the persons certifications for the given account",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>HourlyProfile: Read<br/>Person: Read<br/>Private: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "Accounts",
+                ":id",
+                "person-certifications"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "personIds",
+                  "value": "<long>",
+                  "description": "Optional paramater of comma delimited ids for filtering results based on the person IDs provided"
+                },
+                {
+                  "disabled": false,
+                  "key": "personIds",
+                  "value": "<long>",
+                  "description": "Optional paramater of comma delimited ids for filtering results based on the person IDs provided"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Offset for pagination"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "1000",
+                  "description": "Maximum number of results in this page"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The Account ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "340be453-c696-4f27-af83-c4b335b11ecf",
+              "name": "Success: Lists of person certifications on the account grouped by person ID",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "Accounts",
+                    ":id",
+                    "person-certifications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "personIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "personIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1000"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"1\": [\n    {\n      \"id\": 123,\n      \"name\": \"Transportation of Dangerous Goods\",\n      \"abbreviation\": \"TDG\",\n      \"expiryDate\": \"2020-01-23\",\n      \"daysWarnBeforeExpire\": 7,\n      \"certificationDate\": null,\n      \"certificationDescription\": null,\n      \"hasAttachment\": false,\n      \"state\": \"Expired\"\n    }\n  ],\n  \"2\": [\n    {\n      \"id\": 456,\n      \"name\": \"CPR Training\",\n      \"abbreviation\": \"CPR\",\n      \"expiryDate\": \"2020-12-30\",\n      \"daysWarnBeforeExpire\": 9,\n      \"certificationDate\": null,\n      \"certificationDescription\": null,\n      \"hasAttachment\": false,\n      \"state\": \"Expired\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "04228f69-4221-471e-a3fd-a3b0206105ec",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "Accounts",
+                    ":id",
+                    "person-certifications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "personIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "personIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1000"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8830140f-fab0-488b-8e40-3cef0133dfeb",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "Accounts",
+                    ":id",
+                    "person-certifications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "personIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "personIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1000"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "786e5ceb-7255-46f0-9328-0510074b3e0c",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "Accounts",
+                    ":id",
+                    "person-certifications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "personIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "personIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1000"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9946ce85-0dc1-46af-b0a1-dd38ca5bd7b9",
+          "name": "Gets the user profiles for the given account",
+          "request": {
+            "name": "Gets the user profiles for the given account",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>Account: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "Accounts",
+                ":id",
+                "user-profiles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Offset for pagination"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "1000",
+                  "description": "Maximum number of results in this page"
+                },
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<integer>",
+                  "description": "(Optional) Filters the result to contain account users that match the ids passed in."
+                },
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<integer>",
+                  "description": "(Optional) Filters the result to contain account users that match the ids passed in."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The Account ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4d1fe0ca-8a9e-4ffd-9e6c-7d7b0ca14fc9",
+              "name": "Success: List of users on the account",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "Accounts",
+                    ":id",
+                    "user-profiles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 2313,\n    \"name\": \"John Smith\",\n    \"title\": \"Human Resources Manager\",\n    \"state\": \"Enabled\"\n  },\n  {\n    \"id\": 2313,\n    \"name\": \"John Smith\",\n    \"title\": \"Human Resources Manager\",\n    \"state\": \"Disabled\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7fb39803-2e07-4031-b437-8592b7a2f2d5",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "Accounts",
+                    ":id",
+                    "user-profiles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e0742d5a-c361-4db5-9205-6dc60f7a3cc7",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "Accounts",
+                    ":id",
+                    "user-profiles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "821cbc54-40b3-4dad-9dfa-294d57644770",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "Accounts",
+                    ":id",
+                    "user-profiles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The Account ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "31ad6bb9-761b-4092-ad06-621464bab517",
+          "name": "Query the account for instances where two or more persons have collaborated on the same project",
+          "request": {
+            "name": "Query the account for instances where two or more persons have collaborated on the same project",
+            "description": {
+              "content": "When a project ID is supplied, the results will be constrained to the persons within that project.\n\nIf the project ID is omitted, the results will pull for the entire account and can be filtered by person IDs.<br/><strong>Permissions</strong><br/>Role: Read<br/>Allocation: Read<br/>Person: Read<br/>HourlyRole: Read<br/>HourlyAllocation: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "Accounts",
+                ":id",
+                "collaboration-matrix",
+                "_filter"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The account ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"offset\": \"<integer>\",\n  \"limit\": \"<integer>\",\n  \"predicates\": {\n    \"personIds\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"projectId\": \"<long>\",\n    \"roleType\": \"<string>\",\n    \"salariedRoleType\": \"<string>\",\n    \"roleNameIds\": [\n      \"<long>\",\n      \"<long>\"\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f42834fd-b9cb-4536-8aba-88d3a9041cae",
+              "name": "Success: List of projects with person IDs where two or more persons have collaborated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "Accounts",
+                    ":id",
+                    "collaboration-matrix",
+                    "_filter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"offset\": \"<integer>\",\n  \"limit\": \"<integer>\",\n  \"predicates\": {\n    \"personIds\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"projectId\": \"<long>\",\n    \"roleType\": \"<string>\",\n    \"salariedRoleType\": \"<string>\",\n    \"roleNameIds\": [\n      \"<long>\",\n      \"<long>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"projects\": [\n    {\n      \"name\": \"string\",\n      \"personIds\": [\n        2840,\n        7350\n      ],\n      \"id\": 5957,\n      \"hcopId\": \"76ea4265-45ec-d095-2988-a29e4afed303\"\n    },\n    {\n      \"name\": \"string\",\n      \"personIds\": [\n        8409,\n        2485\n      ],\n      \"id\": 3241,\n      \"hcopId\": \"49460efa-fa17-380b-5e8f-e5ec94e8d754\"\n    }\n  ],\n  \"personIds\": [\n    2602,\n    4930\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "51cb9e0f-6a5e-4f5d-b7c8-b61c93d1a623",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "Accounts",
+                    ":id",
+                    "collaboration-matrix",
+                    "_filter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The account ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"offset\": \"<integer>\",\n  \"limit\": \"<integer>\",\n  \"predicates\": {\n    \"personIds\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"projectId\": \"<long>\",\n    \"roleType\": \"<string>\",\n    \"salariedRoleType\": \"<string>\",\n    \"roleNameIds\": [\n      \"<long>\",\n      \"<long>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d907b01f-6b8f-4c7f-89ac-350846dd9db3",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "Accounts",
+                    ":id",
+                    "collaboration-matrix",
+                    "_filter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The account ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"offset\": \"<integer>\",\n  \"limit\": \"<integer>\",\n  \"predicates\": {\n    \"personIds\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"projectId\": \"<long>\",\n    \"roleType\": \"<string>\",\n    \"salariedRoleType\": \"<string>\",\n    \"roleNameIds\": [\n      \"<long>\",\n      \"<long>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d6faef5a-6a42-4779-b6c8-575f2a52dc0a",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "Accounts",
+                    ":id",
+                    "collaboration-matrix",
+                    "_filter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The account ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"offset\": \"<integer>\",\n  \"limit\": \"<integer>\",\n  \"predicates\": {\n    \"personIds\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"projectId\": \"<long>\",\n    \"roleType\": \"<string>\",\n    \"salariedRoleType\": \"<string>\",\n    \"roleNameIds\": [\n      \"<long>\",\n      \"<long>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://bench.gobridgit.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "info": {
+    "_postman_id": "b314c469-8100-4841-8881-ac32c7cdce25",
+    "name": "Bench AccountActivities Accounts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "<h2>Versioning</h2>\n<p>\n    The API is currently at version <code>1.0</code>. All API endpoints (other than\n    authentication) require you to specify the API version as part of the path.\n</p>\n\n<h2>URL Paths</h2>\n<p>\n    Authentication requests should be made to <code>/auth/signin</code>,\n    as documented below. All other API requests should be made to\n    sub-paths of <code>/rp/api/1.0/...</code>.\n</p>\n\n<h2>Authentication</h2>\n<p>\n    API requests are authenticated using an OAuth Bearer token.\n    You can get a token by authenticating your user by sending a\n    POST request to <code>/auth/signin</code>, with \"username and \"password\"\n    parameters form-encoded in the body of the request.\n\n    POST /auth/signin HTTP/1.1\n    Content-Type: application/x-www-form-urlencoded\n\n    username=user@example.com&password=some-secret-password\n</p>\n<p>\n    The response will be a JSON object including both\n    <b>\"access_token\"</b> and <b>\"refresh_token\"</b> property.\n    All other requests against the Bench API should include an\n    authorization header: <code>Authorization: Bearer xxxYYYzzz</code>,\n    where <b>xxxYYYzzz</b> is the value of <b>\"access_token\"</b> in the response.\n    <br><br>\n    For example:\n\n    $ curl https://bench.gobridgit.com/auth/signin -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'username=someone@example.com' --data-urlencode 'password=[...snip...]'\n    {\n        \"access_token\": \"...snip...\",\n        \"token_type\": \"Bearer\",\n        \"refresh_token\": \"...snip...\"\n        \"expiry\": \"2020-01-01T00:00:00.413440849Z\"\n    }\n\n</p>\n\n<p>\n    The refresh token can be used to generate new session by request with <code>/auth/token</code> endpoint:\n\n    POST /auth/token HTTP/1.1\n    Content-Type: application/x-www-form-urlencoded\n\n    grant_type=refresh_token&refresh_token=tGzv3JOkF0XG5Qx2TlKWIA\n</p>\n<p>\n    Note that once the refresh token is used, the previous access and refresh token is no longer valid.\n    <br><br>\n    For example:\n\n    $ curl https://bench.gobridgit.com/auth/token -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'grant_type=refresh_token' --data-urlencode 'refresh_token=[...snip...]'\n    {\n        \"access_token\": \"...snip...\",\n        \"token_type\": \"Bearer\",\n        \"refresh_token\": \"...snip...\"\n        \"expiry\": \"2020-01-01T00:00:00.413440849Z\"\n    }\n</p>\n\n<h2>Pagination</h2>\n<p>\n    Several of the API endpoints are paginated. These are denoted by\n    including the <code>offset</code> (zero-based offset) and <code>limit</code> query\n    parameters. For example, to request the <code>10</code> items,\n    set the <code>offset=0</code> to <code>limit=10</code>.\n    <br>\n    NOTE: the result set contains items with index of 0-9\n    <br>\n    To request the next 10 items (starting at index 10),\n    set the <code>offset=10</code> to <code>limit=10</code>\n</p>\n<p>\n    Responses to paginated API endpoints return a JSON array of objects.\n    If there are results beyond the page you have requested, the server\n    will set a <code>query-has-more: true</code> header in the response.\n</p>\n\n<h2>Request Encoding</h2>\n<p>\n    <code>GET</code> and <code>DELETE</code> requests should have parameters encoded as URL query\n    parameters. Boolean values should be encoded as <code>true</code> and\n    <code>false</code>, not as <code>1</code> and <code>0</code>.\n</p>\n\n<h2>Errors</h2>\n<p>\n    Errors are returned for some response codes such as <code>400 Bad Request</code> in the\n    following format:\n\n    {\n      \"errors\": [\n        {\n          \"errorType\": \"ValidationError\",\n          \"description\": \"The value of Name must be a string with a minimum length of 1 and a maximum length of 8 and not whitespace.\",\n          \"field\": \"Name\",\n          \"values\": [\n            null\n          ]\n        }\n      ],\n      \"title\": \"One or more validation errors occurred.\",\n      \"status\": 400,\n      \"instance\": \"api/v1/accounts/0/persons\",\n      \"requestUid\": \"123e4567-e89b-12d3-a456-426614174000\"\n    }\n</p>\n",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bench AccountActivities AccountInvitations API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "AccountInvitations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Gets all invitations for an account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/invitations",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the account"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset for pagination"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of invitations to pull at a time"
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Account: Read"
+        },
+        {
+          "info": {
+            "name": "Sends an join invitation to the given email for an account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/invitations",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the account"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Account: Write"
+        },
+        {
+          "info": {
+            "name": "Removes the account's invitation by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/invitations/:id",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The account Id"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The Invitation Id"
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Account: Write"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

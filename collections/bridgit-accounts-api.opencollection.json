@@ -1,0 +1,558 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bench AccountActivities Accounts API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Accounts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get all accounts that the user has access to.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/Accounts",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset for pagination"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results in this page"
+              }
+            ]
+          },
+          "docs": "Get all accounts that the user has access to."
+        },
+        {
+          "info": {
+            "name": "Get all accounts that the user has access to, filter by name (contains), account ids, organization ids, and/or account states (0 = Active, 1 = Deactivated, 2 = All).\nSort options include: name = 0, numProjects = 1, numPeople = 2, numMembers = 3 and organizationId = 4\nSort order options include: asc = 0, desc = 1",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bench.gobridgit.com/rp/api/v1/Accounts/_filter",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<strong>NOTE:</strong> Paging limit defaults to 50, and is maximized at 100 items per request.  If there are more accounts than were returned, there will be a \"query-has-more\" header that will be set to true."
+        },
+        {
+          "info": {
+            "name": "Gets details for the given account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/Accounts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Account: Read"
+        },
+        {
+          "info": {
+            "name": "Get all custom field values for all people for the given account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/Accounts/:id/person-field-values",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "includeEmpty",
+                "value": "",
+                "type": "query",
+                "description": "If true, the response will include all person field values, even if no value is set for a given field. If false, field values that are empty are not included in the response."
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "If specified and non-zero, only include field vlaues for people matching the given state. The available values are defined as follows:\n- active: include only Active people\n- deactivated: include only Deactivated people\n- all: include all people, regardless of state"
+              },
+              {
+                "name": "personIds",
+                "value": "",
+                "type": "query",
+                "description": "Optional paramater of comma delimited ids for filtering results based on the person IDs provided"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset of the result to begin with"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Optional - The number of items return by result set. If no limit given, return all results"
+              },
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "query",
+                "description": "Optional - for filtering result by system field \"Employee ID\""
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>HourlyProfile: Read<br/>Person: Read<br/>Private: Read<br/>Finance: Read"
+        },
+        {
+          "info": {
+            "name": "Get all custom field values for all projects for the given account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/Accounts/:id/project-field-values",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "includeEmpty",
+                "value": "",
+                "type": "query",
+                "description": "If true, the response will include all project field values, even if no value is set for a given field. If false, field values that are empty are not included in the response."
+              },
+              {
+                "name": "projectIds",
+                "value": "",
+                "type": "query",
+                "description": "Optional paramater of comma delimited ids for filtering results based on the project IDs provided"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset of the result to begin with"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Optional - The number of items return by result set. If no limit given, return all results"
+              },
+              {
+                "name": "projectNumber",
+                "value": "",
+                "type": "query",
+                "description": "Optional - for filtering result by system field \"Project Number\""
+              },
+              {
+                "name": "externalId",
+                "value": "",
+                "type": "query",
+                "description": "Optional - for filtering result by system field \"External ID\""
+              },
+              {
+                "name": "classification",
+                "value": "",
+                "type": "query",
+                "description": "Optional - for filtering result by classification: All or Experience\""
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Project: Read<br/>Private: Read<br/>Finance: Read"
+        },
+        {
+          "info": {
+            "name": "Get all Tasks for all projects in the given account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/Accounts/:id/tasks",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "relativeDate",
+                "value": "2021-01-01",
+                "type": "query",
+                "description": "Optional paramater used to calculate date based properties. If not provided, it is set to today's date in UTC."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset for pagination"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results in this page"
+              },
+              {
+                "name": "projectIds",
+                "value": "",
+                "type": "query",
+                "description": "(Optional) Filter task(s) to contain tasks that match the projectIds passed in."
+              },
+              {
+                "name": "projectState",
+                "value": "",
+                "type": "query",
+                "description": "(Optional) Filters the result by the state of the project the role is on"
+              },
+              {
+                "name": "taskIds",
+                "value": "",
+                "type": "query",
+                "description": "(Optional) Filters the result to contain tasks that match the taskIds passed in. Works as an AND with filledState and roleNameIds"
+              },
+              {
+                "name": "filledState",
+                "value": "",
+                "type": "query",
+                "description": "(Optional) Filters the result by the filled state of the roles"
+              },
+              {
+                "name": "roleIds",
+                "value": "",
+                "type": "query",
+                "description": "(Optional) Filters the result to contain roles that match the ids passed in. Works as an AND with filledState and roleNameIds"
+              },
+              {
+                "name": "roleNameIds",
+                "value": "",
+                "type": "query",
+                "description": "(Optional) Filters the result to contain roles that match the ids passed in. Works as an AND with filledState and roleIds"
+              },
+              {
+                "name": "roleState",
+                "value": "",
+                "type": "query",
+                "description": "(Optional) Filters the result by the state of the role dates: Current, Upcoming, Past, or All"
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Project: Read<br/>Person: Read<br/>Role: Read<br/>Allocation: Read"
+        },
+        {
+          "info": {
+            "name": "Get all categories for all projects in the given account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/Accounts/:id/role-categories",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset for pagination"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results in this page"
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Project: Read<br/>Role: Read<br/>HourlyRole: Read"
+        },
+        {
+          "info": {
+            "name": "Get all Salaried roles for all projects in the given account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/Accounts/:id/roles",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "relativeDate",
+                "value": "2021-01-01",
+                "type": "query",
+                "description": "Optional paramater used to calculate date based properties. If not provided, it is set to today's date in UTC."
+              },
+              {
+                "name": "unfilled",
+                "value": "",
+                "type": "query",
+                "description": "If true, limits the results to include only roles that are unfilled; that is, they don't have any allocations. If false, the results include all roles in the account, both filled and unfilled."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset for pagination"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results in this page"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "query",
+                "description": "(Optional) Filter role(s) for specified project ID"
+              },
+              {
+                "name": "filledState",
+                "value": "",
+                "type": "query",
+                "description": "(Optional) Filters the result by the filled state of the roles"
+              },
+              {
+                "name": "roleIds",
+                "value": "",
+                "type": "query",
+                "description": "(Optional) Filters the result to contain roles that match the ids passed in. Works as an AND with filledState and roleNameIds"
+              },
+              {
+                "name": "roleNameIds",
+                "value": "",
+                "type": "query",
+                "description": "(Optional) Filters the result to contain roles that match the ids passed in. Works as an AND with filledState and roleIds"
+              },
+              {
+                "name": "projectState",
+                "value": "",
+                "type": "query",
+                "description": "(Optional) Filters the result by the state of the project the role is on"
+              },
+              {
+                "name": "roleState",
+                "value": "",
+                "type": "query",
+                "description": "(Optional) Filters the result by the state of the role dates: Current, Upcoming, Past, or All"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "(Optional)Salaried role type to filter results by (Defaults to Operations)"
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Role: Read<br/>Finance: Read"
+        },
+        {
+          "info": {
+            "name": "Get all Hourly roles for all projects in the given account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/Accounts/:id/hourly-roles",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "relativeDate",
+                "value": "2021-01-01",
+                "type": "query",
+                "description": "Optional paramater used to calculate date based properties. If not provided, it is set to today's date in UTC."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset for pagination"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results in this page"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "query",
+                "description": "(Optional) Filter role(s) for specified project ID"
+              },
+              {
+                "name": "filledState",
+                "value": "",
+                "type": "query",
+                "description": "(Optional) Filters the result by the filled state of the roles"
+              },
+              {
+                "name": "roleIds",
+                "value": "",
+                "type": "query",
+                "description": "(Optional) Filters the result to contain roles that match the ids passed in. Works as an AND with filledState and roleNameIds"
+              },
+              {
+                "name": "roleNameIds",
+                "value": "",
+                "type": "query",
+                "description": "(Optional) Filters the result to contain roles that match the ids passed in. Works as an AND with filledState and roleIds"
+              },
+              {
+                "name": "projectState",
+                "value": "",
+                "type": "query",
+                "description": "(Optional) Filters the result by the state of the project the role is on"
+              },
+              {
+                "name": "roleState",
+                "value": "",
+                "type": "query",
+                "description": "(Optional) Filters the result by the state of the role dates: Current, Upcoming, Past, or All"
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>HourlyRole: Read<br/>Finance: Read"
+        },
+        {
+          "info": {
+            "name": "Gets the persons certifications for the given account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/Accounts/:id/person-certifications",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "personIds",
+                "value": "",
+                "type": "query",
+                "description": "Optional paramater of comma delimited ids for filtering results based on the person IDs provided"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset for pagination"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results in this page"
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>HourlyProfile: Read<br/>Person: Read<br/>Private: Read"
+        },
+        {
+          "info": {
+            "name": "Gets the user profiles for the given account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/Accounts/:id/user-profiles",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset for pagination"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results in this page"
+              },
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "(Optional) Filters the result to contain account users that match the ids passed in."
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Account: Read"
+        },
+        {
+          "info": {
+            "name": "Query the account for instances where two or more persons have collaborated on the same project",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bench.gobridgit.com/rp/api/v1/Accounts/:id/collaboration-matrix/_filter",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The account ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "When a project ID is supplied, the results will be constrained to the persons within that project.\n\nIf the project ID is omitted, the results will pull for the entire account and can be filtered by person IDs.<br/><strong>Permissions</strong><br/>Role: Read<br/>Allocation: Read<br/>Person: Read<br/>HourlyRole: Read<br/>HourlyAllocation: Read"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,1546 @@
+{
+  "item": [
+    {
+      "id": "5118bad0-c29d-4b01-8077-8c37e57635e0",
+      "name": "PersonHistoricalExperiences",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a6af4f28-e7e6-433a-84bd-64059a0610ef",
+          "name": "List historical experience entries for a person.",
+          "request": {
+            "name": "List historical experience entries for a person.",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>Person: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "persons",
+                ":personId",
+                "historical-experiences"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50",
+                  "description": "How many to retrieve (1-100, default 50)."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "How many to skip (default 0)."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The account ID."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "personId",
+                  "description": "(Required) The person ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9ef2dd51-6253-41e6-bcdf-da490a964c86",
+              "name": "The paginated list of historical experience entries. The `query-has-more` header indicates whether more entries are available.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "historical-experiences"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The account ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The person ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"roleName\": \"string\",\n    \"experienceFields\": [\n      {\n        \"fieldName\": \"string\",\n        \"value\": \"string\",\n        \"experienceFieldId\": \"a91af11c-e0a8-a2bc-68c4-ea395891062b\",\n        \"experienceFieldValueId\": \"3b69d732-25e1-d4f7-33ea-4685f67c75ee\"\n      },\n      {\n        \"fieldName\": \"string\",\n        \"value\": \"string\",\n        \"experienceFieldId\": \"9fb17027-bb71-bf8e-06e5-4415af9ae097\",\n        \"experienceFieldValueId\": \"28386551-cd48-156d-2e99-428fc9eacc98\"\n      }\n    ],\n    \"historicalExperienceId\": \"fd79ca45-8183-fb34-d993-d9e97a618f29\",\n    \"currentCompany\": true,\n    \"assignmentStartDate\": \"1981-05-13T17:51:19.419Z\",\n    \"assignmentEndDate\": \"1952-08-11T08:58:40.609Z\",\n    \"assignmentDuration\": 8692,\n    \"assignmentHours\": 6360.278023949403\n  },\n  {\n    \"roleName\": \"string\",\n    \"experienceFields\": [\n      {\n        \"fieldName\": \"string\",\n        \"value\": \"string\",\n        \"experienceFieldId\": \"0c7afed4-ebc0-8782-a7cf-fb3f513e6336\",\n        \"experienceFieldValueId\": \"ada137a3-e06f-9726-3822-08c47342d683\"\n      },\n      {\n        \"fieldName\": \"string\",\n        \"value\": \"string\",\n        \"experienceFieldId\": \"b7fa4087-2b50-2538-8b09-0abd96fc3cdd\",\n        \"experienceFieldValueId\": \"ded291aa-ddbc-5dfc-3d20-5ad95b7602a5\"\n      }\n    ],\n    \"historicalExperienceId\": \"f5b1e254-4536-7fe6-c6ca-d0a9ff70930b\",\n    \"currentCompany\": true,\n    \"assignmentStartDate\": \"1959-02-19T09:21:00.664Z\",\n    \"assignmentEndDate\": \"1959-07-05T09:48:24.354Z\",\n    \"assignmentDuration\": 469,\n    \"assignmentHours\": 1824.468533433904\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1e76e6fe-5035-4e53-8c93-307c88c8d2ce",
+              "name": "The user is not authorized to view the historical experience entries.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "historical-experiences"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The account ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The person ID."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "231cc978-f6af-4ec3-a7c1-b301f8838449",
+          "name": "Create a new historical experience entry.",
+          "request": {
+            "name": "Create a new historical experience entry.",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>Account: Write",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "persons",
+                ":personId",
+                "historical-experiences"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The account ID."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "personId",
+                  "description": "(Required) The person ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"projectName\": \"<string>\",\n  \"roleName\": \"<string>\",\n  \"projectStartDate\": \"<dateTime>\",\n  \"projectEndDate\": \"<dateTime>\",\n  \"currentCompany\": \"<boolean>\",\n  \"experienceFields\": [\n    {\n      \"experienceFieldId\": \"<uuid>\",\n      \"experienceFieldValueId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"experienceFieldId\": \"<uuid>\",\n      \"experienceFieldValueId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"projectDescription\": \"<string>\",\n  \"companyName\": \"<string>\",\n  \"assignmentStartDate\": \"<dateTime>\",\n  \"assignmentEndDate\": \"<dateTime>\",\n  \"assignmentDuration\": \"<integer>\",\n  \"assignmentHours\": \"<double>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e685324a-3921-4330-8ade-e0c03fa0a3bb",
+              "name": "The created historical experience entry.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "historical-experiences"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The account ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The person ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"projectName\": \"<string>\",\n  \"roleName\": \"<string>\",\n  \"projectStartDate\": \"<dateTime>\",\n  \"projectEndDate\": \"<dateTime>\",\n  \"currentCompany\": \"<boolean>\",\n  \"experienceFields\": [\n    {\n      \"experienceFieldId\": \"<uuid>\",\n      \"experienceFieldValueId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"experienceFieldId\": \"<uuid>\",\n      \"experienceFieldValueId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"projectDescription\": \"<string>\",\n  \"companyName\": \"<string>\",\n  \"assignmentStartDate\": \"<dateTime>\",\n  \"assignmentEndDate\": \"<dateTime>\",\n  \"assignmentDuration\": \"<integer>\",\n  \"assignmentHours\": \"<double>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"projectName\": \"string\",\n  \"roleName\": \"string\",\n  \"historicalProjectId\": \"c70ddf1d-6877-43ce-b586-736df3be2077\",\n  \"projectDescription\": \"string\",\n  \"projectStartDate\": \"2007-11-23T23:53:23.174Z\",\n  \"projectEndDate\": \"1976-12-29T12:41:02.906Z\",\n  \"companyName\": \"string\",\n  \"experienceFields\": [\n    {\n      \"fieldName\": \"string\",\n      \"value\": \"string\",\n      \"experienceFieldId\": \"975458b8-8a62-4582-57f5-36b64ef70375\",\n      \"experienceFieldValueId\": \"9ab6aa8a-6046-4501-1c95-4c8ed74e4d5f\"\n    },\n    {\n      \"fieldName\": \"string\",\n      \"value\": \"string\",\n      \"experienceFieldId\": \"f99784fe-7a7c-7240-af65-f6489584ce84\",\n      \"experienceFieldValueId\": \"a1a97df0-05bb-a7b8-24a8-d4d350ace137\"\n    }\n  ],\n  \"historicalExperienceId\": \"9bf4d389-eca9-8f2f-4cc5-92cf82718120\",\n  \"currentCompany\": false,\n  \"assignmentStartDate\": \"1966-09-24T22:25:00.013Z\",\n  \"assignmentEndDate\": \"1995-02-10T13:15:10.436Z\",\n  \"assignmentDuration\": 44,\n  \"assignmentHours\": 7273.210949805211\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ceff92a0-137a-47b6-99b3-8c2d80ec6c76",
+              "name": "The user is not authorized to create the historical experience entry.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "historical-experiences"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The account ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The person ID."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"projectName\": \"<string>\",\n  \"roleName\": \"<string>\",\n  \"projectStartDate\": \"<dateTime>\",\n  \"projectEndDate\": \"<dateTime>\",\n  \"currentCompany\": \"<boolean>\",\n  \"experienceFields\": [\n    {\n      \"experienceFieldId\": \"<uuid>\",\n      \"experienceFieldValueId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"experienceFieldId\": \"<uuid>\",\n      \"experienceFieldValueId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"projectDescription\": \"<string>\",\n  \"companyName\": \"<string>\",\n  \"assignmentStartDate\": \"<dateTime>\",\n  \"assignmentEndDate\": \"<dateTime>\",\n  \"assignmentDuration\": \"<integer>\",\n  \"assignmentHours\": \"<double>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "089d221c-ac0e-4eb8-9b0f-b794ba6fddc1",
+              "name": "The request is invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "historical-experiences"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The account ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The person ID."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"projectName\": \"<string>\",\n  \"roleName\": \"<string>\",\n  \"projectStartDate\": \"<dateTime>\",\n  \"projectEndDate\": \"<dateTime>\",\n  \"currentCompany\": \"<boolean>\",\n  \"experienceFields\": [\n    {\n      \"experienceFieldId\": \"<uuid>\",\n      \"experienceFieldValueId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"experienceFieldId\": \"<uuid>\",\n      \"experienceFieldValueId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"projectDescription\": \"<string>\",\n  \"companyName\": \"<string>\",\n  \"assignmentStartDate\": \"<dateTime>\",\n  \"assignmentEndDate\": \"<dateTime>\",\n  \"assignmentDuration\": \"<integer>\",\n  \"assignmentHours\": \"<double>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9c1800e6-6bd5-4e60-8ad0-49b0003b8b20",
+          "name": "Get a single historical experience entry.",
+          "request": {
+            "name": "Get a single historical experience entry.",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>Person: Read",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "persons",
+                ":personId",
+                "historical-experiences",
+                ":historicalExperienceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The account ID."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "personId",
+                  "description": "(Required) The person ID."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "historicalExperienceId",
+                  "description": "(Required) The historical experience ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "187ad7c5-9a25-4a50-96a6-0ab8e4cab35d",
+              "name": "The historical experience entry.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "historical-experiences",
+                    ":historicalExperienceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The account ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The person ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "historicalExperienceId",
+                      "description": "(Required) The historical experience ID."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8829732c-6e7f-4a03-a379-da1525093148",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "historical-experiences",
+                    ":historicalExperienceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The account ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The person ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "historicalExperienceId",
+                      "description": "(Required) The historical experience ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"roleName\": \"string\",\n  \"experienceFields\": [\n    {\n      \"fieldName\": \"string\",\n      \"value\": \"string\",\n      \"experienceFieldId\": \"f5250711-d126-d193-a655-3cc74b1ebee6\",\n      \"experienceFieldValueId\": \"782fb957-bc86-1d8b-f868-419c072e9786\"\n    },\n    {\n      \"fieldName\": \"string\",\n      \"value\": \"string\",\n      \"experienceFieldId\": \"8ffc65b1-4bf2-583a-209a-22510698da93\",\n      \"experienceFieldValueId\": \"91dbcf7d-975d-93b5-2bee-fed63d3a12b3\"\n    }\n  ],\n  \"historicalExperienceId\": \"e9204ebb-a073-8b8e-01a2-029d7f67136a\",\n  \"currentCompany\": false,\n  \"assignmentStartDate\": \"1973-10-02T15:09:13.692Z\",\n  \"assignmentEndDate\": \"1988-11-11T20:57:00.300Z\",\n  \"assignmentDuration\": 7542,\n  \"assignmentHours\": 368.7073903374094\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1bd51ecd-2791-4b7d-ac9c-33209922238e",
+              "name": "The user is not authorized to view the historical experience entry.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "historical-experiences",
+                    ":historicalExperienceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The account ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The person ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "historicalExperienceId",
+                      "description": "(Required) The historical experience ID."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b375cda4-e2c5-4033-a249-a910069b528d",
+          "name": "Delete a historical experience entry.",
+          "request": {
+            "name": "Delete a historical experience entry.",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>Account: Write",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "persons",
+                ":personId",
+                "historical-experiences",
+                ":historicalExperienceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The account ID."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "personId",
+                  "description": "(Required) The person ID."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "historicalExperienceId",
+                  "description": "(Required) The historical experience ID."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2390e1b3-4594-445a-ab3f-424dec6c8e12",
+              "name": "The historical experience entry was deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "historical-experiences",
+                    ":historicalExperienceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The account ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The person ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "historicalExperienceId",
+                      "description": "(Required) The historical experience ID."
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6f50575f-24bc-456f-8d7e-2c9db64bf609",
+              "name": "The user is not authorized to delete the historical experience entry.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "historical-experiences",
+                    ":historicalExperienceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The account ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The person ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "historicalExperienceId",
+                      "description": "(Required) The historical experience ID."
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "40c40413-d36f-4f32-8cfe-155581b13328",
+          "name": "Update historical experience entry for a person",
+          "request": {
+            "name": "Update historical experience entry for a person",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>Account: Write",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "persons",
+                ":personId",
+                "historical-experiences",
+                ":historicalExperienceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "personId",
+                  "description": "(Required) The Person ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "historicalExperienceId",
+                  "description": "(Required) The Historical Experience ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"experienceFields\": [\n    {\n      \"experienceFieldId\": \"<uuid>\",\n      \"experienceFieldValueId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"experienceFieldId\": \"<uuid>\",\n      \"experienceFieldValueId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"roleName\": \"<string>\",\n  \"assignmentStartDate\": \"<dateTime>\",\n  \"assignmentEndDate\": \"<dateTime>\",\n  \"assignmentDuration\": \"<integer>\",\n  \"assignmentHours\": \"<double>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3c516d41-14ea-4bfa-87d3-39c0d206a81f",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "historical-experiences",
+                    ":historicalExperienceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The Person ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "historicalExperienceId",
+                      "description": "(Required) The Historical Experience ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"experienceFields\": [\n    {\n      \"experienceFieldId\": \"<uuid>\",\n      \"experienceFieldValueId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"experienceFieldId\": \"<uuid>\",\n      \"experienceFieldValueId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"roleName\": \"<string>\",\n  \"assignmentStartDate\": \"<dateTime>\",\n  \"assignmentEndDate\": \"<dateTime>\",\n  \"assignmentDuration\": \"<integer>\",\n  \"assignmentHours\": \"<double>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"roleName\": \"string\",\n  \"experienceFields\": [\n    {\n      \"fieldName\": \"string\",\n      \"value\": \"string\",\n      \"experienceFieldId\": \"f5250711-d126-d193-a655-3cc74b1ebee6\",\n      \"experienceFieldValueId\": \"782fb957-bc86-1d8b-f868-419c072e9786\"\n    },\n    {\n      \"fieldName\": \"string\",\n      \"value\": \"string\",\n      \"experienceFieldId\": \"8ffc65b1-4bf2-583a-209a-22510698da93\",\n      \"experienceFieldValueId\": \"91dbcf7d-975d-93b5-2bee-fed63d3a12b3\"\n    }\n  ],\n  \"historicalExperienceId\": \"e9204ebb-a073-8b8e-01a2-029d7f67136a\",\n  \"currentCompany\": false,\n  \"assignmentStartDate\": \"1973-10-02T15:09:13.692Z\",\n  \"assignmentEndDate\": \"1988-11-11T20:57:00.300Z\",\n  \"assignmentDuration\": 7542,\n  \"assignmentHours\": 368.7073903374094\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cdaed09f-b35f-4b9f-bb46-9ba463053da3",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "historical-experiences",
+                    ":historicalExperienceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The Person ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "historicalExperienceId",
+                      "description": "(Required) The Historical Experience ID"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"experienceFields\": [\n    {\n      \"experienceFieldId\": \"<uuid>\",\n      \"experienceFieldValueId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"experienceFieldId\": \"<uuid>\",\n      \"experienceFieldValueId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"roleName\": \"<string>\",\n  \"assignmentStartDate\": \"<dateTime>\",\n  \"assignmentEndDate\": \"<dateTime>\",\n  \"assignmentDuration\": \"<integer>\",\n  \"assignmentHours\": \"<double>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0d7cfb5c-bfdb-41ae-8b63-28bd201441b2",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "historical-experiences",
+                    ":historicalExperienceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The Person ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "historicalExperienceId",
+                      "description": "(Required) The Historical Experience ID"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"experienceFields\": [\n    {\n      \"experienceFieldId\": \"<uuid>\",\n      \"experienceFieldValueId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"experienceFieldId\": \"<uuid>\",\n      \"experienceFieldValueId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"roleName\": \"<string>\",\n  \"assignmentStartDate\": \"<dateTime>\",\n  \"assignmentEndDate\": \"<dateTime>\",\n  \"assignmentDuration\": \"<integer>\",\n  \"assignmentHours\": \"<double>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "82433cd8-4603-48de-9662-3ba0bf687012",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "historical-experiences",
+                    ":historicalExperienceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The Person ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "historicalExperienceId",
+                      "description": "(Required) The Historical Experience ID"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"experienceFields\": [\n    {\n      \"experienceFieldId\": \"<uuid>\",\n      \"experienceFieldValueId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"experienceFieldId\": \"<uuid>\",\n      \"experienceFieldValueId\": \"<uuid>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"roleName\": \"<string>\",\n  \"assignmentStartDate\": \"<dateTime>\",\n  \"assignmentEndDate\": \"<dateTime>\",\n  \"assignmentDuration\": \"<integer>\",\n  \"assignmentHours\": \"<double>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "98070a09-68a2-4322-a850-96e39dced793",
+          "name": "Patch historical experience entry for a person",
+          "request": {
+            "name": "Patch historical experience entry for a person",
+            "description": {
+              "content": "<br/><strong>Permissions</strong><br/>Account: Write",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rp",
+                "api",
+                "v1",
+                "accounts",
+                ":accountId",
+                "persons",
+                ":personId",
+                "historical-experiences",
+                ":historicalExperienceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountId",
+                  "description": "(Required) The Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "personId",
+                  "description": "(Required) The Person ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "historicalExperienceId",
+                  "description": "(Required) The Historical Experience ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"roleName\": \"<string>\",\n  \"assignmentStartDate\": \"<dateTime>\",\n  \"assignmentEndDate\": \"<dateTime>\",\n  \"assignmentDuration\": \"<integer>\",\n  \"assignmentHours\": \"<double>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "008709bd-5ce1-4067-86cc-05acea1e0e19",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "historical-experiences",
+                    ":historicalExperienceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The Person ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "historicalExperienceId",
+                      "description": "(Required) The Historical Experience ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"roleName\": \"<string>\",\n  \"assignmentStartDate\": \"<dateTime>\",\n  \"assignmentEndDate\": \"<dateTime>\",\n  \"assignmentDuration\": \"<integer>\",\n  \"assignmentHours\": \"<double>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"roleName\": \"string\",\n  \"experienceFields\": [\n    {\n      \"fieldName\": \"string\",\n      \"value\": \"string\",\n      \"experienceFieldId\": \"f5250711-d126-d193-a655-3cc74b1ebee6\",\n      \"experienceFieldValueId\": \"782fb957-bc86-1d8b-f868-419c072e9786\"\n    },\n    {\n      \"fieldName\": \"string\",\n      \"value\": \"string\",\n      \"experienceFieldId\": \"8ffc65b1-4bf2-583a-209a-22510698da93\",\n      \"experienceFieldValueId\": \"91dbcf7d-975d-93b5-2bee-fed63d3a12b3\"\n    }\n  ],\n  \"historicalExperienceId\": \"e9204ebb-a073-8b8e-01a2-029d7f67136a\",\n  \"currentCompany\": false,\n  \"assignmentStartDate\": \"1973-10-02T15:09:13.692Z\",\n  \"assignmentEndDate\": \"1988-11-11T20:57:00.300Z\",\n  \"assignmentDuration\": 7542,\n  \"assignmentHours\": 368.7073903374094\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "06d02ba1-1f8e-473b-af66-12868d86fb7f",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "historical-experiences",
+                    ":historicalExperienceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The Person ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "historicalExperienceId",
+                      "description": "(Required) The Historical Experience ID"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"roleName\": \"<string>\",\n  \"assignmentStartDate\": \"<dateTime>\",\n  \"assignmentEndDate\": \"<dateTime>\",\n  \"assignmentDuration\": \"<integer>\",\n  \"assignmentHours\": \"<double>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "baa6052f-50cd-4210-a761-337c73b65bdf",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rp",
+                    "api",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "persons",
+                    ":personId",
+                    "historical-experiences",
+                    ":historicalExperienceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountId",
+                      "description": "(Required) The Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "personId",
+                      "description": "(Required) The Person ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "historicalExperienceId",
+                      "description": "(Required) The Historical Experience ID"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"roleName\": \"<string>\",\n  \"assignmentStartDate\": \"<dateTime>\",\n  \"assignmentEndDate\": \"<dateTime>\",\n  \"assignmentDuration\": \"<integer>\",\n  \"assignmentHours\": \"<double>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://bench.gobridgit.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "info": {
+    "_postman_id": "039f87e7-8d78-4609-b847-960b4842a98c",
+    "name": "Bench AccountActivities PersonHistoricalExperiences API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "<h2>Versioning</h2>\n<p>\n    The API is currently at version <code>1.0</code>. All API endpoints (other than\n    authentication) require you to specify the API version as part of the path.\n</p>\n\n<h2>URL Paths</h2>\n<p>\n    Authentication requests should be made to <code>/auth/signin</code>,\n    as documented below. All other API requests should be made to\n    sub-paths of <code>/rp/api/1.0/...</code>.\n</p>\n\n<h2>Authentication</h2>\n<p>\n    API requests are authenticated using an OAuth Bearer token.\n    You can get a token by authenticating your user by sending a\n    POST request to <code>/auth/signin</code>, with \"username and \"password\"\n    parameters form-encoded in the body of the request.\n\n    POST /auth/signin HTTP/1.1\n    Content-Type: application/x-www-form-urlencoded\n\n    username=user@example.com&password=some-secret-password\n</p>\n<p>\n    The response will be a JSON object including both\n    <b>\"access_token\"</b> and <b>\"refresh_token\"</b> property.\n    All other requests against the Bench API should include an\n    authorization header: <code>Authorization: Bearer xxxYYYzzz</code>,\n    where <b>xxxYYYzzz</b> is the value of <b>\"access_token\"</b> in the response.\n    <br><br>\n    For example:\n\n    $ curl https://bench.gobridgit.com/auth/signin -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'username=someone@example.com' --data-urlencode 'password=[...snip...]'\n    {\n        \"access_token\": \"...snip...\",\n        \"token_type\": \"Bearer\",\n        \"refresh_token\": \"...snip...\"\n        \"expiry\": \"2020-01-01T00:00:00.413440849Z\"\n    }\n\n</p>\n\n<p>\n    The refresh token can be used to generate new session by request with <code>/auth/token</code> endpoint:\n\n    POST /auth/token HTTP/1.1\n    Content-Type: application/x-www-form-urlencoded\n\n    grant_type=refresh_token&refresh_token=tGzv3JOkF0XG5Qx2TlKWIA\n</p>\n<p>\n    Note that once the refresh token is used, the previous access and refresh token is no longer valid.\n    <br><br>\n    For example:\n\n    $ curl https://bench.gobridgit.com/auth/token -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'grant_type=refresh_token' --data-urlencode 'refresh_token=[...snip...]'\n    {\n        \"access_token\": \"...snip...\",\n        \"token_type\": \"Bearer\",\n        \"refresh_token\": \"...snip...\"\n        \"expiry\": \"2020-01-01T00:00:00.413440849Z\"\n    }\n</p>\n\n<h2>Pagination</h2>\n<p>\n    Several of the API endpoints are paginated. These are denoted by\n    including the <code>offset</code> (zero-based offset) and <code>limit</code> query\n    parameters. For example, to request the <code>10</code> items,\n    set the <code>offset=0</code> to <code>limit=10</code>.\n    <br>\n    NOTE: the result set contains items with index of 0-9\n    <br>\n    To request the next 10 items (starting at index 10),\n    set the <code>offset=10</code> to <code>limit=10</code>\n</p>\n<p>\n    Responses to paginated API endpoints return a JSON array of objects.\n    If there are results beyond the page you have requested, the server\n    will set a <code>query-has-more: true</code> header in the response.\n</p>\n\n<h2>Request Encoding</h2>\n<p>\n    <code>GET</code> and <code>DELETE</code> requests should have parameters encoded as URL query\n    parameters. Boolean values should be encoded as <code>true</code> and\n    <code>false</code>, not as <code>1</code> and <code>0</code>.\n</p>\n\n<h2>Errors</h2>\n<p>\n    Errors are returned for some response codes such as <code>400 Bad Request</code> in the\n    following format:\n\n    {\n      \"errors\": [\n        {\n          \"errorType\": \"ValidationError\",\n          \"description\": \"The value of Name must be a string with a minimum length of 1 and a maximum length of 8 and not whitespace.\",\n          \"field\": \"Name\",\n          \"values\": [\n            null\n          ]\n        }\n      ],\n      \"title\": \"One or more validation errors occurred.\",\n      \"status\": 400,\n      \"instance\": \"api/v1/accounts/0/persons\",\n      \"requestUid\": \"123e4567-e89b-12d3-a456-426614174000\"\n    }\n</p>\n",
+      "type": "text/plain"
+    }
+  }
+}

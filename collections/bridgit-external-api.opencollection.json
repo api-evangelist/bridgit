@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bench AccountActivities External API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "External",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "External_GetPerson",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/external/persons/:externalId",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "externalId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "External_GetProject",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/external/projects/:externalId",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "externalId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "External_GetProjectRole",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/external/roles/:externalId",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "externalId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

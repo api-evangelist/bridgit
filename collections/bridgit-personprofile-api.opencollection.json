@@ -1,0 +1,72 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bench AccountActivities PersonProfile API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "PersonProfile",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Updates a person's profile picture with support for upload and set modes.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/persons/:personId/profile-picture",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the account"
+              },
+              {
+                "name": "personId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the person"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<strong>Two modes of operation:</strong>\n\n<strong>1. Upload Mode:</strong> When no request body is provided, returns a presigned URL for direct image upload to S3. Use a PUT request to upload your image file to the returned signed URL.\n\n<strong>2. Set Mode:</strong> When a request body with ImageUrl is provided, sets the profile picture to the specified URL<br/><strong>Permissions</strong><br/>Person: Write<br/>HourlyProfile: Write"
+        },
+        {
+          "info": {
+            "name": "Clear a person's profile picture",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bench.gobridgit.com/rp/api/v1/accounts/:accountId/persons/:personId/profile-picture",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The Account ID"
+              },
+              {
+                "name": "personId",
+                "value": "",
+                "type": "path",
+                "description": "The Person ID"
+              }
+            ]
+          },
+          "docs": "<br/><strong>Permissions</strong><br/>Person: Write<br/>HourlyProfile: Write"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
