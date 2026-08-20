@@ -48,6 +48,20 @@ tags:
   - Utilization
   - Certifications
   - AEC
+  - Software-as-a-Service
+tags_raw:
+  - Construction
+  - Construction Technology
+  - Workforce Planning
+  - Workforce Management
+  - Resource Planning
+  - Project Staffing
+  - General Contractors
+  - Subcontractors
+  - Forecasting
+  - Utilization
+  - Certifications
+  - AEC
   - SaaS
 url: https://raw.githubusercontent.com/api-evangelist/bridgit/refs/heads/main/apis.yml
 created: '2026-05-25'
@@ -60,6 +74,8 @@ apis:
   humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
   baseURL: https://bench.gobridgit.com/rp/api/v1
   tags:
+  - Account Activities
+  tags_raw:
   - AccountActivities
   properties:
   - type: OpenAPI
@@ -124,6 +140,8 @@ apis:
   humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
   baseURL: https://bench.gobridgit.com/rp/api/v1
   tags:
+  - Account
+  tags_raw:
   - Accounts
   properties:
   - type: OpenAPI
@@ -140,6 +158,8 @@ apis:
   humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
   baseURL: https://bench.gobridgit.com/rp/api/v1
   tags:
+  - Account Users
+  tags_raw:
   - AccountUsers
   properties:
   - type: OpenAPI
@@ -526,6 +546,8 @@ apis:
   humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
   baseURL: https://bench.gobridgit.com/rp/api/v1
   tags:
+  - Project Roles
+  tags_raw:
   - ProjectRoles
   properties:
   - type: OpenAPI
@@ -542,6 +564,8 @@ apis:
   humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
   baseURL: https://bench.gobridgit.com/rp/api/v1
   tags:
+  - Project
+  tags_raw:
   - Projects
   properties:
   - type: OpenAPI
@@ -574,6 +598,8 @@ apis:
   humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
   baseURL: https://bench.gobridgit.com/rp/api/v1
   tags:
+  - Project Tasks
+  tags_raw:
   - ProjectTasks
   properties:
   - type: OpenAPI
@@ -639,6 +665,8 @@ apis:
   humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
   baseURL: https://bench.gobridgit.com/rp/api/v1
   tags:
+  - Service Accounts
+  tags_raw:
   - ServiceAccounts
   properties:
   - type: OpenAPI
@@ -671,6 +699,8 @@ apis:
   humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
   baseURL: https://bench.gobridgit.com/rp/api/v1
   tags:
+  - User Filters
+  tags_raw:
   - UserFilters
   properties:
   - type: OpenAPI
@@ -687,6 +717,8 @@ apis:
   humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
   baseURL: https://bench.gobridgit.com/rp/api/v1
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
