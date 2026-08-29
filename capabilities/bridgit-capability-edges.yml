@@ -1,0 +1,66 @@
+slug: bridgit
+provider: Bridgit
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 5
+edges:
+- tag: ServiceAccounts
+  spec_file: bridgit-serviceaccounts-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.78
+  evidence: '"Creates a service account in the given account"; "Deactivates a service account"; "Generates
+    a new password for a service account"'
+  reason: Lifecycle and credential management of non-human machine accounts is identity and access management.
+    Could arguably be developer credential management, but these are tenant-level service accounts, so
+    IAM is the better fit.
+- tag: PersonCertifications
+  spec_file: bridgit-personcertifications-api-openapi.yml
+  capability_id: BC-300.40
+  capability_id_l1: BC-300
+  capability_name: Learning & Development Management
+  confidence: 0.75
+  evidence: Adds a certification on the given person.
+  reason: Full lifecycle of worker certifications, which the vendor lists as a Bench feature ('certificatio[ns]');
+    maps to Learning & Development Management (certifications).
+- tag: AccountUsers
+  spec_file: bridgit-accountusers-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.7
+  evidence: '"Modify user''s permission group in the account."; "Resets a user''s authentication method
+    and sends a new invitation email. This can be used to switch a user from SSO to username/password
+    authentication"; "Deactivates a user from the given account"'
+  reason: Operations administer user accounts, permission-group membership, deactivation and authentication
+    method/SSO — squarely identity and access administration rather than HR employee records.
+- tag: Projects
+  spec_file: bridgit-projects-api-openapi.yml
+  capability_id: BC-900.30
+  capability_id_l1: BC-900
+  capability_name: Project Management
+  confidence: 0.7
+  evidence: '"Add a project to the given account"; "Gets details for the given project" (NewProjectRequest,
+    ProjectCurrentPhase)'
+  reason: Core project record lifecycle (create, update, phase, delete) in a project staffing platform
+    maps to project management. Records are the master data for projects rather than execution tracking,
+    so confidence is moderate.
+- tag: Users
+  spec_file: bridgit-users-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.7
+  evidence: PUT /rp/api/v1/Users/{id}/membership — "Modify system user's permission group."
+  reason: The only operation changes a user's permission group, i.e. access rights administration. Despite
+    the workforce-planning vendor context, this tag is authorisation management, not HR.

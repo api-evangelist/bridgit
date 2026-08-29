@@ -742,6 +742,9 @@ apis:
   - type: Authentication
     url: https://gobridgit.com/bridgit-bench-api-documentation/
 common:
+  - type: CapabilityMap
+    url: capabilities/bridgit-capability-edges.yml
+    name: Bridgit Business Capability Map
   - type: AgenticAccess
     url: agentic-access/bridgit-agentic-access.yml
   - type: VulnerabilityDisclosure
