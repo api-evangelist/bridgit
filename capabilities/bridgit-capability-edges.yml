@@ -3,7 +3,7 @@ provider: Bridgit
 generated_by: planning/capability-mapping/scripts/classify_capabilities.py
 model: claude-opus-5
 frame:
-- Software & Technology
+- Infrastructure
 min_confidence: 0.7
 capability_model:
   source: https://github.com/vincentmakes/turbo-ea-capabilities
@@ -11,56 +11,75 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 5
+edge_count: 7
 edges:
-- tag: ServiceAccounts
-  spec_file: bridgit-serviceaccounts-api-openapi.yml
-  capability_id: BC-620.20
-  capability_id_l1: BC-620
-  capability_name: Identity & Access Management
-  confidence: 0.78
-  evidence: '"Creates a service account in the given account"; "Deactivates a service account"; "Generates
-    a new password for a service account"'
-  reason: Lifecycle and credential management of non-human machine accounts is identity and access management.
-    Could arguably be developer credential management, but these are tenant-level service accounts, so
-    IAM is the better fit.
 - tag: PersonCertifications
   spec_file: bridgit-personcertifications-api-openapi.yml
   capability_id: BC-300.40
   capability_id_l1: BC-300
   capability_name: Learning & Development Management
+  confidence: 0.78
+  evidence: '"Adds a certification on the given person." / PersonCertificationResponse'
+  reason: CRUD over employee certifications held in the workforce planning platform — certification tracking
+    is part of Learning & Development / capability building for the workforce.
+- tag: PersonUnavailabilities
+  spec_file: bridgit-personunavailabilities-api-openapi.yml
+  capability_id: BC-300
+  capability_id_l1: BC-300
+  capability_name: Human Capital Management
   confidence: 0.75
-  evidence: Adds a certification on the given person.
-  reason: Full lifecycle of worker certifications, which the vendor lists as a Bench feature ('certificatio[ns]');
-    maps to Learning & Development Management (certifications).
-- tag: AccountUsers
-  spec_file: bridgit-accountusers-api-openapi.yml
+  evidence: '"Gets the periods of unavailability for persons in the given account" / NewUnavailabilityRequest'
+  reason: Records time-off/unavailability periods for staff, which Bench uses for staffing and utilization.
+    Human capital management is clear; whether it belongs to absence administration (HR Operations) or
+    workforce supply planning is ambiguous, so L1 only.
+- tag: ServiceAccounts
+  spec_file: bridgit-serviceaccounts-api-openapi.yml
   capability_id: BC-620.20
   capability_id_l1: BC-620
   capability_name: Identity & Access Management
+  confidence: 0.72
+  evidence: '"Creates a service account in the given account"; "Deactivates a service account"; "Generates
+    a new password for a service account"'
+  reason: Create/update/deactivate machine accounts and reset their credentials is non-human identity
+    and credential lifecycle management, i.e. Identity & Access Management rather than any construction
+    business capability.
+- tag: Persons
+  spec_file: bridgit-persons-api-openapi.yml
+  capability_id: BC-300.50
+  capability_id_l1: BC-300
+  capability_name: Workforce Planning Management
   confidence: 0.7
-  evidence: '"Modify user''s permission group in the account."; "Resets a user''s authentication method
-    and sends a new invitation email. This can be used to switch a user from SSO to username/password
-    authentication"; "Deactivates a user from the given account"'
-  reason: Operations administer user accounts, permission-group membership, deactivation and authentication
-    method/SSO — squarely identity and access administration rather than HR employee records.
+  evidence: '"Gets the number of days until each person in this account is available and their availability
+    ranges" and "Get all allocations for the given person within the selected date range."'
+  reason: Core people register plus availability and project allocation queries in a construction workforce
+    planning platform — workforce supply/demand planning over employees. Some overlap with project resource/capacity
+    management keeps confidence at 0.7.
+- tag: ProjectTasks
+  spec_file: bridgit-projecttasks-api-openapi.yml
+  capability_id: BC-900.30
+  capability_id_l1: BC-900
+  capability_name: Project Management
+  confidence: 0.7
+  evidence: '"Bulk add tasks for the given account''s project.", "Allocates a person to a task role on
+    the given account and project"'
+  reason: Task creation/update on projects plus allocation of people to task roles is project planning
+    and tracking; sub-capability could equally be resource capacity management, hence moderate confidence.
 - tag: Projects
   spec_file: bridgit-projects-api-openapi.yml
   capability_id: BC-900.30
   capability_id_l1: BC-900
   capability_name: Project Management
   confidence: 0.7
-  evidence: '"Add a project to the given account"; "Gets details for the given project" (NewProjectRequest,
-    ProjectCurrentPhase)'
-  reason: Core project record lifecycle (create, update, phase, delete) in a project staffing platform
-    maps to project management. Records are the master data for projects rather than execution tracking,
-    so confidence is moderate.
-- tag: Users
-  spec_file: bridgit-users-api-openapi.yml
-  capability_id: BC-620.20
-  capability_id_l1: BC-620
-  capability_name: Identity & Access Management
+  evidence: '"Add a project to the given account", "Gets details for the given project", schema "ProjectCurrentPhase"'
+  reason: Core project record lifecycle (create, query, update, delete, current phase) in a construction
+    planning platform — project management. Ambiguity remains between generic project management and capital
+    programme controls.
+- tag: RoleAllocations
+  spec_file: bridgit-roleallocations-api-openapi.yml
+  capability_id: BC-900.60
+  capability_id_l1: BC-900
+  capability_name: Demand & Capacity Management
   confidence: 0.7
-  evidence: PUT /rp/api/v1/Users/{id}/membership — "Modify system user's permission group."
-  reason: The only operation changes a user's permission group, i.e. access rights administration. Despite
-    the workforce-planning vendor context, this tag is authorisation management, not HR.
+  evidence: '"Allocates a person to a role on the given account and project", schema "ProjectRoleAllocationRequest"'
+  reason: Single operation assigning people to project roles — resource capacity/allocation management
+    within project delivery.
