@@ -170,7 +170,7 @@ apis:
   humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
   baseURL: https://bench.gobridgit.com/rp/api/v1
   tags:
-  - AccountUsers
+  - Account Users
   tags_raw:
   - AccountUsers
   properties:
@@ -558,7 +558,7 @@ apis:
   humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
   baseURL: https://bench.gobridgit.com/rp/api/v1
   tags:
-  - ProjectRoles
+  - Project Roles
   tags_raw:
   - ProjectRoles
   properties:
@@ -610,7 +610,7 @@ apis:
   humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
   baseURL: https://bench.gobridgit.com/rp/api/v1
   tags:
-  - ProjectTasks
+  - Project Tasks
   tags_raw:
   - ProjectTasks
   properties:
@@ -677,7 +677,7 @@ apis:
   humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
   baseURL: https://bench.gobridgit.com/rp/api/v1
   tags:
-  - ServiceAccounts
+  - Service Accounts
   tags_raw:
   - ServiceAccounts
   properties:
@@ -711,7 +711,7 @@ apis:
   humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
   baseURL: https://bench.gobridgit.com/rp/api/v1
   tags:
-  - UserFilters
+  - User Filters
   tags_raw:
   - UserFilters
   properties:
