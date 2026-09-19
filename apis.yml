@@ -59,7 +59,7 @@ tags:
   - Subcontractors
   - Forecasting
   - Utilization
-  - Certifications
+  - Certification
   - AEC
   - Software-as-a-Service
 tags_raw:
@@ -642,6 +642,8 @@ apis:
   humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
   baseURL: https://bench.gobridgit.com/rp/api/v1
   tags:
+  - AccountInvitations
+  tags_raw:
   - Account Invitations
   properties:
   - type: OpenAPI
