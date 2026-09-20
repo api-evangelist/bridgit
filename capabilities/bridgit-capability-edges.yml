@@ -33,7 +33,8 @@ edges:
     Human capital management is clear; whether it belongs to absence administration (HR Operations) or
     workforce supply planning is ambiguous, so L1 only.
 - tag: ServiceAccounts
-  spec_file: bridgit-serviceaccounts-api-openapi.yml
+  spec_file: bridgit-service-accounts-api-openapi.yml
+  reanchored_from: bridgit-serviceaccounts-api-openapi.yml
   capability_id: BC-620.20
   capability_id_l1: BC-620
   capability_name: Identity & Access Management
@@ -55,7 +56,8 @@ edges:
     planning platform — workforce supply/demand planning over employees. Some overlap with project resource/capacity
     management keeps confidence at 0.7.
 - tag: ProjectTasks
-  spec_file: bridgit-projecttasks-api-openapi.yml
+  spec_file: bridgit-project-tasks-api-openapi.yml
+  reanchored_from: bridgit-projecttasks-api-openapi.yml
   capability_id: BC-900.30
   capability_id_l1: BC-900
   capability_name: Project Management
