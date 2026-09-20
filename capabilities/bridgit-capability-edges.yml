@@ -11,7 +11,7 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 7
+edge_count: 12
 edges:
 - tag: PersonCertifications
   spec_file: bridgit-personcertifications-api-openapi.yml
@@ -32,6 +32,30 @@ edges:
   reason: Records time-off/unavailability periods for staff, which Bench uses for staffing and utilization.
     Human capital management is clear; whether it belongs to absence administration (HR Operations) or
     workforce supply planning is ambiguous, so L1 only.
+- tag: Users
+  spec_file: bridgit-users-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.75
+  evidence: PUT /rp/api/v1/Users/{id}/membership — "Modify system user's permission group." with schema
+    MembershipRequest
+  reason: The sole operation assigns a system user to a permission group, i.e. access-rights administration.
+    Despite the vendor being a workforce-planning tool, this tag manages authorisation, not HR records.
+  recovered_from: vertical-engineering-services-edges.json
+- tag: AccountCertifications
+  spec_file: bridgit-accountcertifications-api-openapi.yml
+  capability_id: BC-300.40
+  capability_id_l1: BC-300
+  capability_name: Learning & Development Management
+  confidence: 0.72
+  evidence: AccountCertifications_Add  Adds a certification on the given account.
+  reason: Bridgit Bench manages workforce 'certifications' for construction staff; the CRUD surface maintains
+    the account's certification catalogue that is then assigned to people (see Accounts_QueryPersonCertifications).
+    Certification tracking of the workforce sits under Human Capital Management, most closely Learning
+    & Development (certifications); some chance it belongs to competency/discipline resource management
+    instead, hence moderate confidence.
+  recovered_from: vertical-engineering-services-edges.json
 - tag: ServiceAccounts
   spec_file: bridgit-service-accounts-api-openapi.yml
   reanchored_from: bridgit-serviceaccounts-api-openapi.yml
@@ -44,6 +68,43 @@ edges:
   reason: Create/update/deactivate machine accounts and reset their credentials is non-human identity
     and credential lifecycle management, i.e. Identity & Access Management rather than any construction
     business capability.
+- tag: AccountUsers
+  spec_file: bridgit-account-users-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.7
+  evidence: '"Modify user''s permission group in the account."; "Resets a user''s authentication method
+    and sends a new invitation email. This can be used to switch a user from SSO to username/password
+    authentication"; "Deactivates a user from the given account"'
+  reason: Operations administer user accounts, permission-group membership, deactivation and authentication
+    method/SSO — squarely identity and access administration rather than HR employee records.
+  recovered_from: sweep-20260829T005356Z-edges.json
+  reanchored_from: bridgit-accountusers-api-openapi.yml
+- tag: Allocations
+  spec_file: bridgit-allocations-api-openapi.yml
+  capability_id: BC-300.50
+  capability_id_l1: BC-300
+  capability_name: Workforce Planning Management
+  confidence: 0.7
+  evidence: Allocations_Post  Allocates a person to a role on the given account and project
+  reason: Assigning people to roles on projects with allocation records and unavailability is resource/workforce
+    allocation planning. Could equally be read as project resource/capacity management (BC-900.60), so
+    confidence is moderate; HCM workforce planning is the vendor's stated purpose ('workforce planning
+    platform ... project staffing, role assignments, forecasting, utilization').
+  recovered_from: vertical-engineering-services-edges.json
+- tag: HourlyAllocations
+  spec_file: bridgit-hourlyallocations-api-openapi.yml
+  capability_id: BC-300.50
+  capability_id_l1: BC-300
+  capability_name: Workforce Planning Management
+  confidence: 0.7
+  evidence: HourlyAllocations_Post  Allocates an hourly person to an hourly role on the given account
+    and project
+  reason: 'Same surface as Allocations but for hourly workers: assigning hourly personnel to project roles,
+    i.e. workforce allocation/planning. Alternative reading as project resource capacity management keeps
+    confidence moderate.'
+  recovered_from: vertical-engineering-services-edges.json
 - tag: Persons
   spec_file: bridgit-persons-api-openapi.yml
   capability_id: BC-300.50
