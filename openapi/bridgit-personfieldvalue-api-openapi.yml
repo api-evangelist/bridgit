@@ -1,7 +1,10 @@
-openapi: 3.0.4
+openapi: 3.2.0
 info:
-  title: Bench AccountActivities PersonFieldValue API
-  description: "<h2>Versioning</h2>\n<p>\n    The API is currently at version <code>1.0</code>. All API endpoints (other than\n    authentication) require you to specify the API version as part of the path.\n</p>\n\n<h2>URL Paths</h2>\n<p>\n    Authentication requests should be made to <code>/auth/signin</code>,\n    as documented below. All other API requests should be made to\n    sub-paths of <code>/rp/api/1.0/...</code>.\n</p>\n\n<h2>Authentication</h2>\n<p>\n    API requests are authenticated using an OAuth Bearer token.\n    You can get a token by authenticating your user by sending a\n    POST request to <code>/auth/signin</code>, with \"username and \"password\"\n    parameters form-encoded in the body of the request.\n\n    POST /auth/signin HTTP/1.1\n    Content-Type: application/x-www-form-urlencoded\n\n    username=user@example.com&password=some-secret-password\n</p>\n<p>\n    The response will be a JSON object including both\n    <b>\"access_token\"</b> and <b>\"refresh_token\"</b> property.\n    All other requests against the Bench API should include an\n    authorization header: <code>Authorization: Bearer xxxYYYzzz</code>,\n    where <b>xxxYYYzzz</b> is the value of <b>\"access_token\"</b> in the response.\n    <br><br>\n    For example:\n\n    $ curl https://bench.gobridgit.com/auth/signin -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'username=someone@example.com' --data-urlencode 'password=[...snip...]'\n    {\n        \"access_token\": \"...snip...\",\n        \"token_type\": \"Bearer\",\n        \"refresh_token\": \"...snip...\"\n        \"expiry\": \"2020-01-01T00:00:00.413440849Z\"\n    }\n\n</p>\n\n<p>\n    The refresh token can be used to generate new session by request with <code>/auth/token</code> endpoint:\n\n    POST /auth/token HTTP/1.1\n    Content-Type: application/x-www-form-urlencoded\n\n    grant_type=refresh_token&refresh_token=tGzv3JOkF0XG5Qx2TlKWIA\n</p>\n<p>\n    Note that once the refresh token is used, the previous access and refresh token is no longer valid.\n    <br><br>\n    For example:\n\n    $ curl https://bench.gobridgit.com/auth/token -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'grant_type=refresh_token' --data-urlencode 'refresh_token=[...snip...]'\n    {\n        \"access_token\": \"...snip...\",\n        \"token_type\": \"Bearer\",\n        \"refresh_token\": \"...snip...\"\n        \"expiry\": \"2020-01-01T00:00:00.413440849Z\"\n    }\n</p>\n\n<h2>Pagination</h2>\n<p>\n    Several of the API endpoints are paginated. These are denoted by\n    including the <code>offset</code> (zero-based offset) and <code>limit</code> query\n    parameters. For example, to request the <code>10</code> items,\n    set the <code>offset=0</code> to <code>limit=10</code>.\n    <br>\n    NOTE: the result set contains items with index of 0-9\n    <br>\n    To request the next 10 items (starting at index 10),\n    set the <code>offset=10</code> to <code>limit=10</code>\n</p>\n<p>\n    Responses to paginated API endpoints return a JSON array of objects.\n    If there are results beyond the page you have requested, the server\n    will set a <code>query-has-more: true</code> header in the response.\n</p>\n\n<h2>Request Encoding</h2>\n<p>\n    <code>GET</code> and <code>DELETE</code> requests should have parameters encoded as URL query\n    parameters. Boolean values should be encoded as <code>true</code> and\n    <code>false</code>, not as <code>1</code> and <code>0</code>.\n</p>\n\n<h2>Errors</h2>\n<p>\n    Errors are returned for some response codes such as <code>400 Bad Request</code> in the\n    following format:\n\n    {\n      \"errors\": [\n        {\n          \"errorType\": \"ValidationError\",\n          \"description\": \"The value of Name must be a string with a minimum length of 1 and a maximum length of 8 and not whitespace.\",\n          \"field\": \"Name\",\n          \"values\": [\n            null\n          ]\n        }\n      ],\n      \"title\": \"One or more validation errors occurred.\",\n      \"status\": 400,\n      \"instance\": \"api/v1/accounts/0/persons\",\n      \"requestUid\": \"123e4567-e89b-12d3-a456-426614174000\"\n    }\n</p>\n"
+  title: Bench Person Field Value API
+  description: 'Versioning
+
+
+    The API is currently at version 1.0.'
   version: '1.0'
 servers:
 - url: https://bench.gobridgit.com
@@ -15,8 +18,16 @@ paths:
     get:
       tags:
       - PersonFieldValue
-      summary: Gets all custom field values for the given person.
-      description: '<br/><strong>Permissions</strong><br/>Person: Read<br/>HourlyProfile: Read<br/>Private: Read<br/>Finance: Read'
+      summary: Gets all custom field values for the given person
+      description: 'Permissions
+
+        Person: Read
+
+        HourlyProfile: Read
+
+        Private: Read
+
+        Finance: Read'
       operationId: PersonFieldValue_QueryFieldValues
       parameters:
       - name: accountId
@@ -71,52 +82,116 @@ paths:
       description: 'It is mandatory that the fields with isRequired set to true be passed in as part of the request.
 
 
-
         Example: Say you have 2 person fields on an account "Contact Number" and "Certifications" where isRequired is set to true on "Contact Number".
 
 
         FieldDefinition Example Response - GET PersonFields (/api/v{version}/accounts/{id}/person-fields)
 
-        <code>[<br/>&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;"id":&nbsp;1394,<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name":&nbsp;"Contact&nbsp;Number",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"type":&nbsp;"PhoneNumber",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"isRequired":&nbsp;true,<br/>&nbsp;&nbsp;&nbsp;&nbsp;"isSystem":&nbsp;false,<br/>&nbsp;&nbsp;&nbsp;&nbsp;"isPrivate":&nbsp;false,<br/>&nbsp;&nbsp;&nbsp;&nbsp;"isFinancials":&nbsp;false,<br/>&nbsp;&nbsp;&nbsp;&nbsp;"isLocked":&nbsp;false<br/>&nbsp;&nbsp;},<br/>&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;"id":&nbsp;1395,<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name":&nbsp;"Certifications",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"type":&nbsp;"Text",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"isRequired":&nbsp;false,<br/>&nbsp;&nbsp;&nbsp;&nbsp;"isSystem":&nbsp;false,<br/>&nbsp;&nbsp;&nbsp;&nbsp;"isPrivate":&nbsp;false,<br/>&nbsp;&nbsp;&nbsp;&nbsp;"isFinancials":&nbsp;false,<br/>&nbsp;&nbsp;&nbsp;&nbsp;"isLocked":&nbsp;false<br/>&nbsp;&nbsp;}<br/>]</code>
+        [
 
+        {
+
+        "id": 1394,
+
+        "name": "Contact Number",
+
+        "type": "PhoneNumber",
+
+        "isRequired": true,
+
+        "isSystem": false,
+
+        "isPrivate": false,
+
+        "isFinancials": false,
+
+        "isLocked": false
+
+        },
+
+        {
+
+        "id": 1395,
+
+        "name": "Certifications",
+
+        "type": "Text",
+
+        "isRequired": false,
+
+        "isSystem": false,
+
+        "isPrivate": false,
+
+        "isFinancials": false,
+
+        "isLocked": false
+
+        }
+
+        ]
 
 
         If you only send in the following your request will result in a 400.
 
-        <code>[<br/>&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;"fieldId":&nbsp;1395,<br/>&nbsp;&nbsp;&nbsp;&nbsp;"values":&nbsp;[<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"First&nbsp;Aid"<br/>&nbsp;&nbsp;&nbsp;&nbsp;]<br/>&nbsp;&nbsp;}<br/>]</code>
+        [
+
+        {
+
+        "fieldId": 1395,
+
+        "values": [
+
+        "First Aid"
+
+        ]
+
+        }
+
+        ]
 
 
-        <h2>Validation</h2><b>Single List Selection</b>: A list where only 1 value can be selected. When creating the list, each value should be between 1 and 250 non-empty characters.
+        Validation
+
+        Single List Selection: A list where only 1 value can be selected. When creating the list, each value should be between 1 and 250 non-empty characters.
 
 
-        <b>Multi List Selection</b>: A list where 0 or more values can be selected. When creating the list, each value should be between 1 and 250 non-empty characters.
+        Multi List Selection: A list where 0 or more values can be selected. When creating the list, each value should be between 1 and 250 non-empty characters.
 
 
-        <b>Text</b>: Min length: 0. Max length: 250
+        Text: Min length: 0. Max length: 250
 
 
-        <b>Date selector</b>: Format: dd/MM/yyyy
+        Date selector: Format: dd/MM/yyyy
 
 
-        <b>Other</b>: Max length: 2400
+        Other: Max length: 2400
 
 
-        <b>Checkbox</b>: Accepted values: ```true``` or ```false```
+        Checkbox: Accepted values: ```true``` or ```false```
 
 
-        <b>Currency</b>: <code>^[0-9]{0,15}(\\.[0-9]{0,2})?$</code>
+        Currency: ^[0-9]{0,15}(\\.[0-9]{0,2})?$
 
 
-        <i>Currency should be greater or equal to zero, starts with 0 to 15 digits of ```0-9``` then optionally followed by ```.``` with 0 to 2 digits of ```0-9```</i>
+        Currency should be greater or equal to zero, starts with 0 to 15 digits of ```0-9``` then optionally followed by ```.``` with 0 to 2 digits of ```0-9```
 
 
+        Phone: ^\\+[1-9]\d{10,14}$
 
-        <b>Phone</b>: <code>^\\+[1-9]\d{10,14}$</code>
+
+        Phone starts with a ```+``` followed by 11 to 15 digits of ```0-9``` where the first digit is not ```0```
 
 
-        <i>Phone starts with a ```+``` followed by 11 to 15 digits of ```0-9``` where the first digit is not ```0```</i>
+        Permissions
 
-        <br/><strong>Permissions</strong><br/>Person: Write<br/>HourlyProfile: Write<br/>Private: Read<br/>Finance: Read'
+        Person: Write
+
+        HourlyProfile: Write
+
+        Private: Read
+
+        Finance: Read'
       operationId: PersonFieldValue_SetFieldValues
       parameters:
       - name: accountId
@@ -178,39 +253,48 @@ paths:
       tags:
       - PersonFieldValue
       summary: Update field values on a person
-      description: '<h2>Validation</h2>
-
-        <b>Single List Selection</b>: A list where only 1 value can be selected. When creating the list, each value should be between 1 and 250 non-empty characters.
+      description: 'Validation
 
 
-        <b>Multi List Selection</b>: A list where 0 or more values can be selected. When creating the list, each value should be between 1 and 250 non-empty characters.
+        Single List Selection: A list where only 1 value can be selected. When creating the list, each value should be between 1 and 250 non-empty characters.
 
 
-        <b>Text</b>: Min length: 0. Max length: 250
+        Multi List Selection: A list where 0 or more values can be selected. When creating the list, each value should be between 1 and 250 non-empty characters.
 
 
-        <b>Date selector</b>: Format: dd/MM/yyyy
+        Text: Min length: 0. Max length: 250
 
 
-        <b>Other</b>: Max length: 2400
+        Date selector: Format: dd/MM/yyyy
 
 
-        <b>Checkbox</b>: Accepted values: ```true``` or ```false```
+        Other: Max length: 2400
 
 
-        <b>Currency</b>: <code>^[0-9]{0,15}(\\.[0-9]{0,2})?$</code>
+        Checkbox: Accepted values: ```true``` or ```false```
 
 
-        <i>Currency should be greater or equal to zero, starts with 0 to 15 digits of ```0-9``` then optionally followed by ```.``` with 0 to 2 digits of ```0-9```</i>
+        Currency: ^[0-9]{0,15}(\\.[0-9]{0,2})?$
 
 
+        Currency should be greater or equal to zero, starts with 0 to 15 digits of ```0-9``` then optionally followed by ```.``` with 0 to 2 digits of ```0-9```
 
-        <b>Phone</b>: <code>^\\+[1-9]\d{10,14}$</code>
+
+        Phone: ^\\+[1-9]\d{10,14}$
 
 
-        <i>Phone starts with a ```+``` followed by 11 to 15 digits of ```0-9``` where the first digit is not ```0```</i>
+        Phone starts with a ```+``` followed by 11 to 15 digits of ```0-9``` where the first digit is not ```0```
 
-        <br/><strong>Permissions</strong><br/>Person: Write<br/>HourlyProfile: Write<br/>Private: Read<br/>Finance: Read'
+
+        Permissions
+
+        Person: Write
+
+        HourlyProfile: Write
+
+        Private: Read
+
+        Finance: Read'
       operationId: PersonFieldValue_BulkUpdateFieldValues
       parameters:
       - name: accountId
@@ -270,7 +354,15 @@ paths:
       tags:
       - PersonFieldValue
       summary: Delete one or more custom field values for a person
-      description: '<br/><strong>Permissions</strong><br/>Person: Write<br/>HourlyProfile: Write<br/>Private: Read<br/>Finance: Read'
+      description: 'Permissions
+
+        Person: Write
+
+        HourlyProfile: Write
+
+        Private: Read
+
+        Finance: Read'
       operationId: PersonFieldValue_ClearFieldValues
       parameters:
       - name: accountId
@@ -334,40 +426,49 @@ paths:
     patch:
       tags:
       - PersonFieldValue
-      summary: Update a single field's value(s) for person in the given account.
-      description: '<h2>Validation</h2>
-
-        <b>Single List Selection</b>: A list where only 1 value can be selected. When creating the list, each value should be between 1 and 250 non-empty characters.
+      summary: Update a single field's value(s) for person in the given account
+      description: 'Validation
 
 
-        <b>Multi List Selection</b>: A list where 0 or more values can be selected. When creating the list, each value should be between 1 and 250 non-empty characters.
+        Single List Selection: A list where only 1 value can be selected. When creating the list, each value should be between 1 and 250 non-empty characters.
 
 
-        <b>Text</b>: Min length: 0. Max length: 250
+        Multi List Selection: A list where 0 or more values can be selected. When creating the list, each value should be between 1 and 250 non-empty characters.
 
 
-        <b>Date selector</b>: Format: dd/MM/yyyy
+        Text: Min length: 0. Max length: 250
 
 
-        <b>Other</b>: Max length: 2400
+        Date selector: Format: dd/MM/yyyy
 
 
-        <b>Checkbox</b>: Accepted values: ```true``` or ```false```
+        Other: Max length: 2400
 
 
-        <b>Currency</b>: <code>^[0-9]{0,15}(\\.[0-9]{0,2})?$</code>
+        Checkbox: Accepted values: ```true``` or ```false```
 
 
-        <i>Currency should be greater or equal to zero, starts with 0 to 15 digits of ```0-9``` then optionally followed by ```.``` with 0 to 2 digits of ```0-9```</i>
+        Currency: ^[0-9]{0,15}(\\.[0-9]{0,2})?$
 
 
+        Currency should be greater or equal to zero, starts with 0 to 15 digits of ```0-9``` then optionally followed by ```.``` with 0 to 2 digits of ```0-9```
 
-        <b>Phone</b>: <code>^\\+[1-9]\d{10,14}$</code>
+
+        Phone: ^\\+[1-9]\d{10,14}$
 
 
-        <i>Phone starts with a ```+``` followed by 11 to 15 digits of ```0-9``` where the first digit is not ```0```</i>
+        Phone starts with a ```+``` followed by 11 to 15 digits of ```0-9``` where the first digit is not ```0```
 
-        <br/><strong>Permissions</strong><br/>Person: Write<br/>HourlyProfile: Write<br/>Private: Read<br/>Finance: Read'
+
+        Permissions
+
+        Person: Write
+
+        HourlyProfile: Write
+
+        Private: Read
+
+        Finance: Read'
       operationId: PersonFieldValue_UpdateFieldValue
       parameters:
       - name: accountId
@@ -422,32 +523,6 @@ paths:
           description: Unprocessable Entity
 components:
   schemas:
-    FieldValuesPair:
-      type: object
-      properties:
-        fieldId:
-          type: integer
-          format: int64
-          example: 1394
-        values:
-          type: array
-          items:
-            type: string
-          nullable: true
-          example:
-          - '5195555555'
-      additionalProperties: false
-    FieldValuesRequest:
-      type: object
-      properties:
-        values:
-          type: array
-          items:
-            type: string
-          nullable: true
-          example:
-          - '5195555555'
-      additionalProperties: false
     FieldValuesResponse:
       type: object
       properties:
@@ -456,8 +531,9 @@ components:
           format: int64
           example: 1394
         name:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: Contact Number
         type:
           enum:
@@ -478,10 +554,11 @@ components:
           type: string
           example: PhoneNumber
         values:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             type: string
-          nullable: true
           example:
           - '5195555555'
         isRequired:
@@ -496,10 +573,39 @@ components:
           type: boolean
           example: true
         lastModifiedOn:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
           example: '2021-05-27T10:58:23.530Z'
+      additionalProperties: false
+    FieldValuesRequest:
+      type: object
+      properties:
+        values:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          example:
+          - '5195555555'
+      additionalProperties: false
+    FieldValuesPair:
+      type: object
+      properties:
+        fieldId:
+          type: integer
+          format: int64
+          example: 1394
+        values:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          example:
+          - '5195555555'
       additionalProperties: false
   securitySchemes:
     Bearer:

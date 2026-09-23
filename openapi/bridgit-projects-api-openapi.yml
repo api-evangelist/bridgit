@@ -1,7 +1,10 @@
-openapi: 3.0.4
+openapi: 3.2.0
 info:
-  title: Bench AccountActivities Projects API
-  description: "<h2>Versioning</h2>\n<p>\n    The API is currently at version <code>1.0</code>. All API endpoints (other than\n    authentication) require you to specify the API version as part of the path.\n</p>\n\n<h2>URL Paths</h2>\n<p>\n    Authentication requests should be made to <code>/auth/signin</code>,\n    as documented below. All other API requests should be made to\n    sub-paths of <code>/rp/api/1.0/...</code>.\n</p>\n\n<h2>Authentication</h2>\n<p>\n    API requests are authenticated using an OAuth Bearer token.\n    You can get a token by authenticating your user by sending a\n    POST request to <code>/auth/signin</code>, with \"username and \"password\"\n    parameters form-encoded in the body of the request.\n\n    POST /auth/signin HTTP/1.1\n    Content-Type: application/x-www-form-urlencoded\n\n    username=user@example.com&password=some-secret-password\n</p>\n<p>\n    The response will be a JSON object including both\n    <b>\"access_token\"</b> and <b>\"refresh_token\"</b> property.\n    All other requests against the Bench API should include an\n    authorization header: <code>Authorization: Bearer xxxYYYzzz</code>,\n    where <b>xxxYYYzzz</b> is the value of <b>\"access_token\"</b> in the response.\n    <br><br>\n    For example:\n\n    $ curl https://bench.gobridgit.com/auth/signin -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'username=someone@example.com' --data-urlencode 'password=[...snip...]'\n    {\n        \"access_token\": \"...snip...\",\n        \"token_type\": \"Bearer\",\n        \"refresh_token\": \"...snip...\"\n        \"expiry\": \"2020-01-01T00:00:00.413440849Z\"\n    }\n\n</p>\n\n<p>\n    The refresh token can be used to generate new session by request with <code>/auth/token</code> endpoint:\n\n    POST /auth/token HTTP/1.1\n    Content-Type: application/x-www-form-urlencoded\n\n    grant_type=refresh_token&refresh_token=tGzv3JOkF0XG5Qx2TlKWIA\n</p>\n<p>\n    Note that once the refresh token is used, the previous access and refresh token is no longer valid.\n    <br><br>\n    For example:\n\n    $ curl https://bench.gobridgit.com/auth/token -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'grant_type=refresh_token' --data-urlencode 'refresh_token=[...snip...]'\n    {\n        \"access_token\": \"...snip...\",\n        \"token_type\": \"Bearer\",\n        \"refresh_token\": \"...snip...\"\n        \"expiry\": \"2020-01-01T00:00:00.413440849Z\"\n    }\n</p>\n\n<h2>Pagination</h2>\n<p>\n    Several of the API endpoints are paginated. These are denoted by\n    including the <code>offset</code> (zero-based offset) and <code>limit</code> query\n    parameters. For example, to request the <code>10</code> items,\n    set the <code>offset=0</code> to <code>limit=10</code>.\n    <br>\n    NOTE: the result set contains items with index of 0-9\n    <br>\n    To request the next 10 items (starting at index 10),\n    set the <code>offset=10</code> to <code>limit=10</code>\n</p>\n<p>\n    Responses to paginated API endpoints return a JSON array of objects.\n    If there are results beyond the page you have requested, the server\n    will set a <code>query-has-more: true</code> header in the response.\n</p>\n\n<h2>Request Encoding</h2>\n<p>\n    <code>GET</code> and <code>DELETE</code> requests should have parameters encoded as URL query\n    parameters. Boolean values should be encoded as <code>true</code> and\n    <code>false</code>, not as <code>1</code> and <code>0</code>.\n</p>\n\n<h2>Errors</h2>\n<p>\n    Errors are returned for some response codes such as <code>400 Bad Request</code> in the\n    following format:\n\n    {\n      \"errors\": [\n        {\n          \"errorType\": \"ValidationError\",\n          \"description\": \"The value of Name must be a string with a minimum length of 1 and a maximum length of 8 and not whitespace.\",\n          \"field\": \"Name\",\n          \"values\": [\n            null\n          ]\n        }\n      ],\n      \"title\": \"One or more validation errors occurred.\",\n      \"status\": 400,\n      \"instance\": \"api/v1/accounts/0/persons\",\n      \"requestUid\": \"123e4567-e89b-12d3-a456-426614174000\"\n    }\n</p>\n"
+  title: Bench Projects API
+  description: 'Versioning
+
+
+    The API is currently at version 1.0.'
   version: '1.0'
 servers:
 - url: https://bench.gobridgit.com
@@ -16,7 +19,15 @@ paths:
       tags:
       - Projects
       summary: Gets all projects in the given account
-      description: '<strong>NOTE:</strong> If there are more projects in the account than were returned, there will be a "query-has-more" header that will be set to true.<br/><strong>Permissions</strong><br/>Project: Read<br/>Role: Read<br/>HourlyRole: Read'
+      description: 'NOTE: If there are more projects in the account than were returned, there will be a "query-has-more" header that will be set to true.
+
+        Permissions
+
+        Project: Read
+
+        Role: Read
+
+        HourlyRole: Read'
       operationId: Projects_Query
       parameters:
       - name: accountId
@@ -230,9 +241,17 @@ paths:
         If you add a project with a type of Opportunity, it will be created with a state of Pursuit.
 
 
-        The <strong>"winPercent"</strong> is associated with an Opportunity, you can create an Opportunity with a winPercent but not for an Awarded project.
+        The "winPercent" is associated with an Opportunity, you can create an Opportunity with a winPercent but not for an Awarded project.
 
-        <strong>NOTE:</strong> Opportunities do not count towards allocation statistics so, any roles and allocations set on the project will not cause conflicts, issues, over-allocations etc.<br/><strong>Permissions</strong><br/>Project: Write<br/>Private: Read<br/>Finance: Read'
+        NOTE: Opportunities do not count towards allocation statistics so, any roles and allocations set on the project will not cause conflicts, issues, over-allocations etc.
+
+        Permissions
+
+        Project: Write
+
+        Private: Read
+
+        Finance: Read'
       operationId: Projects_Post
       parameters:
       - name: accountId
@@ -466,8 +485,16 @@ paths:
     post:
       tags:
       - Projects
-      summary: Gets all projects in the given account filter by project ids.
-      description: '<strong>NOTE:</strong> If there are more projects in the account than were returned, there will be a "query-has-more" header that will be set to true.<br/><strong>Permissions</strong><br/>Project: Read<br/>Role: Read<br/>HourlyRole: Read'
+      summary: Gets all projects in the given account filter by project ids
+      description: 'NOTE: If there are more projects in the account than were returned, there will be a "query-has-more" header that will be set to true.
+
+        Permissions
+
+        Project: Read
+
+        Role: Read
+
+        HourlyRole: Read'
       operationId: Projects_QueryFilter
       parameters:
       - name: accountId
@@ -621,7 +648,7 @@ paths:
     put:
       tags:
       - Projects
-      summary: Updates a project to set and externalId that can be referenced by external systems.
+      summary: Updates a project to set and externalId that can be referenced by external…
       operationId: Projects_PutExternalId
       parameters:
       - name: accountId
@@ -668,7 +695,13 @@ paths:
       tags:
       - Projects
       summary: Gets details for the given project
-      description: '<br/><strong>Permissions</strong><br/>Project: Read<br/>Role: Read<br/>HourlyRole: Read'
+      description: 'Permissions
+
+        Project: Read
+
+        Role: Read
+
+        HourlyRole: Read'
       operationId: Projects_Get
       parameters:
       - name: accountId
@@ -814,12 +847,101 @@ paths:
     patch:
       tags:
       - Projects
-      summary: 'Update a project in the given account. Each of the fields in the request body is optional - only fields that are present in the request will be updated.
+      summary: Update a project in the given account.
+      description: 'To update a project''s dates you need the ProjectDates permission, which is separate from the Project Write permission that is required to update other project details.
 
-        When changing the start or end dates for a project, you can customize how the start and end dates for roles and phases will change in response. See the Model below for details.
+        This is because changing project dates can have a significant impact on any associated roles and phases, and therefore only users with the ProjectDates permission should be allowed to make those changes.
 
-        Note that roles or phases whose start and end dates change such that the start date is after the end date will be automatically deleted from the project.'
-      description: "To update a project's dates you need the ProjectDates permission, which is separate from the Project Write permission that is required to update other project details. \nThis is because changing project dates can have a significant impact on any associated roles and phases, and therefore only users with the ProjectDates permission should be allowed to make those changes.\n\n\nIf the <strong>\"shiftDates\"</strong> property is true and you specify a changed project start or end date in this request,\nthen the project's start and end dates, and the start and end dates for all roles and phases\nwill be adjusted by the same amount. If this property is set to true, then you must only send\nEITHER startDate OR endDate - behavior when setting both is to shift with project start date..\n\n            \nIf the <strong>\"removeRoleSetup\"</strong> property is true, then all roles are removed from the given project.\n\n            \nIf the <strong>\"expandRole\"</strong> property is true and you specify a changed project start to be earlier than the\ncurrent start date, or you specify a changed project end date to be later than the current\nend date, then any roles that share the same date will be expanded so that they\nstill start or end on the same date that the project starts or ends. The duration of those\nroles will be expanded in this case.\n\n            \nFor example, take a project running from February 1, 2020 to July 1, 2020, where Role A runs from\nFebruary 1, 2020 to March 1, 2020, and Role B runs from February 15, 2020 to July 1, 2020.\nIf a PATCH request is sent with startDate = January 15, 2020 and expandRole = true, then\nthe project will be modified to run from January 15, 2020 to July 1, 2020, role A will be modified\nto run from January 15, 2020 to March 1, 2020, and role B will remain unmodified. If instead you\nspecify expandRole = false, then the roles will be unmodified in this situation.\n\n            \nIf the <strong>\"expandPhases\"</strong> property is true and you specify a changed project start to be earlier than the\ncurrent start date, or you specify a changed project end date to be later than the current\nend date, then any phases that share the same date will be expanded so that they\nstill start or end on the same date that the project starts or ends. The duration of those\nphases will be expanded in this case.\n\n            \nFor example, take a project running from February 1, 2020 to July 1, 2020, where Phase A runs from\nFebruary 1, 2020 to March 1, 2020, and Phase B runs from March 2, 2020 to July 1, 2020.\nIf a PATCH request is sent with startDate = January 15, 2020 and expandPhases = true, then\nthe project will be modified to run from January 15, 2020 to July 1, 2020, Phase A will be modified\nto run from January 15, 2020 to March 1, 2020, and Phase B will remain unmodified. If instead you\nspecify expandPhase = false, then the phases will be unmodified in this situation.\n\n            \nIf you update a project to a <strong>\"type\"</strong> of Awarded without specifying a state, it will default to a date based state.\nYou can specify a state, but if you pass Active, Completed or Upcoming the API will ignore those values and return a date based state.\nIf you set it to Canceled it will cancel the project and the allocation stats for the account will no longer be affected by the project.\nYou can re-activate a project by passing Active, Completed or Upcoming and the API will return the proper date based state.\nAn Awarded project can only have a state of Active, Completed, Upcoming or Canceled.\n\nIf you update a project to type of Opportunity without specifying a state, default to a state of Pursuit.\nAn Opportunity can only have a state of Pursuit or Lost.\n\nThe <strong>\"winPercent\"</strong> is associated with an Opportunity, you can update the winPercent for an Opportunity in Pursuit state but not for an Awarded project.\n<strong>NOTE:</strong> Opportunities do not count towards allocation statistics so, any roles and allocations set on the project will not cause conflicts, issues, over-allocations etc.<br/><strong>Permissions</strong><br/>Project: Write<br/>ProjectDates: Write<br/>Role: Read<br/>HourlyRole: Read"
+
+        If the "shiftDates" property is true and you specify a changed project start or end date in this request,
+
+        then the project''s start and end dates, and the start and end dates for all roles and phases
+
+        will be adjusted by the same amount. If this property is set to true, then you must only send
+
+        EITHER startDate OR endDate - behavior when setting both is to shift with project start date..
+
+
+        If the "removeRoleSetup" property is true, then all roles are removed from the given project.
+
+
+        If the "expandRole" property is true and you specify a changed project start to be earlier than the
+
+        current start date, or you specify a changed project end date to be later than the current
+
+        end date, then any roles that share the same date will be expanded so that they
+
+        still start or end on the same date that the project starts or ends. The duration of those
+
+        roles will be expanded in this case.
+
+
+        For example, take a project running from February 1, 2020 to July 1, 2020, where Role A runs from
+
+        February 1, 2020 to March 1, 2020, and Role B runs from February 15, 2020 to July 1, 2020.
+
+        If a PATCH request is sent with startDate = January 15, 2020 and expandRole = true, then
+
+        the project will be modified to run from January 15, 2020 to July 1, 2020, role A will be modified
+
+        to run from January 15, 2020 to March 1, 2020, and role B will remain unmodified. If instead you
+
+        specify expandRole = false, then the roles will be unmodified in this situation.
+
+
+        If the "expandPhases" property is true and you specify a changed project start to be earlier than the
+
+        current start date, or you specify a changed project end date to be later than the current
+
+        end date, then any phases that share the same date will be expanded so that they
+
+        still start or end on the same date that the project starts or ends. The duration of those
+
+        phases will be expanded in this case.
+
+
+        For example, take a project running from February 1, 2020 to July 1, 2020, where Phase A runs from
+
+        February 1, 2020 to March 1, 2020, and Phase B runs from March 2, 2020 to July 1, 2020.
+
+        If a PATCH request is sent with startDate = January 15, 2020 and expandPhases = true, then
+
+        the project will be modified to run from January 15, 2020 to July 1, 2020, Phase A will be modified
+
+        to run from January 15, 2020 to March 1, 2020, and Phase B will remain unmodified. If instead you
+
+        specify expandPhase = false, then the phases will be unmodified in this situation.
+
+
+        If you update a project to a "type" of Awarded without specifying a state, it will default to a date based state.
+
+        You can specify a state, but if you pass Active, Completed or Upcoming the API will ignore those values and return a date based state.
+
+        If you set it to Canceled it will cancel the project and the allocation stats for the account will no longer be affected by the project.
+
+        You can re-activate a project by passing Active, Completed or Upcoming and the API will return the proper date based state.
+
+        An Awarded project can only have a state of Active, Completed, Upcoming or Canceled.
+
+
+        If you update a project to type of Opportunity without specifying a state, default to a state of Pursuit.
+
+        An Opportunity can only have a state of Pursuit or Lost.
+
+
+        The "winPercent" is associated with an Opportunity, you can update the winPercent for an Opportunity in Pursuit state but not for an Awarded project.
+
+        NOTE: Opportunities do not count towards allocation statistics so, any roles and allocations set on the project will not cause conflicts, issues, over-allocations etc.
+
+        Permissions
+
+        Project: Write
+
+        ProjectDates: Write
+
+        Role: Read
+
+        HourlyRole: Read'
       operationId: Projects_Update
       parameters:
       - name: accountId
@@ -1066,7 +1188,9 @@ paths:
       tags:
       - Projects
       summary: Delete a project
-      description: '<br/><strong>Permissions</strong><br/>Project: Write'
+      description: 'Permissions
+
+        Project: Write'
       operationId: Projects_Delete
       parameters:
       - name: accountId
@@ -1096,67 +1220,78 @@ paths:
           description: Forbidden - User doesn't have permissions on this resource, or the project couldn't be found
 components:
   schemas:
-    FieldValuesPair:
+    ProjectFilterPredicatesFilter:
       type: object
       properties:
-        fieldId:
+        offset:
           type: integer
-          format: int64
-          example: 1394
-        values:
-          type: array
+          format: int32
+        limit:
+          type: integer
+          format: int32
+        predicates:
+          $ref: '#/components/schemas/ProjectFilterPredicates'
+      additionalProperties: false
+    ProjectFilterPredicates:
+      type: object
+      properties:
+        projectIds:
+          type:
+          - array
+          - 'null'
           items:
-            type: string
-          nullable: true
-          example:
-          - '5195555555'
-      additionalProperties: false
-    ExternalIdRequest:
-      type: object
-      properties:
-        externalId:
+            type: integer
+            format: int64
+        projectState:
+          enum:
+          - Canceled
+          - Upcoming
+          - Active
+          - Complete
+          - Pursuit
+          - Lost
+          - All
           type: string
-          nullable: true
-      additionalProperties: false
-    ProjectPhaseResponse:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-          example: 1234
         name:
-          type: string
-          nullable: true
-          example: Pre-Construction
-        startDate:
+          type:
+          - string
+          - 'null'
+        issues:
+          enum:
+          - 0
+          - 1
+          - 2
+          type: integer
+          format: int32
+        relativeDate:
           type: string
           format: date-time
-          example: '2020-01-01'
-        endDate:
-          type: string
-          format: date-time
-          example: '2020-12-31'
-        lastModifiedOn:
-          type: string
-          format: date-time
-          example: '2021-05-27T10:58:23.530Z'
+        includeProjectNumber:
+          type: boolean
       additionalProperties: false
-    ProjectResponse:
+    ProjectCurrentPhase:
       type: object
       properties:
-        id:
-          type: integer
-          format: int64
-          example: 8673
         name:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
+          example: Precon
+      additionalProperties: false
+    NewProjectRequest:
+      type: object
+      properties:
+        name:
+          type:
+          - string
+          - 'null'
           example: Ahrens Lofts
         colour:
-          type: string
-          description: 'The color associated with the project, expressed as a web color string: a ''#'' character, followed by a six-digit hexadecimal number.'
-          nullable: true
+          pattern: ^#[0-9a-fA-F]{6}$
+          type:
+          - string
+          - 'null'
+          description: 'The color associated with the project, expressed as a web color string: a ''#'' character, followed by a six-digit hexadecimal number. If not provided, color rules will be evaluated.'
           example: '#4B6BAA'
         startDate:
           type: string
@@ -1175,7 +1310,10 @@ components:
           format: date-span
           example: '17:00:00'
         workDays:
-          type: array
+          minItems: 1
+          type:
+          - array
+          - 'null'
           items:
             enum:
             - 0
@@ -1187,7 +1325,149 @@ components:
             - 6
             type: integer
             format: int32
-          nullable: true
+          example:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+        type:
+          enum:
+          - Awarded
+          - Opportunity
+          type: string
+        winPercent:
+          maximum: 100
+          minimum: 0
+          type:
+          - integer
+          - 'null'
+          format: int32
+          example: 100
+        fields:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/FieldValuesPair'
+        groupings:
+          minItems: 1
+          type:
+          - array
+          - 'null'
+          items:
+            type: integer
+            format: int64
+        description:
+          type:
+          - string
+          - 'null'
+          example: Project Description
+        phases:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/ProjectPhaseRequest'
+      additionalProperties: false
+    ProjectPhaseResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 1234
+        name:
+          type:
+          - string
+          - 'null'
+          example: Pre-Construction
+        startDate:
+          type: string
+          format: date-time
+          example: '2020-01-01'
+        endDate:
+          type: string
+          format: date-time
+          example: '2020-12-31'
+        lastModifiedOn:
+          type: string
+          format: date-time
+          example: '2021-05-27T10:58:23.530Z'
+      additionalProperties: false
+    ProjectPhaseRequest:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 1234
+        startDate:
+          type: string
+          format: date-time
+          example: '2020-01-01'
+        endDate:
+          type: string
+          format: date-time
+          example: '2020-12-31'
+      additionalProperties: false
+    ExternalIdRequest:
+      type: object
+      properties:
+        externalId:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    ProjectResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 8673
+        name:
+          type:
+          - string
+          - 'null'
+          example: Ahrens Lofts
+        colour:
+          type:
+          - string
+          - 'null'
+          description: 'The color associated with the project, expressed as a web color string: a ''#'' character, followed by a six-digit hexadecimal number.'
+          example: '#4B6BAA'
+        startDate:
+          type: string
+          format: date-time
+          example: '2019-01-01'
+        endDate:
+          type: string
+          format: date-time
+          example: '2020-12-31'
+        startTime:
+          type: string
+          format: date-span
+          example: 08:00:00
+        endTime:
+          type: string
+          format: date-span
+          example: '17:00:00'
+        workDays:
+          type:
+          - array
+          - 'null'
+          items:
+            enum:
+            - 0
+            - 1
+            - 2
+            - 3
+            - 4
+            - 5
+            - 6
+            type: integer
+            format: int32
           example:
           - 1
           - 2
@@ -1205,9 +1485,10 @@ components:
           type: string
           example: Active
         winPercent:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int32
-          nullable: true
           example: 100
         unfilledRoles:
           type: integer
@@ -1252,194 +1533,62 @@ components:
           type: string
           example: Awarded
         currentPhases:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             $ref: '#/components/schemas/ProjectCurrentPhase'
-          nullable: true
         phases:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             $ref: '#/components/schemas/ProjectPhaseResponse'
-          nullable: true
         groupings:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             type: integer
             format: int64
-          nullable: true
           example:
           - 1
           - 2
           - 3
         description:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: Project Description
         truncatedDescription:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: Project Desc
         externalId:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         projectNumber:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       additionalProperties: false
-    NewProjectRequest:
+    FieldValuesPair:
       type: object
       properties:
-        name:
-          type: string
-          nullable: true
-          example: Ahrens Lofts
-        colour:
-          pattern: ^#[0-9a-fA-F]{6}$
-          type: string
-          description: 'The color associated with the project, expressed as a web color string: a ''#'' character, followed by a six-digit hexadecimal number. If not provided, color rules will be evaluated.'
-          nullable: true
-          example: '#4B6BAA'
-        startDate:
-          type: string
-          format: date-time
-          example: '2019-01-01'
-        endDate:
-          type: string
-          format: date-time
-          example: '2020-12-31'
-        startTime:
-          type: string
-          format: date-span
-          example: 08:00:00
-        endTime:
-          type: string
-          format: date-span
-          example: '17:00:00'
-        workDays:
-          minItems: 1
-          type: array
-          items:
-            enum:
-            - 0
-            - 1
-            - 2
-            - 3
-            - 4
-            - 5
-            - 6
-            type: integer
-            format: int32
-          nullable: true
-          example:
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-        type:
-          enum:
-          - Awarded
-          - Opportunity
-          type: string
-        winPercent:
-          maximum: 100
-          minimum: 0
-          type: integer
-          format: int32
-          nullable: true
-          example: 100
-        fields:
-          type: array
-          items:
-            $ref: '#/components/schemas/FieldValuesPair'
-          nullable: true
-        groupings:
-          minItems: 1
-          type: array
-          items:
-            type: integer
-            format: int64
-          nullable: true
-        description:
-          type: string
-          nullable: true
-          example: Project Description
-        phases:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProjectPhaseRequest'
-          nullable: true
-      additionalProperties: false
-    ProjectPhaseRequest:
-      type: object
-      properties:
-        id:
+        fieldId:
           type: integer
           format: int64
-          example: 1234
-        startDate:
-          type: string
-          format: date-time
-          example: '2020-01-01'
-        endDate:
-          type: string
-          format: date-time
-          example: '2020-12-31'
-      additionalProperties: false
-    ProjectFilterPredicates:
-      type: object
-      properties:
-        projectIds:
-          type: array
+          example: 1394
+        values:
+          type:
+          - array
+          - 'null'
           items:
-            type: integer
-            format: int64
-          nullable: true
-        projectState:
-          enum:
-          - Canceled
-          - Upcoming
-          - Active
-          - Complete
-          - Pursuit
-          - Lost
-          - All
-          type: string
-        name:
-          type: string
-          nullable: true
-        issues:
-          enum:
-          - 0
-          - 1
-          - 2
-          type: integer
-          format: int32
-        relativeDate:
-          type: string
-          format: date-time
-        includeProjectNumber:
-          type: boolean
-      additionalProperties: false
-    ProjectCurrentPhase:
-      type: object
-      properties:
-        name:
-          type: string
-          nullable: true
-          example: Precon
-      additionalProperties: false
-    ProjectFilterPredicatesFilter:
-      type: object
-      properties:
-        offset:
-          type: integer
-          format: int32
-        limit:
-          type: integer
-          format: int32
-        predicates:
-          $ref: '#/components/schemas/ProjectFilterPredicates'
+            type: string
+          example:
+          - '5195555555'
       additionalProperties: false
   securitySchemes:
     Bearer:

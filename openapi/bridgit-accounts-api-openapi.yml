@@ -1,7 +1,10 @@
-openapi: 3.0.4
+openapi: 3.2.0
 info:
-  title: Bench AccountActivities Accounts API
-  description: "<h2>Versioning</h2>\n<p>\n    The API is currently at version <code>1.0</code>. All API endpoints (other than\n    authentication) require you to specify the API version as part of the path.\n</p>\n\n<h2>URL Paths</h2>\n<p>\n    Authentication requests should be made to <code>/auth/signin</code>,\n    as documented below. All other API requests should be made to\n    sub-paths of <code>/rp/api/1.0/...</code>.\n</p>\n\n<h2>Authentication</h2>\n<p>\n    API requests are authenticated using an OAuth Bearer token.\n    You can get a token by authenticating your user by sending a\n    POST request to <code>/auth/signin</code>, with \"username and \"password\"\n    parameters form-encoded in the body of the request.\n\n    POST /auth/signin HTTP/1.1\n    Content-Type: application/x-www-form-urlencoded\n\n    username=user@example.com&password=some-secret-password\n</p>\n<p>\n    The response will be a JSON object including both\n    <b>\"access_token\"</b> and <b>\"refresh_token\"</b> property.\n    All other requests against the Bench API should include an\n    authorization header: <code>Authorization: Bearer xxxYYYzzz</code>,\n    where <b>xxxYYYzzz</b> is the value of <b>\"access_token\"</b> in the response.\n    <br><br>\n    For example:\n\n    $ curl https://bench.gobridgit.com/auth/signin -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'username=someone@example.com' --data-urlencode 'password=[...snip...]'\n    {\n        \"access_token\": \"...snip...\",\n        \"token_type\": \"Bearer\",\n        \"refresh_token\": \"...snip...\"\n        \"expiry\": \"2020-01-01T00:00:00.413440849Z\"\n    }\n\n</p>\n\n<p>\n    The refresh token can be used to generate new session by request with <code>/auth/token</code> endpoint:\n\n    POST /auth/token HTTP/1.1\n    Content-Type: application/x-www-form-urlencoded\n\n    grant_type=refresh_token&refresh_token=tGzv3JOkF0XG5Qx2TlKWIA\n</p>\n<p>\n    Note that once the refresh token is used, the previous access and refresh token is no longer valid.\n    <br><br>\n    For example:\n\n    $ curl https://bench.gobridgit.com/auth/token -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'grant_type=refresh_token' --data-urlencode 'refresh_token=[...snip...]'\n    {\n        \"access_token\": \"...snip...\",\n        \"token_type\": \"Bearer\",\n        \"refresh_token\": \"...snip...\"\n        \"expiry\": \"2020-01-01T00:00:00.413440849Z\"\n    }\n</p>\n\n<h2>Pagination</h2>\n<p>\n    Several of the API endpoints are paginated. These are denoted by\n    including the <code>offset</code> (zero-based offset) and <code>limit</code> query\n    parameters. For example, to request the <code>10</code> items,\n    set the <code>offset=0</code> to <code>limit=10</code>.\n    <br>\n    NOTE: the result set contains items with index of 0-9\n    <br>\n    To request the next 10 items (starting at index 10),\n    set the <code>offset=10</code> to <code>limit=10</code>\n</p>\n<p>\n    Responses to paginated API endpoints return a JSON array of objects.\n    If there are results beyond the page you have requested, the server\n    will set a <code>query-has-more: true</code> header in the response.\n</p>\n\n<h2>Request Encoding</h2>\n<p>\n    <code>GET</code> and <code>DELETE</code> requests should have parameters encoded as URL query\n    parameters. Boolean values should be encoded as <code>true</code> and\n    <code>false</code>, not as <code>1</code> and <code>0</code>.\n</p>\n\n<h2>Errors</h2>\n<p>\n    Errors are returned for some response codes such as <code>400 Bad Request</code> in the\n    following format:\n\n    {\n      \"errors\": [\n        {\n          \"errorType\": \"ValidationError\",\n          \"description\": \"The value of Name must be a string with a minimum length of 1 and a maximum length of 8 and not whitespace.\",\n          \"field\": \"Name\",\n          \"values\": [\n            null\n          ]\n        }\n      ],\n      \"title\": \"One or more validation errors occurred.\",\n      \"status\": 400,\n      \"instance\": \"api/v1/accounts/0/persons\",\n      \"requestUid\": \"123e4567-e89b-12d3-a456-426614174000\"\n    }\n</p>\n"
+  title: Bench Accounts API
+  description: 'Versioning
+
+
+    The API is currently at version 1.0.'
   version: '1.0'
 servers:
 - url: https://bench.gobridgit.com
@@ -15,7 +18,7 @@ paths:
     get:
       tags:
       - Accounts
-      summary: Get all accounts that the user has access to.
+      summary: Get all accounts that the user has access to
       operationId: Accounts_Query
       parameters:
       - name: offset
@@ -63,12 +66,8 @@ paths:
     post:
       tags:
       - Accounts
-      summary: 'Get all accounts that the user has access to, filter by name (contains), account ids, organization ids, and/or account states (0 = Active, 1 = Deactivated, 2 = All).
-
-        Sort options include: name = 0, numProjects = 1, numPeople = 2, numMembers = 3 and organizationId = 4
-
-        Sort order options include: asc = 0, desc = 1'
-      description: <strong>NOTE:</strong> Paging limit defaults to 50, and is maximized at 100 items per request.  If there are more accounts than were returned, there will be a "query-has-more" header that will be set to true.
+      summary: Get all accounts that the user has access to, filter by name (contains)…
+      description: 'NOTE: Paging limit defaults to 50, and is maximized at 100 items per request. If there are more accounts than were returned, there will be a "query-has-more" header that will be set to true.'
       operationId: Accounts_QueryFilter
       requestBody:
         content:
@@ -113,7 +112,9 @@ paths:
       tags:
       - Accounts
       summary: Gets details for the given account
-      description: '<br/><strong>Permissions</strong><br/>Account: Read'
+      description: 'Permissions
+
+        Account: Read'
       operationId: Accounts_Get
       parameters:
       - name: id
@@ -147,7 +148,15 @@ paths:
       tags:
       - Accounts
       summary: Get all custom field values for all people for the given account
-      description: '<br/><strong>Permissions</strong><br/>HourlyProfile: Read<br/>Person: Read<br/>Private: Read<br/>Finance: Read'
+      description: 'Permissions
+
+        HourlyProfile: Read
+
+        Person: Read
+
+        Private: Read
+
+        Finance: Read'
       operationId: Accounts_QueryProfiles
       parameters:
       - name: id
@@ -240,7 +249,13 @@ paths:
       tags:
       - Accounts
       summary: Get all custom field values for all projects for the given account
-      description: '<br/><strong>Permissions</strong><br/>Project: Read<br/>Private: Read<br/>Finance: Read'
+      description: 'Permissions
+
+        Project: Read
+
+        Private: Read
+
+        Finance: Read'
       operationId: Accounts_QueryProjectFieldValues
       parameters:
       - name: id
@@ -331,7 +346,15 @@ paths:
       tags:
       - Accounts
       summary: Get all Tasks for all projects in the given account
-      description: '<br/><strong>Permissions</strong><br/>Project: Read<br/>Person: Read<br/>Role: Read<br/>Allocation: Read'
+      description: 'Permissions
+
+        Project: Read
+
+        Person: Read
+
+        Role: Read
+
+        Allocation: Read'
       operationId: Accounts_QueryTasks
       parameters:
       - name: id
@@ -465,7 +488,13 @@ paths:
       tags:
       - Accounts
       summary: Get all categories for all projects in the given account
-      description: '<br/><strong>Permissions</strong><br/>Project: Read<br/>Role: Read<br/>HourlyRole: Read'
+      description: 'Permissions
+
+        Project: Read
+
+        Role: Read
+
+        HourlyRole: Read'
       operationId: Accounts_QueryRoleCategories
       parameters:
       - name: id
@@ -523,7 +552,11 @@ paths:
       tags:
       - Accounts
       summary: Get all Salaried roles for all projects in the given account
-      description: '<br/><strong>Permissions</strong><br/>Role: Read<br/>Finance: Read'
+      description: 'Permissions
+
+        Role: Read
+
+        Finance: Read'
       operationId: Accounts_QueryRoles
       parameters:
       - name: id
@@ -663,7 +696,11 @@ paths:
       tags:
       - Accounts
       summary: Get all Hourly roles for all projects in the given account
-      description: '<br/><strong>Permissions</strong><br/>HourlyRole: Read<br/>Finance: Read'
+      description: 'Permissions
+
+        HourlyRole: Read
+
+        Finance: Read'
       operationId: Accounts_QueryHourlyRoles
       parameters:
       - name: id
@@ -787,7 +824,13 @@ paths:
       tags:
       - Accounts
       summary: Gets the persons certifications for the given account
-      description: '<br/><strong>Permissions</strong><br/>HourlyProfile: Read<br/>Person: Read<br/>Private: Read'
+      description: 'Permissions
+
+        HourlyProfile: Read
+
+        Person: Read
+
+        Private: Read'
       operationId: Accounts_QueryPersonCertifications
       parameters:
       - name: id
@@ -866,7 +909,9 @@ paths:
       tags:
       - Accounts
       summary: Gets the user profiles for the given account
-      description: '<br/><strong>Permissions</strong><br/>Account: Read'
+      description: 'Permissions
+
+        Account: Read'
       operationId: Accounts_QueryUserProfiles
       parameters:
       - name: id
@@ -931,11 +976,23 @@ paths:
     post:
       tags:
       - Accounts
-      summary: Query the account for instances where two or more persons have collaborated on the same project
+      summary: Query the account for instances where two or more persons have collaborated on…
       description: 'When a project ID is supplied, the results will be constrained to the persons within that project.
 
 
-        If the project ID is omitted, the results will pull for the entire account and can be filtered by person IDs.<br/><strong>Permissions</strong><br/>Role: Read<br/>Allocation: Read<br/>Person: Read<br/>HourlyRole: Read<br/>HourlyAllocation: Read'
+        If the project ID is omitted, the results will pull for the entire account and can be filtered by person IDs.
+
+        Permissions
+
+        Role: Read
+
+        Allocation: Read
+
+        Person: Read
+
+        HourlyRole: Read
+
+        HourlyAllocation: Read'
       operationId: Accounts_QueryCollaborationMatrix
       parameters:
       - name: id
@@ -982,373 +1039,6 @@ paths:
           description: Forbidden
 components:
   schemas:
-    CollaborationMatrixProject:
-      type: object
-      properties:
-        name:
-          type: string
-          nullable: true
-        personIds:
-          type: array
-          items:
-            type: integer
-            format: int64
-          nullable: true
-        id:
-          type: integer
-          format: int64
-          nullable: true
-        hcopId:
-          type: string
-          format: uuid
-          nullable: true
-      additionalProperties: false
-    RoleNotificationData:
-      type: object
-      properties:
-        notifiedOn:
-          type: string
-          format: date-time
-        recipientIds:
-          type: array
-          items:
-            type: integer
-            format: int64
-          nullable: true
-      additionalProperties: false
-    AccountResponse:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-          example: 45
-        name:
-          type: string
-          nullable: true
-          example: A Great Account
-        logoUrl:
-          type: string
-          nullable: true
-          example: http://www.example.com/logo.png
-        status:
-          enum:
-          - Active
-          - Deactivated
-          - All
-          type: string
-          example: Active
-        numProjects:
-          type: integer
-          format: int32
-          example: 14
-        numPeople:
-          type: integer
-          format: int32
-          example: 68
-        numMembers:
-          type: integer
-          format: int32
-          example: 7
-        expiryDate:
-          type: string
-          format: date-time
-          nullable: true
-          example: '2030-12-31'
-        totalPeopleAttachmentBytes:
-          type: integer
-          format: int64
-          example: 512
-        useMetricUnits:
-          type: boolean
-          description: The account level flag on whether units should be displayed using metric or U.S. imperial by caller.
-          example: true
-        organizationId:
-          type: string
-          format: uuid
-          nullable: true
-        oktaOrganizationId:
-          type: string
-          nullable: true
-          example: org_fdfjhsdflsdfsd
-        isDemo:
-          type: boolean
-          example: true
-        companyType:
-          type: string
-          nullable: true
-          example: General Contractor
-        marketSegment:
-          type: string
-          nullable: true
-          example: SMB
-        oktaOrgName:
-          type: string
-          nullable: true
-          example: Okta Organization Name
-        crmAccountId:
-          type: string
-          nullable: true
-        crmOpportunityId:
-          type: string
-          nullable: true
-      additionalProperties: false
-    AccountRoleCategoryResponse:
-      type: object
-      properties:
-        projectId:
-          type: integer
-          format: int64
-          example: 213
-        id:
-          type: integer
-          format: int64
-          example: 134
-        name:
-          type: string
-          nullable: true
-          example: North Tower
-      additionalProperties: false
-    AccountFilterPredicates:
-      type: object
-      properties:
-        accountIds:
-          type: array
-          items:
-            type: integer
-            format: int32
-          nullable: true
-        state:
-          enum:
-          - Active
-          - Deactivated
-          - All
-          type: string
-        name:
-          type: string
-          nullable: true
-        organizationId:
-          type: string
-          format: uuid
-          nullable: true
-        isDemo:
-          type: boolean
-          nullable: true
-      additionalProperties: false
-    BaseRoleResult:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        nameId:
-          type: integer
-          format: int64
-        name:
-          type: string
-          nullable: true
-        roleCost:
-          type: number
-          format: double
-          nullable: true
-        startDate:
-          type: string
-          format: date-time
-        endDate:
-          type: string
-          format: date-time
-        type:
-          enum:
-          - Salaried
-          - Hourly
-          - All
-          type: string
-        skillSet:
-          type: array
-          items:
-            type: integer
-            format: int64
-          nullable: true
-        isFilled:
-          type: boolean
-        billable:
-          type: boolean
-        requirements:
-          uniqueItems: true
-          type: array
-          items:
-            $ref: '#/components/schemas/RoleRequirement'
-          nullable: true
-        unfilledRanges:
-          uniqueItems: true
-          type: array
-          items:
-            $ref: '#/components/schemas/RoleUnfilled'
-          nullable: true
-        note:
-          type: string
-          nullable: true
-        sortOrder:
-          type: integer
-          format: int32
-        notification:
-          $ref: '#/components/schemas/RoleNotificationData'
-        relatedTitles:
-          type: array
-          items:
-            type: string
-          nullable: true
-        allocations:
-          uniqueItems: true
-          type: array
-          items:
-            $ref: '#/components/schemas/RoleAllocation'
-          nullable: true
-        hire:
-          $ref: '#/components/schemas/RoleHire'
-      additionalProperties: false
-    CollaborationMatrixPredicatesFilter:
-      type: object
-      properties:
-        offset:
-          type: integer
-          format: int32
-        limit:
-          type: integer
-          format: int32
-        predicates:
-          $ref: '#/components/schemas/CollaborationMatrixPredicates'
-      additionalProperties: false
-    ProfileResponse:
-      type: object
-      properties:
-        personId:
-          type: integer
-          format: int64
-          example: 1280
-        fields:
-          type: array
-          items:
-            $ref: '#/components/schemas/FieldValuesResponse'
-          nullable: true
-      additionalProperties: false
-    HourlyRoleAllocation:
-      type: object
-      properties:
-        personId:
-          type: integer
-          format: int64
-        startDate:
-          type: string
-          format: date-time
-        endDate:
-          type: string
-          format: date-time
-        allocatedPercent:
-          maximum: 100
-          minimum: 1
-          type: integer
-          description: An integer between 1 and 100 representing the % of time this role is allocated to the project.
-          format: int32
-          example: 100
-        personHourlyCost:
-          type: number
-          format: double
-          nullable: true
-      additionalProperties: false
-    ProjectExperienceFieldValuesResponse:
-      type: object
-      properties:
-        experienceFieldId:
-          type: string
-          format: uuid
-          nullable: true
-        experienceFieldValueIds:
-          type: array
-          items:
-            type: string
-            format: uuid
-          nullable: true
-        fieldId:
-          type: integer
-          format: int64
-          example: 1394
-        name:
-          type: string
-          nullable: true
-          example: Contact Number
-        type:
-          enum:
-          - Boolean
-          - Date
-          - Email
-          - PhoneNumber
-          - Image
-          - Text
-          - LongText
-          - SingleSelect
-          - MultiSelect
-          - Address
-          - Currency
-          - Phone
-          - Integer
-          - Number
-          type: string
-          example: PhoneNumber
-        values:
-          type: array
-          items:
-            type: string
-          nullable: true
-          example:
-          - '5195555555'
-        isRequired:
-          type: boolean
-        isSystem:
-          type: boolean
-          example: false
-        isPrivate:
-          type: boolean
-          example: true
-        isFinancials:
-          type: boolean
-          example: true
-        lastModifiedOn:
-          type: string
-          format: date-time
-          nullable: true
-          example: '2021-05-27T10:58:23.530Z'
-      additionalProperties: false
-    HourlyRoleRequirement:
-      type: object
-      properties:
-        startDate:
-          type: string
-          format: date-time
-          example: '2019-01-01'
-        endDate:
-          type: string
-          format: date-time
-          example: '2020-12-31'
-      additionalProperties: false
-    RoleRequirement:
-      type: object
-      properties:
-        startDate:
-          type: string
-          format: date-time
-          example: '2019-01-01'
-        endDate:
-          type: string
-          format: date-time
-          example: '2020-12-31'
-        allocatedPercent:
-          maximum: 100
-          minimum: 0
-          type: integer
-          format: int32
-          example: 100
-      additionalProperties: false
     ProjectHourlyRoleDetail:
       type: object
       properties:
@@ -1357,13 +1047,15 @@ components:
           format: int64
           example: 9381
         projectName:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: Ahrens Lofts
         projectColour:
-          type: string
+          type:
+          - string
+          - 'null'
           description: 'The color associated with the project, expressed as a web color string: a ''#'' character, followed by a six-digit hexadecimal number.'
-          nullable: true
           example: '#4B6BAA'
         projectStatus:
           enum:
@@ -1384,13 +1076,15 @@ components:
           format: int64
           example: 3817
         roleName:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: Project Manager
         roleHourlyCost:
-          type: number
+          type:
+          - number
+          - 'null'
           format: double
-          nullable: true
           example: 123.45
         roleType:
           enum:
@@ -1417,7 +1111,9 @@ components:
           format: date-span
           example: '17:00:00'
         workDays:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             enum:
             - 0
@@ -1429,7 +1125,6 @@ components:
             - 6
             type: integer
             format: int32
-          nullable: true
           example:
           - 1
           - 2
@@ -1437,24 +1132,29 @@ components:
           - 4
           - 5
         skillSet:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             type: integer
             format: int64
-          nullable: true
         roleNote:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         categoryId:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int64
-          nullable: true
         isFilled:
           type: boolean
         billable:
           type: boolean
         requirements:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             $ref: '#/components/schemas/HourlyRoleRequirement'
           description: 'A requirement is a slot of time marked with an allocation %, which
@@ -1464,20 +1164,21 @@ components:
             are fulfilled by allocations, which are an assignment of a person to
 
             a role over a certain amount of time and with its own allocation %.'
-          nullable: true
         allocations:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             $ref: '#/components/schemas/HourlyRoleAllocation'
           description: 'An allocation is an assignment of a person to a role over a certain
 
             time and with an associated allocation %.'
-          nullable: true
         unfilledRanges:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             $ref: '#/components/schemas/HourlyRoleUnfilled'
-          nullable: true
         notification:
           $ref: '#/components/schemas/RoleNotificationData'
         isCommunicated:
@@ -1491,10 +1192,113 @@ components:
           type: string
           format: date-time
         roleTags:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             $ref: '#/components/schemas/ProjectRoleTagEntity'
-          nullable: true
+      additionalProperties: false
+    ProfileResponse:
+      type: object
+      properties:
+        personId:
+          type: integer
+          format: int64
+          example: 1280
+        fields:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/FieldValuesResponse'
+      additionalProperties: false
+    PersonCertificationResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 1234
+        name:
+          type:
+          - string
+          - 'null'
+          example: CPR Training
+        abbreviation:
+          type:
+          - string
+          - 'null'
+          example: CPR
+        expiryDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          example: '2021-01-01'
+        daysWarnBeforeExpire:
+          type:
+          - integer
+          - 'null'
+          format: int32
+          example: 9
+        certificationDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          example: '2021-12-20'
+        certificationDescription:
+          type:
+          - string
+          - 'null'
+          description: Must be no greater than 255 characters.
+          example: '"Certification for fall arrest"'
+        hasAttachment:
+          type: boolean
+        state:
+          enum:
+          - Info
+          - Warning
+          - Expired
+          - All
+          type: string
+          readOnly: true
+          example: Info
+      additionalProperties: false
+    CollaborationMatrixResponse:
+      type: object
+      properties:
+        projects:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/CollaborationMatrixProject'
+        personIds:
+          type:
+          - array
+          - 'null'
+          items:
+            type: integer
+            format: int64
+      additionalProperties: false
+    RoleRequirement:
+      type: object
+      properties:
+        startDate:
+          type: string
+          format: date-time
+          example: '2019-01-01'
+        endDate:
+          type: string
+          format: date-time
+          example: '2020-12-31'
+        allocatedPercent:
+          maximum: 100
+          minimum: 0
+          type: integer
+          format: int32
+          example: 100
       additionalProperties: false
     HourlyRoleUnfilled:
       type: object
@@ -1507,6 +1311,177 @@ components:
           type: string
           format: date-time
           example: '2020-12-31'
+      additionalProperties: false
+    CollaborationMatrixPredicatesFilter:
+      type: object
+      properties:
+        offset:
+          type: integer
+          format: int32
+        limit:
+          type: integer
+          format: int32
+        predicates:
+          $ref: '#/components/schemas/CollaborationMatrixPredicates'
+      additionalProperties: false
+    HourlyRoleRequirement:
+      type: object
+      properties:
+        startDate:
+          type: string
+          format: date-time
+          example: '2019-01-01'
+        endDate:
+          type: string
+          format: date-time
+          example: '2020-12-31'
+      additionalProperties: false
+    HourlyRoleAllocation:
+      type: object
+      properties:
+        personId:
+          type: integer
+          format: int64
+        startDate:
+          type: string
+          format: date-time
+        endDate:
+          type: string
+          format: date-time
+        allocatedPercent:
+          maximum: 100
+          minimum: 1
+          type: integer
+          description: An integer between 1 and 100 representing the % of time this role is allocated to the project.
+          format: int32
+          example: 100
+        personHourlyCost:
+          type:
+          - number
+          - 'null'
+          format: double
+      additionalProperties: false
+    ProjectRoleTagEntity:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        collectionId:
+          type: integer
+          format: int64
+        name:
+          type:
+          - string
+          - 'null'
+        collectionName:
+          type:
+          - string
+          - 'null'
+        collectionColor:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+      description: Represents a role tag with its collection metadata
+    ProjectFieldValuesResponse:
+      type: object
+      properties:
+        projectId:
+          type: integer
+          format: int64
+          example: 8391
+        fields:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/ProjectExperienceFieldValuesResponse'
+      additionalProperties: false
+    AccountRoleCategoryResponse:
+      type: object
+      properties:
+        projectId:
+          type: integer
+          format: int64
+          example: 213
+        id:
+          type: integer
+          format: int64
+          example: 134
+        name:
+          type:
+          - string
+          - 'null'
+          example: North Tower
+      additionalProperties: false
+    ProjectExperienceFieldValuesResponse:
+      type: object
+      properties:
+        experienceFieldId:
+          type:
+          - string
+          - 'null'
+          format: uuid
+        experienceFieldValueIds:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+            format: uuid
+        fieldId:
+          type: integer
+          format: int64
+          example: 1394
+        name:
+          type:
+          - string
+          - 'null'
+          example: Contact Number
+        type:
+          enum:
+          - Boolean
+          - Date
+          - Email
+          - PhoneNumber
+          - Image
+          - Text
+          - LongText
+          - SingleSelect
+          - MultiSelect
+          - Address
+          - Currency
+          - Phone
+          - Integer
+          - Number
+          type: string
+          example: PhoneNumber
+        values:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          example:
+          - '5195555555'
+        isRequired:
+          type: boolean
+        isSystem:
+          type: boolean
+          example: false
+        isPrivate:
+          type: boolean
+          example: true
+        isFinancials:
+          type: boolean
+          example: true
+        lastModifiedOn:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          example: '2021-05-27T10:58:23.530Z'
       additionalProperties: false
     AccountSort:
       type: object
@@ -1526,6 +1501,433 @@ components:
           - Asc
           - Desc
           type: string
+      additionalProperties: false
+    RoleNotificationData:
+      type: object
+      properties:
+        notifiedOn:
+          type: string
+          format: date-time
+        recipientIds:
+          type:
+          - array
+          - 'null'
+          items:
+            type: integer
+            format: int64
+      additionalProperties: false
+    BaseRoleResult:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        nameId:
+          type: integer
+          format: int64
+        name:
+          type:
+          - string
+          - 'null'
+        roleCost:
+          type:
+          - number
+          - 'null'
+          format: double
+        startDate:
+          type: string
+          format: date-time
+        endDate:
+          type: string
+          format: date-time
+        type:
+          enum:
+          - Salaried
+          - Hourly
+          - All
+          type: string
+        skillSet:
+          type:
+          - array
+          - 'null'
+          items:
+            type: integer
+            format: int64
+        isFilled:
+          type: boolean
+        billable:
+          type: boolean
+        requirements:
+          uniqueItems: true
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/RoleRequirement'
+        unfilledRanges:
+          uniqueItems: true
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/RoleUnfilled'
+        note:
+          type:
+          - string
+          - 'null'
+        sortOrder:
+          type: integer
+          format: int32
+        notification:
+          $ref: '#/components/schemas/RoleNotificationData'
+        relatedTitles:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        allocations:
+          uniqueItems: true
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/RoleAllocation'
+        hire:
+          $ref: '#/components/schemas/RoleHire'
+      additionalProperties: false
+    ProjectTaskDetail:
+      type: object
+      properties:
+        projectId:
+          type: integer
+          format: int64
+          example: 9381
+        taskId:
+          type: string
+          format: uuid
+          example: 00000000-0000-0000-0000-000000000000
+        name:
+          type:
+          - string
+          - 'null'
+          example: Design Plan
+        startDate:
+          type: string
+          format: date-time
+          example: '2019-01-01'
+        endDate:
+          type: string
+          format: date-time
+          example: '2020-12-31'
+        roles:
+          uniqueItems: true
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/BaseRoleResult'
+        createdOn:
+          type: string
+          format: date-time
+          example: '2021-05-27T10:47:23.530Z'
+        lastModifiedOn:
+          type: string
+          format: date-time
+          example: '2021-05-27T10:58:23.530Z'
+      additionalProperties: false
+    AccountFilterPredicates:
+      type: object
+      properties:
+        accountIds:
+          type:
+          - array
+          - 'null'
+          items:
+            type: integer
+            format: int32
+        state:
+          enum:
+          - Active
+          - Deactivated
+          - All
+          type: string
+        name:
+          type:
+          - string
+          - 'null'
+        organizationId:
+          type:
+          - string
+          - 'null'
+          format: uuid
+        isDemo:
+          type:
+          - boolean
+          - 'null'
+      additionalProperties: false
+    RoleUnfilled:
+      type: object
+      properties:
+        startDate:
+          type: string
+          format: date-time
+          example: '2019-01-01'
+        endDate:
+          type: string
+          format: date-time
+          example: '2020-12-31'
+      additionalProperties: false
+    ProjectRoleDetail:
+      type: object
+      properties:
+        projectId:
+          type: integer
+          format: int64
+          example: 9381
+        projectName:
+          type:
+          - string
+          - 'null'
+          example: Ahrens Lofts
+        projectColour:
+          type:
+          - string
+          - 'null'
+          description: 'The color associated with the project, expressed as a web color string: a ''#'' character, followed by a six-digit hexadecimal number.'
+          example: '#4B6BAA'
+        projectStatus:
+          enum:
+          - Canceled
+          - Upcoming
+          - Active
+          - Complete
+          - Pursuit
+          - Lost
+          type: string
+        projectType:
+          enum:
+          - Awarded
+          - Opportunity
+          type: string
+        taskId:
+          type:
+          - string
+          - 'null'
+          format: uuid
+          example: 00000000-0000-0000-0000-000000000000
+        roleId:
+          type: integer
+          format: int64
+          example: 3817
+        roleName:
+          type:
+          - string
+          - 'null'
+          example: Project Manager
+        roleCost:
+          type:
+          - number
+          - 'null'
+          format: double
+          example: 123.45
+        roleType:
+          enum:
+          - Salaried
+          - Hourly
+          - All
+          type: string
+          example: Salaried
+        sortOrder:
+          type: integer
+          format: int32
+        startDate:
+          type: string
+          format: date-time
+        endDate:
+          type: string
+          format: date-time
+        skillSet:
+          type:
+          - array
+          - 'null'
+          items:
+            type: integer
+            format: int64
+        roleNote:
+          type:
+          - string
+          - 'null'
+        categoryId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        isFilled:
+          type: boolean
+        billable:
+          type: boolean
+        roleTags:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/ProjectRoleTagEntity'
+        requirements:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/RoleRequirement'
+          description: 'A requirement is a slot of time marked with an allocation %, which
+
+            represents times that the role is required on the project. Requirements
+
+            are fulfilled by allocations, which are an assignment of a person to
+
+            a role over a certain amount of time and with its own allocation %.'
+        allocations:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/RoleAllocation'
+          description: 'An allocation is an assignment of a person to a role over a certain
+
+            time and with an associated allocation %.'
+        unfilledRanges:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/RoleUnfilled'
+        externalId:
+          type:
+          - string
+          - 'null'
+        notification:
+          $ref: '#/components/schemas/RoleNotificationData'
+        isCommunicated:
+          type: boolean
+        hire:
+          $ref: '#/components/schemas/RoleHire'
+        createdBy:
+          type: integer
+          format: int32
+        createdOn:
+          type: string
+          format: date-time
+      additionalProperties: false
+    AccountFilterPredicatesAccountSortSortedFilter:
+      type: object
+      properties:
+        offset:
+          type: integer
+          format: int32
+        limit:
+          type: integer
+          format: int32
+        predicates:
+          $ref: '#/components/schemas/AccountFilterPredicates'
+        sort:
+          $ref: '#/components/schemas/AccountSort'
+      additionalProperties: false
+    FieldValuesResponse:
+      type: object
+      properties:
+        fieldId:
+          type: integer
+          format: int64
+          example: 1394
+        name:
+          type:
+          - string
+          - 'null'
+          example: Contact Number
+        type:
+          enum:
+          - Boolean
+          - Date
+          - Email
+          - PhoneNumber
+          - Image
+          - Text
+          - LongText
+          - SingleSelect
+          - MultiSelect
+          - Address
+          - Currency
+          - Phone
+          - Integer
+          - Number
+          type: string
+          example: PhoneNumber
+        values:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          example:
+          - '5195555555'
+        isRequired:
+          type: boolean
+        isSystem:
+          type: boolean
+          example: false
+        isPrivate:
+          type: boolean
+          example: true
+        isFinancials:
+          type: boolean
+          example: true
+        lastModifiedOn:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          example: '2021-05-27T10:58:23.530Z'
+      additionalProperties: false
+    RoleHire:
+      type: object
+      properties:
+        isHireRequired:
+          type: boolean
+        hireDescription:
+          type:
+          - string
+          - 'null'
+        previousIsHireRequired:
+          type: boolean
+        hireStatus:
+          enum:
+          - Hire
+          - Hired
+          type:
+          - string
+          - 'null'
+        previousHireStatus:
+          enum:
+          - Hire
+          - Hired
+          type:
+          - string
+          - 'null'
+        taggedByUserId:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        taggedAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        hiredAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
       additionalProperties: false
     RoleAllocation:
       type: object
@@ -1547,206 +1949,55 @@ components:
           format: int32
           example: 100
         personCost:
-          type: number
+          type:
+          - number
+          - 'null'
           format: double
-          nullable: true
         id:
           type: string
           format: uuid
       additionalProperties: false
-    ProjectRoleDetail:
+    UserProfilesResponse:
       type: object
       properties:
-        projectId:
-          type: integer
-          format: int64
-          example: 9381
-        projectName:
-          type: string
-          nullable: true
-          example: Ahrens Lofts
-        projectColour:
-          type: string
-          description: 'The color associated with the project, expressed as a web color string: a ''#'' character, followed by a six-digit hexadecimal number.'
-          nullable: true
-          example: '#4B6BAA'
-        projectStatus:
-          enum:
-          - Canceled
-          - Upcoming
-          - Active
-          - Complete
-          - Pursuit
-          - Lost
-          type: string
-        projectType:
-          enum:
-          - Awarded
-          - Opportunity
-          type: string
-        taskId:
-          type: string
-          format: uuid
-          nullable: true
-          example: 00000000-0000-0000-0000-000000000000
-        roleId:
-          type: integer
-          format: int64
-          example: 3817
-        roleName:
-          type: string
-          nullable: true
-          example: Project Manager
-        roleCost:
-          type: number
-          format: double
-          nullable: true
-          example: 123.45
-        roleType:
-          enum:
-          - Salaried
-          - Hourly
-          - All
-          type: string
-          example: Salaried
-        sortOrder:
+        id:
           type: integer
           format: int32
-        startDate:
-          type: string
-          format: date-time
-        endDate:
-          type: string
-          format: date-time
-        skillSet:
-          type: array
-          items:
-            type: integer
-            format: int64
-          nullable: true
-        roleNote:
-          type: string
-          nullable: true
-        categoryId:
-          type: integer
-          format: int64
-          nullable: true
-        isFilled:
-          type: boolean
-        billable:
-          type: boolean
-        roleTags:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProjectRoleTagEntity'
-          nullable: true
-        requirements:
-          type: array
-          items:
-            $ref: '#/components/schemas/RoleRequirement'
-          description: 'A requirement is a slot of time marked with an allocation %, which
-
-            represents times that the role is required on the project. Requirements
-
-            are fulfilled by allocations, which are an assignment of a person to
-
-            a role over a certain amount of time and with its own allocation %.'
-          nullable: true
-        allocations:
-          type: array
-          items:
-            $ref: '#/components/schemas/RoleAllocation'
-          description: 'An allocation is an assignment of a person to a role over a certain
-
-            time and with an associated allocation %.'
-          nullable: true
-        unfilledRanges:
-          type: array
-          items:
-            $ref: '#/components/schemas/RoleUnfilled'
-          nullable: true
-        externalId:
-          type: string
-          nullable: true
-        notification:
-          $ref: '#/components/schemas/RoleNotificationData'
-        isCommunicated:
-          type: boolean
-        hire:
-          $ref: '#/components/schemas/RoleHire'
-        createdBy:
-          type: integer
-          format: int32
-        createdOn:
-          type: string
-          format: date-time
-      additionalProperties: false
-    FieldValuesResponse:
-      type: object
-      properties:
-        fieldId:
-          type: integer
-          format: int64
-          example: 1394
+          example: 2313
         name:
-          type: string
-          nullable: true
-          example: Contact Number
-        type:
+          type:
+          - string
+          - 'null'
+          example: John Smith
+        title:
+          type:
+          - string
+          - 'null'
+          example: Human Resources Manager
+        state:
           enum:
-          - Boolean
-          - Date
-          - Email
-          - PhoneNumber
-          - Image
-          - Text
-          - LongText
-          - SingleSelect
-          - MultiSelect
-          - Address
-          - Currency
-          - Phone
-          - Integer
-          - Number
+          - Inactive
+          - Enabled
+          - Disabled
+          - PendingEmailChange
           type: string
-          example: PhoneNumber
-        values:
-          type: array
-          items:
-            type: string
-          nullable: true
-          example:
-          - '5195555555'
-        isRequired:
-          type: boolean
-        isSystem:
-          type: boolean
-          example: false
-        isPrivate:
-          type: boolean
-          example: true
-        isFinancials:
-          type: boolean
-          example: true
-        lastModifiedOn:
-          type: string
-          format: date-time
-          nullable: true
-          example: '2021-05-27T10:58:23.530Z'
+          example: Active
       additionalProperties: false
     CollaborationMatrixPredicates:
       type: object
       properties:
         personIds:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             type: integer
             format: int64
-          nullable: true
         projectId:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int64
-          nullable: true
         roleType:
           enum:
           - Salaried
@@ -1760,229 +2011,124 @@ components:
           - All
           type: string
         roleNameIds:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             type: integer
             format: int64
-          nullable: true
       additionalProperties: false
-    UserProfilesResponse:
+    CollaborationMatrixProject:
       type: object
       properties:
-        id:
-          type: integer
-          format: int32
-          example: 2313
         name:
-          type: string
-          nullable: true
-          example: John Smith
-        title:
-          type: string
-          nullable: true
-          example: Human Resources Manager
-        state:
-          enum:
-          - Inactive
-          - Enabled
-          - Disabled
-          - PendingEmailChange
-          type: string
-          example: Active
-      additionalProperties: false
-    ProjectFieldValuesResponse:
-      type: object
-      properties:
-        projectId:
-          type: integer
-          format: int64
-          example: 8391
-        fields:
-          type: array
+          type:
+          - string
+          - 'null'
+        personIds:
+          type:
+          - array
+          - 'null'
           items:
-            $ref: '#/components/schemas/ProjectExperienceFieldValuesResponse'
-          nullable: true
+            type: integer
+            format: int64
+        id:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        hcopId:
+          type:
+          - string
+          - 'null'
+          format: uuid
       additionalProperties: false
-    AccountFilterPredicatesAccountSortSortedFilter:
-      type: object
-      properties:
-        offset:
-          type: integer
-          format: int32
-        limit:
-          type: integer
-          format: int32
-        predicates:
-          $ref: '#/components/schemas/AccountFilterPredicates'
-        sort:
-          $ref: '#/components/schemas/AccountSort'
-      additionalProperties: false
-    PersonCertificationResponse:
+    AccountResponse:
       type: object
       properties:
         id:
           type: integer
-          format: int64
-          example: 1234
-        name:
-          type: string
-          nullable: true
-          example: CPR Training
-        abbreviation:
-          type: string
-          nullable: true
-          example: CPR
-        expiryDate:
-          type: string
-          format: date-time
-          nullable: true
-          example: '2021-01-01'
-        daysWarnBeforeExpire:
-          type: integer
           format: int32
-          nullable: true
-          example: 9
-        certificationDate:
-          type: string
-          format: date-time
-          nullable: true
-          example: '2021-12-20'
-        certificationDescription:
-          type: string
-          description: Must be no greater than 255 characters.
-          nullable: true
-          example: '"Certification for fall arrest"'
-        hasAttachment:
-          type: boolean
-        state:
+          example: 45
+        name:
+          type:
+          - string
+          - 'null'
+          example: A Great Account
+        logoUrl:
+          type:
+          - string
+          - 'null'
+          example: http://www.example.com/logo.png
+        status:
           enum:
-          - Info
-          - Warning
-          - Expired
+          - Active
+          - Deactivated
           - All
           type: string
-          readOnly: true
-          example: Info
-      additionalProperties: false
-    RoleHire:
-      type: object
-      properties:
-        isHireRequired:
-          type: boolean
-        hireDescription:
-          type: string
-          nullable: true
-        previousIsHireRequired:
-          type: boolean
-        hireStatus:
-          enum:
-          - Hire
-          - Hired
-          type: string
-          nullable: true
-        previousHireStatus:
-          enum:
-          - Hire
-          - Hired
-          type: string
-          nullable: true
-        taggedByUserId:
+          example: Active
+        numProjects:
           type: integer
           format: int32
-          nullable: true
-        taggedAt:
-          type: string
+          example: 14
+        numPeople:
+          type: integer
+          format: int32
+          example: 68
+        numMembers:
+          type: integer
+          format: int32
+          example: 7
+        expiryDate:
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
-        hiredAt:
-          type: string
-          format: date-time
-          nullable: true
-      additionalProperties: false
-    ProjectRoleTagEntity:
-      type: object
-      properties:
-        id:
+          example: '2030-12-31'
+        totalPeopleAttachmentBytes:
           type: integer
           format: int64
-        collectionId:
-          type: integer
-          format: int64
-        name:
-          type: string
-          nullable: true
-        collectionName:
-          type: string
-          nullable: true
-        collectionColor:
-          type: string
-          nullable: true
-      additionalProperties: false
-      description: Represents a role tag with its collection metadata
-    ProjectTaskDetail:
-      type: object
-      properties:
-        projectId:
-          type: integer
-          format: int64
-          example: 9381
-        taskId:
-          type: string
+          example: 512
+        useMetricUnits:
+          type: boolean
+          description: The account level flag on whether units should be displayed using metric or U.S. imperial by caller.
+          example: true
+        organizationId:
+          type:
+          - string
+          - 'null'
           format: uuid
-          example: 00000000-0000-0000-0000-000000000000
-        name:
-          type: string
-          nullable: true
-          example: Design Plan
-        startDate:
-          type: string
-          format: date-time
-          example: '2019-01-01'
-        endDate:
-          type: string
-          format: date-time
-          example: '2020-12-31'
-        roles:
-          uniqueItems: true
-          type: array
-          items:
-            $ref: '#/components/schemas/BaseRoleResult'
-          nullable: true
-        createdOn:
-          type: string
-          format: date-time
-          example: '2021-05-27T10:47:23.530Z'
-        lastModifiedOn:
-          type: string
-          format: date-time
-          example: '2021-05-27T10:58:23.530Z'
-      additionalProperties: false
-    RoleUnfilled:
-      type: object
-      properties:
-        startDate:
-          type: string
-          format: date-time
-          example: '2019-01-01'
-        endDate:
-          type: string
-          format: date-time
-          example: '2020-12-31'
-      additionalProperties: false
-    CollaborationMatrixResponse:
-      type: object
-      properties:
-        projects:
-          type: array
-          items:
-            $ref: '#/components/schemas/CollaborationMatrixProject'
-          nullable: true
-        personIds:
-          type: array
-          items:
-            type: integer
-            format: int64
-          nullable: true
+        oktaOrganizationId:
+          type:
+          - string
+          - 'null'
+          example: org_fdfjhsdflsdfsd
+        isDemo:
+          type: boolean
+          example: true
+        companyType:
+          type:
+          - string
+          - 'null'
+          example: General Contractor
+        marketSegment:
+          type:
+          - string
+          - 'null'
+          example: SMB
+        oktaOrgName:
+          type:
+          - string
+          - 'null'
+          example: Okta Organization Name
+        crmAccountId:
+          type:
+          - string
+          - 'null'
+        crmOpportunityId:
+          type:
+          - string
+          - 'null'
       additionalProperties: false
   securitySchemes:
     Bearer:

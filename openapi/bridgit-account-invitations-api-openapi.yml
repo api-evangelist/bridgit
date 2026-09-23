@@ -1,0 +1,232 @@
+openapi: 3.2.0
+info:
+  title: Bench Account Invitations API
+  description: 'Versioning
+
+
+    The API is currently at version 1.0.'
+  version: '1.0'
+servers:
+- url: https://bench.gobridgit.com
+  description: Bridgit Bench production
+security:
+- {}
+tags:
+- name: Account Invitations
+paths:
+  /rp/api/v1/accounts/{accountId}/invitations:
+    get:
+      tags:
+      - Account Invitations
+      summary: Gets all invitations for an account
+      description: 'Permissions
+
+        Account: Read'
+      operationId: AccountInvitations_Query
+      parameters:
+      - name: accountId
+        in: path
+        description: The ID of the account
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: offset
+        in: query
+        description: Offset for pagination
+        schema:
+          maximum: 2147483647
+          minimum: 0
+          type: integer
+          format: int32
+          default: 0
+      - name: limit
+        in: query
+        description: Number of invitations to pull at a time
+        schema:
+          maximum: 2147483647
+          minimum: 1
+          type: integer
+          format: int32
+          default: 1000
+      responses:
+        '200':
+          description: 'Success: List of invitations in the account'
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/InvitationResponse'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/InvitationResponse'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/InvitationResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+    post:
+      tags:
+      - Account Invitations
+      summary: Sends an join invitation to the given email for an account
+      description: 'Permissions
+
+        Account: Write'
+      operationId: AccountInvitations_Post
+      parameters:
+      - name: accountId
+        in: path
+        description: The ID of the account
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        description: Request object that contains email
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/AccountInvitationRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccountInvitationRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/AccountInvitationRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/AccountInvitationRequest'
+        required: true
+      responses:
+        '201':
+          description: 'Created: Invitation Response object'
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/InvitationResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvitationResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/InvitationResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+  /rp/api/v1/accounts/{accountId}/invitations/{id}:
+    delete:
+      tags:
+      - Account Invitations
+      summary: Removes the account's invitation by ID
+      description: 'Permissions
+
+        Account: Write'
+      operationId: AccountInvitations_Delete
+      parameters:
+      - name: accountId
+        in: path
+        description: The account Id
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: id
+        in: path
+        description: The Invitation Id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+components:
+  schemas:
+    AccountInvitationRequest:
+      required:
+      - email
+      type: object
+      properties:
+        groupingPermissions:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/GroupingGroup'
+        email:
+          maxLength: 254
+          minLength: 6
+          type: string
+        group:
+          maxLength: 50
+          minLength: 1
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    GroupingGroup:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 124
+        groupId:
+          type: integer
+          format: int32
+          example: 323
+      additionalProperties: false
+    InvitationResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        email:
+          type:
+          - string
+          - 'null'
+        group:
+          type:
+          - string
+          - 'null'
+        status:
+          enum:
+          - Pending
+          - Expired
+          - Failed
+          type: string
+        createdOn:
+          type: string
+          format: date-time
+        groupingPermissions:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/GroupingGroup'
+      additionalProperties: false
+  securitySchemes:
+    Bearer:
+      type: http
+      description: Standard Authorization header using the Bearer scheme
+      scheme: bearer
+      bearerFormat: JWT

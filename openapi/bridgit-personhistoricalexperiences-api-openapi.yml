@@ -1,7 +1,10 @@
-openapi: 3.0.4
+openapi: 3.2.0
 info:
-  title: Bench AccountActivities PersonHistoricalExperiences API
-  description: "<h2>Versioning</h2>\n<p>\n    The API is currently at version <code>1.0</code>. All API endpoints (other than\n    authentication) require you to specify the API version as part of the path.\n</p>\n\n<h2>URL Paths</h2>\n<p>\n    Authentication requests should be made to <code>/auth/signin</code>,\n    as documented below. All other API requests should be made to\n    sub-paths of <code>/rp/api/1.0/...</code>.\n</p>\n\n<h2>Authentication</h2>\n<p>\n    API requests are authenticated using an OAuth Bearer token.\n    You can get a token by authenticating your user by sending a\n    POST request to <code>/auth/signin</code>, with \"username and \"password\"\n    parameters form-encoded in the body of the request.\n\n    POST /auth/signin HTTP/1.1\n    Content-Type: application/x-www-form-urlencoded\n\n    username=user@example.com&password=some-secret-password\n</p>\n<p>\n    The response will be a JSON object including both\n    <b>\"access_token\"</b> and <b>\"refresh_token\"</b> property.\n    All other requests against the Bench API should include an\n    authorization header: <code>Authorization: Bearer xxxYYYzzz</code>,\n    where <b>xxxYYYzzz</b> is the value of <b>\"access_token\"</b> in the response.\n    <br><br>\n    For example:\n\n    $ curl https://bench.gobridgit.com/auth/signin -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'username=someone@example.com' --data-urlencode 'password=[...snip...]'\n    {\n        \"access_token\": \"...snip...\",\n        \"token_type\": \"Bearer\",\n        \"refresh_token\": \"...snip...\"\n        \"expiry\": \"2020-01-01T00:00:00.413440849Z\"\n    }\n\n</p>\n\n<p>\n    The refresh token can be used to generate new session by request with <code>/auth/token</code> endpoint:\n\n    POST /auth/token HTTP/1.1\n    Content-Type: application/x-www-form-urlencoded\n\n    grant_type=refresh_token&refresh_token=tGzv3JOkF0XG5Qx2TlKWIA\n</p>\n<p>\n    Note that once the refresh token is used, the previous access and refresh token is no longer valid.\n    <br><br>\n    For example:\n\n    $ curl https://bench.gobridgit.com/auth/token -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'grant_type=refresh_token' --data-urlencode 'refresh_token=[...snip...]'\n    {\n        \"access_token\": \"...snip...\",\n        \"token_type\": \"Bearer\",\n        \"refresh_token\": \"...snip...\"\n        \"expiry\": \"2020-01-01T00:00:00.413440849Z\"\n    }\n</p>\n\n<h2>Pagination</h2>\n<p>\n    Several of the API endpoints are paginated. These are denoted by\n    including the <code>offset</code> (zero-based offset) and <code>limit</code> query\n    parameters. For example, to request the <code>10</code> items,\n    set the <code>offset=0</code> to <code>limit=10</code>.\n    <br>\n    NOTE: the result set contains items with index of 0-9\n    <br>\n    To request the next 10 items (starting at index 10),\n    set the <code>offset=10</code> to <code>limit=10</code>\n</p>\n<p>\n    Responses to paginated API endpoints return a JSON array of objects.\n    If there are results beyond the page you have requested, the server\n    will set a <code>query-has-more: true</code> header in the response.\n</p>\n\n<h2>Request Encoding</h2>\n<p>\n    <code>GET</code> and <code>DELETE</code> requests should have parameters encoded as URL query\n    parameters. Boolean values should be encoded as <code>true</code> and\n    <code>false</code>, not as <code>1</code> and <code>0</code>.\n</p>\n\n<h2>Errors</h2>\n<p>\n    Errors are returned for some response codes such as <code>400 Bad Request</code> in the\n    following format:\n\n    {\n      \"errors\": [\n        {\n          \"errorType\": \"ValidationError\",\n          \"description\": \"The value of Name must be a string with a minimum length of 1 and a maximum length of 8 and not whitespace.\",\n          \"field\": \"Name\",\n          \"values\": [\n            null\n          ]\n        }\n      ],\n      \"title\": \"One or more validation errors occurred.\",\n      \"status\": 400,\n      \"instance\": \"api/v1/accounts/0/persons\",\n      \"requestUid\": \"123e4567-e89b-12d3-a456-426614174000\"\n    }\n</p>\n"
+  title: Bench Person Historical Experiences API
+  description: 'Versioning
+
+
+    The API is currently at version 1.0.'
   version: '1.0'
 servers:
 - url: https://bench.gobridgit.com
@@ -15,8 +18,10 @@ paths:
     get:
       tags:
       - PersonHistoricalExperiences
-      summary: List historical experience entries for a person.
-      description: '<br/><strong>Permissions</strong><br/>Person: Read'
+      summary: List historical experience entries for a person
+      description: 'Permissions
+
+        Person: Read'
       operationId: PersonHistoricalExperiences_GetAll
       parameters:
       - name: accountId
@@ -73,8 +78,10 @@ paths:
     post:
       tags:
       - PersonHistoricalExperiences
-      summary: Create a new historical experience entry.
-      description: '<br/><strong>Permissions</strong><br/>Account: Write'
+      summary: Create a new historical experience entry
+      description: 'Permissions
+
+        Account: Write'
       operationId: PersonHistoricalExperiences_Post
       parameters:
       - name: accountId
@@ -128,8 +135,10 @@ paths:
     get:
       tags:
       - PersonHistoricalExperiences
-      summary: Get a single historical experience entry.
-      description: '<br/><strong>Permissions</strong><br/>Person: Read'
+      summary: Get a single historical experience entry
+      description: 'Permissions
+
+        Person: Read'
       operationId: PersonHistoricalExperiences_GetOne
       parameters:
       - name: accountId
@@ -173,8 +182,10 @@ paths:
     delete:
       tags:
       - PersonHistoricalExperiences
-      summary: Delete a historical experience entry.
-      description: '<br/><strong>Permissions</strong><br/>Account: Write'
+      summary: Delete a historical experience entry
+      description: 'Permissions
+
+        Account: Write'
       operationId: PersonHistoricalExperiences_Delete
       parameters:
       - name: accountId
@@ -207,7 +218,9 @@ paths:
       tags:
       - PersonHistoricalExperiences
       summary: Update historical experience entry for a person
-      description: '<br/><strong>Permissions</strong><br/>Account: Write'
+      description: 'Permissions
+
+        Account: Write'
       operationId: PersonHistoricalExperiences_Update
       parameters:
       - name: accountId
@@ -270,7 +283,9 @@ paths:
       tags:
       - PersonHistoricalExperiences
       summary: Patch historical experience entry for a person
-      description: '<br/><strong>Permissions</strong><br/>Account: Write'
+      description: 'Permissions
+
+        Account: Write'
       operationId: PersonHistoricalExperiences_Patch
       parameters:
       - name: accountId
@@ -329,6 +344,50 @@ paths:
           description: Forbidden
 components:
   schemas:
+    HistoricalExperiencePatchRequest:
+      type: object
+      properties:
+        roleName:
+          type:
+          - string
+          - 'null'
+        assignmentStartDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        assignmentEndDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        assignmentDuration:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        assignmentHours:
+          type:
+          - number
+          - 'null'
+          format: double
+      additionalProperties: false
+    HistoricalExperienceFieldValueRequest:
+      type: object
+      properties:
+        experienceFieldId:
+          type: string
+          format: uuid
+        experienceFieldValueId:
+          type:
+          - string
+          - 'null'
+          format: uuid
+        value:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
     HistoricalExperienceUpdateRequest:
       required:
       - experienceFields
@@ -336,85 +395,74 @@ components:
       type: object
       properties:
         roleName:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         experienceFields:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             $ref: '#/components/schemas/HistoricalExperienceFieldValueRequest'
-          nullable: true
         assignmentStartDate:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
         assignmentEndDate:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
         assignmentDuration:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int32
-          nullable: true
         assignmentHours:
-          type: number
+          type:
+          - number
+          - 'null'
           format: double
-          nullable: true
       additionalProperties: false
-    HistoricalExperienceFullEntry:
+    HistoricalExperienceEntryWithExperienceFields:
       required:
-      - projectName
       - roleName
       type: object
       properties:
-        historicalProjectId:
-          type: string
-          format: uuid
-        projectName:
-          type: string
-          nullable: true
-        projectDescription:
-          type: string
-          nullable: true
-        projectStartDate:
-          type: string
-          format: date-time
-          nullable: true
-        projectEndDate:
-          type: string
-          format: date-time
-          nullable: true
-        companyName:
-          type: string
-          nullable: true
         experienceFields:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             $ref: '#/components/schemas/HistoricalExperienceFieldValue'
-          description: "List of experience fields for this historical experience entry.\n            \nNote that you should avoid touching this property directly and use the `ExperienceFieldsDict` property instead.\nThis property is only here to provide a JSON representation of the experience fields.\nThe dictionary version is more useful in most cases."
-          nullable: true
         historicalExperienceId:
           type: string
           format: uuid
         roleName:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         currentCompany:
           type: boolean
         assignmentStartDate:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
         assignmentEndDate:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
         assignmentDuration:
           type: integer
           format: int32
         assignmentHours:
-          type: number
+          type:
+          - number
+          - 'null'
           format: double
-          nullable: true
       additionalProperties: false
     HistoricalExperienceFieldValue:
       required:
@@ -429,82 +477,79 @@ components:
           type: string
           format: uuid
         fieldName:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         value:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       additionalProperties: false
-    HistoricalExperienceEntryWithExperienceFields:
+    HistoricalExperienceFullEntry:
       required:
+      - projectName
       - roleName
       type: object
       properties:
+        historicalProjectId:
+          type: string
+          format: uuid
+        projectName:
+          type:
+          - string
+          - 'null'
+        projectDescription:
+          type:
+          - string
+          - 'null'
+        projectStartDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        projectEndDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        companyName:
+          type:
+          - string
+          - 'null'
         experienceFields:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             $ref: '#/components/schemas/HistoricalExperienceFieldValue'
-          nullable: true
+          description: "List of experience fields for this historical experience entry.\n            \nNote that you should avoid touching this property directly and use the `ExperienceFieldsDict` property instead.\nThis property is only here to provide a JSON representation of the experience fields.\nThe dictionary version is more useful in most cases."
         historicalExperienceId:
           type: string
           format: uuid
         roleName:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         currentCompany:
           type: boolean
         assignmentStartDate:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
         assignmentEndDate:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
         assignmentDuration:
           type: integer
           format: int32
         assignmentHours:
-          type: number
+          type:
+          - number
+          - 'null'
           format: double
-          nullable: true
-      additionalProperties: false
-    HistoricalExperiencePatchRequest:
-      type: object
-      properties:
-        roleName:
-          type: string
-          nullable: true
-        assignmentStartDate:
-          type: string
-          format: date-time
-          nullable: true
-        assignmentEndDate:
-          type: string
-          format: date-time
-          nullable: true
-        assignmentDuration:
-          type: integer
-          format: int32
-          nullable: true
-        assignmentHours:
-          type: number
-          format: double
-          nullable: true
-      additionalProperties: false
-    HistoricalExperienceFieldValueRequest:
-      type: object
-      properties:
-        experienceFieldId:
-          type: string
-          format: uuid
-        experienceFieldValueId:
-          type: string
-          format: uuid
-          nullable: true
-        value:
-          type: string
-          nullable: true
       additionalProperties: false
     HistoricalExperienceRequest:
       required:
@@ -513,48 +558,59 @@ components:
       type: object
       properties:
         projectName:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         projectStartDate:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
         projectEndDate:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
         roleName:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         currentCompany:
           type: boolean
         experienceFields:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             $ref: '#/components/schemas/HistoricalExperienceFieldValueRequest'
-          nullable: true
         projectDescription:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         companyName:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         assignmentStartDate:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
         assignmentEndDate:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
         assignmentDuration:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int32
-          nullable: true
         assignmentHours:
-          type: number
+          type:
+          - number
+          - 'null'
           format: double
-          nullable: true
       additionalProperties: false
   securitySchemes:
     Bearer:

@@ -1,7 +1,10 @@
-openapi: 3.0.4
+openapi: 3.2.0
 info:
-  title: Bench AccountActivities PersonCertifications API
-  description: "<h2>Versioning</h2>\n<p>\n    The API is currently at version <code>1.0</code>. All API endpoints (other than\n    authentication) require you to specify the API version as part of the path.\n</p>\n\n<h2>URL Paths</h2>\n<p>\n    Authentication requests should be made to <code>/auth/signin</code>,\n    as documented below. All other API requests should be made to\n    sub-paths of <code>/rp/api/1.0/...</code>.\n</p>\n\n<h2>Authentication</h2>\n<p>\n    API requests are authenticated using an OAuth Bearer token.\n    You can get a token by authenticating your user by sending a\n    POST request to <code>/auth/signin</code>, with \"username and \"password\"\n    parameters form-encoded in the body of the request.\n\n    POST /auth/signin HTTP/1.1\n    Content-Type: application/x-www-form-urlencoded\n\n    username=user@example.com&password=some-secret-password\n</p>\n<p>\n    The response will be a JSON object including both\n    <b>\"access_token\"</b> and <b>\"refresh_token\"</b> property.\n    All other requests against the Bench API should include an\n    authorization header: <code>Authorization: Bearer xxxYYYzzz</code>,\n    where <b>xxxYYYzzz</b> is the value of <b>\"access_token\"</b> in the response.\n    <br><br>\n    For example:\n\n    $ curl https://bench.gobridgit.com/auth/signin -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'username=someone@example.com' --data-urlencode 'password=[...snip...]'\n    {\n        \"access_token\": \"...snip...\",\n        \"token_type\": \"Bearer\",\n        \"refresh_token\": \"...snip...\"\n        \"expiry\": \"2020-01-01T00:00:00.413440849Z\"\n    }\n\n</p>\n\n<p>\n    The refresh token can be used to generate new session by request with <code>/auth/token</code> endpoint:\n\n    POST /auth/token HTTP/1.1\n    Content-Type: application/x-www-form-urlencoded\n\n    grant_type=refresh_token&refresh_token=tGzv3JOkF0XG5Qx2TlKWIA\n</p>\n<p>\n    Note that once the refresh token is used, the previous access and refresh token is no longer valid.\n    <br><br>\n    For example:\n\n    $ curl https://bench.gobridgit.com/auth/token -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'grant_type=refresh_token' --data-urlencode 'refresh_token=[...snip...]'\n    {\n        \"access_token\": \"...snip...\",\n        \"token_type\": \"Bearer\",\n        \"refresh_token\": \"...snip...\"\n        \"expiry\": \"2020-01-01T00:00:00.413440849Z\"\n    }\n</p>\n\n<h2>Pagination</h2>\n<p>\n    Several of the API endpoints are paginated. These are denoted by\n    including the <code>offset</code> (zero-based offset) and <code>limit</code> query\n    parameters. For example, to request the <code>10</code> items,\n    set the <code>offset=0</code> to <code>limit=10</code>.\n    <br>\n    NOTE: the result set contains items with index of 0-9\n    <br>\n    To request the next 10 items (starting at index 10),\n    set the <code>offset=10</code> to <code>limit=10</code>\n</p>\n<p>\n    Responses to paginated API endpoints return a JSON array of objects.\n    If there are results beyond the page you have requested, the server\n    will set a <code>query-has-more: true</code> header in the response.\n</p>\n\n<h2>Request Encoding</h2>\n<p>\n    <code>GET</code> and <code>DELETE</code> requests should have parameters encoded as URL query\n    parameters. Boolean values should be encoded as <code>true</code> and\n    <code>false</code>, not as <code>1</code> and <code>0</code>.\n</p>\n\n<h2>Errors</h2>\n<p>\n    Errors are returned for some response codes such as <code>400 Bad Request</code> in the\n    following format:\n\n    {\n      \"errors\": [\n        {\n          \"errorType\": \"ValidationError\",\n          \"description\": \"The value of Name must be a string with a minimum length of 1 and a maximum length of 8 and not whitespace.\",\n          \"field\": \"Name\",\n          \"values\": [\n            null\n          ]\n        }\n      ],\n      \"title\": \"One or more validation errors occurred.\",\n      \"status\": 400,\n      \"instance\": \"api/v1/accounts/0/persons\",\n      \"requestUid\": \"123e4567-e89b-12d3-a456-426614174000\"\n    }\n</p>\n"
+  title: Bench Person Certifications API
+  description: 'Versioning
+
+
+    The API is currently at version 1.0.'
   version: '1.0'
 servers:
 - url: https://bench.gobridgit.com
@@ -16,7 +19,17 @@ paths:
       tags:
       - PersonCertifications
       summary: Gets the certifications for the given person
-      description: '<br/><strong>Permissions</strong><br/>Person: Read<br/>HourlyProfile: Read<br/>PersonCerts: Read<br/>HourlyCerts: Read<br/>Private: Read'
+      description: 'Permissions
+
+        Person: Read
+
+        HourlyProfile: Read
+
+        PersonCerts: Read
+
+        HourlyCerts: Read
+
+        Private: Read'
       operationId: PersonCertifications_Query
       parameters:
       - name: accountId
@@ -77,8 +90,16 @@ paths:
     post:
       tags:
       - PersonCertifications
-      summary: Adds a certification on the given person.
-      description: '<br/><strong>Permissions</strong><br/>Person: Read<br/>HourlyProfile: Read<br/>PersonCerts: Write<br/>HourlyCerts: Write'
+      summary: Adds a certification on the given person
+      description: 'Permissions
+
+        Person: Read
+
+        HourlyProfile: Read
+
+        PersonCerts: Write
+
+        HourlyCerts: Write'
       operationId: PersonCertifications_Add
       parameters:
       - name: accountId
@@ -122,7 +143,17 @@ paths:
       tags:
       - PersonCertifications
       summary: Gets the specified certification for the given person by ID
-      description: '<br/><strong>Permissions</strong><br/>Person: Read<br/>HourlyProfile: Read<br/>PersonCerts: Read<br/>HourlyCerts: Read<br/>Private: Read'
+      description: 'Permissions
+
+        Person: Read
+
+        HourlyProfile: Read
+
+        PersonCerts: Read
+
+        HourlyCerts: Read
+
+        Private: Read'
       operationId: PersonCertifications_Get
       parameters:
       - name: accountId
@@ -163,7 +194,15 @@ paths:
       tags:
       - PersonCertifications
       summary: Updates a certification for the given person
-      description: '<br/><strong>Permissions</strong><br/>Person: Read<br/>HourlyProfile: Read<br/>PersonCerts: Write<br/>HourlyCerts: Write'
+      description: 'Permissions
+
+        Person: Read
+
+        HourlyProfile: Read
+
+        PersonCerts: Write
+
+        HourlyCerts: Write'
       operationId: PersonCertifications_Update
       parameters:
       - name: accountId
@@ -209,7 +248,19 @@ paths:
       tags:
       - PersonCertifications
       summary: Deletes a certification from the given person and the linked attachments
-      description: '<strong>NOTE:</strong> this will delete all linked attachments.<br/><strong>Permissions</strong><br/>Person: Read<br/>HourlyProfile: Read<br/>Private: Read<br/>PersonCerts: Write<br/>HourlyCerts: Write'
+      description: 'NOTE: this will delete all linked attachments.
+
+        Permissions
+
+        Person: Read
+
+        HourlyProfile: Read
+
+        Private: Read
+
+        PersonCerts: Write
+
+        HourlyCerts: Write'
       operationId: PersonCertifications_Delete
       parameters:
       - name: accountId
@@ -252,19 +303,44 @@ components:
           format: int64
           example: 1234
         expiryDate:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
           example: '2021-01-01'
         certificationDate:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
           example: '2021-12-20'
         certificationDescription:
-          type: string
+          type:
+          - string
+          - 'null'
           description: Must be no greater than ResourcePlanning.Contracts.NewPersonCertificationRequest.MaxDescriptionLength characters.
-          nullable: true
+          example: '"Certification for fall arrest"'
+      additionalProperties: false
+    PersonCertificationUpdateRequest:
+      type: object
+      properties:
+        expiryDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          example: '2021-01-01'
+        certificationDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          example: '2021-12-20'
+        certificationDescription:
+          type:
+          - string
+          - 'null'
+          description: Must be no greater than 255 characters.
           example: '"Certification for fall arrest"'
       additionalProperties: false
     PersonCertificationResponse:
@@ -275,32 +351,38 @@ components:
           format: int64
           example: 1234
         name:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: CPR Training
         abbreviation:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: CPR
         expiryDate:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
           example: '2021-01-01'
         daysWarnBeforeExpire:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int32
-          nullable: true
           example: 9
         certificationDate:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
           example: '2021-12-20'
         certificationDescription:
-          type: string
+          type:
+          - string
+          - 'null'
           description: Must be no greater than 255 characters.
-          nullable: true
           example: '"Certification for fall arrest"'
         hasAttachment:
           type: boolean
@@ -313,25 +395,6 @@ components:
           type: string
           readOnly: true
           example: Info
-      additionalProperties: false
-    PersonCertificationUpdateRequest:
-      type: object
-      properties:
-        expiryDate:
-          type: string
-          format: date-time
-          nullable: true
-          example: '2021-01-01'
-        certificationDate:
-          type: string
-          format: date-time
-          nullable: true
-          example: '2021-12-20'
-        certificationDescription:
-          type: string
-          description: Must be no greater than 255 characters.
-          nullable: true
-          example: '"Certification for fall arrest"'
       additionalProperties: false
   securitySchemes:
     Bearer:
