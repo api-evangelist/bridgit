@@ -295,54 +295,6 @@ paths:
           description: Forbidden
 components:
   schemas:
-    NewPersonCertificationRequest:
-      type: object
-      properties:
-        certificationId:
-          type: integer
-          format: int64
-          example: 1234
-        expiryDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          example: '2021-01-01'
-        certificationDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          example: '2021-12-20'
-        certificationDescription:
-          type:
-          - string
-          - 'null'
-          description: Must be no greater than ResourcePlanning.Contracts.NewPersonCertificationRequest.MaxDescriptionLength characters.
-          example: '"Certification for fall arrest"'
-      additionalProperties: false
-    PersonCertificationUpdateRequest:
-      type: object
-      properties:
-        expiryDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          example: '2021-01-01'
-        certificationDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          example: '2021-12-20'
-        certificationDescription:
-          type:
-          - string
-          - 'null'
-          description: Must be no greater than 255 characters.
-          example: '"Certification for fall arrest"'
-      additionalProperties: false
     PersonCertificationResponse:
       type: object
       properties:
@@ -395,6 +347,54 @@ components:
           type: string
           readOnly: true
           example: Info
+      additionalProperties: false
+    PersonCertificationUpdateRequest:
+      type: object
+      properties:
+        expiryDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          example: '2021-01-01'
+        certificationDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          example: '2021-12-20'
+        certificationDescription:
+          type:
+          - string
+          - 'null'
+          description: Must be no greater than 255 characters.
+          example: '"Certification for fall arrest"'
+      additionalProperties: false
+    NewPersonCertificationRequest:
+      type: object
+      properties:
+        certificationId:
+          type: integer
+          format: int64
+          example: 1234
+        expiryDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          example: '2021-01-01'
+        certificationDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          example: '2021-12-20'
+        certificationDescription:
+          type:
+          - string
+          - 'null'
+          description: Must be no greater than ResourcePlanning.Contracts.NewPersonCertificationRequest.MaxDescriptionLength characters.
+          example: '"Certification for fall arrest"'
       additionalProperties: false
   securitySchemes:
     Bearer:

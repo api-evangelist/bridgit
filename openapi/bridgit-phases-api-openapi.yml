@@ -324,32 +324,6 @@ paths:
           description: Conflict - Phase with name already exists in the account
 components:
   schemas:
-    PhaseUpdateRequest:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-          example: 1234
-        name:
-          type:
-          - string
-          - 'null'
-          example: Pre-Construction
-        includeOnNewProjects:
-          type: boolean
-      additionalProperties: false
-    PhaseFromRouteUpdateRequest:
-      type: object
-      properties:
-        name:
-          type:
-          - string
-          - 'null'
-          example: Pre-Construction
-        includeOnNewProjects:
-          type: boolean
-      additionalProperties: false
     PhaseAddRequest:
       type: object
       properties:
@@ -387,6 +361,32 @@ components:
           - 12
           - 123
           - 1234
+      additionalProperties: false
+    PhaseFromRouteUpdateRequest:
+      type: object
+      properties:
+        name:
+          type:
+          - string
+          - 'null'
+          example: Pre-Construction
+        includeOnNewProjects:
+          type: boolean
+      additionalProperties: false
+    PhaseUpdateRequest:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 1234
+        name:
+          type:
+          - string
+          - 'null'
+          example: Pre-Construction
+        includeOnNewProjects:
+          type: boolean
       additionalProperties: false
   securitySchemes:
     Bearer:

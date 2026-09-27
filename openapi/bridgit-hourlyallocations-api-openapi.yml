@@ -346,6 +346,34 @@ components:
             Must be set together with ResourcePlanning.Contracts.ProjectAllocationRequest.RoleStartDate — supplying only one will fail validation.'
           format: date-time
       additionalProperties: false
+    ProjectHourlyAllocation:
+      type: object
+      properties:
+        roleId:
+          type: integer
+          format: int64
+          example: 8673
+        taskId:
+          type:
+          - string
+          - 'null'
+          format: uuid
+        allocations:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/PersonHourlyAllocation'
+        categoryId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        categoryName:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
     PersonHourlyAllocation:
       type: object
       properties:
@@ -415,34 +443,6 @@ components:
           - 'null'
           items:
             $ref: '#/components/schemas/UnavailabilityResponse'
-      additionalProperties: false
-    ProjectHourlyAllocation:
-      type: object
-      properties:
-        roleId:
-          type: integer
-          format: int64
-          example: 8673
-        taskId:
-          type:
-          - string
-          - 'null'
-          format: uuid
-        allocations:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/PersonHourlyAllocation'
-        categoryId:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        categoryName:
-          type:
-          - string
-          - 'null'
       additionalProperties: false
     UnavailabilityResponse:
       type: object

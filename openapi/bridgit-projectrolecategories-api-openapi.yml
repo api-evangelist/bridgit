@@ -299,17 +299,13 @@ paths:
           description: Forbidden
 components:
   schemas:
-    RoleCategoryResponse:
+    NewRoleCategoryRequest:
+      required:
+      - name
       type: object
       properties:
-        id:
-          type: integer
-          format: int64
-          example: 134
         name:
-          type:
-          - string
-          - 'null'
+          type: string
           example: North Tower
       additionalProperties: false
     UpdateRoleCategoryRequest:
@@ -326,13 +322,17 @@ components:
           type: string
           example: North Tower
       additionalProperties: false
-    NewRoleCategoryRequest:
-      required:
-      - name
+    RoleCategoryResponse:
       type: object
       properties:
+        id:
+          type: integer
+          format: int64
+          example: 134
         name:
-          type: string
+          type:
+          - string
+          - 'null'
           example: North Tower
       additionalProperties: false
   securitySchemes:

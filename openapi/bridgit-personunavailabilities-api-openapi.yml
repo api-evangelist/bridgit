@@ -498,42 +498,32 @@ paths:
           description: Forbidden
 components:
   schemas:
-    UnavailabilityResponse:
+    UnavailabilityUpdateRequest:
       type: object
       properties:
         id:
           type: integer
           format: int64
-          example: 46
-        rangeType:
-          enum:
-          - PreEmployment
-          - PostEmployment
-          - Unavailability
-          - TimeOff
-          type: string
-          example: Unavailability
-        startDate:
-          type: string
-          format: date-time
-          example: '2020-04-21'
-        endDate:
-          type: string
-          format: date-time
-          example: '2020-05-21'
-        isPrivate:
-          type: boolean
-          example: false
         description:
+          maxLength: 50
+          minLength: 0
           type:
           - string
           - 'null'
-          example: Parental Leave
-        externalId:
+        startDate:
           type:
           - string
           - 'null'
-          example: '46'
+          format: date-time
+        endDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        isPrivate:
+          type:
+          - boolean
+          - 'null'
       additionalProperties: false
     NewUnavailabilityRequest:
       type: object
@@ -583,32 +573,42 @@ components:
           items:
             $ref: '#/components/schemas/UnavailabilityResponse'
       additionalProperties: false
-    UnavailabilityUpdateRequest:
+    UnavailabilityResponse:
       type: object
       properties:
         id:
           type: integer
           format: int64
-        description:
-          maxLength: 50
-          minLength: 0
-          type:
-          - string
-          - 'null'
+          example: 46
+        rangeType:
+          enum:
+          - PreEmployment
+          - PostEmployment
+          - Unavailability
+          - TimeOff
+          type: string
+          example: Unavailability
         startDate:
-          type:
-          - string
-          - 'null'
+          type: string
           format: date-time
+          example: '2020-04-21'
         endDate:
+          type: string
+          format: date-time
+          example: '2020-05-21'
+        isPrivate:
+          type: boolean
+          example: false
+        description:
           type:
           - string
           - 'null'
-          format: date-time
-        isPrivate:
+          example: Parental Leave
+        externalId:
           type:
-          - boolean
+          - string
           - 'null'
+          example: '46'
       additionalProperties: false
   securitySchemes:
     Bearer:

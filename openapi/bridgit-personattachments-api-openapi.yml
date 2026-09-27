@@ -242,6 +242,66 @@ paths:
           description: Forbidden
 components:
   schemas:
+    NewAttachmentResponse:
+      type: object
+      properties:
+        uploadUrl:
+          type:
+          - string
+          - 'null'
+          example: https://bench.gobridgit.com/uploads/
+        id:
+          type: integer
+          format: int64
+          example: 123
+        name:
+          type:
+          - string
+          - 'null'
+          example: document.txt
+        size:
+          type: integer
+          format: int64
+          example: 1024
+        mimeType:
+          type:
+          - string
+          - 'null'
+          example: application/octet-stream
+        isPrivate:
+          type: boolean
+          example: false
+        binaryUrl:
+          type:
+          - string
+          - 'null'
+          example: https://bench.gobridgit.com/bin/attachments/accounts/1/persons/1/document.txt
+        creatorId:
+          type: integer
+          format: int32
+          example: 1
+        createdOn:
+          type: string
+          format: date-time
+          example: '2021-01-01T00:00:00Z'
+        state:
+          enum:
+          - InProgress
+          - Completed
+          - Failed
+          - All
+          type: string
+          example: InProgress
+        certificationIds:
+          type:
+          - array
+          - 'null'
+          items:
+            type: integer
+            format: int64
+          example:
+          - 1
+      additionalProperties: false
     AttachmentResponse:
       type: object
       properties:
@@ -309,66 +369,6 @@ components:
         isPrivate:
           type: boolean
           example: false
-      additionalProperties: false
-    NewAttachmentResponse:
-      type: object
-      properties:
-        uploadUrl:
-          type:
-          - string
-          - 'null'
-          example: https://bench.gobridgit.com/uploads/
-        id:
-          type: integer
-          format: int64
-          example: 123
-        name:
-          type:
-          - string
-          - 'null'
-          example: document.txt
-        size:
-          type: integer
-          format: int64
-          example: 1024
-        mimeType:
-          type:
-          - string
-          - 'null'
-          example: application/octet-stream
-        isPrivate:
-          type: boolean
-          example: false
-        binaryUrl:
-          type:
-          - string
-          - 'null'
-          example: https://bench.gobridgit.com/bin/attachments/accounts/1/persons/1/document.txt
-        creatorId:
-          type: integer
-          format: int32
-          example: 1
-        createdOn:
-          type: string
-          format: date-time
-          example: '2021-01-01T00:00:00Z'
-        state:
-          enum:
-          - InProgress
-          - Completed
-          - Failed
-          - All
-          type: string
-          example: InProgress
-        certificationIds:
-          type:
-          - array
-          - 'null'
-          items:
-            type: integer
-            format: int64
-          example:
-          - 1
       additionalProperties: false
   securitySchemes:
     Bearer:

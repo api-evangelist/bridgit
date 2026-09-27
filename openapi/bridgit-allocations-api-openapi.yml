@@ -602,6 +602,38 @@ components:
           items:
             $ref: '#/components/schemas/UnavailabilityResponse'
       additionalProperties: false
+    ProjectAllocation:
+      type: object
+      properties:
+        roleId:
+          type: integer
+          format: int64
+          example: 8673
+        taskId:
+          type:
+          - string
+          - 'null'
+          format: uuid
+        allocations:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/PersonAllocation'
+        taskName:
+          type:
+          - string
+          - 'null'
+        categoryId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        categoryName:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
     UnavailabilityResponse:
       type: object
       properties:
@@ -638,38 +670,6 @@ components:
           - string
           - 'null'
           example: '46'
-      additionalProperties: false
-    ProjectAllocation:
-      type: object
-      properties:
-        roleId:
-          type: integer
-          format: int64
-          example: 8673
-        taskId:
-          type:
-          - string
-          - 'null'
-          format: uuid
-        allocations:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/PersonAllocation'
-        taskName:
-          type:
-          - string
-          - 'null'
-        categoryId:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        categoryName:
-          type:
-          - string
-          - 'null'
       additionalProperties: false
   securitySchemes:
     Bearer:

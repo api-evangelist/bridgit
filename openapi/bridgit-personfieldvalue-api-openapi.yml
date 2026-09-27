@@ -523,6 +523,34 @@ paths:
           description: Unprocessable Entity
 components:
   schemas:
+    FieldValuesRequest:
+      type: object
+      properties:
+        values:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          example:
+          - '5195555555'
+      additionalProperties: false
+    FieldValuesPair:
+      type: object
+      properties:
+        fieldId:
+          type: integer
+          format: int64
+          example: 1394
+        values:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          example:
+          - '5195555555'
+      additionalProperties: false
     FieldValuesResponse:
       type: object
       properties:
@@ -578,34 +606,6 @@ components:
           - 'null'
           format: date-time
           example: '2021-05-27T10:58:23.530Z'
-      additionalProperties: false
-    FieldValuesRequest:
-      type: object
-      properties:
-        values:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-          example:
-          - '5195555555'
-      additionalProperties: false
-    FieldValuesPair:
-      type: object
-      properties:
-        fieldId:
-          type: integer
-          format: int64
-          example: 1394
-        values:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-          example:
-          - '5195555555'
       additionalProperties: false
   securitySchemes:
     Bearer:

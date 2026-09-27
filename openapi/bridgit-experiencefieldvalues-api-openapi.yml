@@ -229,6 +229,17 @@ paths:
           description: No Content
 components:
   schemas:
+    ExperienceFieldValueRequest:
+      type: object
+      properties:
+        name:
+          maxLength: 250
+          minLength: 1
+          type:
+          - string
+          - 'null'
+          example: '"Apartment"'
+      additionalProperties: false
     ExperienceFieldValueResponse:
       type: object
       properties:
@@ -241,17 +252,6 @@ components:
           type:
           - string
           - 'null'
-      additionalProperties: false
-    ExperienceFieldValueRequest:
-      type: object
-      properties:
-        name:
-          maxLength: 250
-          minLength: 1
-          type:
-          - string
-          - 'null'
-          example: '"Apartment"'
       additionalProperties: false
   securitySchemes:
     Bearer:

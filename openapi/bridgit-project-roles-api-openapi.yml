@@ -516,61 +516,6 @@ paths:
           description: Forbidden
 components:
   schemas:
-    RoleHire:
-      type: object
-      properties:
-        isHireRequired:
-          type: boolean
-        hireDescription:
-          type:
-          - string
-          - 'null'
-        previousIsHireRequired:
-          type: boolean
-        hireStatus:
-          enum:
-          - Hire
-          - Hired
-          type:
-          - string
-          - 'null'
-        previousHireStatus:
-          enum:
-          - Hire
-          - Hired
-          type:
-          - string
-          - 'null'
-        taggedByUserId:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        taggedAt:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        hiredAt:
-          type:
-          - string
-          - 'null'
-          format: date-time
-      additionalProperties: false
-    RoleNotificationData:
-      type: object
-      properties:
-        notifiedOn:
-          type: string
-          format: date-time
-        recipientIds:
-          type:
-          - array
-          - 'null'
-          items:
-            type: integer
-            format: int64
-      additionalProperties: false
     ProjectRoleTagEntity:
       type: object
       properties:
@@ -594,6 +539,93 @@ components:
           - 'null'
       additionalProperties: false
       description: Represents a role tag with its collection metadata
+    ExternalIdRequest:
+      type: object
+      properties:
+        externalId:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    RoleCrewResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Crew id (`crew.id`).
+          format: int64
+          example: 42
+        name:
+          type:
+          - string
+          - 'null'
+          description: Crew display name.
+          example: Concrete crew A
+        memberCount:
+          type: integer
+          description: 'Number of people on the crew roster (`crewmember`) for the linked crew. This is the
+
+            crew''s roster size — not the number of people allocated to this specific role.'
+          format: int32
+          example: 5
+        trade:
+          $ref: '#/components/schemas/RoleCrewTradeResponse'
+      additionalProperties: false
+      description: 'Crew summary embedded on a ResourcePlanning.Contracts.RoleResponse when the role is tagged with a crew
+
+        (`projectrole.crew_id` not null). Loaded from the related `crew` row; cached and
+
+        serialized via MessagePack for role payloads.'
+    RoleCrewTradeResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Trade id (`crewtrade.id`).
+          format: int64
+          example: 1
+        name:
+          type:
+          - string
+          - 'null'
+          description: Trade display name.
+          example: Electrician
+        colour:
+          type:
+          - string
+          - 'null'
+          description: Trade colour as a hex string; one of ResourcePlanning.Common.Validation.CrewTradeColourAttribute.AllowedHexValues.
+          example: '#D6F0F5'
+      additionalProperties: false
+      description: 'Trade summary embedded on ResourcePlanning.Contracts.RoleCrewResponse.Trade. Slim projection of
+
+        ResourcePlanning.Contracts.CrewTradeResponse (omits `inUse` and `createdOn`).'
+    RoleNotificationData:
+      type: object
+      properties:
+        notifiedOn:
+          type: string
+          format: date-time
+        recipientIds:
+          type:
+          - array
+          - 'null'
+          items:
+            type: integer
+            format: int64
+      additionalProperties: false
+    RoleUnfilled:
+      type: object
+      properties:
+        startDate:
+          type: string
+          format: date-time
+          example: '2019-01-01'
+        endDate:
+          type: string
+          format: date-time
+          example: '2020-12-31'
+      additionalProperties: false
     BaseRoleRequest:
       type: object
       properties:
@@ -666,23 +698,46 @@ components:
           - string
           - 'null'
       additionalProperties: false
-    RoleRequirement:
+    RoleHire:
       type: object
       properties:
-        startDate:
-          type: string
-          format: date-time
-          example: '2019-01-01'
-        endDate:
-          type: string
-          format: date-time
-          example: '2020-12-31'
-        allocatedPercent:
-          maximum: 100
-          minimum: 0
-          type: integer
+        isHireRequired:
+          type: boolean
+        hireDescription:
+          type:
+          - string
+          - 'null'
+        previousIsHireRequired:
+          type: boolean
+        hireStatus:
+          enum:
+          - Hire
+          - Hired
+          type:
+          - string
+          - 'null'
+        previousHireStatus:
+          enum:
+          - Hire
+          - Hired
+          type:
+          - string
+          - 'null'
+        taggedByUserId:
+          type:
+          - integer
+          - 'null'
           format: int32
-          example: 100
+        taggedAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        hiredAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
       additionalProperties: false
     RoleResponse:
       type: object
@@ -812,7 +867,7 @@ components:
         crew:
           $ref: '#/components/schemas/RoleCrewResponse'
       additionalProperties: false
-    RoleUnfilled:
+    RoleRequirement:
       type: object
       properties:
         startDate:
@@ -823,36 +878,13 @@ components:
           type: string
           format: date-time
           example: '2020-12-31'
-      additionalProperties: false
-    RoleCrewResponse:
-      type: object
-      properties:
-        id:
+        allocatedPercent:
+          maximum: 100
+          minimum: 0
           type: integer
-          description: Crew id (`crew.id`).
-          format: int64
-          example: 42
-        name:
-          type:
-          - string
-          - 'null'
-          description: Crew display name.
-          example: Concrete crew A
-        memberCount:
-          type: integer
-          description: 'Number of people on the crew roster (`crewmember`) for the linked crew. This is the
-
-            crew''s roster size — not the number of people allocated to this specific role.'
           format: int32
-          example: 5
-        trade:
-          $ref: '#/components/schemas/RoleCrewTradeResponse'
+          example: 100
       additionalProperties: false
-      description: 'Crew summary embedded on a ResourcePlanning.Contracts.RoleResponse when the role is tagged with a crew
-
-        (`projectrole.crew_id` not null). Loaded from the related `crew` row; cached and
-
-        serialized via MessagePack for role payloads.'
     RoleUpdateRequest:
       type: object
       properties:
@@ -964,38 +996,6 @@ components:
           - string
           - 'null'
       additionalProperties: false
-    ExternalIdRequest:
-      type: object
-      properties:
-        externalId:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    RoleCrewTradeResponse:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: Trade id (`crewtrade.id`).
-          format: int64
-          example: 1
-        name:
-          type:
-          - string
-          - 'null'
-          description: Trade display name.
-          example: Electrician
-        colour:
-          type:
-          - string
-          - 'null'
-          description: Trade colour as a hex string; one of ResourcePlanning.Common.Validation.CrewTradeColourAttribute.AllowedHexValues.
-          example: '#D6F0F5'
-      additionalProperties: false
-      description: 'Trade summary embedded on ResourcePlanning.Contracts.RoleCrewResponse.Trade. Slim projection of
-
-        ResourcePlanning.Contracts.CrewTradeResponse (omits `inUse` and `createdOn`).'
   securitySchemes:
     Bearer:
       type: http

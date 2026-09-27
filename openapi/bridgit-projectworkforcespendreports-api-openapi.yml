@@ -146,77 +146,6 @@ paths:
           description: Forbidden
 components:
   schemas:
-    PeriodWorkforceSpendHoursBreakdown:
-      type: object
-      properties:
-        startDate:
-          type: string
-          format: date-time
-        endDate:
-          type: string
-          format: date-time
-        personWorkforceSpendHoursBreakdown:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/PersonWorkforceSpendHoursBreakdown'
-        periodWorkforceSpendHoursFilled:
-          type: integer
-          format: int64
-        periodWorkforceSpendHoursUnfilled:
-          type: integer
-          format: int64
-        periodWorkforceSpendHoursTotal:
-          type: integer
-          format: int64
-      additionalProperties: false
-    RoleWorkforceSpendHoursBreakdown:
-      type: object
-      properties:
-        roleNameId:
-          type: integer
-          format: int64
-        roleName:
-          type:
-          - string
-          - 'null'
-        workforceSpendHoursFilled:
-          type: integer
-          format: int64
-        workforceSpendHoursUnfilled:
-          type: integer
-          format: int64
-        workforceSpendHoursTotal:
-          type: integer
-          format: int64
-        periodWorkforceSpendHoursBreakdown:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/PeriodWorkforceSpendHoursBreakdown'
-      additionalProperties: false
-    PersonWorkforceSpendHoursOverview:
-      type: object
-      properties:
-        personId:
-          type: integer
-          format: int64
-        personName:
-          type:
-          - string
-          - 'null'
-        personElapsedHours:
-          type: integer
-          format: int64
-        personRemainderHours:
-          type: integer
-          format: int64
-        personTotalHours:
-          type: integer
-          format: int64
-      additionalProperties: false
     PersonWorkforceSpendHoursBreakdown:
       type: object
       properties:
@@ -230,70 +159,6 @@ components:
         personWorkforceSpendHours:
           type: integer
           format: int64
-      additionalProperties: false
-    BreakdownRequest:
-      type: object
-      properties:
-        offset:
-          type: integer
-          format: int32
-          example: 0
-        limit:
-          type: integer
-          format: int32
-          example: 1000
-        startDate:
-          type: string
-          format: date-time
-          example: '2020-01-01T00:00:00Z'
-        endDate:
-          type: string
-          format: date-time
-          example: '2021-12-31T00:00:00Z'
-        period:
-          enum:
-          - Annual
-          - Quarter
-          - Month
-          - Week
-          type: string
-          example: '0'
-        bounded:
-          type: boolean
-          example: false
-        roleNameIds:
-          type:
-          - array
-          - 'null'
-          items:
-            type: integer
-            format: int64
-          description: 'RoleNameIds to filter by. [] for all.
-
-            <example>[1, 2, 3]</example>'
-        roleType:
-          enum:
-          - Salaried
-          - Hourly
-          - All
-          type: string
-          description: RoleType to filter by. Salaried by default. Hourly is not supported.
-        salariedRoleType:
-          enum:
-          - Operations
-          - Preconstruction
-          - All
-          type: string
-          description: SalariedRoleType to filter by. All by default.
-        opsPreconFilter:
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          type: integer
-          description: ResourcePlanning.Contracts.BreakdownRequest.OpsPreconFilter to filter by. ResourcePlanning.Contracts.OpsPreconFilter.OperationsPrecon by default.
-          format: int32
       additionalProperties: false
     HoursOverviewResponse:
       type: object
@@ -371,6 +236,51 @@ components:
           description: ResourcePlanning.Contracts.OverviewRequest.OpsPreconFilter to filter by. ResourcePlanning.Contracts.OpsPreconFilter.OperationsPrecon by default.
           format: int32
       additionalProperties: false
+    PersonWorkforceSpendHoursOverview:
+      type: object
+      properties:
+        personId:
+          type: integer
+          format: int64
+        personName:
+          type:
+          - string
+          - 'null'
+        personElapsedHours:
+          type: integer
+          format: int64
+        personRemainderHours:
+          type: integer
+          format: int64
+        personTotalHours:
+          type: integer
+          format: int64
+      additionalProperties: false
+    PeriodWorkforceSpendHoursBreakdown:
+      type: object
+      properties:
+        startDate:
+          type: string
+          format: date-time
+        endDate:
+          type: string
+          format: date-time
+        personWorkforceSpendHoursBreakdown:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/PersonWorkforceSpendHoursBreakdown'
+        periodWorkforceSpendHoursFilled:
+          type: integer
+          format: int64
+        periodWorkforceSpendHoursUnfilled:
+          type: integer
+          format: int64
+        periodWorkforceSpendHoursTotal:
+          type: integer
+          format: int64
+      additionalProperties: false
     HoursBreakdownResponse:
       type: object
       properties:
@@ -389,6 +299,32 @@ components:
         totalWorkforceSpendHours:
           type: integer
           format: int64
+      additionalProperties: false
+    RoleWorkforceSpendHoursBreakdown:
+      type: object
+      properties:
+        roleNameId:
+          type: integer
+          format: int64
+        roleName:
+          type:
+          - string
+          - 'null'
+        workforceSpendHoursFilled:
+          type: integer
+          format: int64
+        workforceSpendHoursUnfilled:
+          type: integer
+          format: int64
+        workforceSpendHoursTotal:
+          type: integer
+          format: int64
+        periodWorkforceSpendHoursBreakdown:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/PeriodWorkforceSpendHoursBreakdown'
       additionalProperties: false
     RoleWorkforceSpendHoursOverview:
       type: object
@@ -427,6 +363,70 @@ components:
           - 'null'
           items:
             $ref: '#/components/schemas/PersonWorkforceSpendHoursOverview'
+      additionalProperties: false
+    BreakdownRequest:
+      type: object
+      properties:
+        offset:
+          type: integer
+          format: int32
+          example: 0
+        limit:
+          type: integer
+          format: int32
+          example: 1000
+        startDate:
+          type: string
+          format: date-time
+          example: '2020-01-01T00:00:00Z'
+        endDate:
+          type: string
+          format: date-time
+          example: '2021-12-31T00:00:00Z'
+        period:
+          enum:
+          - Annual
+          - Quarter
+          - Month
+          - Week
+          type: string
+          example: '0'
+        bounded:
+          type: boolean
+          example: false
+        roleNameIds:
+          type:
+          - array
+          - 'null'
+          items:
+            type: integer
+            format: int64
+          description: 'RoleNameIds to filter by. [] for all.
+
+            <example>[1, 2, 3]</example>'
+        roleType:
+          enum:
+          - Salaried
+          - Hourly
+          - All
+          type: string
+          description: RoleType to filter by. Salaried by default. Hourly is not supported.
+        salariedRoleType:
+          enum:
+          - Operations
+          - Preconstruction
+          - All
+          type: string
+          description: SalariedRoleType to filter by. All by default.
+        opsPreconFilter:
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          type: integer
+          description: ResourcePlanning.Contracts.BreakdownRequest.OpsPreconFilter to filter by. ResourcePlanning.Contracts.OpsPreconFilter.OperationsPrecon by default.
+          format: int32
       additionalProperties: false
   securitySchemes:
     Bearer:

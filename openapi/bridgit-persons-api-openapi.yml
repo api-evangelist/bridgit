@@ -1119,58 +1119,36 @@ paths:
           description: Validation failure - The person is already active in the account
 components:
   schemas:
-    EmploymentDatesResponse:
+    PersonFilterPredicatesFilter:
       type: object
       properties:
-        startDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        endDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
+        offset:
+          type: integer
+          format: int32
+        limit:
+          type: integer
+          format: int32
+        predicates:
+          $ref: '#/components/schemas/PersonFilterPredicates'
       additionalProperties: false
-    PersonNextAvailable:
+    PersonProjectResponse:
       type: object
       properties:
-        personId:
+        id:
           type: integer
           format: int64
           example: 8673
-        nextAvailableDate:
+        name:
           type:
           - string
           - 'null'
+          example: Ahrens Lofts
+        startDate:
+          type: string
           format: date-time
-          example: '2019-01-01'
-        availableInDays:
-          type: integer
-          format: int32
-          example: 82
-        availabilities:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Availability'
-      additionalProperties: false
-    PersonAllocationResponse:
-      type: object
-      properties:
-        projectId:
-          type: integer
-          format: int64
-        projectName:
-          type:
-          - string
-          - 'null'
-        projectColour:
-          type:
-          - string
-          - 'null'
+        endDate:
+          type: string
+          format: date-time
         projectType:
           enum:
           - Awarded
@@ -1184,30 +1162,7 @@ components:
           - Complete
           - Pursuit
           - Lost
-          type:
-          - string
-          - 'null'
-        taskId:
-          type:
-          - string
-          - 'null'
-          format: uuid
-        roleId:
-          type: integer
-          format: int64
-        roleName:
-          type:
-          - string
-          - 'null'
-        startDate:
           type: string
-          format: date-time
-        endDate:
-          type: string
-          format: date-time
-        allocatedPercent:
-          type: integer
-          format: int32
       additionalProperties: false
     PersonProjectList:
       type: object
@@ -1222,18 +1177,6 @@ components:
           - 'null'
           items:
             $ref: '#/components/schemas/Project'
-      additionalProperties: false
-    PersonFilterPredicatesFilter:
-      type: object
-      properties:
-        offset:
-          type: integer
-          format: int32
-        limit:
-          type: integer
-          format: int32
-        predicates:
-          $ref: '#/components/schemas/PersonFilterPredicates'
       additionalProperties: false
     PersonDeactivateRequest:
       type: object
@@ -1260,33 +1203,164 @@ components:
           - 'null'
           format: date-time
       additionalProperties: false
-    PersonFilterPredicates:
+    ExternalIdRequest:
       type: object
       properties:
-        personIds:
+        externalId:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    NewPersonRequest:
+      type: object
+      properties:
+        email:
+          type:
+          - string
+          - 'null'
+          format: email
+          example: jayne@example.com
+        uniqueId:
+          type:
+          - string
+          - 'null'
+          example: This is a unique string that is less than 255 characters
+        name:
+          maxLength: 250
+          minLength: 1
+          type:
+          - string
+          - 'null'
+          example: Jayne Peters
+        type:
+          enum:
+          - Salaried
+          - Hourly
+          type: string
+          example: Salaried
+        title:
+          maxLength: 250
+          minLength: 1
+          type:
+          - string
+          - 'null'
+          example: Project Engineer
+        photoUrl:
+          type:
+          - string
+          - 'null'
+          format: uri
+          example: https://www.example.com/jayne.png
+        employmentDates:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - string
+            - 'null'
+            format: date-time
+          description: Request object for representing employment dates on a person.
+        workDays:
+          minItems: 1
+          type:
+          - array
+          - 'null'
+          items:
+            enum:
+            - 0
+            - 1
+            - 2
+            - 3
+            - 4
+            - 5
+            - 6
+            type: integer
+            format: int32
+          default:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          example:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+        fields:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/FieldValuesPair'
+        groupings:
+          minItems: 1
           type:
           - array
           - 'null'
           items:
             type: integer
             format: int64
-        state:
-          enum:
-          - Active
-          - Deactivated
-          - All
-          type: string
-        email:
+        industryStartDate:
           type:
           - string
           - 'null'
-        uniqueId:
+          format: date-time
+          example: '2020-01-01T00:00:00Z'
+      additionalProperties: false
+    PersonNextAvailable:
+      type: object
+      properties:
+        personId:
+          type: integer
+          format: int64
+          example: 8673
+        nextAvailableDate:
           type:
           - string
           - 'null'
-        relativeDate:
+          format: date-time
+          example: '2019-01-01'
+        availableInDays:
+          type: integer
+          format: int32
+          example: 82
+        availabilities:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Availability'
+      additionalProperties: false
+    Availability:
+      type: object
+      properties:
+        startDate:
           type: string
           format: date-time
+          example: '2021-01-01'
+        endDate:
+          type: string
+          format: date-time
+          example: '2021-12-31'
+        availablePercent:
+          type:
+          - integer
+          - 'null'
+          format: int32
+          example: 100
+        reason:
+          enum:
+          - Available
+          - Allocated
+          - PreEmployment
+          - PostEmployment
+          - Unavailability
+          type:
+          - string
+          - 'null'
       additionalProperties: false
     PersonResponse:
       type: object
@@ -1387,34 +1461,6 @@ components:
           - boolean
           - 'null'
       additionalProperties: false
-    Availability:
-      type: object
-      properties:
-        startDate:
-          type: string
-          format: date-time
-          example: '2021-01-01'
-        endDate:
-          type: string
-          format: date-time
-          example: '2021-12-31'
-        availablePercent:
-          type:
-          - integer
-          - 'null'
-          format: int32
-          example: 100
-        reason:
-          enum:
-          - Available
-          - Allocated
-          - PreEmployment
-          - PostEmployment
-          - Unavailability
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
     Project:
       type: object
       properties:
@@ -1453,13 +1499,47 @@ components:
           type: string
           readOnly: true
       additionalProperties: false
-    ExternalIdRequest:
+    PersonFilterPredicates:
       type: object
       properties:
-        externalId:
+        personIds:
+          type:
+          - array
+          - 'null'
+          items:
+            type: integer
+            format: int64
+        state:
+          enum:
+          - Active
+          - Deactivated
+          - All
+          type: string
+        email:
           type:
           - string
           - 'null'
+        uniqueId:
+          type:
+          - string
+          - 'null'
+        relativeDate:
+          type: string
+          format: date-time
+      additionalProperties: false
+    EmploymentDatesResponse:
+      type: object
+      properties:
+        startDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        endDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
       additionalProperties: false
     FieldValuesPair:
       type: object
@@ -1477,24 +1557,20 @@ components:
           example:
           - '5195555555'
       additionalProperties: false
-    PersonProjectResponse:
+    PersonAllocationResponse:
       type: object
       properties:
-        id:
+        projectId:
           type: integer
           format: int64
-          example: 8673
-        name:
+        projectName:
           type:
           - string
           - 'null'
-          example: Ahrens Lofts
-        startDate:
-          type: string
-          format: date-time
-        endDate:
-          type: string
-          format: date-time
+        projectColour:
+          type:
+          - string
+          - 'null'
         projectType:
           enum:
           - Awarded
@@ -1508,106 +1584,30 @@ components:
           - Complete
           - Pursuit
           - Lost
+          type:
+          - string
+          - 'null'
+        taskId:
+          type:
+          - string
+          - 'null'
+          format: uuid
+        roleId:
+          type: integer
+          format: int64
+        roleName:
+          type:
+          - string
+          - 'null'
+        startDate:
           type: string
-      additionalProperties: false
-    NewPersonRequest:
-      type: object
-      properties:
-        email:
-          type:
-          - string
-          - 'null'
-          format: email
-          example: jayne@example.com
-        uniqueId:
-          type:
-          - string
-          - 'null'
-          example: This is a unique string that is less than 255 characters
-        name:
-          maxLength: 250
-          minLength: 1
-          type:
-          - string
-          - 'null'
-          example: Jayne Peters
-        type:
-          enum:
-          - Salaried
-          - Hourly
-          type: string
-          example: Salaried
-        title:
-          maxLength: 250
-          minLength: 1
-          type:
-          - string
-          - 'null'
-          example: Project Engineer
-        photoUrl:
-          type:
-          - string
-          - 'null'
-          format: uri
-          example: https://www.example.com/jayne.png
-        employmentDates:
-          type:
-          - object
-          - 'null'
-          additionalProperties:
-            type:
-            - string
-            - 'null'
-            format: date-time
-          description: Request object for representing employment dates on a person.
-        workDays:
-          minItems: 1
-          type:
-          - array
-          - 'null'
-          items:
-            enum:
-            - 0
-            - 1
-            - 2
-            - 3
-            - 4
-            - 5
-            - 6
-            type: integer
-            format: int32
-          default:
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          example:
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-        fields:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/FieldValuesPair'
-        groupings:
-          minItems: 1
-          type:
-          - array
-          - 'null'
-          items:
-            type: integer
-            format: int64
-        industryStartDate:
-          type:
-          - string
-          - 'null'
           format: date-time
-          example: '2020-01-01T00:00:00Z'
+        endDate:
+          type: string
+          format: date-time
+        allocatedPercent:
+          type: integer
+          format: int32
       additionalProperties: false
   securitySchemes:
     Bearer:
