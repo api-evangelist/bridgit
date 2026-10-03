@@ -146,19 +146,94 @@ paths:
           description: Forbidden
 components:
   schemas:
-    PersonWorkforceSpendHoursBreakdown:
+    RoleWorkforceSpendHoursOverview:
       type: object
       properties:
-        personId:
+        roleNameId:
           type: integer
           format: int64
-        personName:
+        roleName:
           type:
           - string
           - 'null'
-        personWorkforceSpendHours:
+        workforceSpendHoursElapsedFilled:
           type: integer
           format: int64
+        workforceSpendHoursElapsedUnfilled:
+          type: integer
+          format: int64
+        workforceSpendHoursRemainderFilled:
+          type: integer
+          format: int64
+        workforceSpendHoursRemainderUnfilled:
+          type: integer
+          format: int64
+        workforceSpendHoursElapsed:
+          type: integer
+          format: int64
+        workforceSpendHoursRemainder:
+          type: integer
+          format: int64
+        workforceSpendHoursTotal:
+          type: integer
+          format: int64
+        personWorkforceSpendHoursOverview:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/PersonWorkforceSpendHoursOverview'
+      additionalProperties: false
+    PeriodWorkforceSpendHoursBreakdown:
+      type: object
+      properties:
+        startDate:
+          type: string
+          format: date-time
+        endDate:
+          type: string
+          format: date-time
+        personWorkforceSpendHoursBreakdown:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/PersonWorkforceSpendHoursBreakdown'
+        periodWorkforceSpendHoursFilled:
+          type: integer
+          format: int64
+        periodWorkforceSpendHoursUnfilled:
+          type: integer
+          format: int64
+        periodWorkforceSpendHoursTotal:
+          type: integer
+          format: int64
+      additionalProperties: false
+    RoleWorkforceSpendHoursBreakdown:
+      type: object
+      properties:
+        roleNameId:
+          type: integer
+          format: int64
+        roleName:
+          type:
+          - string
+          - 'null'
+        workforceSpendHoursFilled:
+          type: integer
+          format: int64
+        workforceSpendHoursUnfilled:
+          type: integer
+          format: int64
+        workforceSpendHoursTotal:
+          type: integer
+          format: int64
+        periodWorkforceSpendHoursBreakdown:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/PeriodWorkforceSpendHoursBreakdown'
       additionalProperties: false
     HoursOverviewResponse:
       type: object
@@ -173,6 +248,25 @@ components:
           type: integer
           format: int64
         totalWorkforceSpendHoursRemainder:
+          type: integer
+          format: int64
+        totalWorkforceSpendHours:
+          type: integer
+          format: int64
+      additionalProperties: false
+    HoursBreakdownResponse:
+      type: object
+      properties:
+        workforceSpendHoursBreakdown:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/RoleWorkforceSpendHoursBreakdown'
+        totalWorkforceSpendHoursFilled:
+          type: integer
+          format: int64
+        totalWorkforceSpendHoursUnfilled:
           type: integer
           format: int64
         totalWorkforceSpendHours:
@@ -256,114 +350,6 @@ components:
           type: integer
           format: int64
       additionalProperties: false
-    PeriodWorkforceSpendHoursBreakdown:
-      type: object
-      properties:
-        startDate:
-          type: string
-          format: date-time
-        endDate:
-          type: string
-          format: date-time
-        personWorkforceSpendHoursBreakdown:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/PersonWorkforceSpendHoursBreakdown'
-        periodWorkforceSpendHoursFilled:
-          type: integer
-          format: int64
-        periodWorkforceSpendHoursUnfilled:
-          type: integer
-          format: int64
-        periodWorkforceSpendHoursTotal:
-          type: integer
-          format: int64
-      additionalProperties: false
-    HoursBreakdownResponse:
-      type: object
-      properties:
-        workforceSpendHoursBreakdown:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/RoleWorkforceSpendHoursBreakdown'
-        totalWorkforceSpendHoursFilled:
-          type: integer
-          format: int64
-        totalWorkforceSpendHoursUnfilled:
-          type: integer
-          format: int64
-        totalWorkforceSpendHours:
-          type: integer
-          format: int64
-      additionalProperties: false
-    RoleWorkforceSpendHoursBreakdown:
-      type: object
-      properties:
-        roleNameId:
-          type: integer
-          format: int64
-        roleName:
-          type:
-          - string
-          - 'null'
-        workforceSpendHoursFilled:
-          type: integer
-          format: int64
-        workforceSpendHoursUnfilled:
-          type: integer
-          format: int64
-        workforceSpendHoursTotal:
-          type: integer
-          format: int64
-        periodWorkforceSpendHoursBreakdown:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/PeriodWorkforceSpendHoursBreakdown'
-      additionalProperties: false
-    RoleWorkforceSpendHoursOverview:
-      type: object
-      properties:
-        roleNameId:
-          type: integer
-          format: int64
-        roleName:
-          type:
-          - string
-          - 'null'
-        workforceSpendHoursElapsedFilled:
-          type: integer
-          format: int64
-        workforceSpendHoursElapsedUnfilled:
-          type: integer
-          format: int64
-        workforceSpendHoursRemainderFilled:
-          type: integer
-          format: int64
-        workforceSpendHoursRemainderUnfilled:
-          type: integer
-          format: int64
-        workforceSpendHoursElapsed:
-          type: integer
-          format: int64
-        workforceSpendHoursRemainder:
-          type: integer
-          format: int64
-        workforceSpendHoursTotal:
-          type: integer
-          format: int64
-        personWorkforceSpendHoursOverview:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/PersonWorkforceSpendHoursOverview'
-      additionalProperties: false
     BreakdownRequest:
       type: object
       properties:
@@ -427,6 +413,20 @@ components:
           type: integer
           description: ResourcePlanning.Contracts.BreakdownRequest.OpsPreconFilter to filter by. ResourcePlanning.Contracts.OpsPreconFilter.OperationsPrecon by default.
           format: int32
+      additionalProperties: false
+    PersonWorkforceSpendHoursBreakdown:
+      type: object
+      properties:
+        personId:
+          type: integer
+          format: int64
+        personName:
+          type:
+          - string
+          - 'null'
+        personWorkforceSpendHours:
+          type: integer
+          format: int64
       additionalProperties: false
   securitySchemes:
     Bearer:

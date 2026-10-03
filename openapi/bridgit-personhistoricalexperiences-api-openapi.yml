@@ -344,169 +344,6 @@ paths:
           description: Forbidden
 components:
   schemas:
-    HistoricalExperienceUpdateRequest:
-      required:
-      - experienceFields
-      - roleName
-      type: object
-      properties:
-        roleName:
-          type:
-          - string
-          - 'null'
-        experienceFields:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/HistoricalExperienceFieldValueRequest'
-        assignmentStartDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        assignmentEndDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        assignmentDuration:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        assignmentHours:
-          type:
-          - number
-          - 'null'
-          format: double
-      additionalProperties: false
-    HistoricalExperienceFieldValue:
-      required:
-      - fieldName
-      - value
-      type: object
-      properties:
-        experienceFieldId:
-          type: string
-          format: uuid
-        experienceFieldValueId:
-          type: string
-          format: uuid
-        fieldName:
-          type:
-          - string
-          - 'null'
-        value:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    HistoricalExperienceFieldValueRequest:
-      type: object
-      properties:
-        experienceFieldId:
-          type: string
-          format: uuid
-        experienceFieldValueId:
-          type:
-          - string
-          - 'null'
-          format: uuid
-        value:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    HistoricalExperiencePatchRequest:
-      type: object
-      properties:
-        roleName:
-          type:
-          - string
-          - 'null'
-        assignmentStartDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        assignmentEndDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        assignmentDuration:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        assignmentHours:
-          type:
-          - number
-          - 'null'
-          format: double
-      additionalProperties: false
-    HistoricalExperienceRequest:
-      required:
-      - projectName
-      - roleName
-      type: object
-      properties:
-        projectName:
-          type:
-          - string
-          - 'null'
-        projectStartDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        projectEndDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        roleName:
-          type:
-          - string
-          - 'null'
-        currentCompany:
-          type: boolean
-        experienceFields:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/HistoricalExperienceFieldValueRequest'
-        projectDescription:
-          type:
-          - string
-          - 'null'
-        companyName:
-          type:
-          - string
-          - 'null'
-        assignmentStartDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        assignmentEndDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        assignmentDuration:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        assignmentHours:
-          type:
-          - number
-          - 'null'
-          format: double
-      additionalProperties: false
     HistoricalExperienceEntryWithExperienceFields:
       required:
       - roleName
@@ -611,6 +448,169 @@ components:
           - number
           - 'null'
           format: double
+      additionalProperties: false
+    HistoricalExperienceRequest:
+      required:
+      - projectName
+      - roleName
+      type: object
+      properties:
+        projectName:
+          type:
+          - string
+          - 'null'
+        projectStartDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        projectEndDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        roleName:
+          type:
+          - string
+          - 'null'
+        currentCompany:
+          type: boolean
+        experienceFields:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/HistoricalExperienceFieldValueRequest'
+        projectDescription:
+          type:
+          - string
+          - 'null'
+        companyName:
+          type:
+          - string
+          - 'null'
+        assignmentStartDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        assignmentEndDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        assignmentDuration:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        assignmentHours:
+          type:
+          - number
+          - 'null'
+          format: double
+      additionalProperties: false
+    HistoricalExperiencePatchRequest:
+      type: object
+      properties:
+        roleName:
+          type:
+          - string
+          - 'null'
+        assignmentStartDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        assignmentEndDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        assignmentDuration:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        assignmentHours:
+          type:
+          - number
+          - 'null'
+          format: double
+      additionalProperties: false
+    HistoricalExperienceFieldValueRequest:
+      type: object
+      properties:
+        experienceFieldId:
+          type: string
+          format: uuid
+        experienceFieldValueId:
+          type:
+          - string
+          - 'null'
+          format: uuid
+        value:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    HistoricalExperienceUpdateRequest:
+      required:
+      - experienceFields
+      - roleName
+      type: object
+      properties:
+        roleName:
+          type:
+          - string
+          - 'null'
+        experienceFields:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/HistoricalExperienceFieldValueRequest'
+        assignmentStartDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        assignmentEndDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        assignmentDuration:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        assignmentHours:
+          type:
+          - number
+          - 'null'
+          format: double
+      additionalProperties: false
+    HistoricalExperienceFieldValue:
+      required:
+      - fieldName
+      - value
+      type: object
+      properties:
+        experienceFieldId:
+          type: string
+          format: uuid
+        experienceFieldValueId:
+          type: string
+          format: uuid
+        fieldName:
+          type:
+          - string
+          - 'null'
+        value:
+          type:
+          - string
+          - 'null'
       additionalProperties: false
   securitySchemes:
     Bearer:

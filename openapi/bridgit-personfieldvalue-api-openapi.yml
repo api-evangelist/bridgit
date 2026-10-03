@@ -523,9 +523,13 @@ paths:
           description: Unprocessable Entity
 components:
   schemas:
-    FieldValuesRequest:
+    FieldValuesPair:
       type: object
       properties:
+        fieldId:
+          type: integer
+          format: int64
+          example: 1394
         values:
           type:
           - array
@@ -535,13 +539,9 @@ components:
           example:
           - '5195555555'
       additionalProperties: false
-    FieldValuesPair:
+    FieldValuesRequest:
       type: object
       properties:
-        fieldId:
-          type: integer
-          format: int64
-          example: 1394
         values:
           type:
           - array

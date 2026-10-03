@@ -1228,14 +1228,17 @@ components:
           - string
           - 'null'
       additionalProperties: false
-    ProjectCurrentPhase:
+    ProjectFilterPredicatesFilter:
       type: object
       properties:
-        name:
-          type:
-          - string
-          - 'null'
-          example: Precon
+        offset:
+          type: integer
+          format: int32
+        limit:
+          type: integer
+          format: int32
+        predicates:
+          $ref: '#/components/schemas/ProjectFilterPredicates'
       additionalProperties: false
     ProjectResponse:
       type: object
@@ -1417,6 +1420,38 @@ components:
           format: date-time
           example: '2021-05-27T10:58:23.530Z'
       additionalProperties: false
+    ProjectPhaseRequest:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 1234
+        startDate:
+          type: string
+          format: date-time
+          example: '2020-01-01'
+        endDate:
+          type: string
+          format: date-time
+          example: '2020-12-31'
+      additionalProperties: false
+    FieldValuesPair:
+      type: object
+      properties:
+        fieldId:
+          type: integer
+          format: int64
+          example: 1394
+        values:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          example:
+          - '5195555555'
+      additionalProperties: false
     ProjectFilterPredicates:
       type: object
       properties:
@@ -1453,34 +1488,6 @@ components:
           format: date-time
         includeProjectNumber:
           type: boolean
-      additionalProperties: false
-    ProjectFilterPredicatesFilter:
-      type: object
-      properties:
-        offset:
-          type: integer
-          format: int32
-        limit:
-          type: integer
-          format: int32
-        predicates:
-          $ref: '#/components/schemas/ProjectFilterPredicates'
-      additionalProperties: false
-    ProjectPhaseRequest:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-          example: 1234
-        startDate:
-          type: string
-          format: date-time
-          example: '2020-01-01'
-        endDate:
-          type: string
-          format: date-time
-          example: '2020-12-31'
       additionalProperties: false
     NewProjectRequest:
       type: object
@@ -1574,21 +1581,14 @@ components:
           items:
             $ref: '#/components/schemas/ProjectPhaseRequest'
       additionalProperties: false
-    FieldValuesPair:
+    ProjectCurrentPhase:
       type: object
       properties:
-        fieldId:
-          type: integer
-          format: int64
-          example: 1394
-        values:
+        name:
           type:
-          - array
+          - string
           - 'null'
-          items:
-            type: string
-          example:
-          - '5195555555'
+          example: Precon
       additionalProperties: false
   securitySchemes:
     Bearer:

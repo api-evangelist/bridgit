@@ -548,26 +548,20 @@ paths:
           description: Forbidden
 components:
   schemas:
-    FieldOrderRequest:
-      required:
-      - displayOrder
-      - fieldId
+    FieldDefinedValueRequest:
       type: object
       properties:
-        fieldId:
-          maximum: 9.223372036854776e+18
-          minimum: 1
+        valueId:
           type: integer
-          description: The field ID to reorder
           format: int64
-          example: 1234
-        displayOrder:
-          maximum: 2147483647
-          minimum: 1
-          type: integer
-          description: The new display order position (1-indexed)
-          format: int32
-          example: 1
+        definedValue:
+          type:
+          - string
+          - 'null'
+        forRemoval:
+          type: boolean
+        deleteExperienceFieldValues:
+          type: boolean
       additionalProperties: false
     ProjectFieldDefinition:
       type: object
@@ -633,41 +627,6 @@ components:
           format: int32
           example: 1
       additionalProperties: false
-    FieldDefinedValue:
-      type: object
-      properties:
-        valueId:
-          type: integer
-          format: int64
-          example: 13
-        definedValue:
-          type:
-          - string
-          - 'null'
-          example: Defined Value
-        inUse:
-          type:
-          - array
-          - 'null'
-          items:
-            type: integer
-            format: int64
-      additionalProperties: false
-    FieldDefinedValueRequest:
-      type: object
-      properties:
-        valueId:
-          type: integer
-          format: int64
-        definedValue:
-          type:
-          - string
-          - 'null'
-        forRemoval:
-          type: boolean
-        deleteExperienceFieldValues:
-          type: boolean
-      additionalProperties: false
     FieldDefRequest:
       type: object
       properties:
@@ -713,6 +672,47 @@ components:
         isLocked:
           type: boolean
           example: false
+      additionalProperties: false
+    FieldOrderRequest:
+      required:
+      - displayOrder
+      - fieldId
+      type: object
+      properties:
+        fieldId:
+          maximum: 9.223372036854776e+18
+          minimum: 1
+          type: integer
+          description: The field ID to reorder
+          format: int64
+          example: 1234
+        displayOrder:
+          maximum: 2147483647
+          minimum: 1
+          type: integer
+          description: The new display order position (1-indexed)
+          format: int32
+          example: 1
+      additionalProperties: false
+    FieldDefinedValue:
+      type: object
+      properties:
+        valueId:
+          type: integer
+          format: int64
+          example: 13
+        definedValue:
+          type:
+          - string
+          - 'null'
+          example: Defined Value
+        inUse:
+          type:
+          - array
+          - 'null'
+          items:
+            type: integer
+            format: int64
       additionalProperties: false
   securitySchemes:
     Bearer:

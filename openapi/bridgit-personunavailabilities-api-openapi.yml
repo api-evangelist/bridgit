@@ -498,81 +498,6 @@ paths:
           description: Forbidden
 components:
   schemas:
-    UnavailabilityUpdateRequest:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        description:
-          maxLength: 50
-          minLength: 0
-          type:
-          - string
-          - 'null'
-        startDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        endDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        isPrivate:
-          type:
-          - boolean
-          - 'null'
-      additionalProperties: false
-    NewUnavailabilityRequest:
-      type: object
-      properties:
-        description:
-          maxLength: 50
-          minLength: 0
-          type:
-          - string
-          - 'null'
-        startDate:
-          type: string
-          format: date-time
-        endDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        isPrivate:
-          type: boolean
-        rangeType:
-          enum:
-          - PreEmployment
-          - PostEmployment
-          - Unavailability
-          - TimeOff
-          type: string
-      additionalProperties: false
-    PersonUnavailabilitiesQueryResponse:
-      type: object
-      properties:
-        state:
-          enum:
-          - Active
-          - Deactivated
-          - All
-          type: string
-          example: Active
-        personId:
-          type: integer
-          format: int64
-          example: 82
-        unavailabilities:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/UnavailabilityResponse'
-      additionalProperties: false
     UnavailabilityResponse:
       type: object
       properties:
@@ -609,6 +534,81 @@ components:
           - string
           - 'null'
           example: '46'
+      additionalProperties: false
+    UnavailabilityUpdateRequest:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        description:
+          maxLength: 50
+          minLength: 0
+          type:
+          - string
+          - 'null'
+        startDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        endDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        isPrivate:
+          type:
+          - boolean
+          - 'null'
+      additionalProperties: false
+    PersonUnavailabilitiesQueryResponse:
+      type: object
+      properties:
+        state:
+          enum:
+          - Active
+          - Deactivated
+          - All
+          type: string
+          example: Active
+        personId:
+          type: integer
+          format: int64
+          example: 82
+        unavailabilities:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/UnavailabilityResponse'
+      additionalProperties: false
+    NewUnavailabilityRequest:
+      type: object
+      properties:
+        description:
+          maxLength: 50
+          minLength: 0
+          type:
+          - string
+          - 'null'
+        startDate:
+          type: string
+          format: date-time
+        endDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        isPrivate:
+          type: boolean
+        rangeType:
+          enum:
+          - PreEmployment
+          - PostEmployment
+          - Unavailability
+          - TimeOff
+          type: string
       additionalProperties: false
   securitySchemes:
     Bearer:

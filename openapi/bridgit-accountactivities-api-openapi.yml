@@ -107,67 +107,6 @@ paths:
           description: Forbidden - User does not have required permissions or account access
 components:
   schemas:
-    ActivityResponse:
-      type: object
-      properties:
-        happenedOn:
-          type: string
-          format: date-time
-        triggeredByUserId:
-          type: integer
-          format: int64
-        triggeredByUserName:
-          type:
-          - string
-          - 'null'
-        activityType:
-          type:
-          - string
-          - 'null'
-        personId:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        projectId:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        roleId:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        payload: {}
-        diff: {}
-        triggeredByUserType:
-          enum:
-          - Member
-          - ServiceAccount
-          type: string
-        groupingIds:
-          type:
-          - array
-          - 'null'
-          items:
-            type: integer
-            format: int64
-      additionalProperties: false
-    ActivitiesFilter:
-      type: object
-      properties:
-        offset:
-          type: integer
-          format: int32
-        limit:
-          maximum: 50
-          minimum: 1
-          type: integer
-          format: int32
-        predicates:
-          $ref: '#/components/schemas/ActivitiesFilterPredicates'
-      additionalProperties: false
     ActivitiesFilterPredicates:
       type: object
       properties:
@@ -230,6 +169,67 @@ components:
           type:
           - string
           - 'null'
+      additionalProperties: false
+    ActivitiesFilter:
+      type: object
+      properties:
+        offset:
+          type: integer
+          format: int32
+        limit:
+          maximum: 50
+          minimum: 1
+          type: integer
+          format: int32
+        predicates:
+          $ref: '#/components/schemas/ActivitiesFilterPredicates'
+      additionalProperties: false
+    ActivityResponse:
+      type: object
+      properties:
+        happenedOn:
+          type: string
+          format: date-time
+        triggeredByUserId:
+          type: integer
+          format: int64
+        triggeredByUserName:
+          type:
+          - string
+          - 'null'
+        activityType:
+          type:
+          - string
+          - 'null'
+        personId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        projectId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        roleId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        payload: {}
+        diff: {}
+        triggeredByUserType:
+          enum:
+          - Member
+          - ServiceAccount
+          type: string
+        groupingIds:
+          type:
+          - array
+          - 'null'
+          items:
+            type: integer
+            format: int64
       additionalProperties: false
   securitySchemes:
     Bearer:

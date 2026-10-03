@@ -1119,6 +1119,14 @@ paths:
           description: Validation failure - The person is already active in the account
 components:
   schemas:
+    ExternalIdRequest:
+      type: object
+      properties:
+        externalId:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
     PersonFilterPredicatesFilter:
       type: object
       properties:
@@ -1130,86 +1138,6 @@ components:
           format: int32
         predicates:
           $ref: '#/components/schemas/PersonFilterPredicates'
-      additionalProperties: false
-    PersonProjectResponse:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-          example: 8673
-        name:
-          type:
-          - string
-          - 'null'
-          example: Ahrens Lofts
-        startDate:
-          type: string
-          format: date-time
-        endDate:
-          type: string
-          format: date-time
-        projectType:
-          enum:
-          - Awarded
-          - Opportunity
-          type: string
-        projectStatus:
-          enum:
-          - Canceled
-          - Upcoming
-          - Active
-          - Complete
-          - Pursuit
-          - Lost
-          type: string
-      additionalProperties: false
-    PersonProjectList:
-      type: object
-      properties:
-        personId:
-          type: integer
-          format: int64
-          example: 8673
-        projects:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Project'
-      additionalProperties: false
-    PersonDeactivateRequest:
-      type: object
-      properties:
-        deactivationReason:
-          maxLength: 100
-          minLength: 0
-          type:
-          - string
-          - 'null'
-        deactivationNotes:
-          maxLength: 240
-          minLength: 0
-          type:
-          - string
-          - 'null'
-        wouldRehire:
-          type:
-          - boolean
-          - 'null'
-        employmentEndDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-      additionalProperties: false
-    ExternalIdRequest:
-      type: object
-      properties:
-        externalId:
-          type:
-          - string
-          - 'null'
       additionalProperties: false
     NewPersonRequest:
       type: object
@@ -1310,6 +1238,97 @@ components:
           format: date-time
           example: '2020-01-01T00:00:00Z'
       additionalProperties: false
+    Project:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 9381
+        name:
+          type:
+          - string
+          - 'null'
+          example: Ahrens Lofts
+        colour:
+          type:
+          - string
+          - 'null'
+        startDate:
+          type: string
+          format: date-time
+        endDate:
+          type: string
+          format: date-time
+        projectType:
+          enum:
+          - Awarded
+          - Opportunity
+          type: string
+        state:
+          enum:
+          - Canceled
+          - Upcoming
+          - Active
+          - Complete
+          - Pursuit
+          - Lost
+          type: string
+          readOnly: true
+      additionalProperties: false
+    PersonDeactivateRequest:
+      type: object
+      properties:
+        deactivationReason:
+          maxLength: 100
+          minLength: 0
+          type:
+          - string
+          - 'null'
+        deactivationNotes:
+          maxLength: 240
+          minLength: 0
+          type:
+          - string
+          - 'null'
+        wouldRehire:
+          type:
+          - boolean
+          - 'null'
+        employmentEndDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+      additionalProperties: false
+    PersonFilterPredicates:
+      type: object
+      properties:
+        personIds:
+          type:
+          - array
+          - 'null'
+          items:
+            type: integer
+            format: int64
+        state:
+          enum:
+          - Active
+          - Deactivated
+          - All
+          type: string
+        email:
+          type:
+          - string
+          - 'null'
+        uniqueId:
+          type:
+          - string
+          - 'null'
+        relativeDate:
+          type: string
+          format: date-time
+      additionalProperties: false
     PersonNextAvailable:
       type: object
       properties:
@@ -1333,6 +1352,121 @@ components:
           - 'null'
           items:
             $ref: '#/components/schemas/Availability'
+      additionalProperties: false
+    PersonAllocationResponse:
+      type: object
+      properties:
+        projectId:
+          type: integer
+          format: int64
+        projectName:
+          type:
+          - string
+          - 'null'
+        projectColour:
+          type:
+          - string
+          - 'null'
+        projectType:
+          enum:
+          - Awarded
+          - Opportunity
+          type: string
+        projectStatus:
+          enum:
+          - Canceled
+          - Upcoming
+          - Active
+          - Complete
+          - Pursuit
+          - Lost
+          type:
+          - string
+          - 'null'
+        taskId:
+          type:
+          - string
+          - 'null'
+          format: uuid
+        roleId:
+          type: integer
+          format: int64
+        roleName:
+          type:
+          - string
+          - 'null'
+        startDate:
+          type: string
+          format: date-time
+        endDate:
+          type: string
+          format: date-time
+        allocatedPercent:
+          type: integer
+          format: int32
+      additionalProperties: false
+    PersonProjectResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 8673
+        name:
+          type:
+          - string
+          - 'null'
+          example: Ahrens Lofts
+        startDate:
+          type: string
+          format: date-time
+        endDate:
+          type: string
+          format: date-time
+        projectType:
+          enum:
+          - Awarded
+          - Opportunity
+          type: string
+        projectStatus:
+          enum:
+          - Canceled
+          - Upcoming
+          - Active
+          - Complete
+          - Pursuit
+          - Lost
+          type: string
+      additionalProperties: false
+    PersonProjectList:
+      type: object
+      properties:
+        personId:
+          type: integer
+          format: int64
+          example: 8673
+        projects:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Project'
+      additionalProperties: false
+    FieldValuesPair:
+      type: object
+      properties:
+        fieldId:
+          type: integer
+          format: int64
+          example: 1394
+        values:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          example:
+          - '5195555555'
       additionalProperties: false
     Availability:
       type: object
@@ -1361,6 +1495,20 @@ components:
           type:
           - string
           - 'null'
+      additionalProperties: false
+    EmploymentDatesResponse:
+      type: object
+      properties:
+        startDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        endDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
       additionalProperties: false
     PersonResponse:
       type: object
@@ -1460,154 +1608,6 @@ components:
           type:
           - boolean
           - 'null'
-      additionalProperties: false
-    Project:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-          example: 9381
-        name:
-          type:
-          - string
-          - 'null'
-          example: Ahrens Lofts
-        colour:
-          type:
-          - string
-          - 'null'
-        startDate:
-          type: string
-          format: date-time
-        endDate:
-          type: string
-          format: date-time
-        projectType:
-          enum:
-          - Awarded
-          - Opportunity
-          type: string
-        state:
-          enum:
-          - Canceled
-          - Upcoming
-          - Active
-          - Complete
-          - Pursuit
-          - Lost
-          type: string
-          readOnly: true
-      additionalProperties: false
-    PersonFilterPredicates:
-      type: object
-      properties:
-        personIds:
-          type:
-          - array
-          - 'null'
-          items:
-            type: integer
-            format: int64
-        state:
-          enum:
-          - Active
-          - Deactivated
-          - All
-          type: string
-        email:
-          type:
-          - string
-          - 'null'
-        uniqueId:
-          type:
-          - string
-          - 'null'
-        relativeDate:
-          type: string
-          format: date-time
-      additionalProperties: false
-    EmploymentDatesResponse:
-      type: object
-      properties:
-        startDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        endDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-      additionalProperties: false
-    FieldValuesPair:
-      type: object
-      properties:
-        fieldId:
-          type: integer
-          format: int64
-          example: 1394
-        values:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-          example:
-          - '5195555555'
-      additionalProperties: false
-    PersonAllocationResponse:
-      type: object
-      properties:
-        projectId:
-          type: integer
-          format: int64
-        projectName:
-          type:
-          - string
-          - 'null'
-        projectColour:
-          type:
-          - string
-          - 'null'
-        projectType:
-          enum:
-          - Awarded
-          - Opportunity
-          type: string
-        projectStatus:
-          enum:
-          - Canceled
-          - Upcoming
-          - Active
-          - Complete
-          - Pursuit
-          - Lost
-          type:
-          - string
-          - 'null'
-        taskId:
-          type:
-          - string
-          - 'null'
-          format: uuid
-        roleId:
-          type: integer
-          format: int64
-        roleName:
-          type:
-          - string
-          - 'null'
-        startDate:
-          type: string
-          format: date-time
-        endDate:
-          type: string
-          format: date-time
-        allocatedPercent:
-          type: integer
-          format: int32
       additionalProperties: false
   securitySchemes:
     Bearer:

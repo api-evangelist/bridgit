@@ -268,26 +268,6 @@ paths:
           description: Forbidden
 components:
   schemas:
-    FilterUpdateRequest:
-      type: object
-      properties:
-        name:
-          type:
-          - string
-          - 'null'
-          example: My filter
-        predicates:
-          type:
-          - string
-          - 'null'
-          example: '[{"activeFilters":[{"value":true}],"filterType":"FILTER_ISSUES"}]'
-        filtersSet:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/ActiveFilterSetRequest'
-      additionalProperties: false
     ActiveFilterRequest:
       type: object
       properties:
@@ -369,17 +349,12 @@ components:
           - key: k
             value: v
       additionalProperties: false
-    FilterRequest:
+    ActiveFilterSetRequest:
       required:
-      - name
-      - predicates
+      - filters
       - type
       type: object
       properties:
-        name:
-          minLength: 1
-          type: string
-          example: My filter
         type:
           enum:
           - People
@@ -387,47 +362,21 @@ components:
           - Roles
           type: string
           example: Project
-        predicates:
-          minLength: 1
-          type: string
-          example: '[{"activeFilters":[{"value":true}],"filterType":"FILTER_ISSUES"}]'
-        filtersSet:
+        fieldDefId:
           type:
-          - array
+          - integer
           - 'null'
-          items:
-            $ref: '#/components/schemas/ActiveFilterSetRequest'
-      additionalProperties: false
-    FilterResponse:
-      type: object
-      properties:
-        id:
-          type: integer
           format: int64
           example: 123
-        name:
+        filterType:
           type:
           - string
           - 'null'
-          example: My filter
-        type:
-          enum:
-          - People
-          - Project
-          - Roles
-          type: string
-          example: Project
-        predicates:
-          type:
-          - string
-          - 'null'
-          example: '[{"activeFilters":[{"value":true}],"filterType":"FILTER_ISSUES"}]'
-        filtersSet:
-          type:
-          - array
-          - 'null'
+          example: ProjectStartDate
+        filters:
+          type: array
           items:
-            $ref: '#/components/schemas/ActiveFilterSetResponse'
+            $ref: '#/components/schemas/ActiveFilterRequest'
       additionalProperties: false
     ActiveFilterResponse:
       type: object
@@ -505,12 +454,37 @@ components:
             - string
             - 'null'
       additionalProperties: false
-    ActiveFilterSetRequest:
+    FilterUpdateRequest:
+      type: object
+      properties:
+        name:
+          type:
+          - string
+          - 'null'
+          example: My filter
+        predicates:
+          type:
+          - string
+          - 'null'
+          example: '[{"activeFilters":[{"value":true}],"filterType":"FILTER_ISSUES"}]'
+        filtersSet:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/ActiveFilterSetRequest'
+      additionalProperties: false
+    FilterRequest:
       required:
-      - filters
+      - name
+      - predicates
       - type
       type: object
       properties:
+        name:
+          minLength: 1
+          type: string
+          example: My filter
         type:
           enum:
           - People
@@ -518,21 +492,47 @@ components:
           - Roles
           type: string
           example: Project
-        fieldDefId:
+        predicates:
+          minLength: 1
+          type: string
+          example: '[{"activeFilters":[{"value":true}],"filterType":"FILTER_ISSUES"}]'
+        filtersSet:
           type:
-          - integer
+          - array
           - 'null'
+          items:
+            $ref: '#/components/schemas/ActiveFilterSetRequest'
+      additionalProperties: false
+    FilterResponse:
+      type: object
+      properties:
+        id:
+          type: integer
           format: int64
           example: 123
-        filterType:
+        name:
           type:
           - string
           - 'null'
-          example: ProjectStartDate
-        filters:
-          type: array
+          example: My filter
+        type:
+          enum:
+          - People
+          - Project
+          - Roles
+          type: string
+          example: Project
+        predicates:
+          type:
+          - string
+          - 'null'
+          example: '[{"activeFilters":[{"value":true}],"filterType":"FILTER_ISSUES"}]'
+        filtersSet:
+          type:
+          - array
+          - 'null'
           items:
-            $ref: '#/components/schemas/ActiveFilterRequest'
+            $ref: '#/components/schemas/ActiveFilterSetResponse'
       additionalProperties: false
     ActiveFilterSetResponse:
       type: object

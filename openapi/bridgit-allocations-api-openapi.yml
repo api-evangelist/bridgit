@@ -492,46 +492,6 @@ paths:
           description: Unprocessable Entity
 components:
   schemas:
-    ProjectAllocationRequest:
-      type: object
-      properties:
-        roleId:
-          type: integer
-          format: int64
-          example: 1
-        personId:
-          type: integer
-          format: int64
-          example: 1
-        startDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          example: '2019-01-01'
-        endDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          example: '2019-12-31'
-        roleStartDate:
-          type:
-          - string
-          - 'null'
-          description: 'Optional. When provided, updates the unfilled role''s start date before creating the allocation.
-
-            Must be set together with ResourcePlanning.Contracts.ProjectAllocationRequest.RoleEndDate — supplying only one will fail validation.'
-          format: date-time
-        roleEndDate:
-          type:
-          - string
-          - 'null'
-          description: 'Optional. When provided, updates the unfilled role''s end date before creating the allocation.
-
-            Must be set together with ResourcePlanning.Contracts.ProjectAllocationRequest.RoleStartDate — supplying only one will fail validation.'
-          format: date-time
-      additionalProperties: false
     PersonAllocation:
       type: object
       properties:
@@ -602,38 +562,6 @@ components:
           items:
             $ref: '#/components/schemas/UnavailabilityResponse'
       additionalProperties: false
-    ProjectAllocation:
-      type: object
-      properties:
-        roleId:
-          type: integer
-          format: int64
-          example: 8673
-        taskId:
-          type:
-          - string
-          - 'null'
-          format: uuid
-        allocations:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/PersonAllocation'
-        taskName:
-          type:
-          - string
-          - 'null'
-        categoryId:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        categoryName:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
     UnavailabilityResponse:
       type: object
       properties:
@@ -670,6 +598,78 @@ components:
           - string
           - 'null'
           example: '46'
+      additionalProperties: false
+    ProjectAllocation:
+      type: object
+      properties:
+        roleId:
+          type: integer
+          format: int64
+          example: 8673
+        taskId:
+          type:
+          - string
+          - 'null'
+          format: uuid
+        allocations:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/PersonAllocation'
+        taskName:
+          type:
+          - string
+          - 'null'
+        categoryId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        categoryName:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    ProjectAllocationRequest:
+      type: object
+      properties:
+        roleId:
+          type: integer
+          format: int64
+          example: 1
+        personId:
+          type: integer
+          format: int64
+          example: 1
+        startDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          example: '2019-01-01'
+        endDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          example: '2019-12-31'
+        roleStartDate:
+          type:
+          - string
+          - 'null'
+          description: 'Optional. When provided, updates the unfilled role''s start date before creating the allocation.
+
+            Must be set together with ResourcePlanning.Contracts.ProjectAllocationRequest.RoleEndDate — supplying only one will fail validation.'
+          format: date-time
+        roleEndDate:
+          type:
+          - string
+          - 'null'
+          description: 'Optional. When provided, updates the unfilled role''s end date before creating the allocation.
+
+            Must be set together with ResourcePlanning.Contracts.ProjectAllocationRequest.RoleStartDate — supplying only one will fail validation.'
+          format: date-time
       additionalProperties: false
   securitySchemes:
     Bearer:

@@ -482,24 +482,6 @@ paths:
           description: Forbidden
 components:
   schemas:
-    ProjectPhaseFromRouteRequest:
-      type: object
-      properties:
-        startDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          example: '2020-01-01'
-        endDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          example: '2020-12-31'
-        shiftDates:
-          type: boolean
-      additionalProperties: false
     ProjectPhaseUpdateRequest:
       type: object
       properties:
@@ -537,6 +519,24 @@ components:
           type: string
           format: date-time
           example: '2020-12-31'
+      additionalProperties: false
+    ProjectPhaseFromRouteRequest:
+      type: object
+      properties:
+        startDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          example: '2020-01-01'
+        endDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          example: '2020-12-31'
+        shiftDates:
+          type: boolean
       additionalProperties: false
     ProjectPhaseResponse:
       type: object

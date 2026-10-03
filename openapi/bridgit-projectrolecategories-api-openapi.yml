@@ -308,6 +308,19 @@ components:
           type: string
           example: North Tower
       additionalProperties: false
+    RoleCategoryResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 134
+        name:
+          type:
+          - string
+          - 'null'
+          example: North Tower
+      additionalProperties: false
     UpdateRoleCategoryRequest:
       required:
       - id
@@ -320,19 +333,6 @@ components:
         name:
           minLength: 1
           type: string
-          example: North Tower
-      additionalProperties: false
-    RoleCategoryResponse:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-          example: 134
-        name:
-          type:
-          - string
-          - 'null'
           example: North Tower
       additionalProperties: false
   securitySchemes:

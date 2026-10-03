@@ -346,6 +346,18 @@ paths:
           description: Forbidden
 components:
   schemas:
+    NewNoteRequest:
+      type: object
+      properties:
+        message:
+          type:
+          - string
+          - 'null'
+          example: This is a note about something on the project. This is mentioning [[mention:userID#123]] to notify them.
+        isPrivate:
+          type: boolean
+          example: false
+      additionalProperties: false
     NewNoteResponse:
       type: object
       properties:
@@ -379,32 +391,6 @@ components:
           format: date-time
           example: '2021-05-27T10:58:23.530Z'
       additionalProperties: false
-    NewNoteRequest:
-      type: object
-      properties:
-        message:
-          type:
-          - string
-          - 'null'
-          example: This is a note about something on the project. This is mentioning [[mention:userID#123]] to notify them.
-        isPrivate:
-          type: boolean
-          example: false
-      additionalProperties: false
-    UpdateNoteRequest:
-      type: object
-      properties:
-        message:
-          type:
-          - string
-          - 'null'
-          example: This is an updated message on a note, this is mentioning [[mention:userID#123]] to notify them.
-        isPrivate:
-          type:
-          - boolean
-          - 'null'
-          example: false
-      additionalProperties: false
     NoteResponse:
       type: object
       properties:
@@ -437,6 +423,20 @@ components:
           type: string
           format: date-time
           example: '2021-05-27T10:58:23.530Z'
+      additionalProperties: false
+    UpdateNoteRequest:
+      type: object
+      properties:
+        message:
+          type:
+          - string
+          - 'null'
+          example: This is an updated message on a note, this is mentioning [[mention:userID#123]] to notify them.
+        isPrivate:
+          type:
+          - boolean
+          - 'null'
+          example: false
       additionalProperties: false
   securitySchemes:
     Bearer:

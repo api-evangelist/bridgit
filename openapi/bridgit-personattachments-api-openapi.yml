@@ -242,6 +242,19 @@ paths:
           description: Forbidden
 components:
   schemas:
+    NewAttachmentRequest:
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          minLength: 1
+          type: string
+          example: document.txt
+        isPrivate:
+          type: boolean
+          example: false
+      additionalProperties: false
     NewAttachmentResponse:
       type: object
       properties:
@@ -356,19 +369,6 @@ components:
             format: int64
           example:
           - 1
-      additionalProperties: false
-    NewAttachmentRequest:
-      required:
-      - name
-      type: object
-      properties:
-        name:
-          minLength: 1
-          type: string
-          example: document.txt
-        isPrivate:
-          type: boolean
-          example: false
       additionalProperties: false
   securitySchemes:
     Bearer:

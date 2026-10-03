@@ -557,6 +557,67 @@ paths:
           description: Forbidden
 components:
   schemas:
+    FieldDefinedValueRequest:
+      type: object
+      properties:
+        valueId:
+          type: integer
+          format: int64
+        definedValue:
+          type:
+          - string
+          - 'null'
+        forRemoval:
+          type: boolean
+        deleteExperienceFieldValues:
+          type: boolean
+      additionalProperties: false
+    FieldDefRequest:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 1394
+        name:
+          type:
+          - string
+          - 'null'
+          example: Contact Number
+        type:
+          enum:
+          - Boolean
+          - Date
+          - Email
+          - PhoneNumber
+          - Image
+          - Text
+          - LongText
+          - SingleSelect
+          - MultiSelect
+          - Address
+          - Currency
+          - Phone
+          - Integer
+          - Number
+          type: string
+          example: PhoneNumber
+        definedValues:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/FieldDefinedValueRequest'
+        isRequired:
+          type: boolean
+          example: false
+        isPrivate:
+          type: boolean
+          example: false
+        isLocked:
+          type: boolean
+          example: false
+      additionalProperties: false
     FieldOrderRequest:
       required:
       - displayOrder
@@ -665,67 +726,6 @@ components:
           items:
             type: integer
             format: int64
-      additionalProperties: false
-    FieldDefinedValueRequest:
-      type: object
-      properties:
-        valueId:
-          type: integer
-          format: int64
-        definedValue:
-          type:
-          - string
-          - 'null'
-        forRemoval:
-          type: boolean
-        deleteExperienceFieldValues:
-          type: boolean
-      additionalProperties: false
-    FieldDefRequest:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-          example: 1394
-        name:
-          type:
-          - string
-          - 'null'
-          example: Contact Number
-        type:
-          enum:
-          - Boolean
-          - Date
-          - Email
-          - PhoneNumber
-          - Image
-          - Text
-          - LongText
-          - SingleSelect
-          - MultiSelect
-          - Address
-          - Currency
-          - Phone
-          - Integer
-          - Number
-          type: string
-          example: PhoneNumber
-        definedValues:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/FieldDefinedValueRequest'
-        isRequired:
-          type: boolean
-          example: false
-        isPrivate:
-          type: boolean
-          example: false
-        isLocked:
-          type: boolean
-          example: false
       additionalProperties: false
   securitySchemes:
     Bearer:

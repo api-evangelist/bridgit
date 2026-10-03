@@ -266,6 +266,14 @@ paths:
           description: Forbidden
 components:
   schemas:
+    PersonCertAttachmentRequest:
+      type: object
+      properties:
+        attachmentId:
+          type: integer
+          format: int64
+          example: 1
+      additionalProperties: false
     AttachmentResponse:
       type: object
       properties:
@@ -320,14 +328,6 @@ components:
             format: int64
           example:
           - 1
-      additionalProperties: false
-    PersonCertAttachmentRequest:
-      type: object
-      properties:
-        attachmentId:
-          type: integer
-          format: int64
-          example: 1
       additionalProperties: false
   securitySchemes:
     Bearer:

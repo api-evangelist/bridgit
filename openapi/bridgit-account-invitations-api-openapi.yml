@@ -160,6 +160,36 @@ paths:
           description: Forbidden
 components:
   schemas:
+    InvitationResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        email:
+          type:
+          - string
+          - 'null'
+        group:
+          type:
+          - string
+          - 'null'
+        status:
+          enum:
+          - Pending
+          - Expired
+          - Failed
+          type: string
+        createdOn:
+          type: string
+          format: date-time
+        groupingPermissions:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/GroupingGroup'
+      additionalProperties: false
     AccountInvitationRequest:
       required:
       - email
@@ -193,36 +223,6 @@ components:
           type: integer
           format: int32
           example: 323
-      additionalProperties: false
-    InvitationResponse:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        email:
-          type:
-          - string
-          - 'null'
-        group:
-          type:
-          - string
-          - 'null'
-        status:
-          enum:
-          - Pending
-          - Expired
-          - Failed
-          type: string
-        createdOn:
-          type: string
-          format: date-time
-        groupingPermissions:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/GroupingGroup'
       additionalProperties: false
   securitySchemes:
     Bearer:
