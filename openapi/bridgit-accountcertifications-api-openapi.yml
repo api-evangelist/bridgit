@@ -232,6 +232,31 @@ paths:
           description: Forbidden
 components:
   schemas:
+    NewCertificationRequest:
+      type: object
+      properties:
+        name:
+          type:
+          - string
+          - 'null'
+          example: CPR Training
+        abbreviation:
+          type:
+          - string
+          - 'null'
+          example: CPR
+        requireExpiration:
+          type: boolean
+          example: false
+        daysWarnBeforeExpire:
+          maximum: 365
+          minimum: 1
+          type:
+          - integer
+          - 'null'
+          format: int32
+          example: 7
+      additionalProperties: false
     NewCertificationResponse:
       type: object
       properties:
@@ -309,31 +334,6 @@ components:
           - 2
           - 3
           - 4
-      additionalProperties: false
-    NewCertificationRequest:
-      type: object
-      properties:
-        name:
-          type:
-          - string
-          - 'null'
-          example: CPR Training
-        abbreviation:
-          type:
-          - string
-          - 'null'
-          example: CPR
-        requireExpiration:
-          type: boolean
-          example: false
-        daysWarnBeforeExpire:
-          maximum: 365
-          minimum: 1
-          type:
-          - integer
-          - 'null'
-          format: int32
-          example: 7
       additionalProperties: false
   securitySchemes:
     Bearer:

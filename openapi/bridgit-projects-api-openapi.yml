@@ -1220,25 +1220,166 @@ paths:
           description: Forbidden - User doesn't have permissions on this resource, or the project couldn't be found
 components:
   schemas:
-    ExternalIdRequest:
+    ProjectFilterPredicates:
       type: object
       properties:
-        externalId:
+        projectIds:
+          type:
+          - array
+          - 'null'
+          items:
+            type: integer
+            format: int64
+        projectState:
+          enum:
+          - Canceled
+          - Upcoming
+          - Active
+          - Complete
+          - Pursuit
+          - Lost
+          - All
+          type: string
+        name:
           type:
           - string
           - 'null'
+        issues:
+          enum:
+          - 0
+          - 1
+          - 2
+          type: integer
+          format: int32
+        relativeDate:
+          type: string
+          format: date-time
+        includeProjectNumber:
+          type: boolean
       additionalProperties: false
-    ProjectFilterPredicatesFilter:
+    NewProjectRequest:
       type: object
       properties:
-        offset:
-          type: integer
+        name:
+          type:
+          - string
+          - 'null'
+          example: Ahrens Lofts
+        colour:
+          pattern: ^#[0-9a-fA-F]{6}$
+          type:
+          - string
+          - 'null'
+          description: 'The color associated with the project, expressed as a web color string: a ''#'' character, followed by a six-digit hexadecimal number. If not provided, color rules will be evaluated.'
+          example: '#4B6BAA'
+        startDate:
+          type: string
+          format: date-time
+          example: '2019-01-01'
+        endDate:
+          type: string
+          format: date-time
+          example: '2020-12-31'
+        startTime:
+          type: string
+          format: date-span
+          example: 08:00:00
+        endTime:
+          type: string
+          format: date-span
+          example: '17:00:00'
+        workDays:
+          minItems: 1
+          type:
+          - array
+          - 'null'
+          items:
+            enum:
+            - 0
+            - 1
+            - 2
+            - 3
+            - 4
+            - 5
+            - 6
+            type: integer
+            format: int32
+          example:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+        type:
+          enum:
+          - Awarded
+          - Opportunity
+          type: string
+        winPercent:
+          maximum: 100
+          minimum: 0
+          type:
+          - integer
+          - 'null'
           format: int32
-        limit:
+          example: 100
+        fields:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/FieldValuesPair'
+        groupings:
+          minItems: 1
+          type:
+          - array
+          - 'null'
+          items:
+            type: integer
+            format: int64
+        description:
+          type:
+          - string
+          - 'null'
+          example: Project Description
+        phases:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/ProjectPhaseRequest'
+      additionalProperties: false
+    ProjectPhaseRequest:
+      type: object
+      properties:
+        id:
           type: integer
-          format: int32
-        predicates:
-          $ref: '#/components/schemas/ProjectFilterPredicates'
+          format: int64
+          example: 1234
+        startDate:
+          type: string
+          format: date-time
+          example: '2020-01-01'
+        endDate:
+          type: string
+          format: date-time
+          example: '2020-12-31'
+      additionalProperties: false
+    FieldValuesPair:
+      type: object
+      properties:
+        fieldId:
+          type: integer
+          format: int64
+          example: 1394
+        values:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          example:
+          - '5195555555'
       additionalProperties: false
     ProjectResponse:
       type: object
@@ -1420,166 +1561,17 @@ components:
           format: date-time
           example: '2021-05-27T10:58:23.530Z'
       additionalProperties: false
-    ProjectPhaseRequest:
+    ProjectFilterPredicatesFilter:
       type: object
       properties:
-        id:
-          type: integer
-          format: int64
-          example: 1234
-        startDate:
-          type: string
-          format: date-time
-          example: '2020-01-01'
-        endDate:
-          type: string
-          format: date-time
-          example: '2020-12-31'
-      additionalProperties: false
-    FieldValuesPair:
-      type: object
-      properties:
-        fieldId:
-          type: integer
-          format: int64
-          example: 1394
-        values:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-          example:
-          - '5195555555'
-      additionalProperties: false
-    ProjectFilterPredicates:
-      type: object
-      properties:
-        projectIds:
-          type:
-          - array
-          - 'null'
-          items:
-            type: integer
-            format: int64
-        projectState:
-          enum:
-          - Canceled
-          - Upcoming
-          - Active
-          - Complete
-          - Pursuit
-          - Lost
-          - All
-          type: string
-        name:
-          type:
-          - string
-          - 'null'
-        issues:
-          enum:
-          - 0
-          - 1
-          - 2
+        offset:
           type: integer
           format: int32
-        relativeDate:
-          type: string
-          format: date-time
-        includeProjectNumber:
-          type: boolean
-      additionalProperties: false
-    NewProjectRequest:
-      type: object
-      properties:
-        name:
-          type:
-          - string
-          - 'null'
-          example: Ahrens Lofts
-        colour:
-          pattern: ^#[0-9a-fA-F]{6}$
-          type:
-          - string
-          - 'null'
-          description: 'The color associated with the project, expressed as a web color string: a ''#'' character, followed by a six-digit hexadecimal number. If not provided, color rules will be evaluated.'
-          example: '#4B6BAA'
-        startDate:
-          type: string
-          format: date-time
-          example: '2019-01-01'
-        endDate:
-          type: string
-          format: date-time
-          example: '2020-12-31'
-        startTime:
-          type: string
-          format: date-span
-          example: 08:00:00
-        endTime:
-          type: string
-          format: date-span
-          example: '17:00:00'
-        workDays:
-          minItems: 1
-          type:
-          - array
-          - 'null'
-          items:
-            enum:
-            - 0
-            - 1
-            - 2
-            - 3
-            - 4
-            - 5
-            - 6
-            type: integer
-            format: int32
-          example:
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-        type:
-          enum:
-          - Awarded
-          - Opportunity
-          type: string
-        winPercent:
-          maximum: 100
-          minimum: 0
-          type:
-          - integer
-          - 'null'
+        limit:
+          type: integer
           format: int32
-          example: 100
-        fields:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/FieldValuesPair'
-        groupings:
-          minItems: 1
-          type:
-          - array
-          - 'null'
-          items:
-            type: integer
-            format: int64
-        description:
-          type:
-          - string
-          - 'null'
-          example: Project Description
-        phases:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/ProjectPhaseRequest'
+        predicates:
+          $ref: '#/components/schemas/ProjectFilterPredicates'
       additionalProperties: false
     ProjectCurrentPhase:
       type: object
@@ -1589,6 +1581,14 @@ components:
           - string
           - 'null'
           example: Precon
+      additionalProperties: false
+    ExternalIdRequest:
+      type: object
+      properties:
+        externalId:
+          type:
+          - string
+          - 'null'
       additionalProperties: false
   securitySchemes:
     Bearer:

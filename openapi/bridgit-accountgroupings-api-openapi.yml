@@ -224,6 +224,14 @@ paths:
           description: Service Unavailable
 components:
   schemas:
+    AccountGroupingRequest:
+      type: object
+      properties:
+        name:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
     AccountGroupingResponse:
       type: object
       properties:
@@ -258,14 +266,6 @@ components:
           items:
             type: integer
             format: int32
-      additionalProperties: false
-    AccountGroupingRequest:
-      type: object
-      properties:
-        name:
-          type:
-          - string
-          - 'null'
       additionalProperties: false
   securitySchemes:
     Bearer:

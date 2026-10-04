@@ -190,18 +190,6 @@ paths:
           description: Forbidden
 components:
   schemas:
-    ExperienceFieldCandidateResponse:
-      type: object
-      properties:
-        customFieldId:
-          type: integer
-          format: int64
-        name:
-          type:
-          - string
-          - 'null'
-          example: Experience
-      additionalProperties: false
     ExperienceFieldResponse:
       type: object
       properties:
@@ -239,6 +227,18 @@ components:
         isRequired:
           type: boolean
           example: true
+      additionalProperties: false
+    ExperienceFieldCandidateResponse:
+      type: object
+      properties:
+        customFieldId:
+          type: integer
+          format: int64
+        name:
+          type:
+          - string
+          - 'null'
+          example: Experience
       additionalProperties: false
   securitySchemes:
     Bearer:

@@ -492,113 +492,6 @@ paths:
           description: Unprocessable Entity
 components:
   schemas:
-    PersonAllocation:
-      type: object
-      properties:
-        personCost:
-          type:
-          - number
-          - 'null'
-          format: double
-          example: 123.45
-        personId:
-          type: integer
-          format: int64
-          example: 2324
-        name:
-          type:
-          - string
-          - 'null'
-          example: John Smith
-        title:
-          type:
-          - string
-          - 'null'
-          example: Project Engineer
-        state:
-          enum:
-          - Active
-          - Deactivated
-          - All
-          type: string
-          example: Active
-        startDate:
-          type: string
-          format: date-time
-          example: '2020-01-01'
-        endDate:
-          type: string
-          format: date-time
-          example: '2020-12-31'
-        hasConflict:
-          type: boolean
-          example: false
-        allocationState:
-          enum:
-          - Unknown
-          - Past
-          - Current
-          - Upcoming
-          - All
-          type: string
-          example: Current
-        type:
-          enum:
-          - Salaried
-          - Hourly
-          type: string
-        id:
-          type: string
-          format: uuid
-        titleIdAtAssignment:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        upcomingTimeOff:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/UnavailabilityResponse'
-      additionalProperties: false
-    UnavailabilityResponse:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-          example: 46
-        rangeType:
-          enum:
-          - PreEmployment
-          - PostEmployment
-          - Unavailability
-          - TimeOff
-          type: string
-          example: Unavailability
-        startDate:
-          type: string
-          format: date-time
-          example: '2020-04-21'
-        endDate:
-          type: string
-          format: date-time
-          example: '2020-05-21'
-        isPrivate:
-          type: boolean
-          example: false
-        description:
-          type:
-          - string
-          - 'null'
-          example: Parental Leave
-        externalId:
-          type:
-          - string
-          - 'null'
-          example: '46'
-      additionalProperties: false
     ProjectAllocation:
       type: object
       properties:
@@ -670,6 +563,113 @@ components:
 
             Must be set together with ResourcePlanning.Contracts.ProjectAllocationRequest.RoleStartDate — supplying only one will fail validation.'
           format: date-time
+      additionalProperties: false
+    UnavailabilityResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 46
+        rangeType:
+          enum:
+          - PreEmployment
+          - PostEmployment
+          - Unavailability
+          - TimeOff
+          type: string
+          example: Unavailability
+        startDate:
+          type: string
+          format: date-time
+          example: '2020-04-21'
+        endDate:
+          type: string
+          format: date-time
+          example: '2020-05-21'
+        isPrivate:
+          type: boolean
+          example: false
+        description:
+          type:
+          - string
+          - 'null'
+          example: Parental Leave
+        externalId:
+          type:
+          - string
+          - 'null'
+          example: '46'
+      additionalProperties: false
+    PersonAllocation:
+      type: object
+      properties:
+        personCost:
+          type:
+          - number
+          - 'null'
+          format: double
+          example: 123.45
+        personId:
+          type: integer
+          format: int64
+          example: 2324
+        name:
+          type:
+          - string
+          - 'null'
+          example: John Smith
+        title:
+          type:
+          - string
+          - 'null'
+          example: Project Engineer
+        state:
+          enum:
+          - Active
+          - Deactivated
+          - All
+          type: string
+          example: Active
+        startDate:
+          type: string
+          format: date-time
+          example: '2020-01-01'
+        endDate:
+          type: string
+          format: date-time
+          example: '2020-12-31'
+        hasConflict:
+          type: boolean
+          example: false
+        allocationState:
+          enum:
+          - Unknown
+          - Past
+          - Current
+          - Upcoming
+          - All
+          type: string
+          example: Current
+        type:
+          enum:
+          - Salaried
+          - Hourly
+          type: string
+        id:
+          type: string
+          format: uuid
+        titleIdAtAssignment:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        upcomingTimeOff:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/UnavailabilityResponse'
       additionalProperties: false
   securitySchemes:
     Bearer:

@@ -295,9 +295,13 @@ paths:
           description: Forbidden
 components:
   schemas:
-    PersonCertificationUpdateRequest:
+    NewPersonCertificationRequest:
       type: object
       properties:
+        certificationId:
+          type: integer
+          format: int64
+          example: 1234
         expiryDate:
           type:
           - string
@@ -314,7 +318,7 @@ components:
           type:
           - string
           - 'null'
-          description: Must be no greater than 255 characters.
+          description: Must be no greater than ResourcePlanning.Contracts.NewPersonCertificationRequest.MaxDescriptionLength characters.
           example: '"Certification for fall arrest"'
       additionalProperties: false
     PersonCertificationResponse:
@@ -370,13 +374,9 @@ components:
           readOnly: true
           example: Info
       additionalProperties: false
-    NewPersonCertificationRequest:
+    PersonCertificationUpdateRequest:
       type: object
       properties:
-        certificationId:
-          type: integer
-          format: int64
-          example: 1234
         expiryDate:
           type:
           - string
@@ -393,7 +393,7 @@ components:
           type:
           - string
           - 'null'
-          description: Must be no greater than ResourcePlanning.Contracts.NewPersonCertificationRequest.MaxDescriptionLength characters.
+          description: Must be no greater than 255 characters.
           example: '"Certification for fall arrest"'
       additionalProperties: false
   securitySchemes:

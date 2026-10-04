@@ -642,8 +642,6 @@ apis:
   humanURL: https://gobridgit.com/bridgit-bench-api-documentation/
   baseURL: https://bench.gobridgit.com/rp/api/v1
   tags:
-  - AccountInvitations
-  tags_raw:
   - Account Invitations
   properties:
   - type: OpenAPI

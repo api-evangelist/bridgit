@@ -207,6 +207,25 @@ paths:
           description: Validation failed - if the role name is being used by any role, the name cannot be removed
 components:
   schemas:
+    HourlyRoleNameRequest:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 1
+        name:
+          type:
+          - string
+          - 'null'
+          example: Project Engineer
+        hourlyCost:
+          type:
+          - number
+          - 'null'
+          format: double
+          example: 123.45
+      additionalProperties: false
     HourlyRoleNameResponse:
       type: object
       properties:
@@ -246,25 +265,6 @@ components:
           - 1
         alphabetize:
           type: boolean
-      additionalProperties: false
-    HourlyRoleNameRequest:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-          example: 1
-        name:
-          type:
-          - string
-          - 'null'
-          example: Project Engineer
-        hourlyCost:
-          type:
-          - number
-          - 'null'
-          format: double
-          example: 123.45
       additionalProperties: false
   securitySchemes:
     Bearer:

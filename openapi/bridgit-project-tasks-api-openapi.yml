@@ -860,14 +860,13 @@ paths:
           description: Unprocessable Entity - Validation failures
 components:
   schemas:
-    BaseTaskRequest:
+    TaskAllocationRequest:
       type: object
       properties:
-        name:
-          type:
-          - string
-          - 'null'
-          example: Design Plan
+        personId:
+          type: integer
+          format: int64
+          example: 1
         startDate:
           type: string
           format: date-time
@@ -875,73 +874,53 @@ components:
         endDate:
           type: string
           format: date-time
-          example: '2020-12-31'
+          example: '2019-12-31'
+        roleStartDate:
+          type:
+          - string
+          - 'null'
+          description: 'Optional. When provided, updates the unfilled role''s start date before creating the allocation.
+
+            Must be set together with ResourcePlanning.Contracts.TaskAllocationRequest.RoleEndDate — supplying only one will fail validation.'
+          format: date-time
+        roleEndDate:
+          type:
+          - string
+          - 'null'
+          description: 'Optional. When provided, updates the unfilled role''s end date before creating the allocation.
+
+            Must be set together with ResourcePlanning.Contracts.TaskAllocationRequest.RoleStartDate — supplying only one will fail validation.'
+          format: date-time
       additionalProperties: false
-    RoleCrewTradeResponse:
+    RoleCrewResponse:
       type: object
       properties:
         id:
           type: integer
-          description: Trade id (`crewtrade.id`).
+          description: Crew id (`crew.id`).
           format: int64
-          example: 1
+          example: 42
         name:
           type:
           - string
           - 'null'
-          description: Trade display name.
-          example: Electrician
-        colour:
-          type:
-          - string
-          - 'null'
-          description: Trade colour as a hex string; one of ResourcePlanning.Common.Validation.CrewTradeColourAttribute.AllowedHexValues.
-          example: '#D6F0F5'
-      additionalProperties: false
-      description: 'Trade summary embedded on ResourcePlanning.Contracts.RoleCrewResponse.Trade. Slim projection of
+          description: Crew display name.
+          example: Concrete crew A
+        memberCount:
+          type: integer
+          description: 'Number of people on the crew roster (`crewmember`) for the linked crew. This is the
 
-        ResourcePlanning.Contracts.CrewTradeResponse (omits `inUse` and `createdOn`).'
-    RoleHire:
-      type: object
-      properties:
-        isHireRequired:
-          type: boolean
-        hireDescription:
-          type:
-          - string
-          - 'null'
-        previousIsHireRequired:
-          type: boolean
-        hireStatus:
-          enum:
-          - Hire
-          - Hired
-          type:
-          - string
-          - 'null'
-        previousHireStatus:
-          enum:
-          - Hire
-          - Hired
-          type:
-          - string
-          - 'null'
-        taggedByUserId:
-          type:
-          - integer
-          - 'null'
+            crew''s roster size — not the number of people allocated to this specific role.'
           format: int32
-        taggedAt:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        hiredAt:
-          type:
-          - string
-          - 'null'
-          format: date-time
+          example: 5
+        trade:
+          $ref: '#/components/schemas/RoleCrewTradeResponse'
       additionalProperties: false
+      description: 'Crew summary embedded on a ResourcePlanning.Contracts.RoleResponse when the role is tagged with a crew
+
+        (`projectrole.crew_id` not null). Loaded from the related `crew` row; cached and
+
+        serialized via MessagePack for role payloads.'
     ProjectTaskDetail:
       type: object
       properties:
@@ -982,199 +961,58 @@ components:
           format: date-time
           example: '2021-05-27T10:58:23.530Z'
       additionalProperties: false
-    TaskRoleUpdateRequest:
+    ProjectRoleTagEntity:
       type: object
       properties:
+        id:
+          type: integer
+          format: int64
+        collectionId:
+          type: integer
+          format: int64
         name:
           type:
           - string
           - 'null'
-          example: Project Engineer
-        skillSet:
-          type:
-          - array
-          - 'null'
-          items:
-            type: integer
-            format: int64
-          example:
-          - 1
-          - 2
-          - 3
-        note:
-          maxLength: 250
-          minLength: 0
+        collectionName:
           type:
           - string
           - 'null'
-          example: Some note
-        billable:
+        collectionColor:
           type:
-          - boolean
+          - string
           - 'null'
-          example: false
+      additionalProperties: false
+      description: Represents a role tag with its collection metadata
+    RoleAllocation:
+      type: object
+      properties:
+        personId:
+          type: integer
+          format: int64
+        startDate:
+          type: string
+          format: date-time
+        endDate:
+          type: string
+          format: date-time
         allocatedPercent:
           maximum: 100
           minimum: 1
-          type:
-          - integer
-          - 'null'
+          type: integer
+          description: An integer between 1 and 100 representing the % of time this role is allocated to the project.
           format: int32
           example: 100
-      additionalProperties: false
-    RoleCrewResponse:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: Crew id (`crew.id`).
-          format: int64
-          example: 42
-        name:
-          type:
-          - string
-          - 'null'
-          description: Crew display name.
-          example: Concrete crew A
-        memberCount:
-          type: integer
-          description: 'Number of people on the crew roster (`crewmember`) for the linked crew. This is the
-
-            crew''s roster size — not the number of people allocated to this specific role.'
-          format: int32
-          example: 5
-        trade:
-          $ref: '#/components/schemas/RoleCrewTradeResponse'
-      additionalProperties: false
-      description: 'Crew summary embedded on a ResourcePlanning.Contracts.RoleResponse when the role is tagged with a crew
-
-        (`projectrole.crew_id` not null). Loaded from the related `crew` row; cached and
-
-        serialized via MessagePack for role payloads.'
-    BaseRoleResult:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        nameId:
-          type: integer
-          format: int64
-        name:
-          type:
-          - string
-          - 'null'
-        roleCost:
+        personCost:
           type:
           - number
           - 'null'
           format: double
-        startDate:
-          type: string
-          format: date-time
-        endDate:
-          type: string
-          format: date-time
-        type:
-          enum:
-          - Salaried
-          - Hourly
-          - All
-          type: string
-        skillSet:
-          type:
-          - array
-          - 'null'
-          items:
-            type: integer
-            format: int64
-        isFilled:
-          type: boolean
-        billable:
-          type: boolean
-        requirements:
-          uniqueItems: true
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/RoleRequirement'
-        unfilledRanges:
-          uniqueItems: true
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/RoleUnfilled'
-        note:
-          type:
-          - string
-          - 'null'
-        sortOrder:
-          type: integer
-          format: int32
-        notification:
-          $ref: '#/components/schemas/RoleNotificationData'
-        relatedTitles:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-        allocations:
-          uniqueItems: true
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/RoleAllocation'
-        hire:
-          $ref: '#/components/schemas/RoleHire'
-      additionalProperties: false
-    TaskUpdateRequest:
-      required:
-      - id
-      type: object
-      properties:
         id:
           type: string
           format: uuid
-        name:
-          type:
-          - string
-          - 'null'
-          example: Project Engineer
-        startDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          example: '2019-01-01'
-        endDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          example: '2020-12-31'
-        shiftDates:
-          type: boolean
-          description: 'If this property is true and you specify a changed task start or end date in this request,
-
-            then the task''s start and end dates, and the start and end dates for all task roles
-
-            will be adjusted by the same amount. If this property is set to true, then you must only send
-
-            EITHER startDate OR endDate - behavior when setting both is to shift with the task start date'
-          example: false
-        shiftSubsequentTasks:
-          type:
-          - boolean
-          - 'null'
-          description: 'Used to shift subsequent tasks when the END DATE of this task is changed.
-
-            If true, subsequent tasks will be shifted by the same number of days as this task'
       additionalProperties: false
-    RoleRequirement:
+    RoleUnfilled:
       type: object
       properties:
         startDate:
@@ -1185,12 +1023,6 @@ components:
           type: string
           format: date-time
           example: '2020-12-31'
-        allocatedPercent:
-          maximum: 100
-          minimum: 0
-          type: integer
-          format: int32
-          example: 100
       additionalProperties: false
     TaskRoleRequest:
       type: object
@@ -1242,7 +1074,112 @@ components:
             type: integer
             format: int64
       additionalProperties: false
-    RoleUnfilled:
+    RoleHire:
+      type: object
+      properties:
+        isHireRequired:
+          type: boolean
+        hireDescription:
+          type:
+          - string
+          - 'null'
+        previousIsHireRequired:
+          type: boolean
+        hireStatus:
+          enum:
+          - Hire
+          - Hired
+          type:
+          - string
+          - 'null'
+        previousHireStatus:
+          enum:
+          - Hire
+          - Hired
+          type:
+          - string
+          - 'null'
+        taggedByUserId:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        taggedAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        hiredAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+      additionalProperties: false
+    TaskRoleUpdateRequest:
+      type: object
+      properties:
+        name:
+          type:
+          - string
+          - 'null'
+          example: Project Engineer
+        skillSet:
+          type:
+          - array
+          - 'null'
+          items:
+            type: integer
+            format: int64
+          example:
+          - 1
+          - 2
+          - 3
+        note:
+          maxLength: 250
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          example: Some note
+        billable:
+          type:
+          - boolean
+          - 'null'
+          example: false
+        allocatedPercent:
+          maximum: 100
+          minimum: 1
+          type:
+          - integer
+          - 'null'
+          format: int32
+          example: 100
+      additionalProperties: false
+    RoleCrewTradeResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Trade id (`crewtrade.id`).
+          format: int64
+          example: 1
+        name:
+          type:
+          - string
+          - 'null'
+          description: Trade display name.
+          example: Electrician
+        colour:
+          type:
+          - string
+          - 'null'
+          description: Trade colour as a hex string; one of ResourcePlanning.Common.Validation.CrewTradeColourAttribute.AllowedHexValues.
+          example: '#D6F0F5'
+      additionalProperties: false
+      description: 'Trade summary embedded on ResourcePlanning.Contracts.RoleCrewResponse.Trade. Slim projection of
+
+        ResourcePlanning.Contracts.CrewTradeResponse (omits `inUse` and `createdOn`).'
+    RoleRequirement:
       type: object
       properties:
         startDate:
@@ -1253,34 +1190,12 @@ components:
           type: string
           format: date-time
           example: '2020-12-31'
-      additionalProperties: false
-    RoleAllocation:
-      type: object
-      properties:
-        personId:
-          type: integer
-          format: int64
-        startDate:
-          type: string
-          format: date-time
-        endDate:
-          type: string
-          format: date-time
         allocatedPercent:
           maximum: 100
-          minimum: 1
+          minimum: 0
           type: integer
-          description: An integer between 1 and 100 representing the % of time this role is allocated to the project.
           format: int32
           example: 100
-        personCost:
-          type:
-          - number
-          - 'null'
-          format: double
-        id:
-          type: string
-          format: uuid
       additionalProperties: false
     TasksByTemplatesRequest:
       type: object
@@ -1426,34 +1341,85 @@ components:
         crew:
           $ref: '#/components/schemas/RoleCrewResponse'
       additionalProperties: false
-    TaskResponse:
+    BaseRoleResult:
       type: object
       properties:
         id:
-          type: string
-          format: uuid
-          example: 00000000-0000-0000-0000-000000000000
+          type: integer
+          format: int64
+        nameId:
+          type: integer
+          format: int64
         name:
           type:
           - string
           - 'null'
-          example: Project Engineer
+        roleCost:
+          type:
+          - number
+          - 'null'
+          format: double
         startDate:
           type: string
           format: date-time
-          example: '2019-01-01'
         endDate:
           type: string
           format: date-time
-          example: '2020-12-31'
-        createdOn:
+        type:
+          enum:
+          - Salaried
+          - Hourly
+          - All
           type: string
-          format: date-time
-          example: '2021-05-27T10:47:23.530Z'
-        lastModifiedOn:
-          type: string
-          format: date-time
-          example: '2021-05-27T10:58:23.530Z'
+        skillSet:
+          type:
+          - array
+          - 'null'
+          items:
+            type: integer
+            format: int64
+        isFilled:
+          type: boolean
+        billable:
+          type: boolean
+        requirements:
+          uniqueItems: true
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/RoleRequirement'
+        unfilledRanges:
+          uniqueItems: true
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/RoleUnfilled'
+        note:
+          type:
+          - string
+          - 'null'
+        sortOrder:
+          type: integer
+          format: int32
+        notification:
+          $ref: '#/components/schemas/RoleNotificationData'
+        relatedTitles:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        allocations:
+          uniqueItems: true
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/RoleAllocation'
+        hire:
+          $ref: '#/components/schemas/RoleHire'
       additionalProperties: false
     ProjectAllocationRequest:
       type: object
@@ -1495,13 +1461,14 @@ components:
             Must be set together with ResourcePlanning.Contracts.ProjectAllocationRequest.RoleStartDate — supplying only one will fail validation.'
           format: date-time
       additionalProperties: false
-    TaskAllocationRequest:
+    BaseTaskRequest:
       type: object
       properties:
-        personId:
-          type: integer
-          format: int64
-          example: 1
+        name:
+          type:
+          - string
+          - 'null'
+          example: Design Plan
         startDate:
           type: string
           format: date-time
@@ -1509,47 +1476,80 @@ components:
         endDate:
           type: string
           format: date-time
-          example: '2019-12-31'
-        roleStartDate:
-          type:
-          - string
-          - 'null'
-          description: 'Optional. When provided, updates the unfilled role''s start date before creating the allocation.
-
-            Must be set together with ResourcePlanning.Contracts.TaskAllocationRequest.RoleEndDate — supplying only one will fail validation.'
-          format: date-time
-        roleEndDate:
-          type:
-          - string
-          - 'null'
-          description: 'Optional. When provided, updates the unfilled role''s end date before creating the allocation.
-
-            Must be set together with ResourcePlanning.Contracts.TaskAllocationRequest.RoleStartDate — supplying only one will fail validation.'
-          format: date-time
+          example: '2020-12-31'
       additionalProperties: false
-    ProjectRoleTagEntity:
+    TaskResponse:
       type: object
       properties:
         id:
-          type: integer
-          format: int64
-        collectionId:
-          type: integer
-          format: int64
+          type: string
+          format: uuid
+          example: 00000000-0000-0000-0000-000000000000
         name:
           type:
           - string
           - 'null'
-        collectionName:
-          type:
-          - string
-          - 'null'
-        collectionColor:
-          type:
-          - string
-          - 'null'
+          example: Project Engineer
+        startDate:
+          type: string
+          format: date-time
+          example: '2019-01-01'
+        endDate:
+          type: string
+          format: date-time
+          example: '2020-12-31'
+        createdOn:
+          type: string
+          format: date-time
+          example: '2021-05-27T10:47:23.530Z'
+        lastModifiedOn:
+          type: string
+          format: date-time
+          example: '2021-05-27T10:58:23.530Z'
       additionalProperties: false
-      description: Represents a role tag with its collection metadata
+    TaskUpdateRequest:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type:
+          - string
+          - 'null'
+          example: Project Engineer
+        startDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          example: '2019-01-01'
+        endDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          example: '2020-12-31'
+        shiftDates:
+          type: boolean
+          description: 'If this property is true and you specify a changed task start or end date in this request,
+
+            then the task''s start and end dates, and the start and end dates for all task roles
+
+            will be adjusted by the same amount. If this property is set to true, then you must only send
+
+            EITHER startDate OR endDate - behavior when setting both is to shift with the task start date'
+          example: false
+        shiftSubsequentTasks:
+          type:
+          - boolean
+          - 'null'
+          description: 'Used to shift subsequent tasks when the END DATE of this task is changed.
+
+            If true, subsequent tasks will be shifted by the same number of days as this task'
+      additionalProperties: false
   securitySchemes:
     Bearer:
       type: http

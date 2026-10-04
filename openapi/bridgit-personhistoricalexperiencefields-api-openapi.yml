@@ -189,6 +189,26 @@ paths:
           description: User is not authorized to update profile historical experience, or if the experience field value is not found
 components:
   schemas:
+    HistoricalExperienceFieldValuesPostResponse:
+      type: object
+      properties:
+        experienceFields:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/HistoricalExperienceFieldValue'
+      additionalProperties: false
+    HistoricalExperienceFieldValuesPostRequest:
+      type: object
+      properties:
+        experienceFields:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/HistoricalExperienceFieldValueRequest'
+      additionalProperties: false
     HistoricalExperienceFieldValueRequest:
       type: object
       properties:
@@ -225,26 +245,6 @@ components:
           type:
           - string
           - 'null'
-      additionalProperties: false
-    HistoricalExperienceFieldValuesPostResponse:
-      type: object
-      properties:
-        experienceFields:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/HistoricalExperienceFieldValue'
-      additionalProperties: false
-    HistoricalExperienceFieldValuesPostRequest:
-      type: object
-      properties:
-        experienceFields:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/HistoricalExperienceFieldValueRequest'
       additionalProperties: false
     HistoricalExperienceFieldValueUpdateRequest:
       type: object

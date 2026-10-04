@@ -299,15 +299,6 @@ paths:
           description: Forbidden
 components:
   schemas:
-    NewRoleCategoryRequest:
-      required:
-      - name
-      type: object
-      properties:
-        name:
-          type: string
-          example: North Tower
-      additionalProperties: false
     RoleCategoryResponse:
       type: object
       properties:
@@ -319,6 +310,15 @@ components:
           type:
           - string
           - 'null'
+          example: North Tower
+      additionalProperties: false
+    NewRoleCategoryRequest:
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
           example: North Tower
       additionalProperties: false
     UpdateRoleCategoryRequest:

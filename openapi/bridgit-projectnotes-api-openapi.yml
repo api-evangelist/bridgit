@@ -346,52 +346,7 @@ paths:
           description: Forbidden
 components:
   schemas:
-    NewNoteRequest:
-      type: object
-      properties:
-        message:
-          type:
-          - string
-          - 'null'
-          example: This is a note about something on the project. This is mentioning [[mention:userID#123]] to notify them.
-        isPrivate:
-          type: boolean
-          example: false
-      additionalProperties: false
     NewNoteResponse:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-          example: 213
-        message:
-          type:
-          - string
-          - 'null'
-          example: This is an updated message on a note.
-        isPrivate:
-          type: boolean
-          example: false
-        creatorId:
-          type: integer
-          format: int32
-          example: 453
-        creatorName:
-          type:
-          - string
-          - 'null'
-          example: John Smith
-        createdOn:
-          type: string
-          format: date-time
-          example: '2021-05-27T10:47:23.530Z'
-        lastModifiedOn:
-          type: string
-          format: date-time
-          example: '2021-05-27T10:58:23.530Z'
-      additionalProperties: false
-    NoteResponse:
       type: object
       properties:
         id:
@@ -437,6 +392,51 @@ components:
           - boolean
           - 'null'
           example: false
+      additionalProperties: false
+    NewNoteRequest:
+      type: object
+      properties:
+        message:
+          type:
+          - string
+          - 'null'
+          example: This is a note about something on the project. This is mentioning [[mention:userID#123]] to notify them.
+        isPrivate:
+          type: boolean
+          example: false
+      additionalProperties: false
+    NoteResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 213
+        message:
+          type:
+          - string
+          - 'null'
+          example: This is an updated message on a note.
+        isPrivate:
+          type: boolean
+          example: false
+        creatorId:
+          type: integer
+          format: int32
+          example: 453
+        creatorName:
+          type:
+          - string
+          - 'null'
+          example: John Smith
+        createdOn:
+          type: string
+          format: date-time
+          example: '2021-05-27T10:47:23.530Z'
+        lastModifiedOn:
+          type: string
+          format: date-time
+          example: '2021-05-27T10:58:23.530Z'
       additionalProperties: false
   securitySchemes:
     Bearer:

@@ -311,6 +311,30 @@ paths:
           description: Unprocessable Entity
 components:
   schemas:
+    UserRequest:
+      type: object
+      properties:
+        name:
+          type:
+          - string
+          - 'null'
+          example: John Smith
+        title:
+          type:
+          - string
+          - 'null'
+          example: Human Resources Manager
+        phoneNumber:
+          type:
+          - string
+          - 'null'
+          example: '+18005551234'
+        team:
+          type:
+          - string
+          - 'null'
+          example: Management
+      additionalProperties: false
     UserResponse:
       type: object
       properties:
@@ -378,29 +402,17 @@ components:
           format: date-time
           example: '2026-01-15T10:30:00Z'
       additionalProperties: false
-    UserRequest:
+    GroupingGroup:
       type: object
       properties:
-        name:
-          type:
-          - string
-          - 'null'
-          example: John Smith
-        title:
-          type:
-          - string
-          - 'null'
-          example: Human Resources Manager
-        phoneNumber:
-          type:
-          - string
-          - 'null'
-          example: '+18005551234'
-        team:
-          type:
-          - string
-          - 'null'
-          example: Management
+        id:
+          type: integer
+          format: int64
+          example: 124
+        groupId:
+          type: integer
+          format: int32
+          example: 323
       additionalProperties: false
     AccountMembershipRequest:
       type: object
@@ -416,18 +428,6 @@ components:
           - string
           - 'null'
           example: Administrator
-      additionalProperties: false
-    GroupingGroup:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-          example: 124
-        groupId:
-          type: integer
-          format: int32
-          example: 323
       additionalProperties: false
   securitySchemes:
     Bearer:

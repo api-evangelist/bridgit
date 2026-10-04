@@ -160,6 +160,40 @@ paths:
           description: Forbidden
 components:
   schemas:
+    GroupingGroup:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 124
+        groupId:
+          type: integer
+          format: int32
+          example: 323
+      additionalProperties: false
+    AccountInvitationRequest:
+      required:
+      - email
+      type: object
+      properties:
+        groupingPermissions:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/GroupingGroup'
+        email:
+          maxLength: 254
+          minLength: 6
+          type: string
+        group:
+          maxLength: 50
+          minLength: 1
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
     InvitationResponse:
       type: object
       properties:
@@ -189,40 +223,6 @@ components:
           - 'null'
           items:
             $ref: '#/components/schemas/GroupingGroup'
-      additionalProperties: false
-    AccountInvitationRequest:
-      required:
-      - email
-      type: object
-      properties:
-        groupingPermissions:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/GroupingGroup'
-        email:
-          maxLength: 254
-          minLength: 6
-          type: string
-        group:
-          maxLength: 50
-          minLength: 1
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    GroupingGroup:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-          example: 124
-        groupId:
-          type: integer
-          format: int32
-          example: 323
       additionalProperties: false
   securitySchemes:
     Bearer:
